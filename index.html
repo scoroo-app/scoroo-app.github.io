@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scoroo – Compteur de points / Score keeper</title>
+<meta name="description" content="Scoroo : compteur de points pour la Belote, le Tarot, le Yams, 7 Wonders, le Mölkky et bien d'autres jeux.">
+<link rel="icon" href="logo.png">
+<style>
+  :root { --bg: #fcf8ea; --ink: #13233a; --muted: #5b6676; --line: #e6dfc8; --card: #ffffff; --accent: #e8743b; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #11161f; --ink: #eef1f5; --muted: #9aa4b2; --line: #263041; --card: #181f2b; --accent: #f08a55; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  header img { width: 72px; height: 72px; border-radius: 18px; }
+  h1 { font-size: 2rem; line-height: 1.2; margin: 0; }
+  h2 { font-size: 1.2rem; margin: 32px 0 8px; }
+  .lead { color: var(--muted); margin: 0; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 4px 18px; }
+  details { border-bottom: 1px solid var(--line); padding: 12px 0; }
+  details:last-child { border-bottom: 0; }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { margin: 8px 0 0; color: var(--muted); }
+  a { color: var(--accent); }
+  nav { margin-bottom: 24px; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0; }
+</style>
+</head>
+<body>
+<main>
+  <nav><a href="#fr">Français</a> · <a href="#en">English</a></nav>
+
+  <section id="fr" lang="fr">
+    <header>
+      <img src="logo.png" alt="">
+      <div>
+        <h1>Scoroo</h1>
+        <p class="lead">Comptez les points, on s'occupe du reste.</p>
+      </div>
+    </header>
+
+    <p>Scoroo calcule les scores de vos parties de <strong>Belote</strong> (classique ou contrée), <strong>Tarot</strong> (3 à 5 joueurs), <strong>Rami</strong>, <strong>Skyjo</strong>, <strong>Yams</strong>, <strong>7 Wonders</strong> (avec ses extensions) et <strong>Mölkky</strong>. Un mode personnalisé s'adapte à n'importe quel autre jeu.</p>
+
+    <h2>Aide</h2>
+    <div class="card">
+      <details>
+        <summary>Où sont enregistrées mes parties ?</summary>
+        <p>Uniquement sur votre téléphone. Scoroo n'a pas de compte et ne se connecte pas à Internet. Les parties en cours sont sauvegardées automatiquement.</p>
+      </details>
+      <details>
+        <summary>Comment corriger une manche ?</summary>
+        <p>Dans une partie en cours, touchez la manche pour la modifier ou la supprimer. Les scores sont recalculés aussitôt.</p>
+      </details>
+      <details>
+        <summary>Comment supprimer une partie ?</summary>
+        <p>Dans l'onglet Historique, faites glisser la partie vers la gauche.</p>
+      </details>
+      <details>
+        <summary>Mes données sont-elles conservées si je change de téléphone ?</summary>
+        <p>Elles sont incluses dans la sauvegarde de votre appareil (Google ou iCloud) si celle-ci est activée. Désinstaller l'application efface ses données.</p>
+      </details>
+    </div>
+
+    <h2>Contact</h2>
+    <p>Une question, un bug, une idée de jeu à ajouter ? Écrivez-nous à <a href="mailto:scoroo.app@gmail.com">scoroo.app@gmail.com</a>.</p>
+    <p><a href="privacy.html">Politique de confidentialité</a></p>
+  </section>
+
+  <hr>
+
+  <section id="en" lang="en">
+    <header>
+      <img src="logo.png" alt="">
+      <div>
+        <h1>Scoroo</h1>
+        <p class="lead">Keep score, we handle the rest.</p>
+      </div>
+    </header>
+
+    <p>Scoroo keeps score for <strong>Belote</strong> (classic or coinche), <strong>Tarot</strong> (3 to 5 players), <strong>Rummy</strong>, <strong>Skyjo</strong>, <strong>Yahtzee</strong>, <strong>7 Wonders</strong> (with its expansions) and <strong>Mölkky</strong>. A custom mode adapts to any other game.</p>
+
+    <h2>Help</h2>
+    <div class="card">
+      <details>
+        <summary>Where are my games saved?</summary>
+        <p>Only on your phone. Scoroo has no account and does not connect to the Internet. Games in progress are saved automatically.</p>
+      </details>
+      <details>
+        <summary>How do I fix a round?</summary>
+        <p>In a game in progress, tap the round to edit or delete it. Scores are recalculated right away.</p>
+      </details>
+      <details>
+        <summary>How do I delete a game?</summary>
+        <p>In the History tab, swipe the game to the left.</p>
+      </details>
+      <details>
+        <summary>Is my data kept when I change phones?</summary>
+        <p>It is included in your device backup (Google or iCloud) if backups are turned on. Uninstalling the app erases its data.</p>
+      </details>
+    </div>
+
+    <h2>Contact</h2>
+    <p>A question, a bug, a game you'd like added? Write to <a href="mailto:scoroo.app@gmail.com">scoroo.app@gmail.com</a>.</p>
+    <p><a href="privacy.html">Privacy policy</a></p>
+  </section>
+</main>
+</body>
+</html>
