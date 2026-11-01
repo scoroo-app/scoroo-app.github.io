@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Télécharger Scoroo</title>
+<!--
+  Lien de téléchargement des images partagées depuis l'appli : envoie vers le bon store selon le
+  téléphone, sinon vers la page d'accueil. À utiliser comme downloadLink (share_result_screen.dart)
+  une fois le site en ligne.
+-->
+<style>body { margin: 0; font-family: system-ui, sans-serif; background: #fbf8f1; color: #13233a; display: grid; place-items: center; min-height: 100vh; text-align: center; padding: 16px; }</style>
+</head>
+<body>
+<p>Scoroo… <a href="../">scoroo</a></p>
+<script>
+  // Identifiant App Store, à renseigner à la publication (même valeur que dans index.html).
+  const APP_STORE_ID = '';
+  const ua = navigator.userAgent || '';
+  const ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  let target = '../';
+  if (/Android/.test(ua)) target = 'https://play.google.com/store/apps/details?id=com.scoroo.app';
+  else if (ios && APP_STORE_ID) target = 'https://apps.apple.com/app/id' + APP_STORE_ID;
+  location.replace(target);
+</script>
+</body>
+</html>

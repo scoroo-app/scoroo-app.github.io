@@ -21,6 +21,10 @@
   .meta { color: var(--muted); margin: 0 0 24px; }
   nav a, a { color: var(--accent); }
   hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0 4px; font-size: 0.95rem; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px 8px 0; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; }
+  .table-wrap { overflow-x: auto; }
 </style>
 </head>
 <body>
@@ -29,18 +33,78 @@
 
   <section id="fr" lang="fr">
     <h1>Politique de confidentialité de Scoroo</h1>
-    <p class="meta">Dernière mise à jour : 23 octobre 2026</p>
+    <p class="meta">Dernière mise à jour : 1er novembre 2026</p>
 
-    <p>Scoroo est une application de comptage de points pour jeux de cartes, de dés et de société. Elle a été conçue pour fonctionner entièrement sur votre appareil : <strong>aucune donnée personnelle n'est collectée, transmise ou vendue</strong>.</p>
+    <p>Scoroo est une application de comptage de points pour jeux de cartes, de dés et de société. Vos parties, vos joueurs et leurs photos restent <strong>uniquement sur votre appareil</strong>. Pour financer l'application et l'améliorer, la version gratuite affiche des publicités, et l'application utilise des services de Google pour mesurer son utilisation et détecter les plantages. Cette page explique quelles données sont concernées, pourquoi, et comment garder la main dessus. <strong>Aucune donnée n'est vendue.</strong></p>
+
+    <h2>Éditeur et responsable du traitement</h2>
+    <p>Scoroo est éditée par Arthur Raimbert. Pour toute question sur vos données : <a href="mailto:scoroo.app@gmail.com">scoroo.app@gmail.com</a>.</p>
+
+    <h2>En résumé</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Quoi</th><th>Où</th><th>Pourquoi</th></tr></thead>
+        <tbody>
+          <tr><td>Parties, scores, noms et photos des joueurs, réglages</td><td>Votre appareil (sauf parties que vous partagez)</td><td>Faire fonctionner l'application</td></tr>
+          <tr><td>Profil en ligne (pseudo, code ami, amis), parties et tournois partagés</td><td>Google Firebase (Firestore), seulement si vous l'activez</td><td>Jouer avec vos amis sur plusieurs téléphones</td></tr>
+          <tr><td>Identifiant publicitaire, informations sur l'appareil</td><td>Google AdMob</td><td>Afficher des publicités (version gratuite)</td></tr>
+          <tr><td>Statistiques d'utilisation anonymes</td><td>Google Analytics for Firebase</td><td>Comprendre comment l'application est utilisée (avec votre accord)</td></tr>
+          <tr><td>Rapports de plantage</td><td>Firebase Crashlytics</td><td>Corriger les bugs</td></tr>
+          <tr><td>Achat de la version complète</td><td>Google Play ou App Store</td><td>Débloquer la version complète</td></tr>
+          <tr><td>Messages envoyés depuis l'application</td><td>Web3Forms, puis notre boîte mail</td><td>Répondre à vos questions et suggestions</td></tr>
+        </tbody>
+      </table>
+    </div>
 
     <h2>Données enregistrées sur votre appareil</h2>
     <ul>
       <li>Les parties (jeux, scores, manches) et l'historique.</li>
       <li>Les noms des joueurs que vous saisissez et leurs couleurs.</li>
       <li>Les photos de joueurs que vous choisissez d'ajouter.</li>
-      <li>Vos réglages (langue, thème, vibrations).</li>
+      <li>Vos réglages (langue, thème, vibrations…).</li>
+      <li>L'état de la version complète (achetée, ou débloquée temporairement après une vidéo).</li>
     </ul>
-    <p>Ces données restent dans l'espace de stockage de l'application sur votre appareil. Elles ne sont envoyées à aucun serveur : Scoroo n'a pas de compte utilisateur, pas de publicité, pas d'outil de statistiques ni de suivi, et ne se connecte pas à Internet.</p>
+    <p>Ces données restent dans l'espace de stockage de l'application. Elles ne sont envoyées à aucun serveur et ne figurent jamais dans les statistiques ni dans les rapports de plantage.</p>
+
+    <h2>Publicité (version gratuite)</h2>
+    <p>La version gratuite affiche des publicités fournies par <strong>Google AdMob</strong> (Google Ireland Limited) : une publicité entre deux parties au plus toutes les 20 minutes, et des vidéos que vous pouvez choisir de regarder pour débloquer la version complète pendant 30 minutes. Aucune publicité n'est affichée pendant une partie, ni dans la version complète.</p>
+    <p>Pour cela, Google peut traiter l'identifiant publicitaire de votre appareil, votre adresse IP, des informations sur l'appareil (modèle, système, langue) et vos interactions avec les publicités.</p>
+    <p>Dans l'Union européenne, au Royaume-Uni et en Suisse, un formulaire vous demande votre consentement au premier lancement. Sans votre accord, les publicités ne sont pas personnalisées. Sur iPhone, l'application vous demande en plus l'autorisation de suivi (App Tracking Transparency). Vous pouvez modifier vos choix à tout moment dans <em>Réglages &gt; Publicités &gt; Choix de confidentialité</em>, ou réinitialiser l'identifiant publicitaire dans les réglages de votre appareil.</p>
+    <p>En savoir plus : <a href="https://policies.google.com/privacy">règles de confidentialité de Google</a> et <a href="https://policies.google.com/technologies/partner-sites">utilisation des données par Google sur les applications partenaires</a>.</p>
+
+    <h2>Statistiques d'utilisation</h2>
+    <p>Avec votre accord (donné dans le même formulaire que pour les publicités), Scoroo utilise <strong>Google Analytics for Firebase</strong> pour savoir quels jeux et quelles fonctions sont utilisés, et ainsi améliorer l'application. Sont enregistrés :</p>
+    <ul>
+      <li>le lancement et la fin d'une partie : type de jeu, mode de fléchettes, nombre de joueurs, nouvelle partie ou « Rejouer » ;</li>
+      <li>l'ouverture de la fenêtre de la version complète (et la fonction qui l'a ouverte), une vidéo regardée, un achat ou une restauration d'achat ;</li>
+      <li>le changement de thème, l'envoi d'un message, l'affichage de la demande de note ;</li>
+      <li>si la version complète est active ;</li>
+      <li>des données techniques collectées automatiquement par Firebase : identifiant d'installation de l'application, modèle d'appareil, système, version de l'application, pays approximatif, durée d'utilisation.</li>
+    </ul>
+    <p><strong>Ne sont jamais envoyés</strong> : les noms des joueurs, les scores, les photos ni le contenu de vos messages. Si vous refusez, la collecte reste désactivée. Ces statistiques sont conservées selon la durée de conservation configurée dans Google Analytics (2 mois par défaut).</p>
+
+    <h2>Profil en ligne, amis et parties partagées</h2>
+    <p>Ces fonctions sont facultatives et désactivées tant que vous ne les activez pas. En les activant, Scoroo crée un <strong>compte anonyme</strong> (Firebase Authentication, sans e-mail ni mot de passe) et enregistre sur <strong>Google Cloud Firestore</strong> :</p>
+    <ul>
+      <li>votre pseudo, votre code ami, la couleur de votre profil et, si vous en choisissez une, sa photo (visible par vos amis) ;</li>
+      <li>la liste de vos amis, les demandes d'ami et les invitations reçues, et les joueurs que vous avez bloqués ;</li>
+      <li>les parties et tournois que vous partagez ou rejoignez : titre, noms des joueurs et équipes, scores, réglages du jeu, et le pseudo des participants. Les photos de la table restent sur votre appareil.</li>
+    </ul>
+    <p>Ces données servent uniquement à afficher et synchroniser les parties entre les participants, au titre de l'exécution du service que vous demandez. Une partie ou un tournoi partagé est lisible par toute personne qui en connaît le code. Les partages sont effacés 30 jours après leur dernière utilisation, ou dès que l'hôte arrête le partage. Vous pouvez supprimer votre profil en ligne à tout moment (Amis &gt; Supprimer mon profil en ligne) : votre pseudo, votre photo, votre code, vos amis et vos invitations sont alors effacés du serveur.</p>
+    <p><strong>Sauvegarde du profil.</strong> Si vous liez votre profil à un compte Google ou Apple (Amis &gt; Sauvegarder mon profil), Firebase Authentication enregistre l'identifiant de ce compte et son adresse e-mail, uniquement pour vous permettre de retrouver votre profil et vos amis sur un autre téléphone. Avec Apple, vous pouvez choisir de masquer votre adresse.</p>
+    <p><strong>Signaler et bloquer.</strong> Vous pouvez bloquer un joueur (il ne peut plus vous envoyer de demande ni d'invitation) ou le signaler. Un signalement enregistre le pseudo et l'identifiant du joueur signalé, le motif et vos précisions éventuelles ; il nous est aussi transmis par e-mail (Web3Forms) pour être examiné, puis supprimé une fois traité.</p>
+
+    <h2>Rapports de plantage</h2>
+    <p>Si l'application plante ou rencontre une erreur, <strong>Firebase Crashlytics</strong> envoie un rapport technique : l'endroit du code où l'erreur s'est produite, le modèle d'appareil, le système, la version de l'application et un identifiant d'installation. Ces rapports servent uniquement à corriger les bugs, au titre de notre intérêt légitime à fournir une application qui fonctionne. Ils sont conservés 90 jours et ne contiennent aucune donnée de vos parties.</p>
+
+    <h2>Achat de la version complète</h2>
+    <p>L'achat de la version complète est traité par <strong>Google Play</strong> ou l'<strong>App Store</strong>, selon leurs propres conditions. Scoroo ne reçoit jamais vos informations de paiement : seulement la confirmation de l'achat, qui permet de débloquer la version complète et est conservée sur votre appareil. Le bouton « Restaurer mes achats » interroge la boutique pour retrouver un achat déjà effectué avec votre compte.</p>
+
+    <h2>Messages envoyés depuis l'application</h2>
+    <p>Depuis <em>Réglages &gt; Aide et avis</em>, vous pouvez signaler un bug ou proposer une idée. Le message est transmis par le service <a href="https://web3forms.com">Web3Forms</a> à notre adresse <a href="mailto:scoroo.app@gmail.com">scoroo.app@gmail.com</a>, avec : son type (bug ou idée), son texte, votre adresse e-mail si vous choisissez de l'indiquer, la version de l'application, le système de votre appareil et la langue utilisée. Ces informations servent uniquement à traiter votre demande et à vous répondre, et sont supprimées une fois qu'elles ne sont plus utiles. Sans connexion, l'application ouvre votre messagerie : le message est alors envoyé par votre propre service de mail.</p>
+
+    <h2>Demande de note</h2>
+    <p>Après quelques parties, Scoroo peut vous proposer de noter l'application. La fenêtre de note est celle de Google Play ou de l'App Store : Scoroo ne sait pas si vous avez laissé une note, ni laquelle.</p>
 
     <h2>Appareil photo et photos</h2>
     <p>Si vous ajoutez la photo d'un joueur, Scoroo vous demande l'accès à l'appareil photo ou à vos photos. Seule l'image que vous choisissez est copiée dans l'application ; le reste de votre galerie n'est ni lu ni conservé. Vous pouvez refuser ou retirer cet accès à tout moment dans les réglages de votre appareil : l'application reste utilisable sans photo.</p>
@@ -48,17 +112,34 @@
     <h2>Partage</h2>
     <p>Lorsque vous partagez un résultat, Scoroo ouvre le menu de partage de votre appareil. Vous choisissez vous-même l'application et les destinataires ; Scoroo ne reçoit ni ne conserve rien de ce partage.</p>
 
+    <h2>Mode TV</h2>
+    <p>Le mode TV (version complète) affiche le tableau des scores sur une télé. Avec AirPlay ou un câble, l'image passe directement du téléphone à la télé. Avec un Chromecast ou une Google TV, la télé charge la page d'affichage de Scoroo, puis reçoit les noms des joueurs et les scores de la partie depuis votre téléphone, sur votre réseau Wi-Fi. Ces informations ne sont ni envoyées à Scoroo ni conservées : elles disparaissent de la télé à la fin de la diffusion. Le Chromecast est un service de Google, soumis à ses propres conditions.</p>
+
     <h2>Export et import de vos données</h2>
     <p>Depuis les réglages, vous pouvez exporter vos parties, vos joueurs et leurs photos dans un fichier, puis l'importer sur un autre téléphone. C'est vous qui choisissez où ce fichier est enregistré ou envoyé (Fichiers, Drive, e-mail…) ; Scoroo ne le transmet à personne.</p>
 
     <h2>Sauvegardes de l'appareil</h2>
     <p>Selon vos réglages, les données de l'application peuvent être incluses dans les sauvegardes de votre appareil (sauvegarde Google sur Android, iCloud sur iPhone). Ces sauvegardes sont gérées par Google ou Apple selon leurs propres conditions.</p>
 
+    <h2>Transferts hors de l'Union européenne</h2>
+    <p>Google et Web3Forms peuvent traiter des données en dehors de l'Union européenne, notamment aux États-Unis. Google encadre ces transferts par les clauses contractuelles types de la Commission européenne et le Data Privacy Framework UE–États-Unis.</p>
+
+    <h2>Bases légales</h2>
+    <ul>
+      <li><strong>Consentement</strong> : publicités personnalisées et statistiques d'utilisation.</li>
+      <li><strong>Intérêt légitime</strong> : rapports de plantage, et publicités non personnalisées qui financent la version gratuite.</li>
+      <li><strong>Exécution du contrat</strong> : achat de la version complète.</li>
+      <li><strong>Votre demande</strong> : traitement des messages que vous nous envoyez.</li>
+    </ul>
+
+    <h2>Vos droits et vos choix</h2>
+    <p>Vous pouvez à tout moment retirer votre consentement (<em>Réglages &gt; Publicités &gt; Choix de confidentialité</em>), réinitialiser l'identifiant publicitaire de votre appareil, ou désinstaller l'application. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement, d'opposition et de limitation : écrivez-nous à <a href="mailto:scoroo.app@gmail.com">scoroo.app@gmail.com</a>. Les statistiques et rapports de plantage étant liés à un identifiant d'installation et non à votre identité, précisez-nous si possible la date et le modèle de votre appareil. Vous pouvez aussi adresser une réclamation à la <a href="https://www.cnil.fr">CNIL</a>.</p>
+
     <h2>Suppression des données</h2>
-    <p>Depuis l'application, vous pouvez supprimer une partie, retirer la photo d'un joueur et ne plus proposer un joueur dans les suggestions. Désinstaller Scoroo (ou effacer ses données dans les réglages de l'appareil) supprime toutes ses données.</p>
+    <p>Depuis l'application, vous pouvez supprimer une partie, retirer la photo d'un joueur et ne plus proposer un joueur dans les suggestions. Désinstaller Scoroo (ou effacer ses données dans les réglages de l'appareil) supprime toutes les données enregistrées sur l'appareil et crée un nouvel identifiant d'installation à la prochaine installation.</p>
 
     <h2>Enfants</h2>
-    <p>Scoroo ne collecte aucune donnée, y compris auprès des enfants.</p>
+    <p>Scoroo s'adresse à un public général et n'est pas destinée spécifiquement aux enfants de moins de 13 ans. Nous ne collectons pas sciemment de données personnelles concernant des enfants.</p>
 
     <h2>Modifications</h2>
     <p>Si cette politique change, la nouvelle version sera publiée sur cette page avec sa date de mise à jour.</p>
@@ -71,18 +152,78 @@
 
   <section id="en" lang="en">
     <h1>Scoroo privacy policy</h1>
-    <p class="meta">Last updated: October 23, 2026</p>
+    <p class="meta">Last updated: November 1, 2026</p>
 
-    <p>Scoroo is a score keeper for card, dice and board games. It is designed to work entirely on your device: <strong>no personal data is collected, transmitted or sold</strong>.</p>
+    <p>Scoroo is a score keeper for card, dice and board games. Your games, players and their photos stay <strong>on your device only</strong>. To fund and improve the app, the free version shows ads, and the app uses Google services to measure usage and detect crashes. This page explains which data is involved, why, and how you stay in control. <strong>No data is sold.</strong></p>
+
+    <h2>Publisher and data controller</h2>
+    <p>Scoroo is published by Arthur Raimbert. For any question about your data: <a href="mailto:scoroo.app@gmail.com">scoroo.app@gmail.com</a>.</p>
+
+    <h2>At a glance</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>What</th><th>Where</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Games, scores, player names and photos, settings</td><td>Your device (except games you share)</td><td>Making the app work</td></tr>
+          <tr><td>Online profile (nickname, friend code, friends), shared games and tournaments</td><td>Google Firebase (Firestore), only if you turn it on</td><td>Playing with your friends on several phones</td></tr>
+          <tr><td>Advertising ID, device information</td><td>Google AdMob</td><td>Showing ads (free version)</td></tr>
+          <tr><td>Anonymous usage statistics</td><td>Google Analytics for Firebase</td><td>Understanding how the app is used (with your consent)</td></tr>
+          <tr><td>Crash reports</td><td>Firebase Crashlytics</td><td>Fixing bugs</td></tr>
+          <tr><td>Full version purchase</td><td>Google Play or App Store</td><td>Unlocking the full version</td></tr>
+          <tr><td>Messages sent from the app</td><td>Web3Forms, then our mailbox</td><td>Answering your questions and suggestions</td></tr>
+        </tbody>
+      </table>
+    </div>
 
     <h2>Data stored on your device</h2>
     <ul>
       <li>Your games (game type, scores, rounds) and history.</li>
       <li>The player names you enter and their colors.</li>
       <li>The player photos you choose to add.</li>
-      <li>Your settings (language, theme, vibrations).</li>
+      <li>Your settings (language, theme, vibrations…).</li>
+      <li>The status of the full version (purchased, or temporarily unlocked after a video).</li>
     </ul>
-    <p>This data stays in the app's storage on your device. It is never sent to a server: Scoroo has no user account, no advertising, no analytics or tracking, and does not connect to the Internet.</p>
+    <p>This data stays in the app's storage. It is never sent to a server and is never included in statistics or crash reports.</p>
+
+    <h2>Advertising (free version)</h2>
+    <p>The free version shows ads provided by <strong>Google AdMob</strong> (Google Ireland Limited): one ad between games at most every 20 minutes, and videos you can choose to watch to unlock the full version for 30 minutes. No ads are shown during a game, or in the full version.</p>
+    <p>To do this, Google may process your device's advertising ID, your IP address, device information (model, system, language) and your interactions with ads.</p>
+    <p>In the European Union, the United Kingdom and Switzerland, a form asks for your consent on first launch. Without it, ads are not personalized. On iPhone, the app also asks for tracking permission (App Tracking Transparency). You can change your choices at any time in <em>Settings &gt; Ads &gt; Privacy choices</em>, or reset the advertising ID in your device settings.</p>
+    <p>Learn more: <a href="https://policies.google.com/privacy">Google privacy policy</a> and <a href="https://policies.google.com/technologies/partner-sites">how Google uses data from partner apps</a>.</p>
+
+    <h2>Usage statistics</h2>
+    <p>With your consent (given in the same form as for ads), Scoroo uses <strong>Google Analytics for Firebase</strong> to learn which games and features are used, in order to improve the app. The following is recorded:</p>
+    <ul>
+      <li>starting and finishing a game: game type, darts mode, number of players, new game or “Play again”;</li>
+      <li>opening the full version window (and the feature that opened it), a video watched, a purchase or a restored purchase;</li>
+      <li>changing the theme, sending a message, showing the rating prompt;</li>
+      <li>whether the full version is active;</li>
+      <li>technical data collected automatically by Firebase: app installation ID, device model, system, app version, approximate country, usage time.</li>
+    </ul>
+    <p><strong>Never sent</strong>: player names, scores, photos or the content of your messages. If you decline, collection stays off. These statistics are kept for the retention period configured in Google Analytics (2 months by default).</p>
+
+    <h2>Online profile, friends and shared games</h2>
+    <p>These features are optional and stay off until you turn them on. When you do, Scoroo creates an <strong>anonymous account</strong> (Firebase Authentication, no email or password) and stores on <strong>Google Cloud Firestore</strong>:</p>
+    <ul>
+      <li>your nickname, friend code, profile color and, if you choose one, its photo (visible to your friends);</li>
+      <li>your friends list, friend requests and invitations received, and the players you have blocked;</li>
+      <li>the games and tournaments you share or join: title, player and team names, scores, game settings and the participants' nicknames. Table photos stay on your device.</li>
+    </ul>
+    <p>This data is only used to show and sync games between participants, to provide the service you ask for. A shared game or tournament can be read by anyone who knows its code. Shares are deleted 30 days after their last use, or as soon as the host stops sharing. You can delete your online profile at any time (Friends &gt; Delete my online profile): your nickname, photo, code, friends and invitations are then deleted from the server.</p>
+    <p><strong>Profile backup.</strong> If you link your profile to a Google or Apple account (Friends &gt; Back up my profile), Firebase Authentication stores that account's identifier and email address, only so that you can get your profile and friends back on another phone. With Apple, you can choose to hide your address.</p>
+    <p><strong>Report and block.</strong> You can block a player (they can no longer send you requests or invitations) or report them. A report stores the reported player's nickname and identifier, the reason and any details you add; it is also sent to us by email (Web3Forms) to be reviewed, then deleted once handled.</p>
+
+    <h2>Crash reports</h2>
+    <p>If the app crashes or hits an error, <strong>Firebase Crashlytics</strong> sends a technical report: where in the code the error happened, the device model, the system, the app version and an installation ID. These reports are only used to fix bugs, based on our legitimate interest in providing an app that works. They are kept for 90 days and contain none of your game data.</p>
+
+    <h2>Full version purchase</h2>
+    <p>The full version purchase is handled by <strong>Google Play</strong> or the <strong>App Store</strong>, under their own terms. Scoroo never receives your payment details: only the purchase confirmation, which unlocks the full version and is kept on your device. The “Restore purchases” button asks the store for a purchase already made with your account.</p>
+
+    <h2>Messages sent from the app</h2>
+    <p>From <em>Settings &gt; Help &amp; feedback</em>, you can report a bug or suggest an idea. The message is sent through the <a href="https://web3forms.com">Web3Forms</a> service to our address <a href="mailto:scoroo.app@gmail.com">scoroo.app@gmail.com</a>, together with: its type (bug or idea), its text, your email address if you choose to give it, the app version, your device's system and the language used. This information is only used to handle your request and reply to you, and is deleted once it is no longer needed. Without a connection, the app opens your mail app instead: the message is then sent by your own mail provider.</p>
+
+    <h2>Rating prompt</h2>
+    <p>After a few games, Scoroo may invite you to rate the app. The rating window belongs to Google Play or the App Store: Scoroo does not know whether you left a rating, or which one.</p>
 
     <h2>Camera and photos</h2>
     <p>If you add a player photo, Scoroo asks for access to the camera or your photos. Only the picture you pick is copied into the app; the rest of your library is neither read nor kept. You can deny or revoke this access at any time in your device settings; the app works without photos.</p>
@@ -90,17 +231,34 @@
     <h2>Sharing</h2>
     <p>When you share a result, Scoroo opens your device's share sheet. You choose the app and the recipients; Scoroo receives and keeps nothing from it.</p>
 
+    <h2>TV mode</h2>
+    <p>TV mode (full version) shows the scoreboard on a TV. With AirPlay or a cable, the picture goes straight from the phone to the TV. With a Chromecast or Google TV, the TV loads Scoroo's display page, then receives the players' names and the game's scores from your phone, over your Wi-Fi network. This information is neither sent to Scoroo nor kept: it disappears from the TV when casting ends. Chromecast is a Google service, subject to its own terms.</p>
+
     <h2>Exporting and importing your data</h2>
     <p>From the settings, you can export your games, players and their photos to a file, then import it on another phone. You choose where that file is saved or sent (Files, Drive, email…); Scoroo never transmits it to anyone.</p>
 
     <h2>Device backups</h2>
     <p>Depending on your settings, the app's data may be included in your device backups (Google backup on Android, iCloud on iPhone). These backups are handled by Google or Apple under their own terms.</p>
 
+    <h2>Transfers outside the European Union</h2>
+    <p>Google and Web3Forms may process data outside the European Union, including in the United States. Google covers these transfers with the European Commission's standard contractual clauses and the EU–US Data Privacy Framework.</p>
+
+    <h2>Legal bases</h2>
+    <ul>
+      <li><strong>Consent</strong>: personalized ads and usage statistics.</li>
+      <li><strong>Legitimate interest</strong>: crash reports, and non-personalized ads that fund the free version.</li>
+      <li><strong>Performance of a contract</strong>: the full version purchase.</li>
+      <li><strong>Your request</strong>: handling the messages you send us.</li>
+    </ul>
+
+    <h2>Your rights and choices</h2>
+    <p>You can withdraw your consent at any time (<em>Settings &gt; Ads &gt; Privacy choices</em>), reset your device's advertising ID, or uninstall the app. Under the GDPR, you have the right to access, rectify, erase, object to and restrict the processing of your data: write to us at <a href="mailto:scoroo.app@gmail.com">scoroo.app@gmail.com</a>. Since statistics and crash reports are linked to an installation ID rather than to your identity, please tell us the date and your device model if you can. You may also lodge a complaint with your data protection authority (in France, the <a href="https://www.cnil.fr">CNIL</a>).</p>
+
     <h2>Deleting your data</h2>
-    <p>From within the app, you can delete a game, remove a player's photo and stop suggesting a player. Uninstalling Scoroo (or clearing its data in your device settings) erases all of its data.</p>
+    <p>From within the app, you can delete a game, remove a player's photo and stop suggesting a player. Uninstalling Scoroo (or clearing its data in your device settings) erases all the data stored on the device and creates a new installation ID the next time you install it.</p>
 
     <h2>Children</h2>
-    <p>Scoroo collects no data from anyone, including children.</p>
+    <p>Scoroo is intended for a general audience and is not specifically directed at children under 13. We do not knowingly collect personal data from children.</p>
 
     <h2>Changes</h2>
     <p>If this policy changes, the new version will be posted on this page with its update date.</p>

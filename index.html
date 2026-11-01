@@ -3,112 +3,178 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Scoroo – Compteur de points / Score keeper</title>
-<meta name="description" content="Scoroo : compteur de points pour la Belote, le Tarot, le Yams, 7 Wonders, le Mölkky et bien d'autres jeux.">
-<link rel="icon" href="logo.png">
+<title>Scoroo – Compteur de points pour tous vos jeux</title>
+<meta name="description" content="Scoroo compte les points de vos jeux de cartes, de dés, de société et de fléchettes : tarot, belote, Yams, Mölkky, 7 Wonders et tous vos autres jeux. Sans compte, hors ligne.">
+<meta property="og:title" content="Scoroo – Rangez le stylo, sortez Scoroo.">
+<meta property="og:description" content="Le compteur de points de tous vos jeux : tarot, belote, Yams, fléchettes, Mölkky, 7 Wonders…">
+<meta property="og:image" content="img/fr_1_accueil.png">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
 <style>
-  :root { --bg: #fcf8ea; --ink: #13233a; --muted: #5b6676; --line: #e6dfc8; --card: #ffffff; --accent: #e8743b; }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #11161f; --ink: #eef1f5; --muted: #9aa4b2; --line: #263041; --card: #181f2b; --accent: #f08a55; }
+  :root {
+    --ink: #13233a; --muted: #5b6476; --bg: #fbf8f1; --card: #ffffff; --line: #ebe5d8;
+    --navy: #0b3a6e; --orange: #ffaa0a; --teal: #0f8b8d;
   }
   * { box-sizing: border-box; }
-  body {
-    margin: 0; background: var(--bg); color: var(--ink);
-    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  }
-  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
-  header { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
-  header img { width: 72px; height: 72px; border-radius: 18px; }
-  h1 { font-size: 2rem; line-height: 1.2; margin: 0; }
-  h2 { font-size: 1.2rem; margin: 32px 0 8px; }
-  .lead { color: var(--muted); margin: 0; }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 4px 18px; }
-  details { border-bottom: 1px solid var(--line); padding: 12px 0; }
-  details:last-child { border-bottom: 0; }
-  summary { cursor: pointer; font-weight: 600; }
-  details p { margin: 8px 0 0; color: var(--muted); }
-  a { color: var(--accent); }
-  nav { margin-bottom: 24px; }
-  hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: Roboto, system-ui, sans-serif; line-height: 1.5; }
+  a { color: var(--navy); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  /* En-tête : logo, accroche et boutons de téléchargement, captures à droite sur grand écran. */
+  .hero { background: radial-gradient(circle at 15% 20%, #fff4dc, var(--bg) 60%); padding: 56px 0 40px; }
+  .hero .wrap { display: grid; gap: 40px; align-items: center; grid-template-columns: minmax(0, 1fr); }
+  .hero .wrap > * { min-width: 0; }
+  @media (min-width: 860px) { .hero .wrap { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); } }
+  .brand { display: flex; align-items: center; gap: 16px; }
+  .brand img { width: 72px; height: 72px; border-radius: 22px; box-shadow: 0 10px 30px rgba(11, 58, 110, .18); }
+  .brand span { font-size: 40px; font-weight: 900; letter-spacing: -1px; }
+  h1 { font-size: clamp(34px, 6vw, 54px); line-height: 1.05; letter-spacing: -1.5px; margin: 28px 0 14px; font-weight: 900; }
+  .lead { font-size: 19px; color: var(--muted); max-width: 34em; margin: 0 0 28px; }
+  .stores { display: flex; flex-wrap: wrap; gap: 12px; }
+  .store { display: inline-flex; align-items: center; gap: 10px; padding: 13px 20px; border-radius: 14px; background: var(--ink); color: #fff;
+    text-decoration: none; font-weight: 700; font-size: 16px; }
+  .store small { display: block; font-weight: 400; font-size: 12px; opacity: .75; }
+  .store.soon { background: #c9ccd3; color: #41495a; pointer-events: none; }
+  .store svg { width: 24px; height: 24px; fill: currentColor; flex: none; }
+  .note { margin-top: 14px; color: var(--muted); font-size: 14px; }
+
+  .shots { display: flex; gap: 16px; overflow-x: auto; padding: 8px 4px 20px; scroll-snap-type: x mandatory; }
+  .shots img { height: 460px; border-radius: 22px; box-shadow: 0 16px 40px rgba(19, 35, 58, .22); scroll-snap-align: center; flex: none; }
+  @media (max-width: 600px) { .shots img { height: 380px; } }
+
+  section { padding: 48px 0; }
+  h2 { font-size: 30px; letter-spacing: -.6px; margin: 0 0 24px; }
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 22px; }
+  .card b { display: block; font-size: 18px; margin: 8px 0 4px; }
+  .card p { margin: 0; color: var(--muted); }
+  .emoji { font-size: 28px; }
+  .games { display: flex; flex-wrap: wrap; gap: 8px; }
+  .games span { background: var(--card); border: 1px solid var(--line); padding: 7px 14px; border-radius: 999px; font-weight: 500; }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; }
+  .lang { background: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; cursor: pointer; color: var(--ink); font: inherit; }
+
+  /* Langue : les textes de l'autre langue sont masqués. */
+  html[lang="fr"] [lang="en"], html[lang="en"] [lang="fr"] { display: none !important; }
 </style>
 </head>
 <body>
-<main>
-  <nav><a href="#fr">Français</a> · <a href="#en">English</a></nav>
-
-  <section id="fr" lang="fr">
-    <header>
-      <img src="logo.png" alt="">
-      <div>
-        <h1>Scoroo</h1>
-        <p class="lead">Comptez les points, on s'occupe du reste.</p>
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="brand"><img src="img/logo.png" alt=""><span>Scoroo</span></div>
+      <h1><span lang="fr">Rangez le stylo, sortez Scoroo.</span><span lang="en">Put down the pen, pick up Scoroo.</span></h1>
+      <p class="lead">
+        <span lang="fr">Le compteur de points de tous vos jeux : cartes, dés, société et fléchettes. Fini le papier et le calcul de tête, place au jeu en famille et entre amis.</span>
+        <span lang="en">The score keeper for all your games: cards, dice, board games and darts. No more paper and mental math, just play with family and friends.</span>
+      </p>
+      <div class="stores">
+        <a class="store" href="https://play.google.com/store/apps/details?id=com.scoroo.app">
+          <svg viewBox="0 0 24 24"><path d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1Zm11.6 11.6 2.4 2.4-11.2 6.4 8.8-8.8Zm4-2.3c.6.4.6 1.4 0 1.8l-2.2 1.3-2.6-2.6 2.6-2.6 2.2 1.3ZM6.4 1.8l11.2 6.4-2.4 2.4L6.4 1.8Z"/></svg>
+          <span><small lang="fr">Disponible sur</small><small lang="en">Get it on</small>Google Play</span>
+        </a>
+        <a class="store soon" id="appstore" href="#">
+          <svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.4 2-3.5 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.1-1.2 2.9-2.4.9-1.3 1.3-2.7 1.3-2.8-.1 0-2.4-.9-2.4-4ZM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4Z"/></svg>
+          <span><small lang="fr">Bientôt sur</small><small lang="en">Coming soon to the</small>App Store</span>
+        </a>
       </div>
-    </header>
-
-    <p>Scoroo calcule les scores de vos parties de <strong>Belote</strong> (classique ou contrée), <strong>Tarot</strong> (3 à 5 joueurs), <strong>Rami</strong>, <strong>Skyjo</strong>, <strong>Yams</strong>, <strong>7 Wonders</strong> (avec ses extensions) et <strong>Mölkky</strong>. Un mode personnalisé s'adapte à n'importe quel autre jeu.</p>
-
-    <h2>Aide</h2>
-    <div class="card">
-      <details>
-        <summary>Où sont enregistrées mes parties ?</summary>
-        <p>Uniquement sur votre téléphone. Scoroo n'a pas de compte et ne se connecte pas à Internet. Les parties en cours sont sauvegardées automatiquement.</p>
-      </details>
-      <details>
-        <summary>Comment corriger une manche ?</summary>
-        <p>Dans une partie en cours, touchez la manche pour la modifier ou la supprimer. Les scores sont recalculés aussitôt.</p>
-      </details>
-      <details>
-        <summary>Comment supprimer une partie ?</summary>
-        <p>Dans l'onglet Historique, faites glisser la partie vers la gauche.</p>
-      </details>
-      <details>
-        <summary>Mes données sont-elles conservées si je change de téléphone ?</summary>
-        <p>Elles sont incluses dans la sauvegarde de votre appareil (Google ou iCloud) si celle-ci est activée. Désinstaller l'application efface ses données.</p>
-      </details>
+      <p class="note">
+        <span lang="fr">Gratuit, sans compte et hors ligne. Version complète en achat unique, sans abonnement.</span>
+        <span lang="en">Free, no account, works offline. Full version as a one-time purchase, no subscription.</span>
+      </p>
     </div>
-
-    <h2>Contact</h2>
-    <p>Une question, un bug, une idée de jeu à ajouter ? Écrivez-nous à <a href="mailto:scoroo.app@gmail.com">scoroo.app@gmail.com</a>.</p>
-    <p><a href="privacy.html">Politique de confidentialité</a></p>
-  </section>
-
-  <hr>
-
-  <section id="en" lang="en">
-    <header>
-      <img src="logo.png" alt="">
-      <div>
-        <h1>Scoroo</h1>
-        <p class="lead">Keep score, we handle the rest.</p>
-      </div>
-    </header>
-
-    <p>Scoroo keeps score for <strong>Belote</strong> (classic or coinche), <strong>Tarot</strong> (3 to 5 players), <strong>Rummy</strong>, <strong>Skyjo</strong>, <strong>Yahtzee</strong>, <strong>7 Wonders</strong> (with its expansions) and <strong>Mölkky</strong>. A custom mode adapts to any other game.</p>
-
-    <h2>Help</h2>
-    <div class="card">
-      <details>
-        <summary>Where are my games saved?</summary>
-        <p>Only on your phone. Scoroo has no account and does not connect to the Internet. Games in progress are saved automatically.</p>
-      </details>
-      <details>
-        <summary>How do I fix a round?</summary>
-        <p>In a game in progress, tap the round to edit or delete it. Scores are recalculated right away.</p>
-      </details>
-      <details>
-        <summary>How do I delete a game?</summary>
-        <p>In the History tab, swipe the game to the left.</p>
-      </details>
-      <details>
-        <summary>Is my data kept when I change phones?</summary>
-        <p>It is included in your device backup (Google or iCloud) if backups are turned on. Uninstalling the app erases its data.</p>
-      </details>
+    <div class="shots" aria-label="Captures d'écran">
+      <img data-shot="1_accueil" alt="">
+      <img data-shot="2_tarot" alt="">
+      <img data-shot="3_victoire" alt="">
+      <img data-shot="4_flechettes" alt="">
+      <img data-shot="7_tv" alt="">
     </div>
+  </div>
+</header>
 
-    <h2>Contact</h2>
-    <p>A question, a bug, a game you'd like added? Write to <a href="mailto:scoroo.app@gmail.com">scoroo.app@gmail.com</a>.</p>
-    <p><a href="privacy.html">Privacy policy</a></p>
-  </section>
-</main>
+<section>
+  <div class="wrap">
+    <h2><span lang="fr">Tous vos jeux, un seul carnet</span><span lang="en">All your games, one score pad</span></h2>
+    <div class="games">
+      <span lang="fr">Tarot</span><span lang="en">French Tarot</span>
+      <span>Belote &amp; coinche</span>
+      <span lang="fr">Fléchettes</span><span lang="en">Darts</span>
+      <span>Yams</span><span>Rami</span><span>Skyjo</span><span>Mölkky</span>
+      <span>7 Wonders</span><span>Akropolis</span><span>Uno</span><span>6 qui prend !</span>
+      <span>Rummikub</span><span lang="fr">Pétanque</span><span lang="en">Pétanque</span>
+      <span lang="fr">… et vos propres jeux</span><span lang="en">… and your own games</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap grid">
+    <div class="card"><span class="emoji">🧮</span>
+      <b lang="fr">Les calculs, c'est fait</b><b lang="en">The math is done</b>
+      <p lang="fr">Contrats, bouts, primes, bonus du Yams, 501 : Scoroo applique les règles et additionne pour vous.</p>
+      <p lang="en">Contracts, bonuses, Yams sheets, 501: Scoroo applies the rules and adds it all up.</p></div>
+    <div class="card"><span class="emoji">👨‍👩‍👧‍👦</span>
+      <b lang="fr">Toute la famille</b><b lang="en">The whole family</b>
+      <p lang="fr">Joueurs avec leur photo, statistiques, séries, face-à-face et joueur du mois.</p>
+      <p lang="en">Players with photos, stats, streaks, head to head and player of the month.</p></div>
+    <div class="card"><span class="emoji">🏆</span>
+      <b lang="fr">Écran de victoire</b><b lang="en">Victory screen</b>
+      <p lang="fr">Un podium pour fêter le gagnant, des tournois et le résultat à partager.</p>
+      <p lang="en">A podium for the winner, tournaments and results to share.</p></div>
+    <div class="card"><span class="emoji">📺</span>
+      <b lang="fr">Le classement sur la télé</b><b lang="en">Scores on the TV</b>
+      <p lang="fr">Avec Chromecast ou AirPlay, la télé affiche les scores pendant que vous jouez.</p>
+      <p lang="en">With Chromecast or AirPlay, your TV shows the scores while you play.</p></div>
+    <div class="card"><span class="emoji">🔒</span>
+      <b lang="fr">Vos parties restent chez vous</b><b lang="en">Your games stay with you</b>
+      <p lang="fr">Sans compte, sans connexion : tout est enregistré sur votre téléphone.</p>
+      <p lang="en">No account, no connection needed: everything stays on your phone.</p></div>
+    <div class="card"><span class="emoji">🌍</span>
+      <b lang="fr">En cinq langues</b><b lang="en">In five languages</b>
+      <p lang="fr">Français, anglais, espagnol, allemand et italien, sur téléphone et tablette.</p>
+      <p lang="en">English, French, Spanish, German and Italian, on phones and tablets.</p></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Scoroo · <a href="mailto:scoroo.app@gmail.com">scoroo.app@gmail.com</a> ·
+      <a href="privacy.html"><span lang="fr">Politique de confidentialité</span><span lang="en">Privacy policy</span></a></span>
+    <button class="lang" id="lang" type="button"></button>
+  </div>
+</footer>
+
+<script>
+  // Identifiant App Store (chiffres de l'adresse apps.apple.com/…/id123456789), à renseigner à la publication.
+  const APP_STORE_ID = '';
+
+  const root = document.documentElement;
+  function setLang(lang) {
+    root.lang = lang;
+    document.getElementById('lang').textContent = lang === 'fr' ? 'English' : 'Français';
+    document.querySelectorAll('[data-shot]').forEach((img) => {
+      img.src = 'img/' + lang + '_' + img.dataset.shot + '.png';
+    });
+  }
+  let lang = 'fr';
+  try { lang = localStorage.getItem('scoroo-lang') || ((navigator.language || 'fr').startsWith('fr') ? 'fr' : 'en'); } catch (e) {}
+  setLang(lang);
+  document.getElementById('lang').addEventListener('click', () => {
+    const next = root.lang === 'fr' ? 'en' : 'fr';
+    try { localStorage.setItem('scoroo-lang', next); } catch (e) {}
+    setLang(next);
+  });
+
+  if (APP_STORE_ID) {
+    const a = document.getElementById('appstore');
+    a.classList.remove('soon');
+    a.href = 'https://apps.apple.com/app/id' + APP_STORE_ID;
+    a.querySelectorAll('small').forEach((s) => { s.textContent = s.lang === 'fr' ? 'Télécharger sur' : 'Download on the'; });
+  }
+</script>
 </body>
 </html>
