@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scoroo · Jeu partagé</title>
+<!--
+  Page d'un jeu partagé depuis Scoroo (QR code ou lien https://scoroo-app.github.io/g/?c=CODE,
+  lib/cloud/shared_games.dart). Scoroo installé : le lien ouvre directement l'appli (App Links et
+  Universal Links, voir .well-known/). Sinon : le jeu (lu dans Firestore, games/{code}, lisible
+  par tous), « Ouvrir dans Scoroo » et le bon store. Sur Android, le lien Google Play transmet le
+  code (referrer=game=CODE) : le jeu s'ajoute au premier lancement.
+-->
+<link rel="icon" href="../img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL@24,500,1&display=block">
+<style>
+  :root { --ink: #13233a; --muted: #5b6476; --bg: #fbf8f1; --card: #ffffff; --line: #ebe5d8; --navy: #0b3a6e; --tint: #0b3a6e; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: radial-gradient(circle at 15% 10%, #fff4dc, var(--bg) 55%); color: var(--ink);
+    font-family: Roboto, system-ui, sans-serif; line-height: 1.45; min-height: 100vh; }
+  main { max-width: 440px; margin: 0 auto; padding: 28px 16px 40px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); justify-content: center; }
+  .brand img { width: 36px; height: 36px; }
+  .brand span { font-weight: 900; font-size: 22px; letter-spacing: -.5px; }
+  .card { margin-top: 22px; background: var(--card); border: 1px solid var(--line); border-radius: 26px; padding: 28px 22px 24px; text-align: center;
+    box-shadow: 0 18px 40px -24px rgba(19, 35, 58, .35); }
+  .logo { width: 104px; height: 104px; border-radius: 32px; margin: 0 auto; display: grid; place-items: center; overflow: hidden;
+    background: color-mix(in srgb, var(--tint) 14%, white); color: var(--tint); box-shadow: 0 12px 28px -12px var(--tint); }
+  .logo img { width: 100%; height: 100%; object-fit: cover; }
+  .logo .material-symbols-rounded { font-size: 60px; }
+  h1 { font-size: 28px; font-weight: 900; letter-spacing: -.6px; margin: 18px 0 4px; line-height: 1.15; overflow-wrap: anywhere; }
+  .by { color: var(--muted); margin: 0; }
+  .official { color: var(--tint); font-weight: 700; display: inline-flex; align-items: center; gap: 4px; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 16px 0 22px; }
+  .facts span { background: #f3efe6; border-radius: 999px; padding: 6px 12px; font-weight: 500; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; }
+  .facts .material-symbols-rounded { font-size: 18px; color: var(--muted); }
+  .btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 15px 18px; border-radius: 16px;
+    text-decoration: none; font-weight: 700; font-size: 16px; border: 0; cursor: pointer; font-family: inherit; }
+  .btn + .btn { margin-top: 10px; }
+  .primary { background: var(--tint); color: #fff; }
+  .store { background: var(--ink); color: #fff; }
+  .store small { display: block; font-weight: 400; font-size: 12px; opacity: .75; }
+  .note { color: var(--muted); font-size: 14px; margin: 16px 0 0; }
+  .missing .material-symbols-rounded { font-size: 48px; color: var(--muted); }
+  .lang { display: block; margin: 22px auto 0; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px;
+    cursor: pointer; color: var(--ink); font: inherit; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <a class="brand" href="../"><img src="../img/logo.png" alt=""><span>Scoroo</span></a>
+
+  <div class="card" id="loading"><p class="note" data-i18n="loading"></p></div>
+
+  <div class="card" id="game" hidden>
+    <div class="logo" id="logo"></div>
+    <h1 id="name"></h1>
+    <p class="by" id="by"></p>
+    <div class="facts"><span><span class="material-symbols-rounded">groups</span><b id="players"></b></span>
+      <span><span class="material-symbols-rounded">lock_open</span><b data-i18n="free"></b></span></div>
+    <a class="btn primary" id="open"><span class="material-symbols-rounded">add_circle</span><span data-i18n="open"></span></a>
+    <div id="stores"></div>
+    <p class="note" id="after"></p>
+  </div>
+
+  <div class="card missing" id="missing" hidden>
+    <span class="material-symbols-rounded">search_off</span>
+    <h1 data-i18n="missingTitle"></h1>
+    <p class="by" data-i18n="missingText"></p>
+    <div id="stores2" style="margin-top:20px"></div>
+  </div>
+
+  <button class="lang" id="lang"></button>
+</main>
+<script>
+  const PROJECT = 'scoroo-fa711';
+  const APP_STORE_ID = '6826124200';
+  // Mêmes listes que customGameColors et customGameIcons (lib/data/custom_games.dart).
+  const COLORS = ['#0EA5A4', '#2563EB', '#7B61FF', '#C026D3', '#E5486A', '#DC2626', '#EA580C', '#D97706', '#65A30D', '#16A34A', '#475569', '#8B5E34'];
+  const ICONS = ['casino', 'style', 'extension', 'emoji_events', 'sports_esports', 'grid_on', 'hexagon', 'train', 'directions_boat', 'castle',
+    'forest', 'pets', 'rocket_launch', 'diamond', 'star', 'favorite', 'bolt', 'psychology', 'quiz', 'theater_comedy', 'music_note', 'map',
+    'sports_soccer', 'sports_tennis', 'sports_basketball', 'sports_golf', 'sports_bar', 'timer', 'flag', 'celebration'];
+
+  const TEXTS = {
+    fr: {
+      loading: 'Chargement du jeu…', free: 'Gratuit', open: 'Ouvrir dans Scoroo', by: 'Créé par {name}', official: 'Jeu officiel',
+      players: '{min} à {max} joueurs', player1: '{n} joueur', playersN: '{n} joueurs',
+      play: 'Télécharger sur Google Play', appstore: 'Télécharger dans l’App Store', storeSmall: 'Scoroo, compteur de points',
+      afterAndroid: 'Pas encore Scoroo ? Installez-le : le jeu s’ajoutera tout seul à la première ouverture.',
+      afterIos: 'Pas encore Scoroo ? Installez-le, puis revenez ici et touchez « Ouvrir dans Scoroo » (ou scannez de nouveau le QR code).',
+      afterOther: 'Scannez ce QR code avec votre téléphone pour ajouter le jeu à Scoroo.',
+      missingTitle: 'Jeu introuvable', missingText: 'Ce jeu n’existe plus : son créateur l’a peut-être retiré.', lang: 'English',
+    },
+    en: {
+      loading: 'Loading the game…', free: 'Free', open: 'Open in Scoroo', by: 'Created by {name}', official: 'Official game',
+      players: '{min} to {max} players', player1: '{n} player', playersN: '{n} players',
+      play: 'Get it on Google Play', appstore: 'Download on the App Store', storeSmall: 'Scoroo, score counter',
+      afterAndroid: 'No Scoroo yet? Install it: the game is added automatically the first time you open it.',
+      afterIos: 'No Scoroo yet? Install it, then come back here and tap “Open in Scoroo” (or scan the QR code again).',
+      afterOther: 'Scan this QR code with your phone to add the game to Scoroo.',
+      missingTitle: 'Game not found', missingText: 'This game no longer exists: its creator may have removed it.', lang: 'Français',
+    },
+  };
+
+  const params = new URLSearchParams(location.search);
+  const raw = (params.get('c') || '').trim();
+  const code = /^[A-Za-z0-9]{6}$/.test(raw) ? raw.toUpperCase() : (/^[a-z0-9][a-z0-9-]{2,39}$/.test(raw) ? raw : '');
+  const ua = navigator.userAgent || '';
+  const ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const android = /Android/.test(ua);
+  let lang = (navigator.language || 'fr').toLowerCase().startsWith('fr') ? 'fr' : 'en';
+  let game = null;
+
+  const t = (key, values = {}) => TEXTS[lang][key].replace(/\{(\w+)\}/g, (_, k) => values[k] ?? '');
+  const $ = (id) => document.getElementById(id);
+
+  function storeButtons() {
+    const play = `https://play.google.com/store/apps/details?id=com.scoroo.app${code ? '&referrer=' + encodeURIComponent('game=' + code) : ''}`;
+    const apple = `https://apps.apple.com/app/id${APP_STORE_ID}`;
+    const button = (href, label) => `<a class="btn store" href="${href}"><span>${label}<small>${t('storeSmall')}</small></span></a>`;
+    if (android) return button(play, t('play'));
+    if (ios) return button(apple, t('appstore'));
+    return button(apple, t('appstore')) + button(play, t('play'));
+  }
+
+  // Valeurs typées de l'API REST de Firestore.
+  function value(v) {
+    if (!v) return undefined;
+    if ('stringValue' in v) return v.stringValue;
+    if ('integerValue' in v) return Number(v.integerValue);
+    if ('doubleValue' in v) return v.doubleValue;
+    if ('booleanValue' in v) return v.booleanValue;
+    return undefined;
+  }
+
+  function render() {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    $('lang').textContent = t('lang');
+    $('stores').innerHTML = storeButtons();
+    $('stores2').innerHTML = storeButtons();
+    $('after').textContent = android ? t('afterAndroid') : ios ? t('afterIos') : t('afterOther');
+    $('open').hidden = !(android || ios);
+    $('open').href = `scoroo://game?code=${encodeURIComponent(code)}`;
+    if (!game) return;
+    const min = game.minPlayers || 1, max = game.maxPlayers || min;
+    $('players').textContent = min === max ? t(min === 1 ? 'player1' : 'playersN', { n: min }) : t('players', { min, max });
+    $('by').innerHTML = game.official
+      ? `<span class="official"><span class="material-symbols-rounded" style="font-size:18px">verified</span>${t('official')}</span>`
+      : '';
+    if (!game.official && game.authorName) $('by').textContent = t('by', { name: game.authorName });
+  }
+
+  function show(id) {
+    for (const s of ['loading', 'game', 'missing']) $(s).hidden = s !== id;
+  }
+
+  async function load() {
+    if (!code) { show('missing'); return; }
+    try {
+      const url = `https://firestore.googleapis.com/v1/projects/${PROJECT}/databases/(default)/documents/games/${encodeURIComponent(code)}`;
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(response.status);
+      const f = (await response.json()).fields || {};
+      game = {
+        name: value(f.name) || '', icon: value(f.icon) || 0, color: value(f.color) || 0, image: value(f.image),
+        minPlayers: value(f.minPlayers), maxPlayers: value(f.maxPlayers), authorName: value(f.authorName), official: value(f.official) === true,
+      };
+      if (!game.name) throw new Error('vide');
+    } catch (e) {
+      show('missing');
+      render();
+      return;
+    }
+    const tint = COLORS[Math.min(Math.max(game.color, 0), COLORS.length - 1)];
+    document.documentElement.style.setProperty('--tint', tint);
+    const logo = $('logo');
+    if (game.image) {
+      const img = document.createElement('img');
+      img.alt = '';
+      img.src = 'data:image/png;base64,' + game.image;
+      logo.appendChild(img);
+    } else {
+      const icon = document.createElement('span');
+      icon.className = 'material-symbols-rounded';
+      icon.textContent = ICONS[Math.min(Math.max(game.icon, 0), ICONS.length - 1)];
+      logo.appendChild(icon);
+    }
+    $('name').textContent = game.name;
+    document.title = `${game.name} · Scoroo`;
+    show('game');
+    render();
+  }
+
+  $('lang').addEventListener('click', () => { lang = lang === 'fr' ? 'en' : 'fr'; render(); });
+  render();
+  load();
+</script>
+</body>
+</html>
