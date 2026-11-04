@@ -1,0 +1,14 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.scoroo.app",
+      "sha256_cert_fingerprints": [
+        "3D:A6:7B:E3:94:F6:2A:48:C5:D5:76:FB:A5:35:E8:DE:B4:C6:60:F2:7A:18:08:54:9D:86:E7:05:F3:29:E0:8C",
+        "B0:3A:5E:3A:ED:DA:48:3D:53:9A:73:B3:87:6D:DB:C5:D1:1A:D7:FC:5D:AF:1F:51:DF:F4:2A:3A:27:D2:FA:9F",
+        "6D:F0:76:5D:31:1E:48:2D:C2:7A:B1:AE:35:EA:77:0A:3B:D0:65:99:C6:B8:78:59:37:CF:49:7B:94:C6:12:1E"
+      ]
+    }
+  }
+]
