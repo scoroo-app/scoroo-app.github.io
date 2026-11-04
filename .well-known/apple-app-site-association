@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["F5U9NGGQ78.com.scoroo.app"],
+        "components": [{ "/": "/g/*" }, { "/": "/g" }]
+      }
+    ]
+  }
+}
