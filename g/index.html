@@ -44,7 +44,7 @@
   .store small { display: block; font-weight: 400; font-size: 12px; opacity: .75; }
   .note { color: var(--muted); font-size: 14px; margin: 16px 0 0; }
   .missing .material-symbols-rounded { font-size: 48px; color: var(--muted); }
-  .lang { display: block; margin: 22px auto 0; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px;
+  .lang { display: block; margin: 22px auto 0; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px;
     cursor: pointer; color: var(--ink); font: inherit; }
   [hidden] { display: none !important; }
 </style>
@@ -73,7 +73,10 @@
     <div id="stores2" style="margin-top:20px"></div>
   </div>
 
-  <button class="lang" id="lang"></button>
+  <select class="lang" id="lang" aria-label="Language">
+    <option value="fr">Français</option><option value="en">English</option><option value="es">Español</option>
+    <option value="de">Deutsch</option><option value="it">Italiano</option>
+  </select>
 </main>
 <script>
   const PROJECT = 'scoroo-fa711';
@@ -103,6 +106,33 @@
       afterOther: 'Scan this QR code with your phone to add the game to Scoroo.',
       missingTitle: 'Game not found', missingText: 'This game no longer exists: its creator may have removed it.', lang: 'Français',
     },
+    es: {
+      loading: 'Cargando el juego…', free: 'Gratis', open: 'Abrir en Scoroo', by: 'Creado por {name}', official: 'Juego oficial',
+      players: 'De {min} a {max} jugadores', player1: '{n} jugador', playersN: '{n} jugadores',
+      play: 'Disponible en Google Play', appstore: 'Descargar en el App Store', storeSmall: 'Scoroo, marcador de puntos',
+      afterAndroid: '¿Aún no tienes Scoroo? Instálalo: el juego se añadirá solo al abrirlo por primera vez.',
+      afterIos: '¿Aún no tienes Scoroo? Instálalo, vuelve aquí y toca «Abrir en Scoroo» (o escanea de nuevo el código QR).',
+      afterOther: 'Escanea este código QR con tu móvil para añadir el juego a Scoroo.',
+      missingTitle: 'Juego no encontrado', missingText: 'Este juego ya no existe: quizá su creador lo ha retirado.', lang: '',
+    },
+    de: {
+      loading: 'Spiel wird geladen…', free: 'Kostenlos', open: 'In Scoroo öffnen', by: 'Erstellt von {name}', official: 'Offizielles Spiel',
+      players: '{min} bis {max} Spieler', player1: '{n} Spieler', playersN: '{n} Spieler',
+      play: 'Jetzt bei Google Play', appstore: 'Laden im App Store', storeSmall: 'Scoroo, Punktezähler',
+      afterAndroid: 'Noch kein Scoroo? Installiere es: Das Spiel wird beim ersten Öffnen automatisch hinzugefügt.',
+      afterIos: 'Noch kein Scoroo? Installiere es, komm hierher zurück und tippe auf „In Scoroo öffnen“ (oder scanne den QR-Code erneut).',
+      afterOther: 'Scanne diesen QR-Code mit deinem Handy, um das Spiel zu Scoroo hinzuzufügen.',
+      missingTitle: 'Spiel nicht gefunden', missingText: 'Dieses Spiel gibt es nicht mehr: Vielleicht hat es sein Ersteller entfernt.', lang: '',
+    },
+    it: {
+      loading: 'Caricamento del gioco…', free: 'Gratis', open: 'Apri in Scoroo', by: 'Creato da {name}', official: 'Gioco ufficiale',
+      players: 'Da {min} a {max} giocatori', player1: '{n} giocatore', playersN: '{n} giocatori',
+      play: 'Disponibile su Google Play', appstore: 'Scarica su App Store', storeSmall: 'Scoroo, segnapunti',
+      afterAndroid: 'Non hai ancora Scoroo? Installalo: il gioco si aggiungerà da solo alla prima apertura.',
+      afterIos: 'Non hai ancora Scoroo? Installalo, torna qui e tocca «Apri in Scoroo» (o scansiona di nuovo il codice QR).',
+      afterOther: 'Scansiona questo codice QR con il telefono per aggiungere il gioco a Scoroo.',
+      missingTitle: 'Gioco non trovato', missingText: 'Questo gioco non esiste più: forse il suo creatore l’ha rimosso.', lang: '',
+    },
   };
 
   const params = new URLSearchParams(location.search);
@@ -111,7 +141,11 @@
   const ua = navigator.userAgent || '';
   const ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   const android = /Android/.test(ua);
-  let lang = (navigator.language || 'fr').toLowerCase().startsWith('fr') ? 'fr' : 'en';
+  // Langue : celle choisie sur le site, sinon celle du navigateur (anglais par défaut).
+  const LANGS = ['fr', 'en', 'es', 'de', 'it'];
+  const saved = (() => { try { return localStorage.getItem('scoroo-lang'); } catch (e) { return null; } })();
+  const browser = (navigator.language || 'fr').slice(0, 2).toLowerCase();
+  let lang = LANGS.includes(saved) ? saved : (LANGS.includes(browser) ? browser : 'en');
   let game = null;
 
   const t = (key, values = {}) => TEXTS[lang][key].replace(/\{(\w+)\}/g, (_, k) => values[k] ?? '');
@@ -139,7 +173,7 @@
   function render() {
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
-    $('lang').textContent = t('lang');
+    $('lang').value = lang;
     $('stores').innerHTML = storeButtons();
     $('stores2').innerHTML = storeButtons();
     $('after').textContent = android ? t('afterAndroid') : ios ? t('afterIos') : t('afterOther');
@@ -195,7 +229,11 @@
     render();
   }
 
-  $('lang').addEventListener('click', () => { lang = lang === 'fr' ? 'en' : 'fr'; render(); });
+  $('lang').addEventListener('change', (e) => {
+    lang = e.target.value;
+    try { localStorage.setItem('scoroo-lang', lang); } catch (err) {}
+    render();
+  });
   render();
   load();
 </script>
