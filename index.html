@@ -113,13 +113,19 @@
   .feature .shot { display: flex; justify-content: center; }
   .feature .shot .phone { position: static; transform: rotate(-3deg); width: 290px; }
   /* Tournois : trois écrans en éventail (tables, tableau, podium), celui du milieu devant. */
-  .fan { position: relative; width: 100%; max-width: 620px; aspect-ratio: 3 / 2; margin: 0 auto; }
-  .feature .shot .fan .phone { position: absolute; width: 31%; top: 34px; border-radius: 20px; transition: transform .25s; }
-  .feature .shot .fan .phone img { border-radius: 20px; }
-  .fan .phone:nth-child(1) { left: 0; transform: rotate(-6deg); }
-  .fan .phone:nth-child(2) { left: 32.5%; top: 0; width: 35%; z-index: 2; transform: none; }
-  .fan .phone:nth-child(3) { right: 0; transform: rotate(6deg); }
-  .feature .shot .fan .phone:hover { z-index: 3; transform: translateY(-8px) rotate(0); }
+  /* Tournois : trois écrans côte à côte sur toute la largeur, celui du milieu un peu plus haut. */
+  .fan { display: grid; grid-template-columns: repeat(3, minmax(0, 340px)); justify-content: center; gap: 28px;
+    margin-top: 44px; align-items: start; }
+  .fan .phone { position: static; width: auto; border-radius: 26px; transition: transform .25s; }
+  .fan .phone img { border-radius: 26px; display: block; width: 100%; }
+  .fan .phone:nth-child(1) { transform: rotate(-3deg) translateY(28px); }
+  .fan .phone:nth-child(3) { transform: rotate(3deg) translateY(28px); }
+  .fan .phone:hover { transform: translateY(-8px); z-index: 2; }
+  @media (max-width: 760px) {
+    /* Téléphone : les écrans défilent de côté, un peu plus grands que la moitié de l'écran. */
+    .fan { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; padding: 10px 4px 24px; margin-top: 28px; justify-content: flex-start; }
+    .fan .phone, .fan .phone:nth-child(1), .fan .phone:nth-child(3) { flex: 0 0 72%; transform: none; scroll-snap-align: center; }
+  }
 
   .feature.rev .shot .phone { transform: rotate(3deg); }
   @media (max-width: 860px) { .feature { grid-template-columns: 1fr; gap: 36px; } .feature.rev .shot { order: 0; } }
@@ -251,7 +257,7 @@
       <p class="lead" data-i18n="createLead"></p>
       <ul class="points" data-points="create" style="--c: #7b61ff"></ul>
     </div>
-    <div class="shot"><div class="phone"><img data-shot="5_yams" alt=""></div></div>
+    <div class="shot"><div class="phone"><img data-shot="create" alt=""></div></div>
   </div>
   <div class="wrap">
     <h3 style="margin-top: 56px" data-i18n="shareTitle"></h3>
@@ -279,20 +285,21 @@
 </section>
 
 <section id="tournois">
-  <div class="wrap feature rev">
+  <!-- Le texte sur deux colonnes, puis les trois écrans en grand sur toute la largeur. -->
+  <div class="wrap feature">
     <div>
       <span class="eyebrow" data-i18n="cupsEyebrow"></span>
       <h2 data-i18n="cupsTitle"></h2>
       <p class="lead" data-i18n="cupsLead"></p>
-      <ul class="points" data-points="cups" style="--c: #e8590c"></ul>
       <div class="chips" data-chips="formats" style="--c: #e8590c"></div>
     </div>
-    <div class="shot">
-      <div class="fan">
-        <div class="phone"><img data-shot="cup_1" alt=""></div>
-        <div class="phone"><img data-shot="cup_2" alt=""></div>
-        <div class="phone"><img data-shot="cup_3" alt=""></div>
-      </div>
+    <ul class="points" data-points="cups" style="--c: #e8590c"></ul>
+  </div>
+  <div class="wrap">
+    <div class="fan">
+      <div class="phone"><img data-shot="cup_1" alt=""></div>
+      <div class="phone"><img data-shot="cup_2" alt=""></div>
+      <div class="phone"><img data-shot="cup_3" alt=""></div>
     </div>
   </div>
 </section>
@@ -387,7 +394,7 @@
       heroLead: 'Le compteur de points de tous vos jeux de cartes, de dés et de société. Scoroo applique les règles, additionne, désigne le gagnant, et vous laisse jouer.',
       heroNote: 'Gratuit, sans compte, hors ligne. Version complète en achat unique, sans abonnement.',
       storeGet: 'Disponible sur', storeApple: 'Télécharger dans',
-      factGames: 'jeux prêts à jouer, et tous ceux que vous créez', factLangs: 'langues : français, anglais, espagnol, allemand, italien', factPrice: '0 €', factFree: 'pour compter les points de tous vos jeux, sans compte ni abonnement', factLocal: 'de vos parties sur votre téléphone',
+      factGames: 'jeux prêts à jouer, et tous ceux que vous créez', factLangs: 'langues : français, anglais, espagnol, allemand, italien', factPrice: '0 €', factFree: 'pour compter les points de tous vos jeux', factLocal: 'de vos parties sur votre téléphone',
       gamesEyebrow: 'Les jeux', gamesTitle: 'Tous vos jeux, un seul carnet de scores',
       gamesLead: 'Chaque jeu a ses vraies règles de comptage, sa saisie adaptée et son fond aux couleurs du jeu. Et s’il manque le vôtre, créez-le.',
       g: {
@@ -498,7 +505,7 @@
       heroLead: 'The score keeper for all your card, dice and board games. Scoroo applies the rules, adds it all up, names the winner, and lets you play.',
       heroNote: 'Free, no account, works offline. Full version as a one-time purchase, no subscription.',
       storeGet: 'Get it on', storeApple: 'Download on the',
-      factGames: 'ready-to-play games, plus all those you create', factLangs: 'languages: English, French, Spanish, German, Italian', factPrice: '€0', factFree: 'to keep score in all your games, no account, no subscription', factLocal: 'of your games stored on your phone',
+      factGames: 'ready-to-play games, plus all those you create', factLangs: 'languages: English, French, Spanish, German, Italian', factPrice: '€0', factFree: 'to keep score in all your games', factLocal: 'of your games stored on your phone',
       gamesEyebrow: 'Games', gamesTitle: 'All your games, one score pad',
       gamesLead: 'Each game has its real scoring rules, the right way to enter points and a background in its colours. And if yours is missing, create it.',
       g: {
@@ -609,7 +616,7 @@
       heroLead: 'El marcador de todos tus juegos de cartas, dados y mesa. Scoroo aplica las reglas, suma, nombra al ganador y te deja jugar.',
       heroNote: 'Gratis, sin cuenta y sin conexión. Versión completa con un pago único, sin suscripción.',
       storeGet: 'Disponible en', storeApple: 'Descárgalo en',
-      factGames: 'juegos listos para jugar, y todos los que crees', factLangs: 'idiomas: español, francés, inglés, alemán, italiano', factPrice: '0 €', factFree: 'para anotar los puntos de todos tus juegos, sin cuenta ni suscripción', factLocal: 'de tus partidas en tu móvil',
+      factGames: 'juegos listos para jugar, y todos los que crees', factLangs: 'idiomas: español, francés, inglés, alemán, italiano', factPrice: '0 €', factFree: 'para anotar los puntos de todos tus juegos', factLocal: 'de tus partidas en tu móvil',
       gamesEyebrow: 'Los juegos', gamesTitle: 'Todos tus juegos, una sola libreta',
       gamesLead: 'Cada juego tiene sus reglas de puntuación reales, su forma de anotar y un fondo con sus colores. Y si falta el tuyo, créalo.',
       g: {
@@ -720,7 +727,7 @@
       heroLead: 'Der Punktezähler für alle eure Karten-, Würfel- und Brettspiele. Scoroo wendet die Regeln an, rechnet zusammen, kürt den Sieger und lässt euch spielen.',
       heroNote: 'Kostenlos, ohne Konto, offline. Vollversion als Einmalkauf, kein Abo.',
       storeGet: 'Jetzt bei', storeApple: 'Laden im',
-      factGames: 'spielfertige Spiele, dazu alle, die ihr erstellt', factLangs: 'Sprachen: Deutsch, Französisch, Englisch, Spanisch, Italienisch', factPrice: '0 €', factFree: 'für die Punkte all eurer Spiele, ohne Konto und ohne Abo', factLocal: 'eurer Spiele bleiben auf dem Handy',
+      factGames: 'spielfertige Spiele, dazu alle, die ihr erstellt', factLangs: 'Sprachen: Deutsch, Französisch, Englisch, Spanisch, Italienisch', factPrice: '0 €', factFree: 'für die Punkte all eurer Spiele', factLocal: 'eurer Spiele bleiben auf dem Handy',
       gamesEyebrow: 'Die Spiele', gamesTitle: 'Alle eure Spiele, ein einziger Block',
       gamesLead: 'Jedes Spiel hat seine echten Wertungsregeln, die passende Eingabe und einen Hintergrund in seinen Farben. Und fehlt eures, erstellt es.',
       g: {
@@ -831,7 +838,7 @@
       heroLead: 'Il segnapunti di tutti i vostri giochi di carte, di dadi e da tavolo. Scoroo applica le regole, somma, proclama il vincitore e vi lascia giocare.',
       heroNote: 'Gratis, senza account, offline. Versione completa con un acquisto unico, senza abbonamento.',
       storeGet: 'Disponibile su', storeApple: 'Scarica su',
-      factGames: 'giochi pronti, più tutti quelli che crei', factLangs: 'lingue: italiano, francese, inglese, spagnolo, tedesco', factPrice: '0 €', factFree: 'per segnare i punti di tutti i tuoi giochi, senza account né abbonamento', factLocal: 'delle tue partite restano sul telefono',
+      factGames: 'giochi pronti, più tutti quelli che crei', factLangs: 'lingue: italiano, francese, inglese, spagnolo, tedesco', factPrice: '0 €', factFree: 'per segnare i punti di tutti i tuoi giochi', factLocal: 'delle tue partite restano sul telefono',
       gamesEyebrow: 'I giochi', gamesTitle: 'Tutti i vostri giochi, un solo taccuino',
       gamesLead: 'Ogni gioco ha le sue vere regole di punteggio, il suo modo di inserire i punti e uno sfondo nei suoi colori. E se manca il vostro, createlo.',
       g: {
