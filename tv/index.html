@@ -55,6 +55,10 @@
   .row { position: absolute; overflow: hidden; display: flex; align-items: center; background: var(--row);
     transition: top .5s cubic-bezier(.65,0,.35,1), background .4s; }
   .row.leader { background: color-mix(in srgb, var(--game) 35%, transparent); }
+  /* Tour par tour : la ligne de celui qui joue, cerclée de blanc, avec « À jouer ». */
+  .row.turn { box-shadow: inset 0 0 0 3px #fff, 0 0 24px rgba(255,255,255,.25); }
+  .row:not(.leader).turn { background: rgba(255,255,255,.14); }
+  .name small b { color: #ffd166; font-weight: 800; }
   .rank { color: var(--muted); font-weight: 800; flex: none; }
   .avatar { border-radius: 50%; display: grid; place-items: center; font-weight: 900; flex: none; }
   .name { flex: 1; min-width: 0; font-weight: 800; line-height: 1.1; }
@@ -195,6 +199,7 @@
         height: h + 'px', borderRadius: h * 0.24 + 'px', padding: '0 ' + h * 0.22 + 'px',
       });
       el.classList.toggle('leader', !!p.leader);
+      el.classList.toggle('turn', !!p.turn);
       const [rank, avatar, name, crown, delta, score] = el.children;
       // Mölkky : les ratés consécutifs, en points (rouges quand le lancer est raté).
       const misses = name.children[1];
@@ -211,7 +216,9 @@
       });
       name.firstChild.textContent = p.name || '';
       name.firstChild.style.fontSize = h * 0.36 + 'px';
-      name.lastChild.textContent = [p.dealer ? data.dealerLabel : null, p.note].filter(Boolean).join(' · ');
+      const sub = [p.dealer ? data.dealerLabel : null, p.note].filter(Boolean).map(esc);
+      if (p.turn) sub.unshift('<b>▶ ' + esc(data.turnLabel || '') + '</b>');
+      name.lastChild.innerHTML = sub.join(' · ');
       name.lastChild.style.fontSize = h * 0.18 + 'px';
       Object.assign(crown.style, { fontSize: h * 0.38 + 'px', margin: '0 ' + h * 0.15 + 'px' });
       delta.textContent = p.delta || '';
@@ -226,7 +233,7 @@
   }
 
   // Pastilles sous le titre : objectif, donneur, cartes de la manche.
-  const ICONS = { target: '🏁', dealer: '✋', start: '▶️', cards: '🃏' };
+  const ICONS = { target: '🏁', dealer: '✋', start: '▶️', cards: '🃏', turn: '👉' };
   function renderInfo(info) {
     $('info').innerHTML = info.map((i) => '<span class="pill"><i>' + (ICONS[i.icon] || 'ℹ️') + '</i>' + esc(i.text) + '</span>').join('');
   }
@@ -348,6 +355,21 @@
       side: [
         { left: '1. Paul & Zoé', right: '1 V · +499' }, { left: '2. Rose & Jules', right: '1 V · +483' },
         { left: '3. Sam & Noé', right: '1 V · +319' }, { left: '4. Nathan & Manon', right: '1 V · +204' },
+      ],
+    });
+    return;
+  }
+  // Aperçu d'un jeu au tour par tour (Mölkky) : ?demo=molkky.
+  if (/[?&]demo=molkky\b/.test(location.search)) {
+    show({
+      kind: 'game', title: 'Mölkky au parc', subtitle: 'Mölkky · Tour 4', color: '#16a34a', initial: 'M', pattern: 'molkky',
+      footer: 'Compté avec Scoroo', dealerLabel: 'Donne', turnLabel: 'À jouer', banner: null,
+      info: [{ icon: 'turn', text: 'À Sam de jouer' }, { icon: 'target', text: 'Objectif 50 pts' }],
+      players: [
+        { i: 1, name: 'Léa', initial: 'L', color: '#e11d48', score: 38, rank: '1er', leader: true, misses: 0, delta: '+9' },
+        { i: 2, name: 'Sam', initial: 'S', color: '#0b3a6e', score: 27, rank: '2e', turn: true, misses: 1, delta: 'Raté' },
+        { i: 0, name: 'Arthur', initial: 'A', color: '#d97706', score: 21, rank: '3e', misses: 0, delta: '+12' },
+        { i: 3, name: 'Noé', initial: 'N', color: '#7c3aed', score: 14, rank: '4e', misses: 2, delta: 'Raté' },
       ],
     });
     return;
