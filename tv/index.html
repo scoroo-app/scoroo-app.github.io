@@ -52,7 +52,7 @@
   .hrow .up { color: #7ee2a8; } .hrow .down { color: #ff9c9c; } .hrow .zero { color: rgba(255,255,255,.5); }
   .hhead { height: calc(var(--u) * 1.4); margin-bottom: calc(var(--u) * .2); }
   .hhead .avatar { margin: 0 auto; width: calc(var(--u) * 1.1); height: calc(var(--u) * 1.1); font-size: calc(var(--u) * .5); }
-  .row { position: absolute; left: 0; right: 0; overflow: hidden; display: flex; align-items: center; background: var(--row);
+  .row { position: absolute; overflow: hidden; display: flex; align-items: center; background: var(--row);
     transition: top .5s cubic-bezier(.65,0,.35,1), background .4s; }
   .row.leader { background: color-mix(in srgb, var(--game) 35%, transparent); }
   .rank { color: var(--muted); font-weight: 800; flex: none; }
@@ -60,6 +60,9 @@
   .name { flex: 1; min-width: 0; font-weight: 800; line-height: 1.1; }
   .name span { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .name small { display: block; color: rgba(255,255,255,.55); font-weight: 600; }
+  .name .misses { display: flex; gap: 4px; margin-top: 2px; font-style: normal; }
+  .name .misses:empty { display: none; }
+  .name .misses b { display: block; border-radius: 50%; }
   .crown { color: var(--gold); transition: transform .6s cubic-bezier(.34,1.56,.64,1); transform: scale(0); }
   .leader .crown { transform: scale(1); }
   .delta { font-weight: 700; }
@@ -159,11 +162,18 @@
     $('footer').textContent = data.footer || '';
     $('banner').textContent = data.banner || '';
     renderInfo(data.info || []);
-    renderHistory(data.history);
-
     const players = data.players || [];
+    // Au-delà de 6 joueurs, le classement prend toute la largeur (sur deux colonnes).
+    renderHistory(players.length <= 6 ? data.history : null);
+
     const height = rowsEl.clientHeight || window.innerHeight * 0.7;
-    const rowH = Math.max(36, Math.min(height / Math.max(players.length, 1), window.innerWidth / 4, 220));
+    const width = rowsEl.clientWidth || window.innerWidth * 0.9;
+    // Beaucoup de joueurs : deux colonnes, pour que tout tienne au-dessus du bas de l'écran.
+    const columns = players.length > 5 && width >= 640 ? 2 : 1;
+    const perColumn = Math.ceil(players.length / columns);
+    const gap = 16;
+    const columnW = (width - gap * (columns - 1)) / columns;
+    const rowH = Math.max(20, Math.min(height / Math.max(perColumn, 1), columnW / 4, 220));
     const seen = new Set();
     players.forEach((p, pos) => {
       seen.add(p.i);
@@ -171,9 +181,9 @@
       if (!row) {
         const el = document.createElement('div');
         el.className = 'row';
-        el.innerHTML = '<div class="rank"></div><div class="avatar"></div><div class="name"><span></span><small></small></div>' +
+        el.innerHTML = '<div class="rank"></div><div class="avatar"></div><div class="name"><span></span><i class="misses"></i><small></small></div>' +
           '<div class="crown">♛</div><div class="delta"></div><div class="score">0</div>';
-        el.style.top = pos * rowH + 'px';
+        el.style.top = (pos % perColumn) * rowH + 'px';
         rowsEl.appendChild(el);
         row = { el, score: 0 };
         rows.set(p.i, row);
@@ -181,10 +191,17 @@
       const h = rowH * 0.9;
       const el = row.el;
       Object.assign(el.style, {
-        top: pos * rowH + 'px', height: h + 'px', borderRadius: h * 0.24 + 'px', padding: '0 ' + h * 0.22 + 'px',
+        top: (pos % perColumn) * rowH + 'px', left: Math.floor(pos / perColumn) * (columnW + gap) + 'px', width: columnW + 'px',
+        height: h + 'px', borderRadius: h * 0.24 + 'px', padding: '0 ' + h * 0.22 + 'px',
       });
       el.classList.toggle('leader', !!p.leader);
       const [rank, avatar, name, crown, delta, score] = el.children;
+      // Mölkky : les ratés consécutifs, en points (rouges quand le lancer est raté).
+      const misses = name.children[1];
+      misses.innerHTML = typeof p.misses === 'number'
+        ? [0, 1, 2].map((m) => '<b style="width:' + h * 0.13 + 'px;height:' + h * 0.13 + 'px;background:' +
+            (m < p.misses ? '#ff6b6b' : 'rgba(255,255,255,.24)') + '"></b>').join('')
+        : '';
       rank.textContent = p.rank || '';
       Object.assign(rank.style, { width: h * 0.75 + 'px', fontSize: h * 0.3 + 'px' });
       avatar.textContent = p.initial || '?';
