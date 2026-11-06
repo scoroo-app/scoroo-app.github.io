@@ -62,6 +62,7 @@
   .store { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 16px; background: #fff; color: var(--ink); text-decoration: none; font-weight: 700; font-size: 16px; box-shadow: 0 10px 30px -12px rgba(0,0,0,.5); transition: transform .15s; }
   .store:hover { transform: translateY(-2px); }
   .store .ms { font-size: 26px; }
+  .store .logo { width: 26px; height: 26px; flex: none; }
   .store small { display: block; font-weight: 500; font-size: 12px; color: var(--muted); }
   .hero .note { color: rgba(255,255,255,.7); font-size: 14.5px; margin-bottom: 64px; }
   .phones { position: relative; height: 560px; }
@@ -89,21 +90,37 @@
 
   /* Jeux */
   .games { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; margin-top: 34px; }
-  .game { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 18px; position: relative; overflow: hidden; transition: transform .15s, box-shadow .15s; }
-  .game:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -24px var(--c); }
-  .game::after { content: ''; position: absolute; right: -40px; top: -40px; width: 130px; height: 130px; border-radius: 50%; background: var(--c); opacity: .09; }
-  .game .ic { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; background: color-mix(in srgb, var(--c) 14%, white); color: var(--c); margin-bottom: 12px; }
+  /* Carte d'un jeu : liseré de sa couleur en haut, léger dégradé, pictogramme en relief. */
+  .game { background: linear-gradient(170deg, color-mix(in srgb, var(--c) 8%, var(--card)) 0%, var(--card) 60%);
+    border: 1px solid var(--line); border-radius: 22px; padding: 22px 18px 18px; position: relative; overflow: hidden;
+    transition: transform .15s, box-shadow .15s, border-color .15s; }
+  .game::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 4px;
+    background: linear-gradient(90deg, var(--c), color-mix(in srgb, var(--c) 40%, white)); }
+  .game:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--c) 35%, var(--line)); box-shadow: 0 18px 40px -24px var(--c); }
+  .game .ic { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; color: #fff; margin-bottom: 14px;
+    background: linear-gradient(145deg, color-mix(in srgb, var(--c) 75%, white), var(--c));
+    box-shadow: 0 8px 18px -8px var(--c); }
   .game .ic .ms { font-size: 30px; }
   .game h3 { font-size: 19px; }
   .game p { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
   .game .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-  .game .tags span { font-size: 12.5px; font-weight: 600; background: var(--soft); border-radius: 999px; padding: 3px 9px; color: var(--ink); }
+  .game .tags span { font-size: 12.5px; font-weight: 600; background: color-mix(in srgb, var(--c) 10%, white); border-radius: 999px; padding: 3px 9px;
+    color: color-mix(in srgb, var(--c) 70%, var(--ink)); }
 
   /* Blocs de fonction (texte + capture) */
   .feature { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
   .feature.rev .shot { order: -1; }
   .feature .shot { display: flex; justify-content: center; }
   .feature .shot .phone { position: static; transform: rotate(-3deg); width: 290px; }
+  /* Tournois : trois écrans en éventail (tables, tableau, podium), celui du milieu devant. */
+  .fan { position: relative; width: 100%; max-width: 620px; aspect-ratio: 3 / 2; margin: 0 auto; }
+  .feature .shot .fan .phone { position: absolute; width: 31%; top: 34px; border-radius: 20px; transition: transform .25s; }
+  .feature .shot .fan .phone img { border-radius: 20px; }
+  .fan .phone:nth-child(1) { left: 0; transform: rotate(-6deg); }
+  .fan .phone:nth-child(2) { left: 32.5%; top: 0; width: 35%; z-index: 2; transform: none; }
+  .fan .phone:nth-child(3) { right: 0; transform: rotate(6deg); }
+  .feature .shot .fan .phone:hover { z-index: 3; transform: translateY(-8px) rotate(0); }
+
   .feature.rev .shot .phone { transform: rotate(3deg); }
   @media (max-width: 860px) { .feature { grid-template-columns: 1fr; gap: 36px; } .feature.rev .shot { order: 0; } }
   .points { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 14px; }
@@ -196,7 +213,7 @@
     <div class="facts">
       <div class="fact"><b>13</b><span data-i18n="factGames"></span></div>
       <div class="fact"><b>5</b><span data-i18n="factLangs"></span></div>
-      <div class="fact"><b>0 €</b><span data-i18n="factFree"></span></div>
+      <div class="fact"><b data-i18n="factPrice"></b><span data-i18n="factFree"></span></div>
       <div class="fact"><b>100 %</b><span data-i18n="factLocal"></span></div>
     </div>
     <div class="video">
@@ -270,7 +287,13 @@
       <ul class="points" data-points="cups" style="--c: #e8590c"></ul>
       <div class="chips" data-chips="formats" style="--c: #e8590c"></div>
     </div>
-    <div class="shot"><div class="phone"><img data-shot="7_tv" alt=""></div></div>
+    <div class="shot">
+      <div class="fan">
+        <div class="phone"><img data-shot="cup_1" alt=""></div>
+        <div class="phone"><img data-shot="cup_2" alt=""></div>
+        <div class="phone"><img data-shot="cup_3" alt=""></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -364,7 +387,7 @@
       heroLead: 'Le compteur de points de tous vos jeux de cartes, de dés et de société. Scoroo applique les règles, additionne, désigne le gagnant, et vous laisse jouer.',
       heroNote: 'Gratuit, sans compte, hors ligne. Version complète en achat unique, sans abonnement.',
       storeGet: 'Disponible sur', storeApple: 'Télécharger dans',
-      factGames: 'jeux prêts à jouer, et tous ceux que vous créez', factLangs: 'langues : français, anglais, espagnol, allemand, italien', factFree: 'pour compter les points, sans publicité pendant la partie', factLocal: 'de vos parties sur votre téléphone',
+      factGames: 'jeux prêts à jouer, et tous ceux que vous créez', factLangs: 'langues : français, anglais, espagnol, allemand, italien', factPrice: '0 €', factFree: 'pour compter les points de tous vos jeux, sans compte ni abonnement', factLocal: 'de vos parties sur votre téléphone',
       gamesEyebrow: 'Les jeux', gamesTitle: 'Tous vos jeux, un seul carnet de scores',
       gamesLead: 'Chaque jeu a ses vraies règles de comptage, sa saisie adaptée et son fond aux couleurs du jeu. Et s’il manque le vôtre, créez-le.',
       g: {
@@ -375,7 +398,7 @@
         skyjo: ['Skyjo', 'Somme des cartes, finisseur doublé s’il n’a pas le plus petit score, fin à 100.', ['Le plus bas gagne']],
         flip7: ['Flip 7', 'Points de la manche et bonus de 15 pour un Flip 7. Premier à 200.', ['Bonus']],
         skull: ['Skull King', 'Paris en début de manche, plis et bonus à la fin. Comptage classique ou Rascal, butin.', ['Paris', '10 manches']],
-        wonders: ['7 Wonders', 'Feuille officielle avec Leaders, Cities, Armada, Babel, Edifice. Tirage des merveilles.', ['Extensions', 'Jusqu’à 8']],
+        wonders: ['7 Wonders', 'Feuille officielle avec Leaders, Cities, Armada, Edifice. Tirage des merveilles.', ['Extensions', 'Jusqu’à 8']],
         duel: ['7 Wonders Duel', 'Pantheon et Agora, victoires militaire, scientifique et politique immédiates.', ['2 joueurs']],
         akropolis: ['Akropolis', 'Quartiers, places et pierres, avec le départage officiel.', ['Feuille']],
         molkky: ['Mölkky', 'Touchez les quilles tombées sur la pyramide. Exactement 50, retour à 25, trois ratés. En équipes aussi.', ['Pyramide', 'Équipes']],
@@ -475,7 +498,7 @@
       heroLead: 'The score keeper for all your card, dice and board games. Scoroo applies the rules, adds it all up, names the winner, and lets you play.',
       heroNote: 'Free, no account, works offline. Full version as a one-time purchase, no subscription.',
       storeGet: 'Get it on', storeApple: 'Download on the',
-      factGames: 'ready-to-play games, plus all those you create', factLangs: 'languages: English, French, Spanish, German, Italian', factFree: 'to keep score, with no ads during a game', factLocal: 'of your games stored on your phone',
+      factGames: 'ready-to-play games, plus all those you create', factLangs: 'languages: English, French, Spanish, German, Italian', factPrice: '€0', factFree: 'to keep score in all your games, no account, no subscription', factLocal: 'of your games stored on your phone',
       gamesEyebrow: 'Games', gamesTitle: 'All your games, one score pad',
       gamesLead: 'Each game has its real scoring rules, the right way to enter points and a background in its colours. And if yours is missing, create it.',
       g: {
@@ -486,7 +509,7 @@
         skyjo: ['Skyjo', 'Card totals, finisher doubled if not lowest, game ends at 100.', ['Lowest wins']],
         flip7: ['Flip 7', 'Round points and a 15-point bonus for a Flip 7. First to 200.', ['Bonus']],
         skull: ['Skull King', 'Bids at the start of the round, tricks and bonuses at the end. Classic or Rascal scoring, loot.', ['Bids', '10 rounds']],
-        wonders: ['7 Wonders', 'Official sheet with Leaders, Cities, Armada, Babel, Edifice. Wonder draw.', ['Expansions', 'Up to 8']],
+        wonders: ['7 Wonders', 'Official sheet with Leaders, Cities, Armada, Edifice. Wonder draw.', ['Expansions', 'Up to 8']],
         duel: ['7 Wonders Duel', 'Pantheon and Agora, immediate military, science and political victories.', ['2 players']],
         akropolis: ['Akropolis', 'Districts, plazas and stones, with the official tie-break.', ['Sheet']],
         molkky: ['Mölkky', 'Tap the fallen pins on the pyramid. Exactly 50, back to 25, three misses. In teams too.', ['Pyramid', 'Teams']],
@@ -586,7 +609,7 @@
       heroLead: 'El marcador de todos tus juegos de cartas, dados y mesa. Scoroo aplica las reglas, suma, nombra al ganador y te deja jugar.',
       heroNote: 'Gratis, sin cuenta y sin conexión. Versión completa con un pago único, sin suscripción.',
       storeGet: 'Disponible en', storeApple: 'Descárgalo en',
-      factGames: 'juegos listos para jugar, y todos los que crees', factLangs: 'idiomas: español, francés, inglés, alemán, italiano', factFree: 'para anotar, sin anuncios durante la partida', factLocal: 'de tus partidas en tu móvil',
+      factGames: 'juegos listos para jugar, y todos los que crees', factLangs: 'idiomas: español, francés, inglés, alemán, italiano', factPrice: '0 €', factFree: 'para anotar los puntos de todos tus juegos, sin cuenta ni suscripción', factLocal: 'de tus partidas en tu móvil',
       gamesEyebrow: 'Los juegos', gamesTitle: 'Todos tus juegos, una sola libreta',
       gamesLead: 'Cada juego tiene sus reglas de puntuación reales, su forma de anotar y un fondo con sus colores. Y si falta el tuyo, créalo.',
       g: {
@@ -597,7 +620,7 @@
         skyjo: ['Skyjo', 'Suma de cartas, el que cierra dobla si no tiene la menor, fin a 100.', ['Gana el más bajo']],
         flip7: ['Flip 7', 'Puntos de la ronda y bonus de 15 por un Flip 7. El primero a 200.', ['Bonus']],
         skull: ['Skull King', 'Apuestas al principio de la ronda, bazas y bonus al final. Puntuación clásica o Rascal, botín.', ['Apuestas', '10 rondas']],
-        wonders: ['7 Wonders', 'Hoja oficial con Leaders, Cities, Armada, Babel, Edifice. Sorteo de maravillas.', ['Expansiones', 'Hasta 8']],
+        wonders: ['7 Wonders', 'Hoja oficial con Leaders, Cities, Armada, Edifice. Sorteo de maravillas.', ['Expansiones', 'Hasta 8']],
         duel: ['7 Wonders Duel', 'Pantheon y Agora, victorias militar, científica y política inmediatas.', ['2 jugadores']],
         akropolis: ['Akropolis', 'Barrios, plazas y piedras, con el desempate oficial.', ['Hoja']],
         molkky: ['Mölkky', 'Toca los bolos caídos en la pirámide. Exactamente 50, vuelta a 25, tres fallos. También por equipos.', ['Pirámide', 'Equipos']],
@@ -697,7 +720,7 @@
       heroLead: 'Der Punktezähler für alle eure Karten-, Würfel- und Brettspiele. Scoroo wendet die Regeln an, rechnet zusammen, kürt den Sieger und lässt euch spielen.',
       heroNote: 'Kostenlos, ohne Konto, offline. Vollversion als Einmalkauf, kein Abo.',
       storeGet: 'Jetzt bei', storeApple: 'Laden im',
-      factGames: 'spielfertige Spiele, dazu alle, die ihr erstellt', factLangs: 'Sprachen: Deutsch, Französisch, Englisch, Spanisch, Italienisch', factFree: 'zum Punktezählen, ohne Werbung während des Spiels', factLocal: 'eurer Spiele bleiben auf dem Handy',
+      factGames: 'spielfertige Spiele, dazu alle, die ihr erstellt', factLangs: 'Sprachen: Deutsch, Französisch, Englisch, Spanisch, Italienisch', factPrice: '0 €', factFree: 'für die Punkte all eurer Spiele, ohne Konto und ohne Abo', factLocal: 'eurer Spiele bleiben auf dem Handy',
       gamesEyebrow: 'Die Spiele', gamesTitle: 'Alle eure Spiele, ein einziger Block',
       gamesLead: 'Jedes Spiel hat seine echten Wertungsregeln, die passende Eingabe und einen Hintergrund in seinen Farben. Und fehlt eures, erstellt es.',
       g: {
@@ -708,7 +731,7 @@
         skyjo: ['Skyjo', 'Kartensumme, Beender verdoppelt, wenn er nicht der Niedrigste ist, Ende bei 100.', ['Niedrigster gewinnt']],
         flip7: ['Flip 7', 'Rundenpunkte und 15 Bonuspunkte für einen Flip 7. Wer zuerst 200 hat.', ['Bonus']],
         skull: ['Skull King', 'Gebote zu Rundenbeginn, Stiche und Boni am Ende. Klassische oder Rascal-Wertung, Beute.', ['Gebote', '10 Runden']],
-        wonders: ['7 Wonders', 'Offizielles Blatt mit Leaders, Cities, Armada, Babel, Edifice. Auslosung der Weltwunder.', ['Erweiterungen', 'Bis 8']],
+        wonders: ['7 Wonders', 'Offizielles Blatt mit Leaders, Cities, Armada, Edifice. Auslosung der Weltwunder.', ['Erweiterungen', 'Bis 8']],
         duel: ['7 Wonders Duel', 'Pantheon und Agora, sofortiger Militär-, Wissenschafts- und Politiksieg.', ['2 Spieler']],
         akropolis: ['Akropolis', 'Viertel, Plätze und Steine, mit dem offiziellen Gleichstand.', ['Blatt']],
         molkky: ['Mölkky', 'Tippe die gefallenen Kegel auf der Pyramide an. Genau 50, zurück auf 25, drei Fehlwürfe. Auch im Team.', ['Pyramide', 'Teams']],
@@ -808,7 +831,7 @@
       heroLead: 'Il segnapunti di tutti i vostri giochi di carte, di dadi e da tavolo. Scoroo applica le regole, somma, proclama il vincitore e vi lascia giocare.',
       heroNote: 'Gratis, senza account, offline. Versione completa con un acquisto unico, senza abbonamento.',
       storeGet: 'Disponibile su', storeApple: 'Scarica su',
-      factGames: 'giochi pronti, più tutti quelli che crei', factLangs: 'lingue: italiano, francese, inglese, spagnolo, tedesco', factFree: 'per segnare i punti, senza pubblicità durante la partita', factLocal: 'delle tue partite restano sul telefono',
+      factGames: 'giochi pronti, più tutti quelli che crei', factLangs: 'lingue: italiano, francese, inglese, spagnolo, tedesco', factPrice: '0 €', factFree: 'per segnare i punti di tutti i tuoi giochi, senza account né abbonamento', factLocal: 'delle tue partite restano sul telefono',
       gamesEyebrow: 'I giochi', gamesTitle: 'Tutti i vostri giochi, un solo taccuino',
       gamesLead: 'Ogni gioco ha le sue vere regole di punteggio, il suo modo di inserire i punti e uno sfondo nei suoi colori. E se manca il vostro, createlo.',
       g: {
@@ -819,7 +842,7 @@
         skyjo: ['Skyjo', 'Somma delle carte, chi chiude raddoppia se non ha il punteggio più basso, fine a 100.', ['Vince il più basso']],
         flip7: ['Flip 7', 'Punti del round e bonus di 15 per un Flip 7. Il primo a 200.', ['Bonus']],
         skull: ['Skull King', 'Scommesse a inizio round, prese e bonus alla fine. Punteggio classico o Rascal, bottino.', ['Scommesse', '10 round']],
-        wonders: ['7 Wonders', 'Foglio ufficiale con Leaders, Cities, Armada, Babel, Edifice. Sorteggio delle meraviglie.', ['Espansioni', 'Fino a 8']],
+        wonders: ['7 Wonders', 'Foglio ufficiale con Leaders, Cities, Armada, Edifice. Sorteggio delle meraviglie.', ['Espansioni', 'Fino a 8']],
         duel: ['7 Wonders Duel', 'Pantheon e Agora, vittorie militare, scientifica e politica immediate.', ['2 giocatori']],
         akropolis: ['Akropolis', 'Quartieri, piazze e pietre, con lo spareggio ufficiale.', ['Foglio']],
         molkky: ['Mölkky', 'Tocca i birilli caduti sulla piramide. Esattamente 50, ritorno a 25, tre errori. Anche a squadre.', ['Piramide', 'Squadre']],
@@ -929,9 +952,12 @@
     const video = document.querySelector('[data-video]');
     const src = `video/scoroo_${lang === 'fr' ? 'fr' : 'en'}.mp4`;
     if (!video.src.endsWith(src)) { video.src = src; video.play().catch(() => {}); }
+  // Logos des stores (pomme d'Apple, triangle de Google Play), dessinés en SVG.
+  const APPLE_LOGO = '<svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.15 6.9c-.95 0-2.42-1.08-3.96-1.04-2.04.03-3.91 1.18-4.96 3.01-2.12 3.68-.55 9.1 1.52 12.09 1.01 1.45 2.2 3.09 3.79 3.04 1.52-.07 2.09-.99 3.93-.99 1.83 0 2.35.99 3.96.95 1.64-.03 2.68-1.48 3.68-2.95 1.16-1.69 1.63-3.32 1.66-3.41-.04-.02-3.18-1.22-3.22-4.86-.03-3.04 2.48-4.49 2.6-4.56-1.43-2.09-3.62-2.32-4.39-2.38-2-.15-3.68 1.09-4.61 1.09zm3.38-3.07c.84-1.01 1.4-2.43 1.25-3.83-1.21.05-2.66.81-3.53 1.82-.78.9-1.46 2.34-1.27 3.71 1.34.1 2.71-.69 3.56-1.7z"/></svg>';
+  const PLAY_LOGO = '<svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#00d7fe" d="M3.6 1.8 13.3 12l-9.7 10.2c-.3-.2-.5-.6-.5-1.1V2.9c0-.5.2-.9.5-1.1z"/><path fill="#00f076" d="M3.6 1.8c.3-.2.8-.2 1.3.1l11.7 6.8-3.3 3.3z"/><path fill="#ff3a44" d="M13.3 12l3.3 3.3-11.7 6.8c-.5.3-1 .3-1.3.1z"/><path fill="#ffd109" d="m16.6 8.7 3.4 2c.9.5.9 1.6 0 2.1l-3.4 2-3.3-2.8z"/></svg>';
     // Boutons des stores : celui du téléphone d'abord.
-    const play = `<a class="store" href="${PLAY}"><span class="ms">shop</span><span><small>${esc(t.storeGet)}</small>Google Play</span></a>`;
-    const apple = `<a class="store" href="${APPLE}"><span class="ms">phone_iphone</span><span><small>${esc(t.storeApple)}</small>App Store</span></a>`;
+    const play = `<a class="store" href="${PLAY}">${PLAY_LOGO}<span><small>${esc(t.storeGet)}</small>Google Play</span></a>`;
+    const apple = `<a class="store" href="${APPLE}">${APPLE_LOGO}<span><small>${esc(t.storeApple)}</small>App Store</span></a>`;
     $$('[data-stores]').forEach((el) => { el.innerHTML = ios ? apple + play : android ? play + apple : play + apple; });
     document.getElementById('games').innerHTML = GAMES.map((g) => {
       const [name, desc, tags] = t.g[g.id];
