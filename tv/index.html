@@ -54,11 +54,10 @@
   .hhead .avatar { margin: 0 auto; width: calc(var(--u) * 1.1); height: calc(var(--u) * 1.1); font-size: calc(var(--u) * .5); }
   .row { position: absolute; overflow: hidden; display: flex; align-items: center; background: var(--row);
     transition: top .5s cubic-bezier(.65,0,.35,1), background .4s; }
-  .row.leader { background: color-mix(in srgb, var(--game) 35%, transparent); }
+  /* Le premier garde le même fond gris que les autres : la couronne le distingue. */
   /* Tour par tour : la ligne de celui qui joue, cerclée de blanc, avec « À jouer ». */
   .row.turn { box-shadow: inset 0 0 0 3px #fff, 0 0 24px rgba(255,255,255,.25); }
-  .row:not(.leader).turn { background: rgba(255,255,255,.14); }
-  .name small b { color: #ffd166; font-weight: 800; }
+  .row.turn { background: rgba(255,255,255,.14); }
   .rank { color: var(--muted); font-weight: 800; flex: none; }
   .avatar { border-radius: 50%; display: grid; place-items: center; font-weight: 900; flex: none; }
   .name { flex: 1; min-width: 0; font-weight: 800; line-height: 1.1; }
@@ -209,16 +208,17 @@
         : '';
       rank.textContent = p.rank || '';
       Object.assign(rank.style, { width: h * 0.75 + 'px', fontSize: h * 0.3 + 'px' });
-      avatar.textContent = p.initial || '?';
+      // Photo ou avatar du joueur (reçu à part, message « photo »), sinon son initiale.
+      const photo = PHOTOS[p.photo];
+      avatar.textContent = photo ? '' : p.initial || '?';
       Object.assign(avatar.style, {
-        width: h * 0.62 + 'px', height: h * 0.62 + 'px', background: p.color || '#555',
+        width: h * 0.62 + 'px', height: h * 0.62 + 'px',
+        background: photo ? 'center / cover no-repeat url(' + photo + '), ' + (p.color || '#555') : p.color || '#555',
         fontSize: h * 0.62 * ((p.initial || '').length > 1 ? 0.36 : 0.46) + 'px', marginRight: h * 0.2 + 'px',
       });
       name.firstChild.textContent = p.name || '';
       name.firstChild.style.fontSize = h * 0.36 + 'px';
-      const sub = [p.dealer ? data.dealerLabel : null, p.note].filter(Boolean).map(esc);
-      if (p.turn) sub.unshift('<b>▶ ' + esc(data.turnLabel || '') + '</b>');
-      name.lastChild.innerHTML = sub.join(' · ');
+      name.lastChild.textContent = [p.dealer ? data.dealerLabel : null, p.note].filter(Boolean).join(' · ');
       name.lastChild.style.fontSize = h * 0.18 + 'px';
       Object.assign(crown.style, { fontSize: h * 0.38 + 'px', margin: '0 ' + h * 0.15 + 'px' });
       delta.textContent = p.delta || '';
@@ -233,9 +233,11 @@
   }
 
   // Pastilles sous le titre : objectif, donneur, cartes de la manche.
-  const ICONS = { target: '🏁', dealer: '✋', start: '▶️', cards: '🃏', turn: '👉' };
+  const ICONS = { target: '🏁', dealer: '✋', start: '▶️', cards: '🃏' };
   function renderInfo(info) {
-    $('info').innerHTML = info.map((i) => '<span class="pill"><i>' + (ICONS[i.icon] || 'ℹ️') + '</i>' + esc(i.text) + '</span>').join('');
+    // « Au tour de … » se lit seul, sans pictogramme.
+    $('info').innerHTML = info.map((i) => '<span class="pill">' + (i.icon === 'turn' ? '' : '<i>' + (ICONS[i.icon] || 'ℹ️') + '</i>') +
+      esc(i.text) + '</span>').join('');
   }
 
   // Historique des manches, à droite sur un écran large : les plus récentes en bas.
@@ -251,7 +253,9 @@
     const cls = (s) => (s.startsWith('+') ? 'up' : s.startsWith('−') ? 'down' : 'zero');
     el.innerHTML = '<h3>' + esc(h.title) + '</h3>' +
       '<div class="hrow hhead"><span></span>' + players.map((p) =>
-        '<span><span class="avatar" style="display:grid;background:' + esc(p.color || '#555') + '">' + esc(p.initial) + '</span></span>').join('') + '</div>' +
+        '<span><span class="avatar" style="display:grid;background:' + (PHOTOS[p.photo]
+          ? 'center / cover no-repeat url(' + PHOTOS[p.photo] + '),' : '') + esc(p.color || '#555') + '">' +
+          (PHOTOS[p.photo] ? '' : esc(p.initial)) + '</span></span>').join('') + '</div>' +
       rows.map((r, k) => '<div class="hrow' + (k === rows.length - 1 ? ' last' : '') + '"><span>' + esc(r.n) + '</span>' +
         (r.scores || []).map((s) => '<span class="' + cls(String(s)) + '">' + esc(s) + '</span>').join('') + '</div>').join('');
     // Ce qui dépasse encore : on retire les manches les plus anciennes.
@@ -329,6 +333,18 @@
 
   let last = { kind: 'idle', waiting: '' };
   const show = (data) => { last = data; render(data); };
+  // Photos des joueurs, envoyées une par une avant le tableau : clé → image (data URL).
+  const PHOTOS = {};
+  const receive = (data) => {
+    if (data && data.type === 'photo') {
+      if (typeof data.key === 'string' && typeof data.data === 'string' && /^[A-Za-z0-9+/=]+$/.test(data.data)) {
+        PHOTOS[data.key] = 'data:image/png;base64,' + data.data;
+        render(last);
+      }
+    } else if (data && data.kind) {
+      show(data);
+    }
+  };
   window.addEventListener('resize', () => render(last));
 
   if (/[?&]demo=final\b/.test(location.search)) {
@@ -363,8 +379,8 @@
   if (/[?&]demo=molkky\b/.test(location.search)) {
     show({
       kind: 'game', title: 'Mölkky au parc', subtitle: 'Mölkky · Tour 4', color: '#16a34a', initial: 'M', pattern: 'molkky',
-      footer: 'Compté avec Scoroo', dealerLabel: 'Donne', turnLabel: 'À jouer', banner: null,
-      info: [{ icon: 'turn', text: 'À Sam de jouer' }, { icon: 'target', text: 'Objectif 50 pts' }],
+      footer: 'Compté avec Scoroo', dealerLabel: 'Donne', banner: null,
+      info: [{ icon: 'turn', text: 'Au tour de Sam' }, { icon: 'target', text: 'Objectif 50 pts' }],
       players: [
         { i: 1, name: 'Léa', initial: 'L', color: '#e11d48', score: 38, rank: '1er', leader: true, misses: 0, delta: '+9' },
         { i: 2, name: 'Sam', initial: 'S', color: '#0b3a6e', score: 27, rank: '2e', turn: true, misses: 1, delta: 'Raté' },
@@ -402,7 +418,12 @@
   }
 
   const context = cast.framework.CastReceiverContext.getInstance();
-  context.addCustomMessageListener(NS, (event) => show(event.data));
+  context.addCustomMessageListener(NS, (event) => receive(event.data));
+  // Chaque téléphone qui se relie (et le premier, dès que la page est prête) reçoit « hello » :
+  // il renvoie alors le tableau des scores, même si ses premiers envois sont arrivés trop tôt.
+  context.addEventListener(cast.framework.system.EventType.SENDER_CONNECTED, (event) => {
+    try { context.sendCustomMessage(NS, event.senderId, { type: 'hello' }); } catch (e) { /* téléphone déjà parti */ }
+  });
   const options = new cast.framework.CastReceiverOptions();
   options.customNamespaces = { [NS]: cast.framework.system.MessageType.JSON };
   options.disableIdleTimeout = true; // pas de vidéo : la page ne doit pas se fermer seule
