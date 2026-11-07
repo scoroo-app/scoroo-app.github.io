@@ -106,6 +106,74 @@
   .others b { color: var(--gold); width: calc(var(--u) * 1.3); }
   .others span:nth-child(2) { flex: 1; min-width: 0; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .others span:last-child { color: var(--muted); font-size: calc(var(--u) * .6); }
+  /* En-tête : minuteur et QR code à droite. */
+  header .titles { flex: 1; }
+  .timer { background: rgba(255,255,255,.1); border-radius: calc(var(--u) * .6); padding: calc(var(--u) * .3) calc(var(--u) * .6);
+    text-align: right; flex: none; }
+  .timer small { display: block; font-size: calc(var(--u) * .55); color: var(--muted); font-weight: 700; }
+  .timer b { font-size: calc(var(--u) * 1.1); font-weight: 900; font-variant-numeric: tabular-nums; }
+  .low { color: #ff8a8a; }
+  .join { display: flex; align-items: center; gap: calc(var(--u) * .4); background: rgba(255,255,255,.1);
+    border-radius: calc(var(--u) * .5); padding: calc(var(--u) * .3); flex: none; }
+  .join div { text-align: right; }
+  .join small { display: block; font-size: calc(var(--u) * .55); color: rgba(255,255,255,.7); font-weight: 700; }
+  .join b { font-size: calc(var(--u) * .8); font-weight: 900; letter-spacing: .08em; }
+  .join svg { width: calc(var(--u) * 2.6); height: calc(var(--u) * 2.6); background: #fff; border-radius: calc(var(--u) * .2);
+    padding: calc(var(--u) * .15); box-sizing: border-box; }
+  /* Avatars : photo, initiale, ou deux membres d'une équipe. */
+  .av { border-radius: 50%; display: grid; place-items: center; font-weight: 900; flex: none; color: #fff; }
+  .team { position: relative; display: block; flex: none; }
+  .team .av { position: absolute; }
+  /* Sortie aux fléchettes et cases remplies d'une feuille. */
+  .co { border: 2px solid var(--gold); border-radius: 999px; text-align: center; line-height: 1.1; flex: none; }
+  .co:empty { display: none; }
+  .co small { display: block; color: var(--gold); font-weight: 800; }
+  .co b { font-weight: 900; white-space: nowrap; }
+  .bar { display: block; height: 4px; border-radius: 4px; background: rgba(255,255,255,.12); margin-top: 3px; overflow: hidden; }
+  .bar i { display: block; height: 100%; border-radius: 4px; }
+  /* Panneau de droite : historique, courbe, Cricket (en fondu quand il change). */
+  .side { flex: 2; min-width: 0; position: relative; }
+  .side > div { position: absolute; inset: 0; background: rgba(255,255,255,.06); border-radius: calc(var(--u) * .8);
+    padding: calc(var(--u) * .6); display: flex; flex-direction: column; overflow: hidden; transition: opacity .6s; }
+  .side h3 { margin: 0 0 calc(var(--u) * .3); color: var(--gold); font-size: calc(var(--u) * .75); }
+  .chart { flex: 1; min-height: 0; }
+  .legend { display: flex; flex-wrap: wrap; gap: calc(var(--u) * .2) calc(var(--u) * .6); margin-top: calc(var(--u) * .4);
+    font-size: calc(var(--u) * .55); color: rgba(255,255,255,.7); font-weight: 700; }
+  .legend span { display: flex; align-items: center; gap: calc(var(--u) * .25); }
+  .legend i { width: calc(var(--u) * .7); height: calc(var(--u) * .18); border-radius: 9px; }
+  .cricket { display: grid; align-items: center; justify-items: center; flex: 1; align-content: start; }
+  .cricket > b { font-size: calc(var(--u) * .7); color: rgba(255,255,255,.7); font-weight: 900; }
+  .mark { position: relative; display: block; }
+  .mark.m1::before, .mark.m2::before, .mark.m2::after { content: ''; position: absolute; left: 12%; right: 12%; top: 50%;
+    height: 14%; margin-top: -7%; border-radius: 9px; background: currentColor; transform: rotate(-45deg); }
+  .mark.m2::after { transform: rotate(45deg); }
+  .mark.m3 { border-radius: 50%; display: grid; place-items: center; color: #fff !important; font-weight: 900; }
+  /* Manche enregistrée : carte au centre pendant trois secondes. */
+  .main { position: relative; }
+  .event { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(.85); opacity: 0; pointer-events: none;
+    min-width: calc(var(--u) * 12); padding: calc(var(--u) * .9) calc(var(--u) * 1.6); border-radius: var(--u); text-align: center;
+    box-shadow: 0 0 calc(var(--u) * 1.5) rgba(0,0,0,.45); transition: opacity .3s, transform .35s cubic-bezier(.34,1.56,.64,1); z-index: 5; }
+  .event.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  .event h2 { margin: 0; font-size: calc(var(--u) * 1.9); font-weight: 900; }
+  .event p { margin: calc(var(--u) * .25) 0 0; font-size: calc(var(--u) * .95); font-weight: 800; }
+  .event p.next { font-size: calc(var(--u) * .8); color: rgba(255,255,255,.7); font-weight: 600; }
+  /* Fin de partie : podium, confettis, meilleur moment et le reste du classement. */
+  .finale { flex: 1; display: flex; flex-direction: column; min-height: 0; min-width: 0; position: relative; }
+  .finale h2 { margin: 0; text-align: center; color: var(--gold); font-size: calc(var(--u) * 1.4); font-weight: 900;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .finale .moment { text-align: center; font-size: calc(var(--u) * .7); color: rgba(255,255,255,.7); font-weight: 600; margin-top: calc(var(--u) * .15);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .finale .podium { flex: 1; padding: 0 calc(var(--u) * 2); margin-top: calc(var(--u) * .4); grid-template-rows: minmax(0, 1fr); overflow: hidden; }
+  .finale .step { height: 100%; animation: rise .8s cubic-bezier(.34,1.56,.64,1) both; }
+  .finale .step .ring { border-radius: 50%; padding: calc(var(--u) * .12); }
+  .finale .step .pts { font-weight: 900; }
+  .finale .step .block { display: grid; place-items: center; padding: 0; line-height: 1; }
+  @keyframes rise { from { opacity: 0; transform: translateY(calc(var(--u) * 3)); } to { opacity: 1; transform: none; } }
+  .rest { display: flex; flex-wrap: wrap; justify-content: center; gap: calc(var(--u) * .3) calc(var(--u) * .5); margin-top: calc(var(--u) * .5); }
+  .rest span { display: flex; align-items: center; gap: calc(var(--u) * .3); background: rgba(255,255,255,.08); border-radius: 999px;
+    padding: calc(var(--u) * .2) calc(var(--u) * .5) calc(var(--u) * .2) calc(var(--u) * .2); font-size: calc(var(--u) * .62); font-weight: 700; }
+  #confetti { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .cup-table .clock { float: right; font-weight: 900; font-variant-numeric: tabular-nums; }
 </style>
 </head>
 <body>
@@ -118,11 +186,15 @@
   <header>
     <div class="badge" id="badge"></div>
     <div class="titles"><div class="title" id="title"></div><div class="subtitle" id="subtitle"></div></div>
+    <div class="timer hidden" id="timer"></div>
+    <div class="join hidden" id="join"></div>
   </header>
   <div class="info" id="info"></div>
   <div class="main">
     <div class="rows" id="rows"></div>
-    <div class="history hidden" id="history"></div>
+    <div class="side hidden" id="side"></div>
+    <div class="finale hidden" id="finale"></div>
+    <div class="event" id="event"></div>
   </div>
   <footer><img src="logo.png" alt=""><span id="footer"></span><span class="banner" id="banner"></span></footer>
 </div>
@@ -144,6 +216,60 @@
   const $ = (id) => document.getElementById(id);
   const rowsEl = $('rows');
   const rows = new Map(); // joueur → { el, score }
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  // Photos des joueurs, envoyées une par une avant le tableau : clé → image (data URL).
+  const PHOTOS = {};
+
+  // Écran d'attente dans la langue de la télé, avant le premier message du téléphone.
+  const WAITING = {
+    fr: 'Ouvrez une partie sur le téléphone', en: 'Open a game on your phone', es: 'Abre una partida en el teléfono',
+    de: 'Öffne ein Spiel auf dem Handy', it: 'Apri una partita sul telefono',
+  };
+  const lang = (navigator.language || 'fr').slice(0, 2).toLowerCase();
+  const waitingText = WAITING[lang] || WAITING.en;
+
+  // Photo, initiale, ou les deux membres d'une équipe (« Léa & Tom »).
+  function avatarHtml(p, size) {
+    const one = (m, s, extra) => {
+      const photo = PHOTOS[m.photo];
+      return '<span class="av" style="width:' + s + 'px;height:' + s + 'px;font-size:' + s * ((m.initial || '').length > 1 ? 0.36 : 0.46) +
+        'px;background:' + (photo ? 'center / cover no-repeat url(' + photo + '), ' : '') + esc(m.color || '#555') + (extra || '') + '">' +
+        (photo ? '' : esc(m.initial || '?')) + '</span>';
+    };
+    const members = p.members || [];
+    if (members.length < 2 || PHOTOS[p.photo]) return one(p, size);
+    const small = size * 0.72;
+    return '<span class="team" style="width:' + size + 'px;height:' + size + 'px">' + one(members[0], small, ';left:0;top:0') +
+      one(members[1], small - size * 0.06, ';right:0;bottom:0;box-shadow:0 0 0 ' + size * 0.03 + 'px var(--bg)') + '</span>';
+  }
+
+  // Décomptes (minuteur de la partie, tables du tournoi) : fin calculée à la réception du message.
+  const ends = {};
+  function endFor(key, remaining) {
+    const known = ends[key];
+    if (!known || known.remaining !== remaining) ends[key] = { remaining, at: Date.now() + remaining * 1000 };
+    return ends[key].at;
+  }
+  function tick() {
+    document.querySelectorAll('[data-end]').forEach((el) => {
+      const left = Math.round((Number(el.dataset.end) - Date.now()) / 1000);
+      el.textContent = left <= 0 ? el.dataset.over || '0:00' : Math.floor(left / 60) + ':' + String(left % 60).padStart(2, '0');
+      el.classList.toggle('low', left < 60);
+    });
+  }
+  setInterval(tick, 1000);
+
+  // QR code reçu en lignes de « 0 » et « 1 » : dessiné en SVG.
+  function qrSvg(lines) {
+    const n = lines.length;
+    let d = '';
+    lines.forEach((line, y) => { for (let x = 0; x < line.length; x++) if (line[x] === '1') d += 'M' + x + ' ' + y + 'h1v1h-1z'; });
+    return '<svg viewBox="0 0 ' + n + ' ' + n + '" shape-rendering="crispEdges"><path d="' + d + '" fill="#000"/></svg>';
+  }
+
+  let lastEvent = null;
+  let eventTimer = null;
+  let finaleFor = null;
 
   function render(data) {
     if (!data || typeof data !== 'object') return;
@@ -153,7 +279,7 @@
     $('game').classList.toggle('hidden', !game);
     $('cup').classList.toggle('hidden', !cup);
     if (cup) { renderCup(data); return; }
-    $('waiting').textContent = data.waiting || '';
+    $('waiting').textContent = data.waiting || waitingText;
     if (!game) return;
     document.documentElement.style.setProperty('--game', data.color || '#0b3a6e');
     const badge = $('badge');
@@ -163,11 +289,23 @@
     $('title').textContent = data.title || '';
     $('subtitle').textContent = data.subtitle || '';
     $('footer').textContent = data.footer || '';
-    $('banner').textContent = data.banner || '';
-    renderInfo(data.info || []);
+    // Le podium affiche déjà le vainqueur en grand.
+    $('banner').textContent = data.podium ? '' : data.banner || '';
+    renderHeader(data);
+    renderInfo(data.podium ? [] : data.info || []);
+    renderEvent(data);
+    const finale = $('finale');
+    finale.classList.toggle('hidden', !data.podium);
+    rowsEl.classList.toggle('hidden', !!data.podium);
+    if (data.podium) {
+      $('side').classList.add('hidden');
+      renderFinale(data);
+      return;
+    }
+    finaleFor = null;
     const players = data.players || [];
     // Au-delà de 6 joueurs, le classement prend toute la largeur (sur deux colonnes).
-    renderHistory(players.length <= 6 ? data.history : null);
+    renderSide(players.length <= 6 ? data : null);
 
     const height = rowsEl.clientHeight || window.innerHeight * 0.7;
     const width = rowsEl.clientWidth || window.innerWidth * 0.9;
@@ -184,8 +322,9 @@
       if (!row) {
         const el = document.createElement('div');
         el.className = 'row';
-        el.innerHTML = '<div class="rank"></div><div class="avatar"></div><div class="name"><span></span><i class="misses"></i><small></small></div>' +
-          '<div class="crown">♛</div><div class="delta"></div><div class="score">0</div>';
+        el.innerHTML = '<div class="rank"></div><div class="avatar"></div>' +
+          '<div class="name"><span></span><i class="misses"></i><small></small><i class="bar hidden"><i></i></i></div>' +
+          '<div class="co"></div><div class="crown">♛</div><div class="delta"></div><div class="score">0</div>';
         el.style.top = (pos % perColumn) * rowH + 'px';
         rowsEl.appendChild(el);
         row = { el, score: 0 };
@@ -199,7 +338,7 @@
       });
       el.classList.toggle('leader', !!p.leader);
       el.classList.toggle('turn', !!p.turn);
-      const [rank, avatar, name, crown, delta, score] = el.children;
+      const [rank, avatar, name, co, crown, delta, score] = el.children;
       // Mölkky : les ratés consécutifs, en points (rouges quand le lancer est raté).
       const misses = name.children[1];
       misses.innerHTML = typeof p.misses === 'number'
@@ -208,18 +347,23 @@
         : '';
       rank.textContent = p.rank || '';
       Object.assign(rank.style, { width: h * 0.75 + 'px', fontSize: h * 0.3 + 'px' });
-      // Photo ou avatar du joueur (reçu à part, message « photo »), sinon son initiale.
-      const photo = PHOTOS[p.photo];
-      avatar.textContent = photo ? '' : p.initial || '?';
-      Object.assign(avatar.style, {
-        width: h * 0.62 + 'px', height: h * 0.62 + 'px',
-        background: photo ? 'center / cover no-repeat url(' + photo + '), ' + (p.color || '#555') : p.color || '#555',
-        fontSize: h * 0.62 * ((p.initial || '').length > 1 ? 0.36 : 0.46) + 'px', marginRight: h * 0.2 + 'px',
-      });
+      avatar.innerHTML = avatarHtml(p, h * 0.62);
+      avatar.style.marginRight = h * 0.2 + 'px';
       name.firstChild.textContent = p.name || '';
       name.firstChild.style.fontSize = h * 0.36 + 'px';
-      name.lastChild.textContent = [p.dealer ? data.dealerLabel : null, p.note].filter(Boolean).join(' · ');
-      name.lastChild.style.fontSize = h * 0.18 + 'px';
+      // Sortie aux fléchettes : en pastille si la ligne est large, sinon sous le nom.
+      const chip = p.checkout && columnW >= h * 6;
+      name.children[2].textContent = [p.dealer ? data.dealerLabel : null, p.note,
+        p.checkout && !chip ? data.checkoutLabel + ' ' + p.checkout : null].filter(Boolean).join(' · ');
+      name.children[2].style.fontSize = h * 0.18 + 'px';
+      // Feuilles : les cases remplies, en barre à la couleur du joueur.
+      const bar = name.children[3];
+      bar.classList.toggle('hidden', typeof p.progress !== 'number');
+      Object.assign(bar.firstChild.style, { width: Math.round((p.progress || 0) * 100) + '%', background: p.color || '#fff' });
+      bar.style.marginRight = h * 0.4 + 'px';
+      co.innerHTML = chip ? '<small>' + esc(data.checkoutLabel) + '</small><b>' + esc(p.checkout) + '</b>' : '';
+      Object.assign(co.style, { fontSize: h * 0.2 + 'px', padding: h * 0.05 + 'px ' + h * 0.16 + 'px', marginRight: h * 0.2 + 'px' });
+      if (co.firstChild) co.firstChild.style.fontSize = h * 0.13 + 'px';
       Object.assign(crown.style, { fontSize: h * 0.38 + 'px', margin: '0 ' + h * 0.15 + 'px' });
       delta.textContent = p.delta || '';
       delta.className = 'delta' + (p.delta ? (p.delta.startsWith('+') ? ' up' : ' down') : '');
@@ -232,6 +376,21 @@
     }
   }
 
+  // En-tête : minuteur de la partie et QR code d'une partie partagée.
+  function renderHeader(data) {
+    const timer = $('timer');
+    timer.classList.toggle('hidden', !data.timer);
+    if (data.timer) {
+      timer.innerHTML = '<small>' + esc(data.timer.label) + '</small><b data-end="' + endFor('game', data.timer.remaining) +
+        '" data-over="' + esc(data.timer.over) + '"></b>';
+    }
+    const join = $('join');
+    const showJoin = data.join && (data.join.qr || []).length && window.innerWidth > window.innerHeight;
+    join.classList.toggle('hidden', !showJoin);
+    if (showJoin) join.innerHTML = '<div><small>' + esc(data.join.text) + '</small><b>' + esc(data.join.code) + '</b></div>' + qrSvg(data.join.qr);
+    tick();
+  }
+
   // Pastilles sous le titre : objectif, donneur, cartes de la manche.
   const ICONS = { target: '🏁', dealer: '✋', start: '▶️', cards: '🃏' };
   function renderInfo(info) {
@@ -240,27 +399,174 @@
       esc(i.text) + '</span>').join('');
   }
 
-  // Historique des manches, à droite sur un écran large : les plus récentes en bas.
-  function renderHistory(h) {
-    const el = $('history');
+  // Manche enregistrée : une carte au centre pendant trois secondes (rien au premier affichage).
+  function renderEvent(data) {
+    const e = data.event;
+    const id = e && typeof e.id === 'number' ? e.id : null;
+    const el = $('event');
+    if (id !== null && lastEvent !== null && id > lastEvent) {
+      el.style.background = 'linear-gradient(135deg, color-mix(in srgb, ' + (data.color || '#0b3a6e') + ' 88%, #fff), color-mix(in srgb, ' +
+        (data.color || '#0b3a6e') + ' 55%, #0e1726))';
+      el.innerHTML = '<h2>' + esc(e.title) + '</h2>' + (e.best ? '<p>⭐ ' + esc(e.best) + '</p>' : '') +
+        (e.next ? '<p class="next">' + esc(e.next) + '</p>' : '');
+      el.classList.add('show');
+      clearTimeout(eventTimer);
+      eventTimer = setTimeout(() => el.classList.remove('show'), 3200);
+    }
+    if (data.id !== render.gameId) { lastEvent = null; render.gameId = data.id; }
+    lastEvent = id;
+  }
+
+  // Panneau de droite : la grille du Cricket, ou l'historique et la courbe en alternance.
+  let sideIndex = 0;
+  let sideData = null;
+  setInterval(() => { sideIndex++; if (sideData) renderSide(sideData, true); }, 15000);
+  function renderSide(data, rotating) {
+    const el = $('side');
     const wide = window.innerWidth > window.innerHeight * 1.25;
-    if (!h || !wide || !(h.rows || []).length) { el.classList.add('hidden'); el.innerHTML = ''; return; }
+    const panels = !data ? [] : data.cricket ? ['cricket'] : [data.history && (data.history.rows || []).length ? 'history' : null,
+      data.chart ? 'chart' : null].filter(Boolean);
+    sideData = data;
+    if (!panels.length || !wide) { el.classList.add('hidden'); el.innerHTML = ''; return; }
     el.classList.remove('hidden');
+    const kind = panels[sideIndex % panels.length];
+    const box = document.createElement('div');
+    el.querySelectorAll(':scope > div').forEach((old) => {
+      if (rotating && old.dataset.kind !== kind) { old.style.opacity = '0'; setTimeout(() => old.remove(), 600); } else old.remove();
+    });
+    box.dataset.kind = kind;
+    el.appendChild(box);
+    if (kind === 'history') fillHistory(box, data.history);
+    if (kind === 'chart') fillChart(box, data.chart);
+    if (kind === 'cricket') fillCricket(box, data.cricket);
+    if (rotating) { box.style.opacity = '0'; requestAnimationFrame(() => requestAnimationFrame(() => { box.style.opacity = '1'; })); }
+  }
+
+  // Historique des manches : les plus récentes en bas.
+  function fillHistory(el, h) {
     const players = h.players || [];
     const u = Math.min(window.innerHeight * 0.05, window.innerWidth * 0.028);
-    const fit = Math.max(1, Math.floor((el.clientHeight - u * 3.2) / (u * 1.15)));
-    const rows = h.rows.slice(-fit);
     const cls = (s) => (s.startsWith('+') ? 'up' : s.startsWith('−') ? 'down' : 'zero');
     el.innerHTML = '<h3>' + esc(h.title) + '</h3>' +
-      '<div class="hrow hhead"><span></span>' + players.map((p) =>
-        '<span><span class="avatar" style="display:grid;background:' + (PHOTOS[p.photo]
-          ? 'center / cover no-repeat url(' + PHOTOS[p.photo] + '),' : '') + esc(p.color || '#555') + '">' +
-          (PHOTOS[p.photo] ? '' : esc(p.initial)) + '</span></span>').join('') + '</div>' +
-      rows.map((r, k) => '<div class="hrow' + (k === rows.length - 1 ? ' last' : '') + '"><span>' + esc(r.n) + '</span>' +
+      '<div class="hrow hhead"><span></span>' + players.map((p) => '<span>' + avatarHtml(p, u * 1.1) + '</span>').join('') + '</div>' +
+      (h.rows || []).map((r, k, all) => '<div class="hrow' + (k === all.length - 1 ? ' last' : '') + '"><span>' + esc(r.n) + '</span>' +
         (r.scores || []).map((s) => '<span class="' + cls(String(s)) + '">' + esc(s) + '</span>').join('') + '</div>').join('');
-    // Ce qui dépasse encore : on retire les manches les plus anciennes.
-    let data = el.querySelectorAll('.hrow:not(.hhead)');
+    el.querySelectorAll('.hhead > span > *').forEach((a) => { a.style.margin = '0 auto'; });
+    // Ce qui dépasse : on retire les manches les plus anciennes.
+    const data = el.querySelectorAll('.hrow:not(.hhead)');
     for (let k = 0; el.scrollHeight > el.clientHeight + 1 && k < data.length - 1; k++) data[k].remove();
+  }
+
+  // Courbe des scores : une ligne par joueur, avec un point au bout.
+  function fillChart(el, chart) {
+    el.innerHTML = '<h3>' + esc(chart.title) + '</h3><svg class="chart"></svg><div class="legend">' +
+      (chart.series || []).map((s) => '<span><i style="background:' + esc(s.color) + '"></i>' + esc(s.name) + '</span>').join('') + '</div>';
+    const svg = el.querySelector('svg');
+    const w = svg.clientWidth || 400, h = svg.clientHeight || 200;
+    const all = (chart.series || []).flatMap((s) => s.points || []);
+    if (!all.length) return;
+    let lo = Math.min(0, ...all), hi = Math.max(...all);
+    if (hi - lo < 1) hi = lo + 1;
+    const count = Math.max(...chart.series.map((s) => (s.points || []).length));
+    const pad = 8;
+    const x = (k) => pad + (count <= 1 ? 0 : (w - pad * 2) * k / (count - 1));
+    const y = (v) => pad + (h - pad * 2) - (v - lo) / (hi - lo) * (h - pad * 2);
+    const u = Math.min(window.innerHeight * 0.05, window.innerWidth * 0.028);
+    svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+    svg.innerHTML = '<line x1="0" x2="' + w + '" y1="' + y(0) + '" y2="' + y(0) + '" stroke="rgba(255,255,255,.24)"/>' +
+      chart.series.map((s) => {
+        const pts = s.points || [];
+        if (!pts.length) return '';
+        const last = pts.length - 1;
+        return '<polyline fill="none" stroke="' + esc(s.color) + '" stroke-width="' + Math.max(2, u * 0.12) +
+          '" stroke-linejoin="round" stroke-linecap="round" points="' + pts.map((v, k) => x(k) + ',' + y(v)).join(' ') + '"/>' +
+          '<circle cx="' + x(last) + '" cy="' + y(pts[last]) + '" r="' + u * 0.22 + '" fill="' + esc(s.color) + '" stroke="#fff" stroke-width="' +
+          Math.max(1.5, u * 0.05) + '"/>';
+      }).join('');
+  }
+
+  // Cricket : numéros en colonnes, une ligne par joueur ; « / », « X », puis numéro fermé.
+  function fillCricket(el, c) {
+    const targets = c.targets || [];
+    const list = c.rows || [];
+    const u = Math.min(window.innerHeight * 0.05, window.innerWidth * 0.028);
+    el.innerHTML = '<h3>' + esc(c.title) + '</h3><div class="cricket"></div>';
+    const grid = el.querySelector('.cricket');
+    // Le titre, puis la ligne des numéros et une ligne par joueur, toutes de la même hauteur.
+    const rowH = Math.min(u * 1.6, (el.clientHeight - u * 2.4) / (list.length + 1));
+    const mark = rowH * 0.62;
+    grid.style.gridTemplateColumns = rowH * 1.1 + 'px repeat(' + targets.length + ', minmax(0, 1fr))';
+    grid.style.gridAutoRows = rowH + 'px';
+    grid.innerHTML = '<span></span>' + targets.map((t) => '<b>' + esc(t) + '</b>').join('') + list.map((r) =>
+      '<span style="justify-self:start">' + avatarHtml(r, rowH * 0.8) + '</span>' + (r.marks || []).slice(0, targets.length).map((m) =>
+        '<span class="mark m' + Math.min(3, m) + '" style="width:' + mark + 'px;height:' + mark + 'px;color:' + esc(r.color) +
+        (m >= 3 ? ';background:' + esc(r.color) + ';font-size:' + mark * 0.6 + 'px">✕' : '">') + '</span>').join('')).join('');
+  }
+
+  // Fin de partie : podium des trois premiers, confettis, meilleur moment, puis les autres.
+  function renderFinale(data) {
+    const f = data.podium;
+    const el = $('finale');
+    const places = f.places || [];
+    const shown = new Set(places.map((p) => p.i));
+    const rest = (data.players || []).filter((p) => !shown.has(p.i)).slice(0, 8);
+    const u = Math.min(window.innerHeight * 0.05, window.innerWidth * 0.028);
+    const colors = ['#ffb534', '#b8c2cf', '#d9935e'];
+    el.innerHTML = '<h2>' + esc(f.title) + '</h2>' + (f.highlight ? '<div class="moment">' + esc(f.highlight) + '</div>' : '') +
+      '<div class="podium"></div>' + (rest.length ? '<div class="rest">' + rest.map((p) => '<span>' + avatarHtml(p, u * 1.1) +
+      esc(p.rank) + '  ' + esc(p.name) + '  ·  ' + esc(p.score) + '</span>').join('') + '</div>' : '') + '<canvas id="confetti"></canvas>';
+    const podium = el.querySelector('.podium');
+    const H = podium.clientHeight || window.innerHeight * 0.5;
+    // Même échelle pour les trois marches, calculée sur le premier (le plus haut) : le vainqueur
+    // reste le plus grand, et tout tient au-dessus de sa marche.
+    const head = (k) => u * (1.3 * k + 3.64 * k + 0.25 + (1.05 + 1.3) * 1.3 * Math.max(k, 0.6) + 0.2);
+    let k = 1;
+    while (k > 0.3 && head(k) > H * 0.7) k -= 0.05;
+    const t = Math.max(k, 0.6);
+    const step = (i) => {
+      const p = places[i];
+      if (!p) return '<div></div>';
+      const first = i === 0;
+      const block = H * [0.3, 0.21, 0.14][i];
+      return '<div class="step" style="animation-delay:' + (2 - i) * 0.25 + 's">' + (first ? '<div style="font-size:' + u * 1.3 * k + 'px">🏆</div>' : '') +
+        '<span class="ring" style="background:' + colors[i] + '">' + avatarHtml(p, u * (first ? 3.4 : 2.6) * k) + '</span>' +
+        '<div class="who" style="font-size:' + u * (first ? 1.05 : 0.85) * t + 'px;margin-top:' + u * 0.25 + 'px">' + esc(p.name) + '</div>' +
+        '<div class="pts" style="font-size:' + u * (first ? 1.3 : 1.0) * t + 'px;color:' + colors[i] + ';margin-bottom:' + u * 0.2 + 'px">' + esc(p.score) + '</div>' +
+        '<div class="block" style="height:' + block + 'px;font-size:' + Math.min(u * 1.6, block * 0.7) + 'px;background:linear-gradient(' +
+        colors[i] + ', color-mix(in srgb, ' + colors[i] + ' 40%, #0e1726))">' + esc(p.rank || i + 1) + '</div></div>';
+    };
+    podium.innerHTML = step(1) + step(0) + step(2);
+    if (finaleFor !== data.id) { finaleFor = data.id; confetti(el.querySelector('#confetti')); }
+  }
+
+  // Confettis qui tombent pendant six secondes.
+  function confetti(canvas) {
+    if (!canvas || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width = canvas.clientWidth, h = canvas.height = canvas.clientHeight;
+    const colors = ['#ffb534', '#ff6b6b', '#7ee2a8', '#6cb4ff', '#c18bff', '#ffffff'];
+    const bits = Array.from({ length: 90 }, (_, k) => ({ x: Math.random() * w, delay: Math.random() * 0.35, speed: 0.8 + Math.random() * 0.7,
+      size: 5 + Math.random() * 6, color: colors[k % colors.length], k }));
+    const start = performance.now();
+    const frame = (now) => {
+      const t = (now - start) / 6000;
+      ctx.clearRect(0, 0, w, h);
+      if (t >= 1 || !canvas.isConnected) return;
+      const fade = t > 0.8 ? (1 - t) / 0.2 : 1;
+      for (const b of bits) {
+        const p = Math.max(0, Math.min(1, (t - b.delay) / (1 - b.delay))) * b.speed;
+        if (p <= 0) continue;
+        ctx.save();
+        ctx.translate(b.x + Math.sin(p * 9 + b.k) * 18, -20 + p * (h + 40));
+        ctx.rotate(p * 12 + b.k);
+        ctx.globalAlpha = fade;
+        ctx.fillStyle = b.color;
+        ctx.fillRect(-b.size / 2, -b.size * 0.22, b.size, b.size * 0.45);
+        ctx.restore();
+      }
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
   }
 
   // Les scores défilent jusqu'à leur nouvelle valeur, comme dans l'appli.
@@ -277,8 +583,6 @@
     };
     requestAnimationFrame(step);
   }
-
-  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
   // Grand tournoi : une carte par table, puis les prochains matchs et le classement.
   function renderCup(data) {
@@ -316,10 +620,13 @@
       box.style.setProperty('--s', scale);
     }
     box.innerHTML = tables.map((t) =>
-      '<div class="cup-table"><b>' + esc(data.tableLabel) + ' ' + esc(t.table) + '</b>' +
+      '<div class="cup-table"><b>' + esc(data.tableLabel) + ' ' + esc(t.table) +
+      (typeof t.remaining === 'number' ? '<span class="clock" data-end="' + endFor('table' + t.table, t.remaining) +
+        '" data-over="' + esc(data.timeOver) + '"></span>' : '') + '</b>' +
       (t.lines || [[t.a, t.scoreA], [t.b, t.scoreB]]).map((l) =>
         '<div class="cup-line"><span>' + esc(l[0]) + '</span><span>' + esc(l[1]) + '</span></div>').join('') +
       '</div>').join('');
+    tick();
     let panel = '';
     if ((data.waiting || []).length) {
       panel += '<h3>' + esc(data.waitingTitle) + '</h3>' + data.waiting.map((w) => '<p>' + esc(w) + '</p>').join('') + '<br>';
@@ -331,10 +638,8 @@
     $('cup-panel').innerHTML = panel;
   }
 
-  let last = { kind: 'idle', waiting: '' };
+  let last = { kind: 'idle' };
   const show = (data) => { last = data; render(data); };
-  // Photos des joueurs, envoyées une par une avant le tableau : clé → image (data URL).
-  const PHOTOS = {};
   const receive = (data) => {
     if (data && data.type === 'photo') {
       if (typeof data.key === 'string' && typeof data.data === 'string' && /^[A-Za-z0-9+/=]+$/.test(data.data)) {
@@ -359,10 +664,10 @@
   if (/[?&]demo=cup\b/.test(location.search)) {
     show({
       kind: 'cup', title: 'Concours de belote du club', subtitle: 'Concours en plusieurs parties · Partie 2 / 4',
-      tableLabel: 'Table', waitingTitle: 'Prochains matchs', sideTitle: 'Classement', banner: null,
+      tableLabel: 'Table', timeOver: 'Temps écoulé', waitingTitle: 'Prochains matchs', sideTitle: 'Classement', banner: null,
       tables: [
-        { table: 1, a: 'Paul & Zoé', b: 'Rose & Jules', scoreA: 81, scoreB: 80 },
-        { table: 2, a: 'Sam & Noé', b: 'Nathan & Manon', scoreA: 0, scoreB: 0 },
+        { table: 1, a: 'Paul & Zoé', b: 'Rose & Jules', scoreA: 81, scoreB: 80, remaining: 754 },
+        { table: 2, a: 'Sam & Noé', b: 'Nathan & Manon', scoreA: 0, scoreB: 0, remaining: 42 },
         { table: 3, a: 'Louis & Camille', b: 'Lucas & Chloé', scoreA: 243, scoreB: 240 },
         { table: 4, a: 'Julie & Marc', b: 'Jo & Inès', scoreA: 0, scoreB: 0 },
         { table: 5, a: 'Hugo & Emma', b: 'Léa & Tom', scoreA: 405, scoreB: 400 },
