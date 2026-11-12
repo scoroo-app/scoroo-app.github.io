@@ -153,11 +153,18 @@
   .main { position: relative; }
   .event { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(.85); opacity: 0; pointer-events: none;
     min-width: calc(var(--u) * 12); padding: calc(var(--u) * .9) calc(var(--u) * 1.6); border-radius: var(--u); text-align: center;
+    border: calc(var(--u) * .07) solid rgba(255,255,255,.35);
     box-shadow: 0 0 calc(var(--u) * 1.5) rgba(0,0,0,.45); transition: opacity .3s, transform .35s cubic-bezier(.34,1.56,.64,1); z-index: 5; }
   .event.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
   .event h2 { margin: 0; font-size: calc(var(--u) * 1.9); font-weight: 900; }
   .event p { margin: calc(var(--u) * .25) 0 0; font-size: calc(var(--u) * .95); font-weight: 800; }
   .event p.next { font-size: calc(var(--u) * .8); color: rgba(255,255,255,.7); font-weight: 600; }
+  /* Fin de partie : en-tête réduit et pas de pied, pour laisser la hauteur au podium. */
+  .ended header .badge { width: calc(var(--u) * 1.7); height: calc(var(--u) * 1.7); }
+  .ended header .title { font-size: calc(var(--u) * 1); }
+  .ended header .subtitle { font-size: calc(var(--u) * .65); }
+  .ended .main { margin: calc(var(--u) * .3) 0 0; }
+  .ended footer, .ended .info { display: none; }
   /* Fin de partie : podium, confettis, meilleur moment et le reste du classement. */
   .finale { flex: 1; display: flex; flex-direction: column; min-height: 0; min-width: 0; position: relative; }
   .finale h2 { margin: 0; text-align: center; color: var(--gold); font-size: calc(var(--u) * 1.4); font-weight: 900;
@@ -301,8 +308,13 @@
     const finale = $('finale');
     finale.classList.toggle('hidden', !data.podium);
     rowsEl.classList.toggle('hidden', !!data.podium);
+    // Fin de partie : tout l'écran pour le podium. Le panneau des manches ne revient pas (son
+    // alternance le réaffichait à côté, en grand), l'en-tête se fait petit et le pied disparaît.
+    $('game').classList.toggle('ended', !!data.podium);
     if (data.podium) {
+      sideData = null;
       $('side').classList.add('hidden');
+      $('side').innerHTML = '';
       renderFinale(data);
       return;
     }
@@ -314,12 +326,15 @@
     const height = rowsEl.clientHeight || window.innerHeight * 0.7;
     const width = rowsEl.clientWidth || window.innerWidth * 0.9;
     // Beaucoup de joueurs : deux colonnes, pour que tout tienne au-dessus du bas de l'écran.
-    const columns = players.length > 5 && width >= 640 ? 2 : 1;
+    // (À côté du panneau des manches, une seule colonne : sur deux, les noms étaient coupés.)
+    const sideShown = !$('side').classList.contains('hidden');
+    const columns = players.length > 5 && width >= 640 && !sideShown ? 2 : 1;
     const perColumn = Math.ceil(players.length / columns);
     const gap = 16;
     const columnW = (width - gap * (columns - 1)) / columns;
     const rowH = Math.max(20, Math.min(height / Math.max(perColumn, 1), columnW / 4, 220));
     const seen = new Set();
+    const toFit = [];
     players.forEach((p, pos) => {
       seen.add(p.i);
       let row = rows.get(p.i);
@@ -355,6 +370,7 @@
       avatar.style.marginRight = h * 0.2 + 'px';
       name.firstChild.textContent = p.name || '';
       name.firstChild.style.fontSize = h * 0.36 + 'px';
+      toFit.push([name.firstChild, h * 0.36]);
       // Sortie aux fléchettes : en pastille si la ligne est large, sinon sous le nom.
       const chip = p.checkout && columnW >= h * 6;
       name.children[2].textContent = [p.dealer ? data.dealerLabel : null, p.note,
@@ -370,10 +386,22 @@
       if (co.firstChild) co.firstChild.style.fontSize = h * 0.13 + 'px';
       Object.assign(crown.style, { fontSize: h * 0.38 + 'px', margin: '0 ' + h * 0.15 + 'px' });
       delta.textContent = p.delta || '';
-      delta.className = 'delta' + (p.delta ? (p.delta.startsWith('+') ? ' up' : ' down') : '');
+      // Le plus bas gagne (Skyjo, Rami…) : des points en plus sont une mauvaise nouvelle, en rouge.
+      delta.className = 'delta' + (p.delta ? (p.delta.startsWith('+') !== !!data.low ? ' up' : ' down') : '');
       Object.assign(delta.style, { fontSize: h * 0.24 + 'px', marginRight: p.delta ? h * 0.2 + 'px' : '0' });
       score.style.fontSize = h * 0.52 + 'px';
       animate(row, score, Number(p.score) || 0);
+    });
+    // Nom plus large que sa place : il rétrécit (jusqu'à 60 %) avant d'être coupé.
+    toFit.forEach(([el, size]) => {
+      let k = 1;
+      Object.assign(el.style, { whiteSpace: '', display: '', webkitLineClamp: '', webkitBoxOrient: '', lineHeight: '' });
+      while (k > 0.6 && el.scrollWidth > el.clientWidth + 1) { k -= 0.08; el.style.fontSize = size * k + 'px'; }
+      // Toujours trop long (« Julie & Marc » dans une grande ligne) : sur deux lignes.
+      if (el.scrollWidth > el.clientWidth + 1 && size > 26) {
+        Object.assign(el.style, { whiteSpace: 'normal', display: '-webkit-box', webkitLineClamp: '2', webkitBoxOrient: 'vertical',
+          lineHeight: '1.05', fontSize: size * 0.72 + 'px' });
+      }
     });
     for (const [i, row] of rows) {
       if (!seen.has(i)) { row.el.remove(); rows.delete(i); }
@@ -412,6 +440,13 @@
     return '#' + x.map((v, i) => Math.round(v + (y[i] - v) * t).toString(16).padStart(2, '0')).join('');
   }
 
+  // Clarté d'une couleur « #rrggbb », de 0 (noir) à 1 (blanc).
+  function luminance(c) {
+    if (!/^#[0-9a-f]{6}$/i.test(c)) return 1;
+    const [r, g, b] = [1, 3, 5].map((i) => parseInt(c.substr(i, 2), 16));
+    return (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+  }
+
   // Manche enregistrée : une carte au centre pendant trois secondes (rien au premier affichage).
   function renderEvent(data) {
     const e = data.event;
@@ -420,7 +455,8 @@
     if (id !== null && lastEvent !== null && id > lastEvent) {
       // Fond opaque, calculé ici : « color-mix » n'existe pas sur les Chromecast anciens (la carte
       // restait transparente, donc illisible par-dessus le tableau).
-      const base = data.color || '#0b3a6e';
+      // Couleur sombre (Skull King, bleu nuit comme le fond) : éclaircie, pour que la carte se détache.
+      const base = luminance(data.color || '#0b3a6e') < 0.3 ? mix(data.color || '#0b3a6e', '#ffffff', 0.28) : data.color || '#0b3a6e';
       el.style.backgroundColor = mix(base, '#0e1726', 0.3);
       el.style.backgroundImage = 'linear-gradient(135deg, ' + mix(base, '#ffffff', 0.12) + ', ' + mix(base, '#0e1726', 0.45) + ')';
       el.innerHTML = '<h2>' + esc(e.title) + '</h2>' + (e.best ? '<p>⭐ ' + esc(e.best) + '</p>' : '') +
@@ -462,7 +498,8 @@
   function fillHistory(el, h) {
     const players = h.players || [];
     const u = Math.min(window.innerHeight * 0.05, window.innerWidth * 0.028);
-    const cls = (s) => (s.startsWith('+') ? 'up' : s.startsWith('−') ? 'down' : 'zero');
+    const good = h.low ? 'down' : 'up', bad = h.low ? 'up' : 'down';
+    const cls = (s) => (s.startsWith('+') ? good : s.startsWith('−') ? bad : 'zero');
     el.innerHTML = '<h3>' + esc(h.title) + '</h3>' +
       '<div class="hrow hhead"><span></span>' + players.map((p) => '<span>' + avatarHtml(p, u * 1.1) + '</span>').join('') + '</div>' +
       (h.rows || []).map((r, k, all) => '<div class="hrow' + (k === all.length - 1 ? ' last' : '') + '"><span>' + esc(r.n) + '</span>' +
@@ -537,19 +574,22 @@
     // reste le plus grand, et tout tient au-dessus de sa marche.
     const head = (k) => u * (1.3 * k + 3.64 * k + 0.25 + (1.05 + 1.3) * 1.3 * Math.max(k, 0.6) + 0.2);
     let k = 1;
-    while (k > 0.3 && head(k) > H * 0.7) k -= 0.05;
+    while (k > 0.3 && head(k) > H * 0.76) k -= 0.05;
     const t = Math.max(k, 0.6);
     const step = (i) => {
       const p = places[i];
       if (!p) return '<div></div>';
       const first = i === 0;
-      const block = H * [0.3, 0.21, 0.14][i];
+      // Marche selon le rang réel : deux ex æquo ont la même hauteur et la même couleur.
+      const rank = parseInt(p.rank, 10);
+      const level = Math.max(0, Math.min(2, (isNaN(rank) ? i + 1 : rank) - 1));
+      const block = H * [0.24, 0.17, 0.11][level];
       return '<div class="step" style="animation-delay:' + (2 - i) * 0.25 + 's">' + (first ? '<div style="font-size:' + u * 1.3 * k + 'px">🏆</div>' : '') +
-        '<span class="ring" style="background:' + colors[i] + '">' + avatarHtml(p, u * (first ? 3.4 : 2.6) * k) + '</span>' +
+        '<span class="ring" style="background:' + colors[level] + '">' + avatarHtml(p, u * (first ? 3.4 : 2.6) * k) + '</span>' +
         '<div class="who" style="font-size:' + u * (first ? 1.05 : 0.85) * t + 'px;margin-top:' + u * 0.25 + 'px">' + esc(p.name) + '</div>' +
-        '<div class="pts" style="font-size:' + u * (first ? 1.3 : 1.0) * t + 'px;color:' + colors[i] + ';margin-bottom:' + u * 0.2 + 'px">' + esc(p.score) + '</div>' +
+        '<div class="pts" style="font-size:' + u * (first ? 1.3 : 1.0) * t + 'px;color:' + colors[level] + ';margin-bottom:' + u * 0.2 + 'px">' + esc(p.score) + '</div>' +
         '<div class="block" style="height:' + block + 'px;font-size:' + Math.min(u * 1.6, block * 0.7) + 'px;background:linear-gradient(' +
-        colors[i] + ', ' + mix(colors[i], '#0e1726', 0.6) + ')">' + esc(p.rank || i + 1) + '</div></div>';
+        colors[level] + ', ' + mix(colors[level], '#0e1726', 0.6) + ')">' + esc(p.rank || i + 1) + '</div></div>';
     };
     podium.innerHTML = step(1) + step(0) + step(2);
     if (finaleFor !== data.id) { finaleFor = data.id; confetti(el.querySelector('#confetti')); }
