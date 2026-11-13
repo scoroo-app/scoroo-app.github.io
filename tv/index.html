@@ -80,20 +80,24 @@
   .cup-tables { display: grid; gap: calc(var(--u) * .4); align-content: start; min-height: 0; overflow: hidden; }
   .cup-table { min-width: 0; background: var(--row); border-radius: calc(var(--u) * .7); padding: calc(var(--u) * .5 * var(--s, 1)) calc(var(--u) * .8); display: grid; gap: calc(var(--u) * .2); }
   .cup-table b { color: var(--gold); font-size: calc(var(--u) * .7); }
-  .cup-line { min-width: 0; display: flex; gap: calc(var(--u) * .5); align-items: baseline; font-weight: 700; font-size: calc(var(--u) * .9 * var(--s, 1)); }
-  .cup-line span:first-child { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cup-line { min-width: 0; display: flex; gap: calc(var(--u) * .5); align-items: center; font-weight: 700; font-size: calc(var(--u) * .9 * var(--s, 1)); }
+  /* Nom d'une équipe : sur deux lignes s'il est long (équipes de quatre), jamais coupé au milieu d'une ligne. */
+  .cup-line span:first-child { flex: 1; min-width: 0; overflow: hidden; line-height: 1.15;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
   .cup-line span:last-child { font-weight: 900; font-size: calc(var(--u) * 1.1 * var(--s, 1)); }
   .cup-panel { background: rgba(255,255,255,.05); border-radius: calc(var(--u) * .8); padding: calc(var(--u) * .8); overflow: hidden; }
   .cup-panel h3 { margin: 0 0 calc(var(--u) * .3); color: var(--gold); font-size: calc(var(--u) * .8); }
-  .cup-panel p { margin: 0; font-size: calc(var(--u) * .7); color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.5; }
-  .cup-row { display: flex; gap: calc(var(--u) * .4); font-size: calc(var(--u) * .7); font-weight: 600; line-height: 1.6; }
-  .cup-row span:first-child { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cup-panel p { margin: 0 0 calc(var(--u) * .25); font-size: calc(var(--u) * .7); color: var(--muted); overflow: hidden; line-height: 1.25;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .cup-row { display: flex; gap: calc(var(--u) * .4); font-size: calc(var(--u) * .7); font-weight: 600; line-height: 1.25; margin-bottom: calc(var(--u) * .25); align-items: center; }
+  .cup-row span:first-child { flex: 1; min-width: 0; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
   .cup-row span:last-child { color: var(--muted); font-weight: 800; }
   .cup-banner { margin-top: calc(var(--u) * .6); padding: calc(var(--u) * .4) calc(var(--u) * .8); border-radius: calc(var(--u) * .5);
     background: linear-gradient(90deg, #ffc94d, #ffa62b); font-weight: 900; font-size: calc(var(--u) * 1); }
   /* Fin du tournoi : podium et classement général. */
   .cup-final { flex: 1; display: flex; flex-direction: column; min-height: 0; margin-top: calc(var(--u) * .6); }
   .cup-final h2 { margin: 0; text-align: center; color: var(--gold); font-size: calc(var(--u) * 1.1); }
+  .cup-final .step .who { white-space: normal; text-align: center; line-height: 1.15; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
   .podium { flex: 3; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: calc(var(--u) * .3);
     align-items: end; padding: 0 calc(var(--u) * 3); min-height: 0; }
   .step { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-width: 0; }
@@ -210,6 +214,7 @@
   <header>
     <div class="badge" style="color: var(--gold)">🏆</div>
     <div class="titles"><div class="title" id="cup-title"></div><div class="subtitle" id="cup-subtitle"></div></div>
+    <div class="join hidden" id="cup-join"></div>
   </header>
   <div class="cup-banner hidden" id="cup-banner"></div>
   <div class="cup-final hidden" id="cup-final"></div>
@@ -416,11 +421,15 @@
       timer.innerHTML = '<small>' + esc(data.timer.label) + '</small><b data-end="' + endFor('game', data.timer.remaining) +
         '" data-over="' + esc(data.timer.over) + '"></b>';
     }
-    const join = $('join');
-    const showJoin = data.join && (data.join.qr || []).length && window.innerWidth > window.innerHeight;
-    join.classList.toggle('hidden', !showJoin);
-    if (showJoin) join.innerHTML = '<div><small>' + esc(data.join.text) + '</small><b>' + esc(data.join.code) + '</b></div>' + qrSvg(data.join.qr);
+    fillJoin($('join'), data.join);
     tick();
+  }
+
+  // Partie ou tournoi partagé : le code et son QR code, à scanner avec Scoroo pour suivre sur son téléphone.
+  function fillJoin(el, join) {
+    const shown = join && (join.qr || []).length && window.innerWidth > window.innerHeight;
+    el.classList.toggle('hidden', !shown);
+    if (shown) el.innerHTML = '<div><small>' + esc(join.text) + '</small><b>' + esc(join.code) + '</b></div>' + qrSvg(join.qr);
   }
 
   // Pastilles sous le titre : objectif, donneur, cartes de la manche.
@@ -644,6 +653,7 @@
   function renderCup(data) {
     $('cup-title').textContent = data.title || '';
     $('cup-subtitle').textContent = data.subtitle || '';
+    fillJoin($('cup-join'), data.join);
     const banner = $('cup-banner');
     banner.textContent = data.banner ? '🏆 ' + data.banner : '';
     banner.classList.toggle('hidden', !data.banner);
@@ -669,12 +679,6 @@
     box.style.gridTemplateColumns = 'repeat(' + columns + ', minmax(0, 1fr))';
     // Texte plus petit quand les tables sont nombreuses.
     // Texte aussi grand que possible, réduit jusqu'à ce que toutes les tables tiennent.
-    let scale = columns <= 2 ? 1 : columns === 3 ? 0.62 : 0.5;
-    box.style.setProperty('--s', scale);
-    while (box.scrollHeight > box.clientHeight + 1 && scale > 0.35) {
-      scale -= 0.05;
-      box.style.setProperty('--s', scale);
-    }
     box.innerHTML = tables.map((t) =>
       '<div class="cup-table"><b>' + esc(data.tableLabel) + ' ' + esc(t.table) +
       (typeof t.remaining === 'number' ? '<span class="clock" data-end="' + endFor('table' + t.table, t.remaining) +
@@ -682,6 +686,14 @@
       (t.lines || [[t.a, t.scoreA], [t.b, t.scoreB]]).map((l) =>
         '<div class="cup-line"><span>' + esc(l[0]) + '</span><span>' + esc(l[1]) + '</span></div>').join('') +
       '</div>').join('');
+    // Les noms longs (équipes de quatre) passent sur deux lignes ; le texte rétrécit ensuite
+    // jusqu'à ce que toutes les tables tiennent dans l'écran.
+    let scale = columns <= 2 ? 1 : columns === 3 ? 0.62 : 0.5;
+    box.style.setProperty('--s', scale);
+    while (box.scrollHeight > box.clientHeight + 1 && scale > 0.3) {
+      scale -= 0.04;
+      box.style.setProperty('--s', scale);
+    }
     tick();
     let panel = '';
     if ((data.waiting || []).length) {
@@ -691,7 +703,14 @@
       panel += '<h3>' + esc(data.sideTitle) + '</h3>' +
         data.side.map((r) => '<div class="cup-row"><span>' + esc(r.left) + '</span><span>' + esc(r.right) + '</span></div>').join('');
     }
-    $('cup-panel').innerHTML = panel;
+    const panelEl = $('cup-panel');
+    panelEl.innerHTML = panel;
+    // Trop de lignes pour la hauteur : les dernières sont retirées, plutôt que coupées en deux.
+    for (let guard = 0; panelEl.scrollHeight > panelEl.clientHeight + 1 && guard < 40; guard++) {
+      const lines = panelEl.querySelectorAll('.cup-row, p');
+      if (!lines.length) break;
+      lines[lines.length - 1].remove();
+    }
   }
 
   let last = { kind: 'idle' };
