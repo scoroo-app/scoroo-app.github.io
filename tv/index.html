@@ -138,6 +138,8 @@
   .bar i { display: block; height: 100%; border-radius: 4px; }
   /* Panneau de droite : historique, courbe, Cricket (en fondu quand il change). */
   .side { flex: 2; min-width: 0; position: relative; }
+  .side.wide { flex: 3; }
+  .cricket > b { white-space: nowrap; }
   .side > div { position: absolute; inset: 0; background: rgba(255,255,255,.06); border-radius: calc(var(--u) * .8);
     padding: calc(var(--u) * .6); display: flex; flex-direction: column; overflow: hidden; transition: opacity .6s; }
   .side h3 { margin: 0 0 calc(var(--u) * .3); color: var(--gold); font-size: calc(var(--u) * .75); }
@@ -147,6 +149,12 @@
   .legend span { display: flex; align-items: center; gap: calc(var(--u) * .25); }
   .legend i { width: calc(var(--u) * .7); height: calc(var(--u) * .18); border-radius: 9px; }
   .cricket { display: grid; align-items: center; justify-items: center; flex: 1; align-content: start; }
+  /* Fléchettes : la cible, et au Cricket la grille dessous. */
+  .board { flex: 5; min-height: 0; width: 100%; }
+  .side .pair { flex: 1; min-height: 0; display: flex; gap: calc(var(--u) * .5); }
+  .side .pair .bw { flex: 9; min-width: 0; display: flex; flex-direction: column; }
+  .side .sub { flex: 11; min-width: 0; min-height: 0; display: flex; flex-direction: column; }
+  .name .misses svg { display: block; }
   .cricket > b { font-size: calc(var(--u) * .7); color: rgba(255,255,255,.7); font-weight: 900; }
   .mark { position: relative; display: block; }
   .mark.m1::before, .mark.m2::before, .mark.m2::after { content: ''; position: absolute; left: 12%; right: 12%; top: 50%;
@@ -368,7 +376,7 @@
       misses.innerHTML = typeof p.misses === 'number'
         ? [0, 1, 2].map((m) => '<b style="width:' + h * 0.13 + 'px;height:' + h * 0.13 + 'px;background:' +
             (m < p.misses ? '#ff6b6b' : 'rgba(255,255,255,.24)') + '"></b>').join('')
-        : '';
+        : Array.isArray(p.ammo) ? ammoHtml(p.ammo[0], p.ammo[1], h * 0.22) + (p.killer ? crossHtml(h * 0.22) : '') : '';
       rank.textContent = p.rank || '';
       Object.assign(rank.style, { width: h * 0.75 + 'px', fontSize: h * 0.3 + 'px' });
       avatar.innerHTML = avatarHtml(p, h * 0.62);
@@ -485,11 +493,13 @@
   function renderSide(data, rotating) {
     const el = $('side');
     const wide = window.innerWidth > window.innerHeight * 1.25;
-    const panels = !data ? [] : data.cricket ? ['cricket'] : [data.history && (data.history.rows || []).length ? 'history' : null,
+    const panels = !data ? [] : data.dartboard ? ['dartboard'] : data.cricket ? ['cricket'] : [data.history && (data.history.rows || []).length ? 'history' : null,
       data.chart ? 'chart' : null].filter(Boolean);
     sideData = data;
     if (!panels.length || !wide) { el.classList.add('hidden'); el.innerHTML = ''; return; }
     el.classList.remove('hidden');
+    // Cricket : cible et grille côte à côte, le panneau prend autant de place que le classement.
+    el.classList.toggle('wide', !!(data.dartboard && data.cricket));
     const kind = panels[sideIndex % panels.length];
     const box = document.createElement('div');
     el.querySelectorAll(':scope > div').forEach((old) => {
@@ -500,6 +510,7 @@
     if (kind === 'history') fillHistory(box, data.history);
     if (kind === 'chart') fillChart(box, data.chart);
     if (kind === 'cricket') fillCricket(box, data.cricket);
+    if (kind === 'dartboard') fillDartboard(box, data.dartboard, data.cricket);
     if (rotating) { box.style.opacity = '0'; requestAnimationFrame(() => requestAnimationFrame(() => { box.style.opacity = '1'; })); }
   }
 
@@ -563,6 +574,101 @@
       '<span style="justify-self:start">' + avatarHtml(r, rowH * 0.8) + '</span>' + (r.marks || []).slice(0, targets.length).map((m) =>
         '<span class="mark m' + Math.min(3, m) + '" style="width:' + mark + 'px;height:' + mark + 'px;color:' + esc(r.color) +
         (m >= 3 ? ';background:' + esc(r.color) + ';font-size:' + mark * 0.6 + 'px">✕' : '">') + '</span>').join('')).join('');
+  }
+
+  // Killer : munitions, en balles debout (dorées une fois chargées), et viseur des killers.
+  function ammoHtml(loaded, total, size) {
+    const w = size * 0.42;
+    const line = 'rgba(255,255,255,.38)';
+    let out = '';
+    for (let b = 0; b < total; b++) {
+      const on = b < loaded;
+      out += '<svg width="' + w + '" height="' + size + '" viewBox="-4 -4 50 108" style="margin-right:' + size * 0.2 + 'px">' +
+        '<path d="M0 38 Q0 8 21 0 Q42 8 42 38 Z" fill="' + (on ? '#d9824a' : 'none') + '" stroke="' + (on ? 'none' : line) + '" stroke-width="5"/>' +
+        '<rect x="0" y="38" width="42" height="54" rx="5" fill="' + (on ? '#e8b931' : 'none') + '" stroke="' + (on ? 'none' : line) + '" stroke-width="5"/>' +
+        '<rect x="-3" y="90" width="48" height="10" fill="' + (on ? '#c99a1c' : line) + '"/></svg>';
+    }
+    return out;
+  }
+  function crossHtml(size) {
+    return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" style="margin-left:' + size * 0.3 + 'px">' +
+      '<circle cx="12" cy="12" r="7" fill="none" stroke="#ff6b6b" stroke-width="2.4"/><circle cx="12" cy="12" r="2.6" fill="#ff6b6b"/>' +
+      '<path d="M12 1v5M12 18v5M1 12h5M18 12h5" stroke="#ff6b6b" stroke-width="2.4" stroke-linecap="round"/></svg>';
+  }
+
+  // Fléchettes : la cible de l'appli (mêmes anneaux, mêmes couleurs), zones utiles colorées,
+  // fléchettes du tour numérotées ; au Cricket, la grille des numéros dessous.
+  const BOARD_ORDER = [20, 1, 18, 4, 13, 6, 10, 15, 2, 17, 3, 19, 7, 16, 8, 11, 14, 9, 12, 5];
+  const RING = { bullIn: 0.075, bullOut: 0.16, tripleIn: 0.54, tripleOut: 0.66, doubleIn: 0.87, doubleOut: 1, numbers: 1.17 };
+  function fillDartboard(el, board, cricket) {
+    // Cricket : la cible et la grille côte à côte (l'une sous l'autre, elles ne tenaient pas).
+    el.innerHTML = cricket
+      ? '<div class="pair"><div class="bw"><h3>' + esc(board.title || '') + '</h3><svg class="board"></svg></div><div class="sub"></div></div>'
+      : '<h3>' + esc(board.title || '') + '</h3><svg class="board"></svg>';
+    const svg = el.querySelector('svg');
+    const size = Math.max(50, Math.min(svg.clientWidth || 300, svg.clientHeight || 300));
+    svg.setAttribute('viewBox', '0 0 ' + size + ' ' + size);
+    const c = size / 2, r = size / 2 / RING.numbers, step = Math.PI / 10;
+    const zones = new Map((board.zones || []).map((z) => [z[0] + ':' + z[1], z]));
+    const any = zones.size > 0;
+    const pt = (radius, a) => [c + Math.cos(a) * r * radius, c + Math.sin(a) * r * radius];
+    const sector = (r1, r2, a0) => {
+      const [x1, y1] = pt(r2, a0), [x2, y2] = pt(r2, a0 + step), [x3, y3] = pt(r1, a0 + step), [x4, y4] = pt(r1, a0);
+      return 'M' + x1 + ' ' + y1 + 'A' + r * r2 + ' ' + r * r2 + ' 0 0 1 ' + x2 + ' ' + y2 + 'L' + x3 + ' ' + y3 +
+        'A' + r * r1 + ' ' + r * r1 + ' 0 0 0 ' + x4 + ' ' + y4 + 'Z';
+    };
+    let out = '<circle cx="' + c + '" cy="' + c + '" r="' + r * RING.numbers + '" fill="#111827"/>';
+    const labels = [];
+    const zone = (shape, base, seg, mult, at, fs, label) => {
+      out += shape.replace('/>', ' fill="' + base + '"/>');
+      const z = zones.get(seg + ':' + mult);
+      if (z) {
+        // Simples en teinte claire, doubles et triples en teinte pleine et foncée, comme dans l'appli.
+        const fill = mult === 1 ? z[2] : mix(z[2], '#000000', 0.3);
+        out += shape.replace('/>', ' fill="' + fill + '"' + (mult === 1 ? ' fill-opacity=".6"' : '') + ' stroke="#fff" stroke-width="1.6"/>');
+        if (label !== false && z[3]) labels.push([at, z[3], fs]);
+      } else if (any) {
+        out += shape.replace('/>', ' fill="#000" fill-opacity=".5"/>');
+      }
+    };
+    BOARD_ORDER.forEach((seg, k) => {
+      const mid = -Math.PI / 2 + k * step, a0 = mid - step / 2, even = k % 2 === 0;
+      const path = (r1, r2) => '<path d="' + sector(r1, r2, a0) + '"/>';
+      zone(path(RING.bullOut, RING.tripleIn), even ? '#1F2937' : '#F3E9D2', seg, 1, pt((RING.bullOut + RING.tripleIn) / 2, mid), r * 0.085, false);
+      zone(path(RING.tripleIn, RING.tripleOut), even ? '#DC2626' : '#16A34A', seg, 3, pt((RING.tripleIn + RING.tripleOut) / 2, mid), r * 0.075);
+      zone(path(RING.tripleOut, RING.doubleIn), even ? '#1F2937' : '#F3E9D2', seg, 1, pt((RING.tripleOut + RING.doubleIn) / 2, mid), r * 0.085);
+      zone(path(RING.doubleIn, RING.doubleOut), even ? '#DC2626' : '#16A34A', seg, 2, pt((RING.doubleIn + RING.doubleOut) / 2, mid), r * 0.075);
+    });
+    for (let k = 0; k < 20; k++) {
+      const a = -Math.PI / 2 + k * step - step / 2;
+      const [x1, y1] = pt(RING.bullOut, a), [x2, y2] = pt(RING.doubleOut, a);
+      out += '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="rgba(255,255,255,.35)" stroke-width="1"/>';
+    }
+    zone('<circle cx="' + c + '" cy="' + c + '" r="' + r * RING.bullOut + '"/>', '#16A34A', 25, 1, [c, c - r * (RING.bullIn + RING.bullOut) / 2], r * 0.07);
+    zone('<circle cx="' + c + '" cy="' + c + '" r="' + r * RING.bullIn + '"/>', '#DC2626', 25, 2, [c, c], r * 0.07);
+    const text = (x, y, t, fs, extra) => '<text x="' + x + '" y="' + y + '" font-size="' + fs + '" font-weight="900" fill="#fff" ' +
+      'text-anchor="middle" dominant-baseline="central"' + (extra || '') + '>' + esc(t) + '</text>';
+    BOARD_ORDER.forEach((seg, k) => {
+      const [x, y] = pt((RING.doubleOut + RING.numbers) / 2, -Math.PI / 2 + k * step);
+      out += text(x, y, String(seg), r * 0.1);
+    });
+    labels.forEach(([[x, y], t, fs]) => {
+      out += text(x, y, t, fs, ' style="paint-order:stroke" stroke="#000" stroke-width="' + fs * 0.25 + '"');
+    });
+    (board.darts || []).forEach(([seg, mult], i) => {
+      if (!seg) return;
+      let x, y;
+      if (seg === 25) { x = c + (i - 1) * r * 0.05; y = c; } else {
+        const k = BOARD_ORDER.indexOf(seg);
+        const radius = mult === 3 ? (RING.tripleIn + RING.tripleOut) / 2 : mult === 2 ? (RING.doubleIn + RING.doubleOut) / 2 : (RING.tripleOut + RING.doubleIn) / 2;
+        [x, y] = pt(radius, -Math.PI / 2 + k * step + (i - 1) * step * 0.22);
+      }
+      // Pastilles plus grandes que dans l'appli : la télé se regarde de loin.
+      out += '<circle cx="' + x + '" cy="' + y + '" r="' + r * 0.1 + '" fill="#fff"/><circle cx="' + x + '" cy="' + y + '" r="' + r * 0.077 + '" fill="#0B3A6E"/>' +
+        text(x, y, String(i + 1), r * 0.1);
+    });
+    svg.innerHTML = out;
+    if (cricket) fillCricket(el.querySelector('.sub'), cricket);
   }
 
   // Fin de partie : podium des trois premiers, confettis, meilleur moment, puis les autres.
