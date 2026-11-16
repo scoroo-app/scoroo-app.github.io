@@ -92,6 +92,43 @@
   .cup-row { display: flex; gap: calc(var(--u) * .4); font-size: calc(var(--u) * .7); font-weight: 600; line-height: 1.25; margin-bottom: calc(var(--u) * .25); align-items: center; }
   .cup-row span:first-child { flex: 1; min-width: 0; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
   .cup-row span:last-child { color: var(--muted); font-weight: 800; }
+  /* Version lisible de loin : un match par ligne, classement en tableau. */
+  .cup-body.v2 { grid-template-columns: minmax(0, 11fr) minmax(0, 9fr); }
+  .cup-tables.v2 { display: flex; flex-direction: column; overflow: hidden; }
+  .mhead { display: flex; align-items: baseline; gap: calc(var(--u) * .4); height: calc(var(--u) * 1.3); }
+  .mhead h3 { margin: 0; color: var(--gold); font-size: calc(var(--u) * .8); flex: 1; }
+  .mhead span { color: var(--muted); font-size: calc(var(--u) * .6); white-space: nowrap; }
+  .mhead span b { color: #fff; font-size: calc(var(--u) * .75); }
+  .mlist { flex: 1; min-height: 0; display: grid; grid-auto-flow: column; gap: calc(var(--u) * .3); }
+  .m { display: flex; align-items: center; gap: calc(var(--s) * .45); min-width: 0; padding: 0 calc(var(--s) * .5);
+    background: rgba(255,255,255,.07); border-radius: calc(var(--s) * .6); font-size: var(--s); }
+  .m .tb { flex: none; display: grid; place-items: center; background: var(--gold); color: #1b1300; font-weight: 900;
+    border-radius: 28%; font-style: normal; }
+  .m .tm { flex: 1; min-width: 0; font-weight: 800; line-height: 1.15; }
+  .m .tm.r { text-align: right; }
+  .m .tm div, .m .tm small { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .m .tm small { display: block; font-size: .62em; color: var(--muted); font-weight: 600; }
+  /* Ligne de match haute : un nom long (équipe de quatre) passe sur deux lignes. */
+  .m.two .tm div:only-child { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .m .sc { flex: none; font-weight: 900; font-size: 1.35em; font-variant-numeric: tabular-nums; }
+  .m .multi { flex: 1; min-width: 0; font-weight: 700; font-size: .9em; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .m .clock { flex: none; font-weight: 900; font-size: .85em; font-variant-numeric: tabular-nums; }
+  .cup-panel.v2 { background: none; padding: 0; display: flex; flex-direction: column; gap: calc(var(--u) * .4); }
+  .cup-panel.v2 > section { background: rgba(255,255,255,.05); border-radius: calc(var(--u) * .6); padding: calc(var(--u) * .5);
+    min-height: 0; overflow: hidden; display: flex; flex-direction: column; }
+  .cup-panel.v2 h3 { margin: 0 0 calc(var(--u) * .25); }
+  .rk { flex: 1; min-height: 0; display: flex; gap: calc(var(--u) * .7); }
+  .rk > div { flex: 1; min-width: 0; }
+  .rk .l { display: grid; align-items: center; }
+  .rk .l span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .rk .l .n { color: var(--gold); font-weight: 900; }
+  .rk .l .n.q { color: #3ccf7f; }
+  .rk .l .w, .rk .l .v { text-align: right; font-weight: 900; }
+  .rk .l .v { color: rgba(255,255,255,.7); }
+  .rk .h { color: rgba(255,255,255,.54); font-weight: 800; }
+  .qline, .res { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: calc(var(--u) * .62); margin: calc(var(--u) * .08) 0;
+    color: rgba(255,255,255,.7); font-weight: 600; }
+  .res b { color: var(--gold); margin: 0 calc(var(--u) * .3); }
   .cup-banner { margin-top: calc(var(--u) * .6); padding: calc(var(--u) * .4) calc(var(--u) * .8); border-radius: calc(var(--u) * .5);
     background: linear-gradient(90deg, #ffc94d, #ffa62b); font-weight: 900; font-size: calc(var(--u) * 1); }
   /* Fin du tournoi : podium et classement général. */
@@ -182,6 +219,9 @@
   .finale { flex: 1; display: flex; flex-direction: column; min-height: 0; min-width: 0; position: relative; }
   .finale h2 { margin: 0; text-align: center; color: var(--gold); font-size: calc(var(--u) * 1.4); font-weight: 900;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .finale .instant { align-self: center; display: flex; align-items: center; gap: calc(var(--u) * .3); margin-top: calc(var(--u) * .25);
+    padding: calc(var(--u) * .2) calc(var(--u) * .6); border-radius: var(--u); background: rgba(255,181,52,.18);
+    border: calc(var(--u) * .06) solid rgba(255,181,52,.7); font-size: calc(var(--u) * .75); font-weight: 900; }
   .finale .moment { text-align: center; font-size: calc(var(--u) * .7); color: rgba(255,255,255,.7); font-weight: 600; margin-top: calc(var(--u) * .15);
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .finale .podium { flex: 1; padding: 0 calc(var(--u) * 2); margin-top: calc(var(--u) * .4); grid-template-rows: minmax(0, 1fr); overflow: hidden; }
@@ -703,7 +743,10 @@
     const rest = (data.players || []).filter((p) => !shown.has(p.i)).slice(0, 8);
     const u = Math.min(window.innerHeight * 0.05, window.innerWidth * 0.028);
     const colors = ['#ffb534', '#b8c2cf', '#d9935e'];
-    el.innerHTML = '<h2>' + esc(f.title) + '</h2>' + (f.highlight ? '<div class="moment">' + esc(f.highlight) + '</div>' : '') +
+    // 7 Wonders Duel : la victoire immédiate (suprématie…), en pastille dorée sous le titre.
+    const instant = f.instant && f.instant.label
+      ? '<div class="instant"><span>' + ({ science: '🧪', politics: '🗳️' }[f.instant.kind] || '🛡️') + '</span>' + esc(f.instant.label) + '</div>' : '';
+    el.innerHTML = '<h2>' + esc(f.title) + '</h2>' + instant + (f.highlight ? '<div class="moment">' + esc(f.highlight) + '</div>' : '') +
       '<div class="podium"></div>' + (rest.length ? '<div class="rest">' + rest.map((p) => '<span>' + avatarHtml(p, u * 1.1) +
       esc(p.rank) + '  ' + esc(p.name) + '  ·  ' + esc(p.score) + '</span>').join('') + '</div>' : '') + '<canvas id="confetti"></canvas>';
     const podium = el.querySelector('.podium');
@@ -810,6 +853,11 @@
         '</span><span>' + esc(r.detail) + '</span></div>').join('') + '</div>';
       return;
     }
+    const board = data.board;
+    $('cup-body').classList.toggle('v2', !!board);
+    $('cup-tables').classList.toggle('v2', !!board);
+    $('cup-panel').classList.toggle('v2', !!board);
+    if (board) { renderCupBoard(board, data.timeOver || ''); return; }
     const tables = data.tables || [];
     const columns = tables.length <= 1 ? 1 : tables.length <= 6 ? 2 : tables.length <= 12 ? 3 : 4;
     const box = $('cup-tables');
@@ -847,6 +895,96 @@
       const lines = panelEl.querySelectorAll('.cup-row, p');
       if (!lines.length) break;
       lines[lines.length - 1].remove();
+    }
+  }
+
+  // Tournoi, version lisible de loin (organisateur d'un tournoi à 30) : les matchs un par ligne
+  // (terrain, équipes, score, minuteur), sur 2 ou 3 colonnes s'il y en a beaucoup ; à droite le
+  // classement en tableau (deux colonnes s'il est long) ou les derniers résultats, puis la file.
+  function renderCupBoard(b, timeOver) {
+    const u = Math.min(window.innerHeight * 0.05, window.innerWidth * 0.028);
+    const team = (t, right) => '<div class="tm' + (right ? ' r' : '') + '"><div>' + esc((t && t.label) || '') + '</div>' +
+      (t && t.sub ? '<small>' + esc(t.sub) + '</small>' : '') + '</div>';
+    const box = $('cup-tables');
+    const matches = b.matches || [];
+    box.innerHTML = '<div class="mhead"><h3>' + esc(b.matchesTitle || '') + '</h3>' +
+      (b.stats || []).map((s) => '<span><b>' + esc(s.value) + '</b> ' + esc(s.label) + '</span>').join('') + '</div>' +
+      '<div class="mlist"></div>';
+    const list = box.querySelector('.mlist');
+    if (!matches.length) {
+      list.style.display = 'grid';
+      list.style.placeItems = 'center';
+      list.innerHTML = '<div style="font-size:' + u * 4 + 'px">🏆</div>';
+    } else {
+      const avail = list.clientHeight || box.clientHeight * 0.85;
+      const width = list.clientWidth || box.clientWidth;
+      const gap = u * 0.3;
+      const perColumn = Math.max(1, Math.floor(avail / (u * 1.5)));
+      const columns = Math.min(3, Math.ceil(matches.length / perColumn));
+      const rows = Math.ceil(matches.length / columns);
+      const rowH = Math.min(u * 2.4, (avail - gap * (rows - 1)) / rows);
+      const colW = (width - gap * (columns - 1)) / columns;
+      const s = Math.min(rowH * 0.36, colW / 14, u * 0.72);
+      const badge = Math.min(rowH * 0.72, s * 2.2);
+      list.style.gridTemplateColumns = 'repeat(' + columns + ', minmax(0, 1fr))';
+      list.style.gridTemplateRows = 'repeat(' + rows + ', ' + rowH + 'px)';
+      list.style.setProperty('--s', s + 'px');
+      list.innerHTML = matches.map((m) => {
+        const sides = m.sides || [];
+        const middle = sides.length === 2
+          ? team(sides[0]) + '<span class="sc">' + esc(sides[0].score) + ' – ' + esc(sides[1].score) + '</span>' + team(sides[1], true)
+          : '<div class="multi">' + sides.map((p) => esc(p.label) + ' ' + esc(p.score)).join('  ·  ') + '</div>';
+        return '<div class="m' + (rowH >= s * 2.7 ? ' two' : '') + '"><i class="tb" style="width:' + badge + 'px;height:' + badge + 'px;font-size:' + badge * 0.55 + 'px">' +
+          esc(m.table) + '</i>' + middle +
+          (typeof m.remaining === 'number' ? '<span class="clock" data-end="' + endFor('table' + m.table, m.remaining) +
+            '" data-over="' + esc(timeOver) + '"></span>' : '') + '</div>';
+      }).join('');
+    }
+    tick();
+
+    const panel = $('cup-panel');
+    const queue = b.queue || [];
+    const results = b.results && (b.results.rows || []).length ? b.results : null;
+    panel.innerHTML = (b.ranking ? '<section class="top"><h3>' + esc(b.ranking.title) + '</h3><div class="rk"></div></section>' :
+      results ? '<section class="top"><h3>' + esc(results.title) + '</h3>' + results.rows.map((r) =>
+        '<div class="res">' + esc(r.winner && r.winner.label) + '<b>' + esc(r.score) + '</b>' + esc(r.loser && r.loser.label) + '</div>').join('') + '</section>' : '') +
+      (queue.length ? '<section class="queue"><h3>' + esc(b.queueTitle || '') + '</h3>' + queue.map((q) =>
+        '<div class="qline">' + (q.sides || []).map((x) => esc(x.label)).join('  –  ') + '</div>').join('') + '</section>' : '');
+    const top = panel.querySelector('.top');
+    const waiting = panel.querySelector('.queue');
+    if (top) top.style.flex = '3';
+    if (waiting) waiting.style.flex = top ? String(Math.min(2, 1 + Math.floor(queue.length / 4))) : '1';
+    // La file : les dernières lignes retirées plutôt que coupées.
+    for (const sec of [waiting, results ? top : null]) {
+      if (!sec) continue;
+      for (let guard = 0; sec.scrollHeight > sec.clientHeight + 1 && guard < 40; guard++) {
+        const lines = sec.querySelectorAll('.qline, .res');
+        if (!lines.length) break;
+        lines[lines.length - 1].remove();
+      }
+    }
+    const rk = panel.querySelector('.rk');
+    if (rk) {
+      const rows = b.ranking.rows || [];
+      const s = u * 0.62;
+      const avail = rk.clientHeight || 300;
+      const oneColumn = Math.max(1, Math.floor((avail - s * 1.2) / (s * 0.95)));
+      const columns = rows.length > oneColumn && rk.clientWidth > s * 18 ? 2 : 1;
+      const perColumn = Math.max(1, Math.ceil(rows.length / columns));
+      const rowH = Math.max(s * 0.9, Math.min(s * 1.6, (avail - s * 1.2) / perColumn));
+      const f = rowH * 0.68;
+      const fit = Math.floor((avail - s * 1.2) / rowH + 0.05);
+      const grid = 'grid-template-columns:' + f * 2.2 + 'px minmax(0,1fr) ' + f * 1.6 + 'px ' + f * 2.9 + 'px;';
+      const head = '<div class="l h" style="' + grid + 'height:' + s * 1.2 + 'px;font-size:' + f * 0.8 + 'px"><span></span><span></span><span class="w">' +
+        esc(b.ranking.wins) + '</span><span class="v">' + esc(b.ranking.value) + '</span></div>';
+      let html = '';
+      for (let c = 0; c < columns; c++) {
+        html += '<div>' + head + rows.slice(c * perColumn, c * perColumn + Math.min(perColumn, fit)).map((r) =>
+          '<div class="l" style="' + grid + 'height:' + rowH + 'px;font-size:' + f + 'px"><span class="n' + (r.qualified ? ' q' : '') + '">' +
+          esc(r.rank) + '</span><span style="font-weight:700">' + esc(r.label) + '</span><span class="w">' + esc(r.wins) + '</span><span class="v">' +
+          esc(r.value) + '</span></div>').join('') + '</div>';
+      }
+      rk.innerHTML = html;
     }
   }
 
