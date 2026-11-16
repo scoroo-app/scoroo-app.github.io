@@ -110,6 +110,16 @@
   .m .tm small { display: block; font-size: .62em; color: var(--muted); font-weight: 600; }
   /* Ligne de match haute : un nom long (équipe de quatre) passe sur deux lignes. */
   .m.two .tm div:only-child { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  /* Équipe en case de sa couleur, un joueur par étiquette, sans séparateur ; rien n'est coupé. */
+  .tbox { flex: 1; min-width: 0; overflow: hidden; border-radius: .45em; padding: .2em .3em; border: max(1.5px, .08em) solid;
+    display: flex; flex-direction: column; justify-content: center; }
+  .tbox.r { align-items: flex-end; text-align: right; }
+  .tbox .tn { font-weight: 900; line-height: 1.1; white-space: nowrap; margin-bottom: .12em; }
+  .tbox .chips { display: flex; flex-wrap: wrap; gap: .25em .3em; }
+  .tbox.r .chips { justify-content: flex-end; }
+  .tbox .chips span { background: rgba(255,255,255,.13); border-radius: 1em; padding: .05em .35em; font-weight: 800; line-height: 1.15; white-space: nowrap; }
+  .tline { display: inline-flex; align-items: center; gap: .45em; white-space: nowrap; }
+  .tline i { flex: none; width: .62em; height: .62em; border-radius: .18em; }
   .m .sc { flex: none; font-weight: 900; font-size: 1.35em; font-variant-numeric: tabular-nums; }
   .m .multi { flex: 1; min-width: 0; font-weight: 700; font-size: .9em; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
   .m .clock { flex: none; font-weight: 900; font-size: .85em; font-variant-numeric: tabular-nums; }
@@ -226,6 +236,7 @@
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .finale .podium { flex: 1; padding: 0 calc(var(--u) * 2); margin-top: calc(var(--u) * .4); grid-template-rows: minmax(0, 1fr); overflow: hidden; }
   .finale .step { height: 100%; animation: rise .8s cubic-bezier(.34,1.56,.64,1) both; }
+  .finale.still .step { animation: none; }
   .finale .step .ring { border-radius: 50%; padding: calc(var(--u) * .12); }
   .finale .step .pts { font-weight: 900; }
   .finale .step .block { display: grid; place-items: center; padding: 0; line-height: 1; }
@@ -373,6 +384,7 @@
       return;
     }
     finaleFor = null;
+    finaleKey = null;
     const everyone = data.players || [];
     // Au-delà de 6 joueurs, le classement prend toute la largeur (sur deux colonnes). Aux
     // fléchettes, la cible reste : le classement n'affiche alors que 6 joueurs (les 5 premiers et
@@ -735,9 +747,17 @@
   }
 
   // Fin de partie : podium des trois premiers, confettis, meilleur moment, puis les autres.
+  // Podium déjà affiché : la télé reçoit encore des messages (renvois de sécurité, photos, mises à
+  // jour) ; il n'est redessiné que si son contenu change, et alors sans rejouer l'animation.
+  let finaleKey = null;
   function renderFinale(data) {
     const f = data.podium;
     const el = $('finale');
+    const key = JSON.stringify([data.id, f, (data.players || []).map((p) => [p.i, p.name, p.score, p.photo, !!PHOTOS[p.photo]]),
+      window.innerWidth, window.innerHeight]);
+    if (key === finaleKey) return;
+    finaleKey = key;
+    el.classList.toggle('still', finaleFor === data.id);
     const places = f.places || [];
     const shown = new Set(places.map((p) => p.i));
     const rest = (data.players || []).filter((p) => !shown.has(p.i)).slice(0, 8);
@@ -903,8 +923,23 @@
   // classement en tableau (deux colonnes s'il est long) ou les derniers résultats, puis la file.
   function renderCupBoard(b, timeOver) {
     const u = Math.min(window.innerHeight * 0.05, window.innerWidth * 0.028);
-    const team = (t, right) => '<div class="tm' + (right ? ' r' : '') + '"><div>' + esc((t && t.label) || '') + '</div>' +
-      (t && t.sub ? '<small>' + esc(t.sub) + '</small>' : '') + '</div>';
+    const rgba = (hex, a) => /^#[0-9a-f]{6}$/i.test(hex || '') ? 'rgba(' + [1, 3, 5].map((i) => parseInt(hex.substr(i, 2), 16)).join(',') + ',' + a + ')' : 'rgba(255,255,255,' + a / 2 + ')';
+    const members = (t) => (t && t.members) || [(t && t.label) || ''];
+    // Case de l'équipe : son nom choisi en titre, ses joueurs en étiquettes.
+    const team = (t, right) => '<div class="tbox' + (right ? ' r' : '') + '" style="background:' + rgba(t && t.color, 0.2) +
+      ';border-color:' + rgba(t && t.color, 0.75) + '">' + (t && t.name ? '<div class="tn">' + esc(t.name) + '</div>' : '') +
+      '<div class="chips"' + (t && t.name ? ' style="font-size:.78em"' : '') + '>' + members(t).map((m) => '<span>' + esc(m) + '</span>').join('') + '</div></div>';
+    // Équipe sur une ligne (classement, file, résultats) : pastille de couleur et joueurs espacés.
+    const teamLine = (t) => '<span class="tline"><i style="background:' + ((t && t.color) || '#888') + '"></i>' +
+      (t && t.name ? [t.name] : members(t)).map((m) => '<span>' + esc(m) + '</span>').join('') + '</span>';
+    // Rétrécit un élément jusqu'à ce que son contenu tienne (jamais de nom coupé).
+    const fit = (el, min) => {
+      let size = parseFloat(getComputedStyle(el).fontSize);
+      for (let guard = 0; guard < 30 && size > min && (el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1); guard++) {
+        size *= 0.92;
+        el.style.fontSize = size + 'px';
+      }
+    };
     const box = $('cup-tables');
     const matches = b.matches || [];
     box.innerHTML = '<div class="mhead"><h3>' + esc(b.matchesTitle || '') + '</h3>' +
@@ -929,17 +964,19 @@
       list.style.gridTemplateColumns = 'repeat(' + columns + ', minmax(0, 1fr))';
       list.style.gridTemplateRows = 'repeat(' + rows + ', ' + rowH + 'px)';
       list.style.setProperty('--s', s + 'px');
+      list.dataset.rowH = rowH;
       list.innerHTML = matches.map((m) => {
         const sides = m.sides || [];
         const middle = sides.length === 2
           ? team(sides[0]) + '<span class="sc">' + esc(sides[0].score) + ' – ' + esc(sides[1].score) + '</span>' + team(sides[1], true)
           : '<div class="multi">' + sides.map((p) => esc(p.label) + ' ' + esc(p.score)).join('  ·  ') + '</div>';
-        return '<div class="m' + (rowH >= s * 2.7 ? ' two' : '') + '"><i class="tb" style="width:' + badge + 'px;height:' + badge + 'px;font-size:' + badge * 0.55 + 'px">' +
-          esc(m.table) + '</i>' + middle +
+        return '<div class="m"><i class="tb" style="width:' + badge + 'px;height:' + badge + 'px;font-size:' + badge * 0.55 + 'px">' +
+          esc(m.table) + '</i>' + middle.replace(/(<div class="tbox[^"]*") style="/g, '$1 style="max-height:' + (rowH - 6) + 'px;') +
           (typeof m.remaining === 'number' ? '<span class="clock" data-end="' + endFor('table' + m.table, m.remaining) +
             '" data-over="' + esc(timeOver) + '"></span>' : '') + '</div>';
       }).join('');
     }
+    list.querySelectorAll('.tbox').forEach((el) => fit(el, 6));
     tick();
 
     const panel = $('cup-panel');
@@ -947,9 +984,9 @@
     const results = b.results && (b.results.rows || []).length ? b.results : null;
     panel.innerHTML = (b.ranking ? '<section class="top"><h3>' + esc(b.ranking.title) + '</h3><div class="rk"></div></section>' :
       results ? '<section class="top"><h3>' + esc(results.title) + '</h3>' + results.rows.map((r) =>
-        '<div class="res">' + esc(r.winner && r.winner.label) + '<b>' + esc(r.score) + '</b>' + esc(r.loser && r.loser.label) + '</div>').join('') + '</section>' : '') +
+        '<div class="res">' + teamLine(r.winner) + '<b>' + esc(r.score) + '</b>' + teamLine(r.loser) + '</div>').join('') + '</section>' : '') +
       (queue.length ? '<section class="queue"><h3>' + esc(b.queueTitle || '') + '</h3>' + queue.map((q) =>
-        '<div class="qline">' + (q.sides || []).map((x) => esc(x.label)).join('  –  ') + '</div>').join('') + '</section>' : '');
+        '<div class="qline">' + (q.sides || []).map((x) => teamLine(x)).join('<span style="margin:0 .5em;color:rgba(255,255,255,.54)">–</span>') + '</div>').join('') + '</section>' : '');
     const top = panel.querySelector('.top');
     const waiting = panel.querySelector('.queue');
     if (top) top.style.flex = '3';
@@ -981,11 +1018,13 @@
       for (let c = 0; c < columns; c++) {
         html += '<div>' + head + rows.slice(c * perColumn, c * perColumn + Math.min(perColumn, fit)).map((r) =>
           '<div class="l" style="' + grid + 'height:' + rowH + 'px;font-size:' + f + 'px"><span class="n' + (r.qualified ? ' q' : '') + '">' +
-          esc(r.rank) + '</span><span style="font-weight:700">' + esc(r.label) + '</span><span class="w">' + esc(r.wins) + '</span><span class="v">' +
+          esc(r.rank) + '</span><span class="nm" style="font-weight:700">' + teamLine(r) + '</span><span class="w">' + esc(r.wins) + '</span><span class="v">' +
           esc(r.value) + '</span></div>').join('') + '</div>';
       }
       rk.innerHTML = html;
+      rk.querySelectorAll('.nm').forEach((el) => fit(el, 5));
     }
+    panel.querySelectorAll('.qline, .res').forEach((el) => fit(el, 5));
   }
 
   let last = { kind: 'idle' };
