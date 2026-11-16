@@ -17,7 +17,7 @@
   * { box-sizing: border-box; }
   html, body { margin: 0; height: 100%; background: var(--bg); color: #fff; overflow: hidden;
     font-family: "Roboto", "Segoe UI", system-ui, sans-serif; }
-  .screen { position: absolute; inset: 0; padding: calc(var(--u) * 1.6) calc(var(--u) * 2.4); display: flex; flex-direction: column; }
+  .screen { position: absolute; inset: 0; padding: calc(var(--u) * .8) calc(var(--u) * 1.4); display: flex; flex-direction: column; }
   .hidden { display: none !important; }
   /* Fond discret du jeu (backdrops/<jeu>.png, générés par tool/store_assets/tv_backdrops_test.dart). */
   #game { background: var(--bg) center / cover no-repeat; }
@@ -28,16 +28,16 @@
   .idle p { font-size: calc(var(--u) * 1.05); color: var(--muted); margin: 0; }
   /* Partie */
   header { display: flex; align-items: center; gap: calc(var(--u) * .8); }
-  .badge { width: calc(var(--u) * 2.6); height: calc(var(--u) * 2.6); border-radius: 30%; background: #fff;
-    display: grid; place-items: center; font-weight: 900; font-size: calc(var(--u) * 1.1); flex: none; }
+  .badge { width: calc(var(--u) * 1.6); height: calc(var(--u) * 1.6); border-radius: 30%; background: #fff;
+    display: grid; place-items: center; font-weight: 900; font-size: calc(var(--u) * .7); flex: none; }
   .badge img { width: 66%; height: 66%; }
   .titles { min-width: 0; }
-  .title { font-size: calc(var(--u) * 1.5); font-weight: 900; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .subtitle { font-size: calc(var(--u) * .85); color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .main { flex: 1; display: flex; gap: calc(var(--u) * .8); margin: calc(var(--u) * .9) 0 calc(var(--u) * .6); min-height: 0; }
+  .title { font-size: calc(var(--u) * 1); font-weight: 900; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .subtitle { font-size: calc(var(--u) * .6); color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .main { flex: 1; display: flex; gap: calc(var(--u) * .8); margin: calc(var(--u) * .5) 0 calc(var(--u) * .4); min-height: 0; }
   .rows { position: relative; flex: 3; min-width: 0; }
   /* Repères (objectif, donneur, cartes) et historique des manches. */
-  .info { display: flex; flex-wrap: wrap; gap: calc(var(--u) * .4); margin-top: calc(var(--u) * .6); }
+  .info { display: flex; flex-wrap: wrap; gap: calc(var(--u) * .4); margin-top: calc(var(--u) * .4); }
   .info:empty { display: none; }
   .pill { display: flex; align-items: center; gap: calc(var(--u) * .3); background: rgba(255,255,255,.1); border-radius: 999px;
     padding: calc(var(--u) * .2) calc(var(--u) * .55); font-weight: 700; font-size: calc(var(--u) * .7); }
@@ -72,8 +72,8 @@
   .delta { font-weight: 700; }
   .delta.up { color: #7ee2a8; } .delta.down { color: #ff9c9c; }
   .score { font-weight: 900; font-variant-numeric: tabular-nums; text-align: right; }
-  footer { display: flex; align-items: center; gap: calc(var(--u) * .4); font-size: calc(var(--u) * .75); color: var(--muted); font-weight: 700; }
-  footer img { width: calc(var(--u) * 1.3); height: calc(var(--u) * 1.3); border-radius: 30%; }
+  footer { display: flex; align-items: center; gap: calc(var(--u) * .4); font-size: calc(var(--u) * .55); color: var(--muted); font-weight: 700; }
+  footer img { width: calc(var(--u) * .95); height: calc(var(--u) * .95); border-radius: 30%; }
   footer .banner { margin-left: auto; color: var(--gold); font-weight: 900; font-size: calc(var(--u) * .95); }
   /* Grand tournoi : les tables à gauche, prochains matchs et classement à droite. */
   .cup-body { flex: 1; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: calc(var(--u) * .8); margin-top: calc(var(--u) * .8); min-height: 0; }
@@ -93,12 +93,12 @@
   .cup-row span:first-child { flex: 1; min-width: 0; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
   .cup-row span:last-child { color: var(--muted); font-weight: 800; }
   /* Version lisible de loin : un match par ligne, classement en tableau. */
-  .cup-body.v2 { grid-template-columns: minmax(0, 11fr) minmax(0, 9fr); }
+  .cup-body.v2 { grid-template-columns: minmax(0, 13fr) minmax(0, 7fr); gap: calc(var(--u) * .5); margin-top: calc(var(--u) * .5); }
   .cup-tables.v2 { display: flex; flex-direction: column; overflow: hidden; }
-  .mhead { display: flex; align-items: baseline; gap: calc(var(--u) * .4); height: calc(var(--u) * 1.3); }
-  .mhead h3 { margin: 0; color: var(--gold); font-size: calc(var(--u) * .8); flex: 1; }
-  .mhead span { color: var(--muted); font-size: calc(var(--u) * .6); white-space: nowrap; }
-  .mhead span b { color: #fff; font-size: calc(var(--u) * .75); }
+  .mhead { display: flex; align-items: baseline; gap: calc(var(--u) * .4); height: calc(var(--u) * .95); }
+  .mhead h3 { margin: 0; color: var(--gold); font-size: calc(var(--u) * .6); flex: 1; }
+  .mhead span { color: var(--muted); font-size: calc(var(--u) * .45); white-space: nowrap; }
+  .mhead span b { color: #fff; font-size: calc(var(--u) * .55); }
   .mlist { flex: 1; min-height: 0; display: grid; grid-auto-flow: column; gap: calc(var(--u) * .3); }
   .m { display: flex; align-items: center; gap: calc(var(--s) * .45); min-width: 0; padding: 0 calc(var(--s) * .5);
     background: rgba(255,255,255,.07); border-radius: calc(var(--s) * .6); font-size: var(--s); }
@@ -117,16 +117,17 @@
   .tbox .tn { font-weight: 900; line-height: 1.1; white-space: nowrap; margin-bottom: .12em; }
   .tbox .chips { display: flex; flex-wrap: wrap; gap: .25em .3em; }
   .tbox.r .chips { justify-content: flex-end; }
+  .tbox .chips { font-size: .92em; }
   .tbox .chips span { background: rgba(255,255,255,.13); border-radius: 1em; padding: .05em .35em; font-weight: 800; line-height: 1.15; white-space: nowrap; }
   .tline { display: inline-flex; align-items: center; gap: .45em; white-space: nowrap; }
   .tline i { flex: none; width: .62em; height: .62em; border-radius: .18em; }
-  .m .sc { flex: none; font-weight: 900; font-size: 1.35em; font-variant-numeric: tabular-nums; }
+  .m .sc { flex: none; font-weight: 900; font-size: 1.25em; font-variant-numeric: tabular-nums; }
   .m .multi { flex: 1; min-width: 0; font-weight: 700; font-size: .9em; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
   .m .clock { flex: none; font-weight: 900; font-size: .85em; font-variant-numeric: tabular-nums; }
   .cup-panel.v2 { background: none; padding: 0; display: flex; flex-direction: column; gap: calc(var(--u) * .4); }
   .cup-panel.v2 > section { background: rgba(255,255,255,.05); border-radius: calc(var(--u) * .6); padding: calc(var(--u) * .5);
     min-height: 0; overflow: hidden; display: flex; flex-direction: column; }
-  .cup-panel.v2 h3 { margin: 0 0 calc(var(--u) * .25); }
+  .cup-panel.v2 h3 { margin: 0 0 calc(var(--u) * .25); font-size: calc(var(--u) * .6); }
   .rk { flex: 1; min-height: 0; display: flex; gap: calc(var(--u) * .7); }
   .rk > div { flex: 1; min-width: 0; }
   .rk .l { display: grid; align-items: center; }
@@ -136,7 +137,7 @@
   .rk .l .w, .rk .l .v { text-align: right; font-weight: 900; }
   .rk .l .v { color: rgba(255,255,255,.7); }
   .rk .h { color: rgba(255,255,255,.54); font-weight: 800; }
-  .qline, .res { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: calc(var(--u) * .62); margin: calc(var(--u) * .08) 0;
+  .qline, .res { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: calc(var(--u) * .45); margin: calc(var(--u) * .08) 0;
     color: rgba(255,255,255,.7); font-weight: 600; }
   .res b { color: var(--gold); margin: 0 calc(var(--u) * .3); }
   .cup-banner { margin-top: calc(var(--u) * .6); padding: calc(var(--u) * .4) calc(var(--u) * .8); border-radius: calc(var(--u) * .5);
@@ -163,14 +164,15 @@
   .timer { background: rgba(255,255,255,.1); border-radius: calc(var(--u) * .6); padding: calc(var(--u) * .3) calc(var(--u) * .6);
     text-align: right; flex: none; }
   .timer small { display: block; font-size: calc(var(--u) * .55); color: var(--muted); font-weight: 700; }
-  .timer b { font-size: calc(var(--u) * 1.1); font-weight: 900; font-variant-numeric: tabular-nums; }
+  .timer b { font-size: calc(var(--u) * .8); font-weight: 900; font-variant-numeric: tabular-nums; }
   .low { color: #ff8a8a; }
+  .over { background: #e5484d; color: #fff !important; border-radius: 1em; padding: 0 .35em; }
   .join { display: flex; align-items: center; gap: calc(var(--u) * .4); background: rgba(255,255,255,.1);
     border-radius: calc(var(--u) * .5); padding: calc(var(--u) * .3); flex: none; }
   .join div { text-align: right; }
-  .join small { display: block; font-size: calc(var(--u) * .55); color: rgba(255,255,255,.7); font-weight: 700; }
-  .join b { font-size: calc(var(--u) * .8); font-weight: 900; letter-spacing: .08em; }
-  .join svg { width: calc(var(--u) * 2.6); height: calc(var(--u) * 2.6); background: #fff; border-radius: calc(var(--u) * .2);
+  .join small { display: block; font-size: calc(var(--u) * .45); color: rgba(255,255,255,.7); font-weight: 700; }
+  .join b { font-size: calc(var(--u) * .6); font-weight: 900; letter-spacing: .08em; }
+  .join svg { width: calc(var(--u) * 1.7); height: calc(var(--u) * 1.7); background: #fff; border-radius: calc(var(--u) * .2);
     padding: calc(var(--u) * .15); box-sizing: border-box; }
   /* Avatars : photo, initiale, ou deux membres d'une équipe. */
   .av { border-radius: 50%; display: grid; place-items: center; font-weight: 900; flex: none; color: #fff; }
@@ -185,8 +187,10 @@
   .bar i { display: block; height: 100%; border-radius: 4px; }
   /* Panneau de droite : historique, courbe, Cricket (en fondu quand il change). */
   .side { flex: 2; min-width: 0; position: relative; }
-  .side.wide { flex: 3; }
-  .side.wider { flex: 4; }
+  /* Fléchettes : le classement réduit d'un tiers, la cible prend le reste. */
+  .side.wide { flex: 6; }
+  .side.wider { flex: 7; }
+  .side > div.bare { background: none; padding: 0; }
   .cricket > b { white-space: nowrap; }
   .side > div { position: absolute; inset: 0; background: rgba(255,255,255,.06); border-radius: calc(var(--u) * .8);
     padding: calc(var(--u) * .6); display: flex; flex-direction: column; overflow: hidden; transition: opacity .6s; }
@@ -200,8 +204,8 @@
   /* Fléchettes : la cible, et au Cricket la grille dessous. */
   .board { flex: 5; min-height: 0; width: 100%; }
   .side .pair { flex: 1; min-height: 0; display: flex; gap: calc(var(--u) * .5); }
-  .side .pair .bw { flex: 9; min-width: 0; display: flex; flex-direction: column; }
-  .side .sub { flex: 11; min-width: 0; min-height: 0; display: flex; flex-direction: column; }
+  .side .pair .bw { flex: 12; min-width: 0; display: flex; flex-direction: column; }
+  .side .sub { flex: 9; min-width: 0; min-height: 0; display: flex; flex-direction: column; }
   .name .misses svg { display: block; }
   .cricket > b { font-size: calc(var(--u) * .7); color: rgba(255,255,255,.7); font-weight: 900; }
   .mark { position: relative; display: block; }
@@ -326,8 +330,10 @@
   function tick() {
     document.querySelectorAll('[data-end]').forEach((el) => {
       const left = Math.round((Number(el.dataset.end) - Date.now()) / 1000);
-      el.textContent = left <= 0 ? el.dataset.over || '0:00' : Math.floor(left / 60) + ':' + String(left % 60).padStart(2, '0');
+      // Temps écoulé : un chrono rouge à 0:00 (plus parlant et plus court qu'un texte).
+      el.textContent = left <= 0 ? '⏱ 0:00' : Math.floor(left / 60) + ':' + String(left % 60).padStart(2, '0');
       el.classList.toggle('low', left < 60);
+      el.classList.toggle('over', left <= 0);
     });
   }
   setInterval(tick, 1000);
@@ -673,9 +679,11 @@
   const RING = { bullIn: 0.075, bullOut: 0.16, tripleIn: 0.54, tripleOut: 0.66, doubleIn: 0.87, doubleOut: 1, numbers: 1.17 };
   function fillDartboard(el, board, cricket) {
     // Cricket : la cible et la grille côte à côte (l'une sous l'autre, elles ne tenaient pas).
+    // Ni titre ni fond : la cible prend toute la place (le joueur qui lance est cerclé à gauche).
+    el.classList.add('bare');
     el.innerHTML = cricket
-      ? '<div class="pair"><div class="bw"><h3>' + esc(board.title || '') + '</h3><svg class="board"></svg></div><div class="sub"></div></div>'
-      : '<h3>' + esc(board.title || '') + '</h3><svg class="board"></svg>';
+      ? '<div class="pair"><div class="bw"><svg class="board"></svg></div><div class="sub"></div></div>'
+      : '<svg class="board"></svg>';
     const svg = el.querySelector('svg');
     const size = Math.max(50, Math.min(svg.clientWidth || 300, svg.clientHeight || 300));
     svg.setAttribute('viewBox', '0 0 ' + size + ' ' + size);
@@ -954,13 +962,13 @@
       const avail = list.clientHeight || box.clientHeight * 0.85;
       const width = list.clientWidth || box.clientWidth;
       const gap = u * 0.3;
-      const perColumn = Math.max(1, Math.floor(avail / (u * 1.5)));
+      const perColumn = Math.max(1, Math.floor(avail / (u * 1.2)));
       const columns = Math.min(3, Math.ceil(matches.length / perColumn));
       const rows = Math.ceil(matches.length / columns);
-      const rowH = Math.min(u * 2.4, (avail - gap * (rows - 1)) / rows);
+      const rowH = Math.min(u * 1.6, (avail - gap * (rows - 1)) / rows);
       const colW = (width - gap * (columns - 1)) / columns;
-      const s = Math.min(rowH * 0.36, colW / 14, u * 0.72);
-      const badge = Math.min(rowH * 0.72, s * 2.2);
+      const s = Math.min(rowH * 0.36, colW / 20, u * 0.55);
+      const badge = Math.min(rowH * 0.62, s * 1.9);
       list.style.gridTemplateColumns = 'repeat(' + columns + ', minmax(0, 1fr))';
       list.style.gridTemplateRows = 'repeat(' + rows + ', ' + rowH + 'px)';
       list.style.setProperty('--s', s + 'px');
@@ -1003,12 +1011,12 @@
     const rk = panel.querySelector('.rk');
     if (rk) {
       const rows = b.ranking.rows || [];
-      const s = u * 0.62;
+      const s = u * 0.5;
       const avail = rk.clientHeight || 300;
       const oneColumn = Math.max(1, Math.floor((avail - s * 1.2) / (s * 0.95)));
       const columns = rows.length > oneColumn && rk.clientWidth > s * 18 ? 2 : 1;
       const perColumn = Math.max(1, Math.ceil(rows.length / columns));
-      const rowH = Math.max(s * 0.9, Math.min(s * 1.6, (avail - s * 1.2) / perColumn));
+      const rowH = Math.max(s * 0.9, Math.min(s * 1.4, (avail - s * 1.2) / perColumn));
       const f = rowH * 0.68;
       const fit = Math.floor((avail - s * 1.2) / rowH + 0.05);
       const grid = 'grid-template-columns:' + f * 2.2 + 'px minmax(0,1fr) ' + f * 1.6 + 'px ' + f * 2.9 + 'px;';
