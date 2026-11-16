@@ -139,6 +139,7 @@
   /* Panneau de droite : historique, courbe, Cricket (en fondu quand il change). */
   .side { flex: 2; min-width: 0; position: relative; }
   .side.wide { flex: 3; }
+  .side.wider { flex: 4; }
   .cricket > b { white-space: nowrap; }
   .side > div { position: absolute; inset: 0; background: rgba(255,255,255,.06); border-radius: calc(var(--u) * .8);
     padding: calc(var(--u) * .6); display: flex; flex-direction: column; overflow: hidden; transition: opacity .6s; }
@@ -332,9 +333,13 @@
       return;
     }
     finaleFor = null;
-    const players = data.players || [];
-    // Au-delà de 6 joueurs, le classement prend toute la largeur (sur deux colonnes).
-    renderSide(players.length <= 6 ? data : null);
+    const everyone = data.players || [];
+    // Au-delà de 6 joueurs, le classement prend toute la largeur (sur deux colonnes). Aux
+    // fléchettes, la cible reste : le classement n'affiche alors que 6 joueurs (les 5 premiers et
+    // celui qui lance).
+    renderSide(everyone.length <= 6 || data.dartboard ? data : null);
+    const sideOn = !$('side').classList.contains('hidden');
+    const players = data.dartboard && sideOn && everyone.length > 6 ? windowPlayers(everyone, 6) : everyone;
 
     const height = rowsEl.clientHeight || window.innerHeight * 0.7;
     const width = rowsEl.clientWidth || window.innerWidth * 0.9;
@@ -403,7 +408,18 @@
       delta.className = 'delta' + (p.delta ? (p.delta.startsWith('+') !== !!data.low ? ' up' : ' down') : '');
       Object.assign(delta.style, { fontSize: h * 0.24 + 'px', marginRight: p.delta ? h * 0.2 + 'px' : '0' });
       score.style.fontSize = h * 0.52 + 'px';
-      animate(row, score, Number(p.score) || 0);
+      // Killer : les vies en cœurs à la place du score (perdues : cœurs vides).
+      if (Array.isArray(p.lives)) {
+        row.score = undefined;
+        let hearts = '';
+        for (let l = 0; l < p.lives[1]; l++) {
+          hearts += '<span style="color:' + (l < p.lives[0] ? '#ff5a6e' : 'rgba(255,255,255,.38)') + '">' + (l < p.lives[0] ? '♥' : '♡') + '</span>';
+        }
+        score.innerHTML = '<span style="font-size:' + h * 0.4 + 'px;letter-spacing:' + h * 0.03 + 'px">' + hearts + '</span>';
+      } else {
+        if (row.score === undefined) score.textContent = Number(p.score) || 0;
+        animate(row, score, Number(p.score) || 0);
+      }
     });
     // Nom plus large que sa place : il rétrécit (jusqu'à 60 %) avant d'être coupé.
     toFit.forEach(([el, size]) => {
@@ -499,7 +515,10 @@
     if (!panels.length || !wide) { el.classList.add('hidden'); el.innerHTML = ''; return; }
     el.classList.remove('hidden');
     // Cricket : cible et grille côte à côte, le panneau prend autant de place que le classement.
-    el.classList.toggle('wide', !!(data.dartboard && data.cricket));
+    // Fléchettes : une grande cible, le panneau prend autant de place que le classement (plus
+    // encore au Cricket, avec la grille à côté).
+    el.classList.toggle('wide', !!data.dartboard && !data.cricket);
+    el.classList.toggle('wider', !!(data.dartboard && data.cricket));
     const kind = panels[sideIndex % panels.length];
     const box = document.createElement('div');
     el.querySelectorAll(':scope > div').forEach((old) => {
@@ -652,8 +671,12 @@
       const [x, y] = pt((RING.doubleOut + RING.numbers) / 2, -Math.PI / 2 + k * step);
       out += text(x, y, String(seg), r * 0.1);
     });
+    // Libellés des zones (« +3 », « 1·2 »…) : en blanc sur une pastille sombre, lisibles de loin.
     labels.forEach(([[x, y], t, fs]) => {
-      out += text(x, y, t, fs, ' style="paint-order:stroke" stroke="#000" stroke-width="' + fs * 0.25 + '"');
+      const size = fs * 1.45;
+      const w = String(t).length * size * 0.62 + size * 0.6;
+      out += '<rect x="' + (x - w / 2) + '" y="' + (y - size * 0.62) + '" width="' + w + '" height="' + size * 1.24 + '" rx="' + size * 0.62 +
+        '" fill="#111827" fill-opacity=".85"/>' + text(x, y, t, size);
     });
     (board.darts || []).forEach(([seg, mult], i) => {
       if (!seg) return;
@@ -741,6 +764,14 @@
   }
 
   // Les scores défilent jusqu'à leur nouvelle valeur, comme dans l'appli.
+  // Au plus [count] joueurs : les premiers, et toujours celui dont c'est le tour.
+  function windowPlayers(players, count) {
+    const shown = players.slice(0, count);
+    const turn = players.find((p) => p.turn);
+    if (turn && !shown.includes(turn)) shown[count - 1] = turn;
+    return shown;
+  }
+
   function animate(row, el, target) {
     const from = row.score;
     row.score = target;
