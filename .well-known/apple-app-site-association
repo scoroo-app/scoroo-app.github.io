@@ -2,7 +2,7 @@
   "applinks": {
     "details": [
       {
-        "appIDs": ["F5U9NGGQ78.com.scoroo.app"],
+        "appIDs": ["G3W92D7RP9.com.scoroo.app"],
         "components": [{ "/": "/g/*" }, { "/": "/g" }]
       }
     ]
