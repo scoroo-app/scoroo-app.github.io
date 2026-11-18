@@ -63,7 +63,7 @@
   .avatar { border-radius: 50%; display: grid; place-items: center; font-weight: 900; flex: none; }
   .name { flex: 1; min-width: 0; font-weight: 800; line-height: 1.1; }
   .name span { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .name small { display: block; color: rgba(255,255,255,.55); font-weight: 600; }
+  .name small { display: block; color: rgba(255,255,255,.55); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .name .misses { display: flex; gap: 4px; margin-top: 2px; font-style: normal; }
   .name .misses:empty { display: none; }
   .name .misses b { display: block; border-radius: 50%; }
@@ -111,19 +111,36 @@
   /* Ligne de match haute : un nom long (équipe de quatre) passe sur deux lignes. */
   .m.two .tm div:only-child { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
   /* Équipe en case de sa couleur, un joueur par étiquette, sans séparateur ; rien n'est coupé. */
-  .tbox { flex: 1; min-width: 0; overflow: hidden; border-radius: .45em; padding: .2em .3em; border: max(1.5px, .08em) solid;
+  .tbox { flex: 1; min-width: 0; overflow: hidden; border-radius: .4em; padding: .18em .4em; border-left: max(3px, .22em) solid;
     display: flex; flex-direction: column; justify-content: center; }
-  .tbox.r { align-items: flex-end; text-align: right; }
+  .tbox.r { align-items: flex-end; text-align: right; border-left: none; border-right: max(3px, .22em) solid; }
+  .tbox .nl { white-space: nowrap; font-weight: 800; line-height: 1.2; }
+  .tbox .tn + .nl, .tbox .tn + .nl + .nl { font-size: .78em; }
+  .nl > span + span, .tline > span + span, .nl .sm > span + span { margin-left: .55em; }
+  .tbox .tn1 { font-weight: 900; margin-right: .7em; }
+  .tbox .nl .sm { font-style: normal; font-size: .78em; font-weight: 700; }
   .tbox .tn { font-weight: 900; line-height: 1.1; white-space: nowrap; margin-bottom: .12em; }
   .tbox .chips { display: flex; flex-wrap: wrap; gap: .25em .3em; }
   .tbox.r .chips { justify-content: flex-end; }
   .tbox .chips { font-size: .92em; }
   .tbox .chips span { background: rgba(255,255,255,.13); border-radius: 1em; padding: .05em .35em; font-weight: 800; line-height: 1.15; white-space: nowrap; }
-  .tline { display: inline-flex; align-items: center; gap: .45em; white-space: nowrap; }
+  /* Équipe sur une ligne : pastille de couleur, puis chaque joueur sur une étiquette. */
+  .tline { display: inline-flex; align-items: center; white-space: nowrap; }
+  .tline i { margin-right: .45em; }
   .tline i { flex: none; width: .62em; height: .62em; border-radius: .18em; }
   .m .sc { flex: none; font-weight: 900; font-size: 1.25em; font-variant-numeric: tabular-nums; }
   .m .multi { flex: 1; min-width: 0; font-weight: 700; font-size: .9em; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
   .m .clock { flex: none; font-weight: 900; font-size: .85em; font-variant-numeric: tabular-nums; }
+  .m .multi2 { flex: 1; min-width: 0; align-self: stretch; display: flex; gap: .3em; padding: .15em 0; }
+  .m .multi2 .pc { flex: 1; min-width: 0; overflow: hidden; border-radius: .4em; padding: 0 .3em; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; white-space: nowrap; }
+  .m .multi2 .pc span { font-size: .85em; font-weight: 800; line-height: 1.15; }
+  .m .multi2 .pc b { font-size: 1.15em; font-weight: 900; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  /* Équipes l'une sous l'autre (beaucoup de terrains, noms longs), scores alignés à droite. */
+  .m.stk .pair2 { flex: 1; min-width: 0; align-self: stretch; display: flex; flex-direction: column; gap: .18em; padding: .22em 0; }
+  .m.stk .pair2 .tbox { flex: 1; min-height: 0; }
+  .m.stk .sc2 { flex: none; align-self: stretch; display: flex; flex-direction: column; justify-content: space-around; padding: .22em 0;
+    font-weight: 900; font-size: 1.25em; text-align: center; min-width: 1.4em; font-variant-numeric: tabular-nums; }
   .cup-panel.v2 { background: none; padding: 0; display: flex; flex-direction: column; gap: calc(var(--u) * .4); }
   .cup-panel.v2 > section { background: rgba(255,255,255,.05); border-radius: calc(var(--u) * .6); padding: calc(var(--u) * .5);
     min-height: 0; overflow: hidden; display: flex; flex-direction: column; }
@@ -137,7 +154,14 @@
   .rk .l .w, .rk .l .v { text-align: right; font-weight: 900; }
   .rk .l .v { color: rgba(255,255,255,.7); }
   .rk .h { color: rgba(255,255,255,.54); font-weight: 800; }
-  .qline, .res { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: calc(var(--u) * .45); margin: calc(var(--u) * .08) 0;
+  .rk .l.more { display: flex; align-items: center; justify-content: flex-end; color: rgba(255,255,255,.6); font-weight: 800; }
+  /* Match en attente : les deux équipes l'une sous l'autre, un trait entre deux matchs. */
+  /* Pas de rétrécissement par la colonne (overflow caché) : la ligne garde sa hauteur, celles de trop sont retirées. */
+  .qline, .res { flex: none; }
+  .qline { padding: calc(var(--u) * .1) 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .qline > div { margin: calc(var(--u) * .03) 0; }
+  .tbox .chips.one { flex-wrap: nowrap; }
+  .qline, .res { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: calc(var(--u) * .5); margin: calc(var(--u) * .08) 0;
     color: rgba(255,255,255,.7); font-weight: 600; }
   .res b { color: var(--gold); margin: 0 calc(var(--u) * .3); }
   .cup-banner { margin-top: calc(var(--u) * .6); padding: calc(var(--u) * .4) calc(var(--u) * .8); border-radius: calc(var(--u) * .5);
@@ -175,7 +199,7 @@
   .join svg { width: calc(var(--u) * 1.7); height: calc(var(--u) * 1.7); background: #fff; border-radius: calc(var(--u) * .2);
     padding: calc(var(--u) * .15); box-sizing: border-box; }
   /* Avatars : photo, initiale, ou deux membres d'une équipe. */
-  .av { border-radius: 50%; display: grid; place-items: center; font-weight: 900; flex: none; color: #fff; }
+  .av { border-radius: 50%; display: grid; place-items: center; font-weight: 900; flex: none; color: #fff; line-height: 1; }
   .team { position: relative; display: block; flex: none; }
   .team .av { position: absolute; }
   /* Sortie aux fléchettes et cases remplies d'une feuille. */
@@ -187,11 +211,10 @@
   .bar i { display: block; height: 100%; border-radius: 4px; }
   /* Panneau de droite : historique, courbe, Cricket (en fondu quand il change). */
   .side { flex: 2; min-width: 0; position: relative; }
-  /* Fléchettes : le classement réduit d'un tiers, la cible prend le reste. */
-  .side.wide { flex: 6; }
-  .side.wider { flex: 7; }
+  /* Fléchettes : la cible prend la plus grande part, le classement garde de quoi écrire le nom. */
+  .side.wide { flex: 5.1; }
+  .side.wider { flex: 6; }
   .side > div.bare { background: none; padding: 0; }
-  .cricket > b { white-space: nowrap; }
   .side > div { position: absolute; inset: 0; background: rgba(255,255,255,.06); border-radius: calc(var(--u) * .8);
     padding: calc(var(--u) * .6); display: flex; flex-direction: column; overflow: hidden; transition: opacity .6s; }
   .side h3 { margin: 0 0 calc(var(--u) * .3); color: var(--gold); font-size: calc(var(--u) * .75); }
@@ -200,14 +223,46 @@
     font-size: calc(var(--u) * .55); color: rgba(255,255,255,.7); font-weight: 700; }
   .legend span { display: flex; align-items: center; gap: calc(var(--u) * .25); }
   .legend i { width: calc(var(--u) * .7); height: calc(var(--u) * .18); border-radius: 9px; }
-  .cricket { display: grid; align-items: center; justify-items: center; flex: 1; align-content: start; }
+  /* Cricket : une grille pour suivre les numéros (un trait entre chaque case, numéro fermé par tout
+     le monde grisé). */
+  .cricket { display: grid; flex: 1; align-content: start; }
+  .cricket > span { display: grid; place-items: center; min-width: 0; }
+  .cricket > .who { justify-items: start; }
+  .cricket > .c { border-left: max(1px, calc(var(--u) * .04)) solid rgba(255,255,255,.16); }
+  .cricket > .ln, .cricket > .who { border-top: max(1px, calc(var(--u) * .04)) solid rgba(255,255,255,.16); }
+  .cricket > .even { background: rgba(255,255,255,.04); }
+  .cricket > .c.closed { background: rgba(0,0,0,.28); }
+  .cricket > .c.closed b { color: rgba(255,255,255,.38); }
   /* Fléchettes : la cible, et au Cricket la grille dessous. */
   .board { flex: 5; min-height: 0; width: 100%; }
   .side .pair { flex: 1; min-height: 0; display: flex; gap: calc(var(--u) * .5); }
   .side .pair .bw { flex: 12; min-width: 0; display: flex; flex-direction: column; }
-  .side .sub { flex: 9; min-width: 0; min-height: 0; display: flex; flex-direction: column; }
+  .side .sub { flex: 9; min-width: 0; min-height: 0; display: flex; flex-direction: column;
+    background: rgba(255,255,255,.06); border-radius: calc(var(--u) * .8); padding: calc(var(--u) * .6); }
   .name .misses svg { display: block; }
-  .cricket > b { font-size: calc(var(--u) * .7); color: rgba(255,255,255,.7); font-weight: 900; }
+  /* Pari du Skull King, en pastille dorée sur la ligne du joueur. */
+  .bid { flex: none; text-align: center; border: solid #ffb534; background: rgba(255,181,52,.16); line-height: 1.05; }
+  .bid small { display: block; color: #ffb534; font-weight: 800; line-height: 1.1; }
+  .bid b { font-weight: 900; }
+  /* Feuille d'un jeu (Akropolis, 7 Wonders…) : une grille, la meilleure case de chaque ligne en doré. */
+  .side.sheetp { flex: 4.5; }
+  .sheet { display: grid; flex: 1; align-content: start; }
+  .sheet > span { min-width: 0; display: flex; align-items: center; overflow: hidden; }
+  .sheet .hd { justify-content: center; }
+  .sheet .lab { gap: .4em; border-top: max(1px, calc(var(--u) * .04)) solid rgba(255,255,255,.12); }
+  .sheet .lab i { flex: none; width: .45em; height: 55%; border-radius: .2em; }
+  .sheet .lab b { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; font-weight: 700; }
+  .sheet .cl { flex-direction: column; justify-content: center; text-align: center; white-space: nowrap;
+    border-top: max(1px, calc(var(--u) * .04)) solid rgba(255,255,255,.12); border-left: max(1px, calc(var(--u) * .04)) solid rgba(255,255,255,.12); }
+  .sheet .cl b { font-size: 1.05em; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1.1; }
+  .sheet .cl small { font-size: .6em; color: rgba(255,255,255,.6); font-weight: 700; line-height: 1.1; }
+  .sheet .even { background: rgba(255,255,255,.035); }
+  .sheet .cl.empty b { color: rgba(255,255,255,.3); }
+  .sheet .cl.best b { color: #ffb534; }
+  .sheet .tot { border-top: max(1.5px, calc(var(--u) * .06)) solid rgba(255,181,52,.6); }
+  .sheet .lab.tot b { color: #ffb534; font-weight: 900; }
+  .sheet .cl.tot b { font-size: 1.2em; font-weight: 900; }
+  .cricket b { font-size: calc(var(--u) * .7); color: #fff; font-weight: 900; white-space: nowrap; }
   .mark { position: relative; display: block; }
   .mark.m1::before, .mark.m2::before, .mark.m2::after { content: ''; position: absolute; left: 12%; right: 12%; top: 50%;
     height: 14%; margin-top: -7%; border-radius: 9px; background: currentColor; transform: rotate(-45deg); }
@@ -369,6 +424,7 @@
     badge.style.color = data.color || '#0b3a6e';
     $('game').style.backgroundImage = /^\w+$/.test(data.pattern || '') ? 'url(backdrops/' + data.pattern + '.png)' : 'none';
     $('title').textContent = data.title || '';
+    shrinkTitle($('title'));
     $('subtitle').textContent = data.subtitle || '';
     $('footer').textContent = data.footer || '';
     // Le podium affiche déjà le vainqueur en grand.
@@ -393,9 +449,9 @@
     finaleKey = null;
     const everyone = data.players || [];
     // Au-delà de 6 joueurs, le classement prend toute la largeur (sur deux colonnes). Aux
-    // fléchettes, la cible reste : le classement n'affiche alors que 6 joueurs (les 5 premiers et
-    // celui qui lance).
-    renderSide(everyone.length <= 6 || data.dartboard ? data : null);
+    // fléchettes, la cible reste : le classement n'affiche alors que 6 joueurs, qui défilent avec
+    // celui qui lance.
+    renderSide(everyone.length <= 6 || data.dartboard || data.sheet ? data : null);
     const sideOn = !$('side').classList.contains('hidden');
     const players = data.dartboard && sideOn && everyone.length > 6 ? windowPlayers(everyone, 6) : everyone;
 
@@ -408,9 +464,17 @@
     const perColumn = Math.ceil(players.length / columns);
     const gap = 16;
     const columnW = (width - gap * (columns - 1)) / columns;
-    const rowH = Math.max(20, Math.min(height / Math.max(perColumn, 1), columnW / 4, 220));
+    // Comme dans l'appli : pas de ligne plus haute que le cinquième de sa largeur.
+    const rowH = Math.max(20, Math.min(height / Math.max(perColumn, 1), Math.max(36, columnW / 5), 220));
     const seen = new Set();
     const toFit = [];
+    // Points de la dernière manche : le meilleur en vert, le moins bon en rouge (le plus bas gagne :
+    // le plus petit en vert), les autres en blanc.
+    const dnum = (s) => { const n = parseInt(String(s || '').replace('−', '-').replace('+', ''), 10); return isNaN(n) ? null : n; };
+    const known = players.map((p) => dnum(p.delta)).filter((n) => n !== null);
+    const distinct = new Set(known).size >= 2;
+    const dBest = distinct ? (data.low ? Math.min(...known) : Math.max(...known)) : null;
+    const dWorst = distinct ? (data.low ? Math.max(...known) : Math.min(...known)) : null;
     players.forEach((p, pos) => {
       seen.add(p.i);
       let row = rows.get(p.i);
@@ -419,7 +483,7 @@
         el.className = 'row';
         el.innerHTML = '<div class="rank"></div><div class="avatar"></div>' +
           '<div class="name"><span></span><i class="misses"></i><small></small><i class="bar hidden"><i></i></i></div>' +
-          '<div class="co"></div><div class="crown">♛</div><div class="delta"></div><div class="score">0</div>';
+          '<div class="co"></div><div class="bid"></div><div class="crown">♛</div><div class="delta"></div><div class="score">0</div>';
         el.style.top = (pos % perColumn) * rowH + 'px';
         rowsEl.appendChild(el);
         row = { el, score: 0 };
@@ -433,7 +497,13 @@
       });
       el.classList.toggle('leader', !!p.leader);
       el.classList.toggle('turn', !!p.turn);
-      const [rank, avatar, name, co, crown, delta, score] = el.children;
+      const [rank, avatar, name, co, bid, crown, delta, score] = el.children;
+      // Skull King : le pari de la manche en cours, en grand dans une pastille dorée.
+      const hasBid = typeof p.bid === 'number';
+      bid.innerHTML = hasBid ? '<small>' + esc(data.bidLabel || '') + '</small><b>' + esc(p.bid) + '</b>' : '';
+      Object.assign(bid.style, { display: hasBid ? '' : 'none', fontSize: h * 0.27 + 'px', marginRight: h * 0.2 + 'px', minWidth: h * 0.58 + 'px',
+        padding: h * 0.02 + 'px ' + h * 0.1 + 'px', borderRadius: h * 0.2 + 'px', borderWidth: Math.max(1.5, h * 0.03) + 'px' });
+      if (hasBid) bid.firstChild.style.fontSize = h * 0.12 + 'px';
       // Mölkky : les ratés consécutifs, en points (rouges quand le lancer est raté).
       const misses = name.children[1];
       misses.innerHTML = typeof p.misses === 'number'
@@ -441,17 +511,20 @@
             (m < p.misses ? '#ff6b6b' : 'rgba(255,255,255,.24)') + '"></b>').join('')
         : Array.isArray(p.ammo) ? ammoHtml(p.ammo[0], p.ammo[1], h * 0.22) + (p.killer ? crossHtml(h * 0.22) : '') : '';
       rank.textContent = p.rank || '';
-      Object.assign(rank.style, { width: h * 0.75 + 'px', fontSize: h * 0.3 + 'px' });
+      Object.assign(rank.style, { width: h * 0.75 + 'px', fontSize: h * 0.27 + 'px' });
       avatar.innerHTML = avatarHtml(p, h * 0.62);
       avatar.style.marginRight = h * 0.2 + 'px';
       name.firstChild.textContent = p.name || '';
-      name.firstChild.style.fontSize = h * 0.36 + 'px';
-      toFit.push([name.firstChild, h * 0.36]);
+      name.firstChild.style.fontSize = h * 0.33 + 'px';
+      toFit.push([name.firstChild, h * 0.33, p.name || '', h * (typeof p.misses === 'number' || Array.isArray(p.ammo) || typeof p.progress === 'number' ? 0.58 : 0.84)]);
       // Sortie aux fléchettes : en pastille si la ligne est large, sinon sous le nom.
       const chip = p.checkout && columnW >= h * 6;
-      name.children[2].textContent = [p.dealer ? data.dealerLabel : null, p.note,
-        p.checkout && !chip ? data.checkoutLabel + ' ' + p.checkout : null].filter(Boolean).join(' · ');
-      name.children[2].style.fontSize = h * 0.18 + 'px';
+      // Sortie possible sous le nom : elle remplace les fléchettes du tour (déjà sur la cible), la
+      // ligne restant assez courte pour être lue en entier.
+      name.children[2].textContent = [p.dealer ? data.dealerLabel : null,
+        // La feuille est affichée à côté : pas besoin du « 6 / 13 » sous les noms (la barre reste).
+        p.checkout && !chip ? data.checkoutLabel + ' ' + p.checkout : typeof p.bid === 'number' || (data.sheet && sideOn) ? null : p.note].filter(Boolean).join(' · ');
+      name.children[2].style.fontSize = h * 0.2 + 'px';
       // Feuilles : les cases remplies, en barre à la couleur du joueur.
       const bar = name.children[3];
       bar.classList.toggle('hidden', typeof p.progress !== 'number');
@@ -461,11 +534,15 @@
       Object.assign(co.style, { fontSize: h * 0.2 + 'px', padding: h * 0.05 + 'px ' + h * 0.16 + 'px', marginRight: h * 0.2 + 'px' });
       if (co.firstChild) co.firstChild.style.fontSize = h * 0.13 + 'px';
       Object.assign(crown.style, { fontSize: h * 0.38 + 'px', margin: '0 ' + h * 0.15 + 'px' });
+      // Killer : pas de place gardée pour la couronne en cours de partie (le nom en profite).
+      crown.style.display = Array.isArray(p.lives) && !p.leader ? 'none' : '';
       delta.textContent = p.delta || '';
       // Le plus bas gagne (Skyjo, Rami…) : des points en plus sont une mauvaise nouvelle, en rouge.
-      delta.className = 'delta' + (p.delta ? (p.delta.startsWith('+') !== !!data.low ? ' up' : ' down') : '');
+      const dn = dnum(p.delta);
+      delta.className = 'delta' + (!p.delta ? '' : dn === null ? (p.delta.startsWith('+') !== !!data.low ? ' up' : ' down') :
+        dn === dBest ? ' up' : dn === dWorst ? ' down' : '');
       Object.assign(delta.style, { fontSize: h * 0.24 + 'px', marginRight: p.delta ? h * 0.2 + 'px' : '0' });
-      score.style.fontSize = h * 0.52 + 'px';
+      score.style.fontSize = h * 0.46 + 'px';
       // Killer : les vies en cœurs à la place du score (perdues : cœurs vides).
       if (Array.isArray(p.lives)) {
         row.score = undefined;
@@ -473,21 +550,36 @@
         for (let l = 0; l < p.lives[1]; l++) {
           hearts += '<span style="color:' + (l < p.lives[0] ? '#ff5a6e' : 'rgba(255,255,255,.38)') + '">' + (l < p.lives[0] ? '♥' : '♡') + '</span>';
         }
-        score.innerHTML = '<span style="font-size:' + h * 0.4 + 'px;letter-spacing:' + h * 0.03 + 'px">' + hearts + '</span>';
+        score.innerHTML = '<span style="font-size:' + h * 0.3 + 'px;letter-spacing:' + h * 0.025 + 'px">' + hearts + '</span>';
       } else {
+        // Largeur du score final gardée dès le départ : le nom est ajusté à sa place, et le score
+        // qui défile ne le pousse pas ensuite.
+        score.style.minWidth = String(Number(p.score) || 0).length * 0.62 + 'em';
         if (row.score === undefined) score.textContent = Number(p.score) || 0;
         animate(row, score, Number(p.score) || 0);
       }
     });
-    // Nom plus large que sa place : il rétrécit (jusqu'à 60 %) avant d'être coupé.
-    toFit.forEach(([el, size]) => {
-      let k = 1;
-      Object.assign(el.style, { whiteSpace: '', display: '', webkitLineClamp: '', webkitBoxOrient: '', lineHeight: '' });
-      while (k > 0.6 && el.scrollWidth > el.clientWidth + 1) { k -= 0.08; el.style.fontSize = size * k + 'px'; }
-      // Toujours trop long (« Julie & Marc » dans une grande ligne) : sur deux lignes.
-      if (el.scrollWidth > el.clientWidth + 1 && size > 26) {
-        Object.assign(el.style, { whiteSpace: 'normal', display: '-webkit-box', webkitLineClamp: '2', webkitBoxOrient: 'vertical',
-          lineHeight: '1.05', fontSize: size * 0.72 + 'px' });
+    // Nom plus large que sa place : sur plusieurs lignes choisies (un joueur par ligne pour une
+    // équipe, coupure au trait d'union) si la police y est plus grande, sinon il rétrécit ; jamais
+    // coupé.
+    toFit.forEach(([el, size, text, tall]) => {
+      const below = !!el.parentNode.querySelector('small').textContent;
+      Object.assign(el.style, { whiteSpace: 'nowrap', lineHeight: '', fontSize: size + 'px', textOverflow: 'clip' });
+      el.textContent = text;
+      const maxW = el.clientWidth;
+      const single = size * Math.min(1, maxW / Math.max(1, el.scrollWidth));
+      const lines = nameLines(text);
+      let multi = 0;
+      if (lines.length > 1) {
+        const fs = Math.min(size, (below ? tall * 0.69 : tall) / (lines.length * 1.08));
+        el.innerHTML = lines.map(esc).join('<br>');
+        Object.assign(el.style, { lineHeight: '1.05', fontSize: fs + 'px' });
+        multi = fs * Math.min(1, maxW / Math.max(1, el.scrollWidth));
+      }
+      if (multi > single * 1.1) el.style.fontSize = multi + 'px';
+      else {
+        el.textContent = text;
+        Object.assign(el.style, { lineHeight: '', fontSize: single * 0.99 + 'px' });
       }
     });
     for (const [i, row] of rows) {
@@ -515,11 +607,45 @@
   }
 
   // Pastilles sous le titre : objectif, donneur, cartes de la manche.
-  const ICONS = { target: '🏁', dealer: '✋', start: '▶️', cards: '🃏' };
+  // Mêmes pictogrammes que dans l'appli (Material : drapeau, main, lecture, cartes), en SVG doré.
+  const ICONS = {
+    target: 'M14.4 6 14 4H5v17h2v-7h5.6l.4 2h7V6z',
+    dealer: 'M18.75 8c-.69 0-1.25.56-1.25 1.25V15H17c-1.65 0-3 1.35-3 3h-1c0-2.04 1.53-3.72 3.5-3.97V3.25C16.5 2.56 15.94 2 15.25 2S14 2.56 14 3.25V11h-1V1.25C13 .56 12.44 0 11.75 0S10.5.56 10.5 1.25V11h-1V2.75c0-.69-.56-1.25-1.25-1.25S7 2.06 7 2.75V12H6V5.75c0-.69-.56-1.25-1.25-1.25S3.5 5.06 3.5 5.75v10c0 4.56 3.69 8.25 8.25 8.25S20 20.31 20 15.75v-6.5C20 8.56 19.44 8 18.75 8z',
+    start: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z',
+    cards: 'M2.53 19.65l1.34.56v-9.03l-2.43 5.86c-.41 1.02.08 2.19 1.09 2.61zm19.5-3.7L17.07 3.98c-.31-.75-1.04-1.21-1.81-1.23-.26 0-.53.04-.79.15L7.1 5.95c-.75.31-1.21 1.03-1.23 1.8-.01.27.04.54.15.8l4.96 11.97c.31.76 1.05 1.22 1.83 1.23.26 0 .52-.05.77-.15l7.36-3.05c1.02-.42 1.51-1.59 1.09-2.6zM7.88 8.75c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-2 11c0 1.1.9 2 2 2h1.45l-3.45-8.34v6.34z',
+    info: 'M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z',
+  };
   function renderInfo(info) {
     // « Au tour de … » se lit seul, sans pictogramme.
-    $('info').innerHTML = info.map((i) => '<span class="pill">' + (i.icon === 'turn' ? '' : '<i>' + (ICONS[i.icon] || 'ℹ️') + '</i>') +
+    $('info').innerHTML = info.map((i) => '<span class="pill">' + (i.icon === 'turn' ? '' :
+      '<svg viewBox="0 0 24 24" style="width:1.1em;height:1.1em;flex:none"><path fill="#ffb534" d="' + (ICONS[i.icon] || ICONS.info) + '"/></svg>') +
       esc(i.text) + '</span>').join('');
+  }
+
+  // Titre trop long pour l'en-tête : il rétrécit (jusqu'à 65 %) avant d'être coupé.
+  function shrinkTitle(el) {
+    el.style.fontSize = '';
+    const size = parseFloat(getComputedStyle(el).fontSize);
+    for (let k = 1; k > 0.65 && el.scrollWidth > el.clientWidth + 1; ) { k -= 0.05; el.style.fontSize = size * k + 'px'; }
+  }
+
+  // Lignes possibles d'un nom trop long : un joueur par ligne pour une équipe (« A & B & C »,
+  // trois lignes au plus), sinon coupé en deux au trait d'union ou à l'espace le plus central.
+  function nameLines(name) {
+    const members = name.split(' & ').map((m) => m.trim()).filter(Boolean);
+    if (members.length > 3) {
+      const per = Math.ceil(members.length / 3);
+      const out = [];
+      for (let k = 0; k < members.length; k += per) out.push(members.slice(k, k + per).join(' & '));
+      return out;
+    }
+    if (members.length > 1) return members;
+    let cut = -1;
+    for (let k = 1; k < name.length - 1; k++) {
+      if ((name[k] === ' ' || name[k] === '-') && (cut < 0 || Math.abs(k - name.length / 2) < Math.abs(cut - name.length / 2))) cut = k;
+    }
+    if (cut < 0) return [name];
+    return name[cut] === '-' ? [name.slice(0, cut + 1), name.slice(cut + 1)] : [name.slice(0, cut), name.slice(cut + 1)];
   }
 
   // Mélange de deux couleurs « #rrggbb » : [t] de la seconde (0 à 1). Toute autre écriture de
@@ -567,7 +693,7 @@
   function renderSide(data, rotating) {
     const el = $('side');
     const wide = window.innerWidth > window.innerHeight * 1.25;
-    const panels = !data ? [] : data.dartboard ? ['dartboard'] : data.cricket ? ['cricket'] : [data.history && (data.history.rows || []).length ? 'history' : null,
+    const panels = !data ? [] : data.sheet ? ['sheet'] : data.dartboard ? ['dartboard'] : data.cricket ? ['cricket'] : [data.history && (data.history.rows || []).length ? 'history' : null,
       data.chart ? 'chart' : null].filter(Boolean);
     sideData = data;
     if (!panels.length || !wide) { el.classList.add('hidden'); el.innerHTML = ''; return; }
@@ -577,6 +703,8 @@
     // encore au Cricket, avec la grille à côté).
     el.classList.toggle('wide', !!data.dartboard && !data.cricket);
     el.classList.toggle('wider', !!(data.dartboard && data.cricket));
+    // Feuille : le panneau prend une fois et demie la place du classement.
+    el.classList.toggle('sheetp', !!data.sheet);
     const kind = panels[sideIndex % panels.length];
     const box = document.createElement('div');
     el.querySelectorAll(':scope > div').forEach((old) => {
@@ -588,6 +716,7 @@
     if (kind === 'chart') fillChart(box, data.chart);
     if (kind === 'cricket') fillCricket(box, data.cricket);
     if (kind === 'dartboard') fillDartboard(box, data.dartboard, data.cricket);
+    if (kind === 'sheet') fillSheet(box, data.sheet, !!data.low);
     if (rotating) { box.style.opacity = '0'; requestAnimationFrame(() => requestAnimationFrame(() => { box.style.opacity = '1'; })); }
   }
 
@@ -595,16 +724,64 @@
   function fillHistory(el, h) {
     const players = h.players || [];
     const u = Math.min(window.innerHeight * 0.05, window.innerWidth * 0.028);
-    const good = h.low ? 'down' : 'up', bad = h.low ? 'up' : 'down';
-    const cls = (s) => (s.startsWith('+') ? good : s.startsWith('−') ? bad : 'zero');
+    // Dans chaque manche, le meilleur score en vert et le moins bon en rouge (le plus bas gagne :
+    // le plus petit en vert) ; les autres en blanc.
+    const num = (s) => { const n = parseInt(String(s).replace('−', '-').replace('+', ''), 10); return isNaN(n) ? null : n; };
+    const tint = (scores) => {
+      const known = scores.map(num).filter((n) => n !== null);
+      if (new Set(known).size < 2) return () => 'zero';
+      const best = h.low ? Math.min(...known) : Math.max(...known), worst = h.low ? Math.max(...known) : Math.min(...known);
+      return (s) => num(s) === best ? 'up' : num(s) === worst ? 'down' : '';
+    };
     el.innerHTML = '<h3>' + esc(h.title) + '</h3>' +
       '<div class="hrow hhead"><span></span>' + players.map((p) => '<span>' + avatarHtml(p, u * 1.1) + '</span>').join('') + '</div>' +
       (h.rows || []).map((r, k, all) => '<div class="hrow' + (k === all.length - 1 ? ' last' : '') + '"><span>' + esc(r.n) + '</span>' +
-        (r.scores || []).map((s) => '<span class="' + cls(String(s)) + '">' + esc(s) + '</span>').join('') + '</div>').join('');
+        (r.scores || []).map((s, k, all) => '<span class="' + tint(all)(s) + '">' + esc(s) + '</span>').join('') + '</div>').join('');
     el.querySelectorAll('.hhead > span > *').forEach((a) => { a.style.margin = '0 auto'; });
     // Ce qui dépasse : on retire les manches les plus anciennes.
     const data = el.querySelectorAll('.hrow:not(.hhead)');
     for (let k = 0; el.scrollHeight > el.clientHeight + 1 && k < data.length - 1; k++) data[k].remove();
+  }
+
+  // Jeux à feuille : la feuille entière, une ligne par catégorie (pastille de sa couleur), une
+  // colonne par joueur, le total en bas ; la meilleure case de chaque ligne en doré. Akropolis : le
+  // calcul (étoiles × quartiers) sous les points.
+  function fillSheet(el, sh, low) {
+    const players = sh.players || [];
+    const rows = sh.rows || [];
+    const u = Math.min(window.innerHeight * 0.05, window.innerWidth * 0.028);
+    el.innerHTML = '<h3>' + esc(sh.title) + '</h3><div class="sheet"></div>';
+    const grid = el.querySelector('.sheet');
+    const style = getComputedStyle(el);
+    const inner = el.clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom) - el.querySelector('h3').offsetHeight - u * 0.3;
+    const rowH = Math.max(0, Math.min(u * 1.35, inner / (rows.length + 2.2)));
+    const f = rowH * 0.5;
+    const labelW = players.length <= 2 ? 40 : players.length <= 4 ? 32 : 26;
+    const num = (s) => { const n = parseInt(String(s).replace('−', '-'), 10); return isNaN(n) ? null : n; };
+    grid.style.gridTemplateColumns = labelW + '% repeat(' + players.length + ', minmax(0, 1fr))';
+    grid.style.gridTemplateRows = rowH * 1.2 + 'px repeat(' + (rows.length + 1) + ', ' + rowH + 'px)';
+    grid.style.fontSize = f + 'px';
+    const label = (text, color, cls) => '<span class="lab' + (cls || '') + '"><i style="background:' + (color || 'rgba(255,255,255,.24)') +
+      '"></i><b>' + esc(text) + '</b></span>';
+    grid.innerHTML = '<span></span>' + players.map((p) => '<span class="hd">' + avatarHtml(p, rowH * 0.95) + '</span>').join('') +
+      rows.map((r, j) => {
+        const cells = r.cells || [];
+        const details = r.details || [];
+        const known = cells.map(num).filter((n) => n !== null);
+        const best = new Set(known).size < 2 ? null : low ? Math.min(...known) : Math.max(...known);
+        const even = j % 2 === 0 ? ' even' : '';
+        return label(r.label, r.color, even) + cells.map((c, k) => '<span class="cl' + even + (c === '' ? ' empty' : num(c) === best ? ' best' : '') +
+          '"><b>' + (c === '' ? '·' : esc(c)) + '</b>' + (details[k] ? '<small>' + esc(details[k]) + '</small>' : '') + '</span>').join('');
+      }).join('') +
+      label(sh.totalLabel, '#ffb534', ' tot') + (sh.total || []).map((t) => '<span class="cl tot"><b>' + esc(t) + '</b></span>').join('');
+    // Libellés trop longs pour leur colonne : ils rétrécissent au lieu d'être coupés.
+    grid.querySelectorAll('.lab b, .cl').forEach((e) => {
+      let size = parseFloat(getComputedStyle(e).fontSize);
+      for (let g = 0; g < 20 && size > 6 && (e.scrollWidth > e.clientWidth + 1 || e.scrollHeight > e.clientHeight + 1); g++) {
+        size *= 0.92;
+        e.style.fontSize = size + 'px';
+      }
+    });
   }
 
   // Courbe des scores : une ligne par joueur, avec un point au bout.
@@ -635,22 +812,32 @@
       }).join('');
   }
 
-  // Cricket : numéros en colonnes, une ligne par joueur ; « / », « X », puis numéro fermé.
+  // Cricket : numéros en colonnes, une ligne par joueur ; « / », « X », puis numéro fermé. Une grille
+  // pour suivre les numéros : un trait entre chaque case, numéro fermé par tout le monde grisé.
   function fillCricket(el, c) {
     const targets = c.targets || [];
     const list = c.rows || [];
     const u = Math.min(window.innerHeight * 0.05, window.innerWidth * 0.028);
     el.innerHTML = '<h3>' + esc(c.title) + '</h3><div class="cricket"></div>';
     const grid = el.querySelector('.cricket');
-    // Le titre, puis la ligne des numéros et une ligne par joueur, toutes de la même hauteur.
-    const rowH = Math.min(u * 1.6, (el.clientHeight - u * 2.4) / (list.length + 1));
+    const style = getComputedStyle(el);
+    const inner = el.clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom) - el.querySelector('h3').offsetHeight - u * 0.3;
+    const headH = u * 1.1;
+    // Lignes aussi hautes que possible, sans marques plus larges que leur colonne.
+    const width = el.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+    const rowH = Math.max(0, Math.min(u * 1.6, (inner - headH) / Math.max(list.length, 1), width / (1.1 + targets.length * 0.62 / 0.8)));
     const mark = rowH * 0.62;
+    const marksOf = (r) => targets.map((_, k) => Number((r.marks || [])[k]) || 0);
+    const closed = targets.map((_, k) => list.length > 0 && list.every((r) => marksOf(r)[k] >= 3));
+    const cell = (k, html, cls) => '<span class="c' + (closed[k] ? ' closed' : '') + (cls || '') + '">' + html + '</span>';
     grid.style.gridTemplateColumns = rowH * 1.1 + 'px repeat(' + targets.length + ', minmax(0, 1fr))';
-    grid.style.gridAutoRows = rowH + 'px';
-    grid.innerHTML = '<span></span>' + targets.map((t) => '<b>' + esc(t) + '</b>').join('') + list.map((r) =>
-      '<span style="justify-self:start">' + avatarHtml(r, rowH * 0.8) + '</span>' + (r.marks || []).slice(0, targets.length).map((m) =>
+    grid.style.gridTemplateRows = headH + 'px repeat(' + list.length + ', ' + rowH + 'px)';
+    grid.innerHTML = '<span></span>' + targets.map((t, k) => cell(k, '<b>' + esc(t) + '</b>')).join('') + list.map((r, j) => {
+      const even = j % 2 === 0 ? ' even' : '';
+      return '<span class="who' + even + '">' + avatarHtml(r, rowH * 0.8) + '</span>' + marksOf(r).map((m, k) => cell(k,
         '<span class="mark m' + Math.min(3, m) + '" style="width:' + mark + 'px;height:' + mark + 'px;color:' + esc(r.color) +
-        (m >= 3 ? ';background:' + esc(r.color) + ';font-size:' + mark * 0.6 + 'px">✕' : '">') + '</span>').join('')).join('');
+        (m >= 3 ? ';background:' + esc(r.color) + ';font-size:' + mark * 0.6 + 'px">✕' : '">') + '</span>', ' ln' + even)).join('');
+    }).join('');
   }
 
   // Killer : munitions, en balles debout (dorées une fois chargées), et viseur des killers.
@@ -696,7 +883,9 @@
       return 'M' + x1 + ' ' + y1 + 'A' + r * r2 + ' ' + r * r2 + ' 0 0 1 ' + x2 + ' ' + y2 + 'L' + x3 + ' ' + y3 +
         'A' + r * r1 + ' ' + r * r1 + ' 0 0 0 ' + x4 + ' ' + y4 + 'Z';
     };
-    let out = '<circle cx="' + c + '" cy="' + c + '" r="' + r * RING.numbers + '" fill="#111827"/>';
+    // Un cerclage clair autour de la cible, qui la détache du fond sombre de l'écran.
+    let out = '<circle cx="' + c + '" cy="' + c + '" r="' + r * RING.numbers + '" fill="#263042"/>' +
+      '<circle cx="' + c + '" cy="' + c + '" r="' + (r * RING.numbers - r * 0.008) + '" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="' + r * 0.016 + '"/>';
     const labels = [];
     const zone = (shape, base, seg, mult, at, fs, label) => {
       out += shape.replace('/>', ' fill="' + base + '"/>');
@@ -727,16 +916,15 @@
     zone('<circle cx="' + c + '" cy="' + c + '" r="' + r * RING.bullIn + '"/>', '#DC2626', 25, 2, [c, c], r * 0.07);
     const text = (x, y, t, fs, extra) => '<text x="' + x + '" y="' + y + '" font-size="' + fs + '" font-weight="900" fill="#fff" ' +
       'text-anchor="middle" dominant-baseline="central"' + (extra || '') + '>' + esc(t) + '</text>';
+    // Numéros un peu moins gras, comme sur une vraie cible.
     BOARD_ORDER.forEach((seg, k) => {
       const [x, y] = pt((RING.doubleOut + RING.numbers) / 2, -Math.PI / 2 + k * step);
-      out += text(x, y, String(seg), r * 0.1);
+      out += text(x, y, String(seg), r * 0.098).replace('font-weight="900" fill="#fff"', 'font-weight="700" fill="#fff" fill-opacity=".92"');
     });
-    // Libellés des zones (« +3 », « 1·2 »…) : en blanc sur une pastille sombre, lisibles de loin.
+    // Libellés des zones (« +3 », « 1·2 »…) : en blanc sur une pastille sombre qui tient dans l'anneau.
     labels.forEach(([[x, y], t, fs]) => {
-      const size = fs * 1.45;
-      const w = String(t).length * size * 0.62 + size * 0.6;
-      out += '<rect x="' + (x - w / 2) + '" y="' + (y - size * 0.62) + '" width="' + w + '" height="' + size * 1.24 + '" rx="' + size * 0.62 +
-        '" fill="#111827" fill-opacity=".85"/>' + text(x, y, t, size);
+      const size = fs * 1.08;
+      out += text(x, y, t, size, ' class="lbl"');
     });
     (board.darts || []).forEach(([seg, mult], i) => {
       if (!seg) return;
@@ -751,6 +939,18 @@
         text(x, y, String(i + 1), r * 0.1);
     });
     svg.innerHTML = out;
+    // Pastille sombre sous chaque libellé, à la taille réelle du texte : bien centrée, quelle que
+    // soit la largeur des caractères (« +1 », « 1/3 »).
+    svg.querySelectorAll('text.lbl').forEach((t) => {
+      const b = t.getBBox();
+      const size = parseFloat(t.getAttribute('font-size'));
+      const cx = b.x + b.width / 2, cy = parseFloat(t.getAttribute('y'));
+      const w = b.width + size * 0.5, hgt = size * 1.16;
+      const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      Object.entries({ x: cx - w / 2, y: cy - hgt / 2, width: w, height: hgt, rx: hgt / 2, fill: '#111827', 'fill-opacity': '.78' })
+        .forEach(([k, v]) => rect.setAttribute(k, v));
+      t.parentNode.insertBefore(rect, t);
+    });
     if (cricket) fillCricket(el.querySelector('.sub'), cricket);
   }
 
@@ -835,12 +1035,15 @@
   }
 
   // Les scores défilent jusqu'à leur nouvelle valeur, comme dans l'appli.
-  // Au plus [count] joueurs : les premiers, et toujours celui dont c'est le tour.
+  // Au plus [count] joueurs, dans l'ordre du jeu : la liste défile avec celui qui lance (le
+  // précédent au-dessus, les suivants dessous), comme si on la faisait descendre ; chacun passe à
+  // l'écran à son tour. Le rang reste écrit sur chaque ligne.
   function windowPlayers(players, count) {
-    const shown = players.slice(0, count);
-    const turn = players.find((p) => p.turn);
-    if (turn && !shown.includes(turn)) shown[count - 1] = turn;
-    return shown;
+    if (players.length <= count) return players;
+    const order = players.slice().sort((a, b) => (a.i || 0) - (b.i || 0));
+    const turn = order.findIndex((p) => p.turn);
+    const start = turn < 0 ? 0 : Math.max(0, Math.min(turn - 1, order.length - count));
+    return order.slice(start, start + count);
   }
 
   function animate(row, el, target) {
@@ -860,6 +1063,7 @@
   // Grand tournoi : une carte par table, puis les prochains matchs et le classement.
   function renderCup(data) {
     $('cup-title').textContent = data.title || '';
+    shrinkTitle($('cup-title'));
     $('cup-subtitle').textContent = data.subtitle || '';
     fillJoin($('cup-join'), data.join);
     const banner = $('cup-banner');
@@ -933,17 +1137,32 @@
     const u = Math.min(window.innerHeight * 0.05, window.innerWidth * 0.028);
     const rgba = (hex, a) => /^#[0-9a-f]{6}$/i.test(hex || '') ? 'rgba(' + [1, 3, 5].map((i) => parseInt(hex.substr(i, 2), 16)).join(',') + ',' + a + ')' : 'rgba(255,255,255,' + a / 2 + ')';
     const members = (t) => (t && t.members) || [(t && t.label) || ''];
-    // Case de l'équipe : son nom choisi en titre, ses joueurs en étiquettes.
-    const team = (t, right) => '<div class="tbox' + (right ? ' r' : '') + '" style="background:' + rgba(t && t.color, 0.2) +
-      ';border-color:' + rgba(t && t.color, 0.75) + '">' + (t && t.name ? '<div class="tn">' + esc(t.name) + '</div>' : '') +
-      '<div class="chips"' + (t && t.name ? ' style="font-size:.78em"' : '') + '>' + members(t).map((m) => '<span>' + esc(m) + '</span>').join('') + '</div></div>';
-    // Équipe sur une ligne (classement, file, résultats) : pastille de couleur et joueurs espacés.
+    // Prénoms en texte simple, séparés par la couleur : blanc, puis une teinte claire de l'équipe.
+    const names = (list, color) => list.map((m, k) => '<span' + (k % 2 ? ' style="color:' + mix(/^#[0-9a-f]{6}$/i.test(color || '') ? color : '#888888', '#ffffff', 0.5) + '"' : '') +
+      '>' + esc(m) + '</span>').join('');
+    // Case de l'équipe : teintée de sa couleur, barre de la couleur du côté extérieur, nom choisi en
+    // titre, prénoms dessous (une ligne jusqu'à 4 joueurs, deux au-delà).
+    // Tout sur une ligne (équipes l'une sous l'autre, en demi-hauteur) : le nom en gras puis les joueurs.
+    const team = (t, right, oneLine) => {
+      const list = members(t);
+      const half = Math.ceil(list.length / 2);
+      const lines = list.length <= 4 || oneLine ? [list] : [list.slice(0, half), list.slice(half)];
+      const open = '<div class="tbox' + (right ? ' r' : '') + '" style="background:' + rgba(t && t.color, 0.16) +
+        ';border-color:' + ((t && t.color) || '#888') + '">';
+      if (oneLine && t && t.name) return open + '<div class="nl"><b class="tn1">' + esc(t.name) + '</b><i class="sm">' + names(list, t.color) + '</i></div></div>';
+      return open + (t && t.name ? '<div class="tn">' + esc(t.name) + '</div>' : '') +
+        lines.map((l) => '<div class="nl">' + names(l, t && t.color) + '</div>').join('') + '</div>';
+    };
+    // Équipe sur une ligne (classement, file, résultats) : pastille de couleur, puis nom ou prénoms.
     const teamLine = (t) => '<span class="tline"><i style="background:' + ((t && t.color) || '#888') + '"></i>' +
-      (t && t.name ? [t.name] : members(t)).map((m) => '<span>' + esc(m) + '</span>').join('') + '</span>';
+      names(t && t.name ? [t.name] : members(t), t && t.color) + '</span>';
     // Rétrécit un élément jusqu'à ce que son contenu tienne (jamais de nom coupé).
     const fit = (el, min) => {
       let size = parseFloat(getComputedStyle(el).fontSize);
-      for (let guard = 0; guard < 30 && size > min && (el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1); guard++) {
+      // Contenu aligné à droite qui déborde par la gauche : scrollWidth ne le voit pas, on mesure les enfants.
+      const over = () => el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1 ||
+        [...el.children].some((c) => c.offsetWidth > el.clientWidth - parseFloat(getComputedStyle(el).paddingLeft) - parseFloat(getComputedStyle(el).paddingRight) + 1);
+      for (let guard = 0; guard < 30 && size > min && over(); guard++) {
         size *= 0.92;
         el.style.fontSize = size + 'px';
       }
@@ -965,27 +1184,50 @@
       const perColumn = Math.max(1, Math.floor(avail / (u * 1.2)));
       const columns = Math.min(3, Math.ceil(matches.length / perColumn));
       const rows = Math.ceil(matches.length / columns);
-      const rowH = Math.min(u * 1.6, (avail - gap * (rows - 1)) / rows);
+      // Peu de matchs : des lignes et des noms plus grands ; beaucoup : ils rétrécissent.
+      let rowH = Math.min(u * 2.2, (avail - gap * (rows - 1)) / rows);
+      // Équipes l'une sous l'autre : la ligne peut être plus haute (deux noms à écrire).
+      const stackH = Math.min(u * 3.4, (avail - gap * (rows - 1)) / rows);
       const colW = (width - gap * (columns - 1)) / columns;
-      const s = Math.min(rowH * 0.36, colW / 20, u * 0.55);
+      let s = Math.min(rowH * 0.36, colW / 20, u * 0.72);
       const badge = Math.min(rowH * 0.62, s * 1.9);
+      // Beaucoup de terrains et des noms longs : les deux équipes l'une sous l'autre (deux fois plus
+      // de largeur pour leurs noms), si leurs noms y sont écrits plus grands que côte à côte.
+      const charsOf = (t) => { const list = members(t); const line = list.join('  ').length; return t && t.name ? Math.max(t.name.length, line * 0.78) : line; };
+      const chars = Math.max(1, ...matches.flatMap((m) => (m.sides || []).map(charsOf)));
+      const clock = matches.some((m) => typeof m.remaining === 'number');
+      const s2 = Math.min(stackH * 0.27, colW / 14, u * 0.9);
+      const inlineW = (colW - badge - s * 1.25 * 3.2 - (clock ? s * 0.85 * 3.2 : 0) - s * 2.3) / 2;
+      const stackW = colW - badge - s2 * 1.25 * 1.8 - (clock ? s2 * 0.85 * 3.2 : 0) - s2 * 2;
+      const eff = (fs, w) => Math.min(fs, w / (chars * 0.58));
+      const stacked = matches.every((m) => (m.sides || []).length === 2) && eff(s2, stackW) > eff(s, inlineW) * 1.12;
+      if (stacked) { s = s2; rowH = stackH; }
       list.style.gridTemplateColumns = 'repeat(' + columns + ', minmax(0, 1fr))';
       list.style.gridTemplateRows = 'repeat(' + rows + ', ' + rowH + 'px)';
       list.style.setProperty('--s', s + 'px');
       list.dataset.rowH = rowH;
       list.innerHTML = matches.map((m) => {
         const sides = m.sides || [];
+        if (stacked) {
+          return '<div class="m stk"><i class="tb" style="width:' + badge + 'px;height:' + badge + 'px;font-size:' + badge * 0.55 + 'px">' +
+            esc(m.table) + '</i><div class="pair2">' + team(sides[0], false, true) + team(sides[1], false, true) + '</div><div class="sc2"><b>' + esc(sides[0].score) +
+            '</b><b>' + esc(sides[1].score) + '</b></div>' + (typeof m.remaining === 'number' ? '<span class="clock" data-end="' +
+            endFor('table' + m.table, m.remaining) + '" data-over="' + esc(timeOver) + '"></span>' : '') + '</div>';
+        }
         const middle = sides.length === 2
           ? team(sides[0]) + '<span class="sc">' + esc(sides[0].score) + ' – ' + esc(sides[1].score) + '</span>' + team(sides[1], true)
-          : '<div class="multi">' + sides.map((p) => esc(p.label) + ' ' + esc(p.score)).join('  ·  ') + '</div>';
+          // Table tournante : une case par joueur, le nom au-dessus et ses points en grand.
+          : '<div class="multi2">' + sides.map((p) => '<div class="pc" style="background:' + rgba(p.color, 0.16) + '"><span>' + esc(p.label) +
+            '</span><b>' + esc(p.score) + '</b></div>').join('') + '</div>';
         return '<div class="m"><i class="tb" style="width:' + badge + 'px;height:' + badge + 'px;font-size:' + badge * 0.55 + 'px">' +
           esc(m.table) + '</i>' + middle.replace(/(<div class="tbox[^"]*") style="/g, '$1 style="max-height:' + (rowH - 6) + 'px;') +
           (typeof m.remaining === 'number' ? '<span class="clock" data-end="' + endFor('table' + m.table, m.remaining) +
             '" data-over="' + esc(timeOver) + '"></span>' : '') + '</div>';
       }).join('');
     }
-    list.querySelectorAll('.tbox').forEach((el) => fit(el, 6));
+    // Minuteurs remplis avant l'ajustement : leur texte prend de la place à côté des équipes.
     tick();
+    list.querySelectorAll('.tbox, .pc').forEach((el) => fit(el, 6));
 
     const panel = $('cup-panel');
     const queue = b.queue || [];
@@ -994,11 +1236,17 @@
       results ? '<section class="top"><h3>' + esc(results.title) + '</h3>' + results.rows.map((r) =>
         '<div class="res">' + teamLine(r.winner) + '<b>' + esc(r.score) + '</b>' + teamLine(r.loser) + '</div>').join('') + '</section>' : '') +
       (queue.length ? '<section class="queue"><h3>' + esc(b.queueTitle || '') + '</h3>' + queue.map((q) =>
-        '<div class="qline">' + (q.sides || []).map((x) => teamLine(x)).join('<span style="margin:0 .5em;color:rgba(255,255,255,.54)">–</span>') + '</div>').join('') + '</section>' : '');
+        '<div class="qline">' + (q.sides || []).map((x) => '<div>' + teamLine(x) + '</div>').join('') + '</div>').join('') + '</section>' : '');
     const top = panel.querySelector('.top');
     const waiting = panel.querySelector('.queue');
     if (top) top.style.flex = '3';
     if (waiting) waiting.style.flex = top ? String(Math.min(2, 1 + Math.floor(queue.length / 4))) : '1';
+    // File courte : écrite plus grand, dans la place qu'elle a.
+    if (waiting) {
+      const room = waiting.clientHeight - u * 0.6 * 1.6;
+      const qs = Math.max(u * 0.5, Math.min(u * 0.7, room / (Math.max(1, queue.length) * 3.3)));
+      waiting.querySelectorAll('.qline').forEach((q) => { q.style.fontSize = qs + 'px'; });
+    }
     // La file : les dernières lignes retirées plutôt que coupées.
     for (const sec of [waiting, results ? top : null]) {
       if (!sec) continue;
@@ -1012,24 +1260,37 @@
     if (rk) {
       const rows = b.ranking.rows || [];
       const s = u * 0.5;
-      const avail = rk.clientHeight || 300;
-      const oneColumn = Math.max(1, Math.floor((avail - s * 1.2) / (s * 0.95)));
-      const columns = rows.length > oneColumn && rk.clientWidth > s * 18 ? 2 : 1;
-      const perColumn = Math.max(1, Math.ceil(rows.length / columns));
-      const rowH = Math.max(s * 0.9, Math.min(s * 1.4, (avail - s * 1.2) / perColumn));
-      const f = rowH * 0.68;
-      const fit = Math.floor((avail - s * 1.2) / rowH + 0.05);
-      const grid = 'grid-template-columns:' + f * 2.2 + 'px minmax(0,1fr) ' + f * 1.6 + 'px ' + f * 2.9 + 'px;';
-      const head = '<div class="l h" style="' + grid + 'height:' + s * 1.2 + 'px;font-size:' + f * 0.8 + 'px"><span></span><span></span><span class="w">' +
-        esc(b.ranking.wins) + '</span><span class="v">' + esc(b.ranking.value) + '</span></div>';
-      let html = '';
-      for (let c = 0; c < columns; c++) {
-        html += '<div>' + head + rows.slice(c * perColumn, c * perColumn + Math.min(perColumn, fit)).map((r) =>
+      const avail = (rk.clientHeight || 300) - s * 1.2;
+      // Lignes lisibles de loin, jamais plus basses que 1,1 fois l'unité du panneau. Pas la place
+      // pour tout le monde : les premiers du classement, puis « +N » pour les autres.
+      const draw = (columns) => {
+        const rowH = Math.max(s * 1.1, Math.min(s * 1.4, avail / Math.ceil(rows.length / columns)));
+        const perCol = Math.max(1, Math.floor(avail / rowH + 0.05));
+        let count = Math.min(rows.length, perCol * columns);
+        if (count < rows.length) count = Math.max(1, count - 1);
+        const items = count < rows.length ? count + 1 : count;
+        const per = Math.ceil(items / columns);
+        const f = rowH * 0.68;
+        const grid = 'grid-template-columns:' + f * 2.2 + 'px minmax(0,1fr) ' + f * 1.6 + 'px ' + f * 2.9 + 'px;';
+        const head = '<div class="l h" style="' + grid + 'height:' + s * 1.2 + 'px;font-size:' + f * 0.95 + 'px"><span></span><span></span><span class="w">' +
+          esc(b.ranking.wins) + '</span><span class="v">' + esc(b.ranking.value) + '</span></div>';
+        const lines = rows.slice(0, count).map((r) =>
           '<div class="l" style="' + grid + 'height:' + rowH + 'px;font-size:' + f + 'px"><span class="n' + (r.qualified ? ' q' : '') + '">' +
           esc(r.rank) + '</span><span class="nm" style="font-weight:700">' + teamLine(r) + '</span><span class="w">' + esc(r.wins) + '</span><span class="v">' +
-          esc(r.value) + '</span></div>').join('') + '</div>';
-      }
-      rk.innerHTML = html;
+          esc(r.value) + '</span></div>');
+        // Fin du classement qui ne tient pas : « … et 5 autres ».
+        const more = /\{n\}/.test(b.ranking.more || '') ? b.ranking.more : '+{n}';
+        if (count < rows.length) lines.push('<div class="l more" style="height:' + rowH + 'px;font-size:' + f + 'px">' + esc(more.replace('{n}', rows.length - count)) + '</div>');
+        let html = '';
+        for (let c = 0; c < columns; c++) html += '<div>' + head + lines.slice(c * per, (c + 1) * per).join('') + '</div>';
+        rk.innerHTML = html;
+      };
+      // Deux colonnes dès qu'une seule obligerait à écrire trop petit, mais seulement si les noms y
+      // restent lisibles (au moins 70 % de leur taille) ; sinon une colonne avec les premiers.
+      const oneColumn = Math.max(1, Math.floor(avail / (s * 1.15)));
+      const columns = rows.length > oneColumn && rk.clientWidth > s * 18 ? 2 : 1;
+      draw(columns);
+      if (columns === 2 && [...rk.querySelectorAll('.nm')].some((el) => el.firstChild.scrollWidth * 0.7 > el.clientWidth)) draw(1);
       rk.querySelectorAll('.nm').forEach((el) => fit(el, 5));
     }
     panel.querySelectorAll('.qline, .res').forEach((el) => fit(el, 5));
@@ -1048,6 +1309,9 @@
     }
   };
   window.addEventListener('resize', () => render(last));
+
+  // Outil de vérification (tool/tv_review/review.mjs) : la page attend les messages qu'on lui donne.
+  if (/[?&]audit\b/.test(location.search)) { window.scorooTv = { show, receive }; return; }
 
   if (/[?&]demo=final\b/.test(location.search)) {
     const names = ['Paul & Zoé', 'Rose & Jules', 'Sam & Noé', 'Nathan & Manon', 'Louis & Camille', 'Julie & Marc', 'Lucas & Chloé', 'Jo & Inès', 'Hugo & Emma', 'Léa & Tom'];
