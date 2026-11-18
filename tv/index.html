@@ -189,6 +189,17 @@
     text-align: right; flex: none; }
   .timer small { display: block; font-size: calc(var(--u) * .55); color: var(--muted); font-weight: 700; }
   .timer b { font-size: calc(var(--u) * .8); font-weight: 900; font-variant-numeric: tabular-nums; }
+  /* Chrono d'une partie personnalisée (Time's Up, dessin…) : grand, il tourne seul tant qu'il est lancé. */
+  .chrono { display: flex; align-items: center; gap: calc(var(--u) * .3); background: rgba(255,255,255,.1);
+    border-radius: calc(var(--u) * .5); padding: calc(var(--u) * .18) calc(var(--u) * .55); flex: none; }
+  .chrono svg { width: calc(var(--u) * 1.2); height: calc(var(--u) * 1.2); flex: none; }
+  .chrono small { display: block; font-size: calc(var(--u) * .46); color: rgba(255,255,255,.6); font-weight: 700; white-space: nowrap; }
+  .chrono b { display: block; font-size: calc(var(--u) * 1.3); line-height: 1.05; font-weight: 900;
+    font-variant-numeric: tabular-nums; }
+  .chrono.paused b, .chrono.paused svg { opacity: .55; }
+  .chrono.soon b { color: #ff8a8a; }
+  .chrono.done { background: #e5484d; }
+  .chrono.done small { color: #fff; }
   .low { color: #ff8a8a; }
   .over { background: #e5484d; color: #fff !important; border-radius: 1em; padding: 0 .35em; }
   .join { display: flex; align-items: center; gap: calc(var(--u) * .4); background: rgba(255,255,255,.1);
@@ -241,6 +252,8 @@
     background: rgba(255,255,255,.06); border-radius: calc(var(--u) * .8); padding: calc(var(--u) * .6); }
   .name .misses svg { display: block; }
   /* Pari du Skull King, en pastille dorée sur la ligne du joueur. */
+  .kn { flex: none; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; line-height: 1;
+    box-sizing: border-box; }
   .bid { flex: none; text-align: center; border: solid #ffb534; background: rgba(255,181,52,.16); line-height: 1.05; }
   .bid small { display: block; color: #ffb534; font-weight: 800; line-height: 1.1; }
   .bid b { font-weight: 900; }
@@ -318,6 +331,7 @@
     <div class="badge" id="badge"></div>
     <div class="titles"><div class="title" id="title"></div><div class="subtitle" id="subtitle"></div></div>
     <div class="timer hidden" id="timer"></div>
+    <div class="chrono hidden" id="chrono"></div>
     <div class="join hidden" id="join"></div>
   </header>
   <div class="info" id="info"></div>
@@ -375,6 +389,15 @@
       one(members[1], small - size * 0.06, ';right:0;bottom:0;box-shadow:0 0 0 ' + size * 0.03 + 'px var(--bg)') + '</span>';
   }
 
+  // Couleur claire (luminance relative, comme computeLuminance de Flutter) : texte foncé dessus.
+  function light(hex) {
+    const m = /^#?([0-9a-f]{6})$/i.exec(hex || '');
+    if (!m) return false;
+    const lin = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+    const n = parseInt(m[1], 16);
+    return 0.2126 * lin(n >> 16) + 0.7152 * lin((n >> 8) & 255) + 0.0722 * lin(n & 255) > 0.5;
+  }
+
   // Décomptes (minuteur de la partie, tables du tournoi) : fin calculée à la réception du message.
   const ends = {};
   function endFor(key, remaining) {
@@ -392,6 +415,41 @@
     });
   }
   setInterval(tick, 1000);
+
+  // Chrono : état reçu du téléphone (temps au moment de l'envoi, lancé ou non) ; la page le fait
+  // tourner elle-même, vers zéro (compte à rebours) ou vers le haut (chronomètre).
+  const CHRONO_ICONS = {
+    down: 'M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6z',
+    up: 'M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61 1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z',
+    pause: 'M6 19h4V5H6v14zm8-14v14h4V5h-4z',
+    off: 'M19.04 4.55l-1.42 1.42C16.07 4.74 14.12 4 12 4c-1.83 0-3.53.55-4.95 1.48l1.46 1.46C9.53 6.35 10.73 6 12 6c3.87 0 7 3.13 7 7 0 1.27-.35 2.47-.94 3.49l1.45 1.45C20.45 16.53 21 14.83 21 13c0-2.12-.74-4.07-1.97-5.61l1.42-1.42-1.41-1.42zM15 1H9v2h6V1zm-4 8.44 2 2V8h-2v1.44zM3.02 4 1.75 5.27 4.5 8.03C3.55 9.45 3 11.16 3 13c0 4.97 4.02 9 9 9 1.84 0 3.55-.55 4.98-1.5l2.5 2.5 1.27-1.27-7.71-7.71L3.02 4zM12 20c-3.87 0-7-3.13-7-7 0-1.28.35-2.48.95-3.52l9.56 9.56c-1.03.61-2.23.96-3.51.96z',
+  };
+  let chronoState = null;
+  function fillChrono(c) {
+    const el = $('chrono');
+    el.classList.toggle('hidden', !c);
+    if (!c) { chronoState = null; return; }
+    const prev = chronoState;
+    const same = prev && prev.c.seconds === c.seconds && prev.c.running === c.running && prev.c.done === c.done;
+    chronoState = { c, at: same ? prev.at : Date.now() };
+    drawChrono();
+  }
+  function drawChrono() {
+    if (!chronoState) return;
+    const { c, at } = chronoState;
+    const passed = c.running ? Math.floor((Date.now() - at) / 1000) : 0;
+    const shown = c.countdown ? Math.max(0, c.seconds - passed) : c.seconds + passed;
+    const done = c.done || (c.countdown && shown === 0 && (c.running || c.seconds === 0));
+    const paused = !c.running && !done;
+    const el = $('chrono');
+    el.classList.toggle('done', done);
+    el.classList.toggle('paused', paused);
+    el.classList.toggle('soon', c.countdown && c.running && !done && shown <= 10);
+    const icon = done ? 'off' : paused ? 'pause' : c.countdown ? 'down' : 'up';
+    el.innerHTML = '<svg viewBox="0 0 24 24"><path fill="#fff" d="' + CHRONO_ICONS[icon] + '"/></svg><div><small>' + esc(c.label) +
+      '</small><b>' + Math.floor(shown / 60) + ':' + String(shown % 60).padStart(2, '0') + '</b></div>';
+  }
+  setInterval(() => { if (chronoState && chronoState.c.running) drawChrono(); }, 250);
 
   // QR code reçu en lignes de « 0 » et « 1 » : dessiné en SVG.
   function qrSvg(lines) {
@@ -481,7 +539,7 @@
       if (!row) {
         const el = document.createElement('div');
         el.className = 'row';
-        el.innerHTML = '<div class="rank"></div><div class="avatar"></div>' +
+        el.innerHTML = '<div class="rank"></div><div class="avatar"></div><div class="kn"></div>' +
           '<div class="name"><span></span><i class="misses"></i><small></small><i class="bar hidden"><i></i></i></div>' +
           '<div class="co"></div><div class="bid"></div><div class="crown">♛</div><div class="delta"></div><div class="score">0</div>';
         el.style.top = (pos % perColumn) * rowH + 'px';
@@ -497,7 +555,15 @@
       });
       el.classList.toggle('leader', !!p.leader);
       el.classList.toggle('turn', !!p.turn);
-      const [rank, avatar, name, co, bid, crown, delta, score] = el.children;
+      const [rank, avatar, kn, name, co, bid, crown, delta, score] = el.children;
+      // Killer : son numéro, en blanc sur sa couleur (la même que sur la cible).
+      const hasNumber = typeof p.killerNumber === 'number';
+      kn.textContent = hasNumber ? String(p.killerNumber) : '';
+      // Couleur claire (jaune, cyan) : chiffre foncé, plus lisible que le blanc.
+      Object.assign(kn.style, { display: hasNumber ? '' : 'none', background: p.killerColor || '#6c7385', color: light(p.killerColor) ? '#111827' : '#fff',
+        height: h * 0.5 + 'px',
+        minWidth: h * 0.56 + 'px', fontSize: h * 0.3 + 'px', borderRadius: h * 0.14 + 'px', padding: '0 ' + h * 0.08 + 'px',
+        marginRight: h * 0.2 + 'px' });
       // Skull King : le pari de la manche en cours, en grand dans une pastille dorée.
       const hasBid = typeof p.bid === 'number';
       bid.innerHTML = hasBid ? '<small>' + esc(data.bidLabel || '') + '</small><b>' + esc(p.bid) + '</b>' : '';
@@ -595,6 +661,7 @@
       timer.innerHTML = '<small>' + esc(data.timer.label) + '</small><b data-end="' + endFor('game', data.timer.remaining) +
         '" data-over="' + esc(data.timer.over) + '"></b>';
     }
+    fillChrono(data.chrono);
     fillJoin($('join'), data.join);
     tick();
   }
@@ -876,7 +943,12 @@
     svg.setAttribute('viewBox', '0 0 ' + size + ' ' + size);
     const c = size / 2, r = size / 2 / RING.numbers, step = Math.PI / 10;
     const zones = new Map((board.zones || []).map((z) => [z[0] + ':' + z[1], z]));
-    const any = zones.size > 0;
+    // Killer : cible sobre (gris), et le numéro de chaque joueur dans sa couleur.
+    const sober = board.sober === true;
+    const owned = new Map((board.numbers || []).map((n) => [n[0], n[1]]));
+    const any = zones.size > 0 && !sober;
+    const DARK = sober ? '#242C3B' : '#1F2937', LIGHT = sober ? '#2E3747' : '#F3E9D2';
+    const RED = sober ? '#353F51' : '#DC2626', GREEN = sober ? '#3E4A5E' : '#16A34A';
     const pt = (radius, a) => [c + Math.cos(a) * r * radius, c + Math.sin(a) * r * radius];
     const sector = (r1, r2, a0) => {
       const [x1, y1] = pt(r2, a0), [x2, y2] = pt(r2, a0 + step), [x3, y3] = pt(r1, a0 + step), [x4, y4] = pt(r1, a0);
@@ -893,7 +965,8 @@
       if (z) {
         // Simples en teinte claire, doubles et triples en teinte pleine et foncée, comme dans l'appli.
         const fill = mult === 1 ? z[2] : mix(z[2], '#000000', 0.3);
-        out += shape.replace('/>', ' fill="' + fill + '"' + (mult === 1 ? ' fill-opacity=".6"' : '') + ' stroke="#fff" stroke-width="1.6"/>');
+        out += shape.replace('/>', ' fill="' + fill + '"' + (mult === 1 ? ' fill-opacity=".6"' : '') +
+          (sober ? ' stroke="rgba(255,255,255,.45)" stroke-width="1"/>' : ' stroke="#fff" stroke-width="1.6"/>'));
         if (label !== false && z[3]) labels.push([at, z[3], fs]);
       } else if (any) {
         out += shape.replace('/>', ' fill="#000" fill-opacity=".5"/>');
@@ -902,24 +975,28 @@
     BOARD_ORDER.forEach((seg, k) => {
       const mid = -Math.PI / 2 + k * step, a0 = mid - step / 2, even = k % 2 === 0;
       const path = (r1, r2) => '<path d="' + sector(r1, r2, a0) + '"/>';
-      zone(path(RING.bullOut, RING.tripleIn), even ? '#1F2937' : '#F3E9D2', seg, 1, pt((RING.bullOut + RING.tripleIn) / 2, mid), r * 0.085, false);
-      zone(path(RING.tripleIn, RING.tripleOut), even ? '#DC2626' : '#16A34A', seg, 3, pt((RING.tripleIn + RING.tripleOut) / 2, mid), r * 0.075);
-      zone(path(RING.tripleOut, RING.doubleIn), even ? '#1F2937' : '#F3E9D2', seg, 1, pt((RING.tripleOut + RING.doubleIn) / 2, mid), r * 0.085);
-      zone(path(RING.doubleIn, RING.doubleOut), even ? '#DC2626' : '#16A34A', seg, 2, pt((RING.doubleIn + RING.doubleOut) / 2, mid), r * 0.075);
+      zone(path(RING.bullOut, RING.tripleIn), even ? DARK : LIGHT, seg, 1, pt((RING.bullOut + RING.tripleIn) / 2, mid), r * 0.085, false);
+      zone(path(RING.tripleIn, RING.tripleOut), even ? RED : GREEN, seg, 3, pt((RING.tripleIn + RING.tripleOut) / 2, mid), r * 0.075);
+      zone(path(RING.tripleOut, RING.doubleIn), even ? DARK : LIGHT, seg, 1, pt((RING.tripleOut + RING.doubleIn) / 2, mid), r * 0.085);
+      zone(path(RING.doubleIn, RING.doubleOut), even ? RED : GREEN, seg, 2, pt((RING.doubleIn + RING.doubleOut) / 2, mid), r * 0.075);
     });
     for (let k = 0; k < 20; k++) {
       const a = -Math.PI / 2 + k * step - step / 2;
       const [x1, y1] = pt(RING.bullOut, a), [x2, y2] = pt(RING.doubleOut, a);
       out += '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="rgba(255,255,255,.35)" stroke-width="1"/>';
     }
-    zone('<circle cx="' + c + '" cy="' + c + '" r="' + r * RING.bullOut + '"/>', '#16A34A', 25, 1, [c, c - r * (RING.bullIn + RING.bullOut) / 2], r * 0.07);
-    zone('<circle cx="' + c + '" cy="' + c + '" r="' + r * RING.bullIn + '"/>', '#DC2626', 25, 2, [c, c], r * 0.07);
+    zone('<circle cx="' + c + '" cy="' + c + '" r="' + r * RING.bullOut + '"/>', GREEN, 25, 1, [c, c - r * (RING.bullIn + RING.bullOut) / 2], r * 0.07);
+    zone('<circle cx="' + c + '" cy="' + c + '" r="' + r * RING.bullIn + '"/>', RED, 25, 2, [c, c], r * 0.07);
     const text = (x, y, t, fs, extra) => '<text x="' + x + '" y="' + y + '" font-size="' + fs + '" font-weight="900" fill="#fff" ' +
       'text-anchor="middle" dominant-baseline="central"' + (extra || '') + '>' + esc(t) + '</text>';
     // Numéros un peu moins gras, comme sur une vraie cible.
     BOARD_ORDER.forEach((seg, k) => {
       const [x, y] = pt((RING.doubleOut + RING.numbers) / 2, -Math.PI / 2 + k * step);
-      out += text(x, y, String(seg), r * 0.098).replace('font-weight="900" fill="#fff"', 'font-weight="700" fill="#fff" fill-opacity=".92"');
+      const mine = owned.get(seg);
+      out += mine
+        ? text(x, y, String(seg), r * 0.118).replace('fill="#fff"', 'fill="' + mine + '"')
+        : text(x, y, String(seg), r * 0.098).replace('font-weight="900" fill="#fff"',
+          'font-weight="700" fill="#fff" fill-opacity="' + (owned.size ? '.45' : '.92') + '"');
     });
     // Libellés des zones (« +3 », « 1·2 »…) : en blanc sur une pastille sombre qui tient dans l'anneau.
     labels.forEach(([[x, y], t, fs]) => {
