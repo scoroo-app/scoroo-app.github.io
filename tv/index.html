@@ -558,6 +558,8 @@
       const [rank, avatar, kn, name, co, bid, crown, delta, score] = el.children;
       // Killer : son numéro, en blanc sur sa couleur (la même que sur la cible).
       const hasNumber = typeof p.killerNumber === 'number';
+      // La carte prend la couleur du joueur, celle de son numéro sur la cible.
+      el.style.background = p.killerColor ? mix(p.killerColor, '#0e1726', p.turn ? 0.45 : 0.6) : '';
       kn.textContent = hasNumber ? String(p.killerNumber) : '';
       // Couleur claire (jaune, cyan) : chiffre foncé, plus lisible que le blanc.
       Object.assign(kn.style, { display: hasNumber ? '' : 'none', background: p.killerColor || '#6c7385', color: light(p.killerColor) ? '#111827' : '#fff',
