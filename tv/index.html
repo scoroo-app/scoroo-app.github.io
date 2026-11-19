@@ -222,9 +222,10 @@
   .bar i { display: block; height: 100%; border-radius: 4px; }
   /* Panneau de droite : historique, courbe, Cricket (en fondu quand il change). */
   .side { flex: 2; min-width: 0; position: relative; }
-  /* Fléchettes : la cible prend la plus grande part, le classement garde de quoi écrire le nom. */
-  .side.wide { flex: 5.1; }
-  .side.wider { flex: 6; }
+  /* Fléchettes : la cible, ronde, est bornée par la hauteur ; elle n'a que la largeur qu'elle
+     occupe (plus au Cricket, grille à côté), le reste va aux joueurs. */
+  .side.wide { flex: 3.3; }
+  .side.wider { flex: 5.4; }
   .side > div.bare { background: none; padding: 0; }
   .side > div { position: absolute; inset: 0; background: rgba(255,255,255,.06); border-radius: calc(var(--u) * .8);
     padding: calc(var(--u) * .6); display: flex; flex-direction: column; overflow: hidden; transition: opacity .6s; }
@@ -459,6 +460,9 @@
     return '<svg viewBox="0 0 ' + n + ' ' + n + '" shape-rendering="crispEdges"><path d="' + d + '" fill="#000"/></svg>';
   }
 
+  // Cœur des vies du Killer (icône Material « favorite »), plein ou en contour.
+  const HEART = 'M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z';
+
   let lastEvent = null;
   let eventTimer = null;
   let finaleFor = null;
@@ -616,7 +620,10 @@
         row.score = undefined;
         let hearts = '';
         for (let l = 0; l < p.lives[1]; l++) {
-          hearts += '<span style="color:' + (l < p.lives[0] ? '#ff5a6e' : 'rgba(255,255,255,.38)') + '">' + (l < p.lives[0] ? '♥' : '♡') + '</span>';
+          // Le même cœur plein ou en contour (les caractères ♥ et ♡ n'ont pas la même forme).
+          hearts += l < p.lives[0]
+            ? '<svg viewBox="0 0 24 24" style="width:1em;height:1em;vertical-align:-.12em"><path fill="#ff5a6e" d="' + HEART + '"/></svg>'
+            : '<svg viewBox="0 0 24 24" style="width:1em;height:1em;vertical-align:-.12em"><path fill="none" stroke="rgba(255,255,255,.38)" stroke-width="2" stroke-linejoin="round" transform="translate(1 1) scale(.9167)" d="' + HEART + '"/></svg>';
         }
         score.innerHTML = '<span style="font-size:' + h * 0.3 + 'px;letter-spacing:' + h * 0.025 + 'px">' + hearts + '</span>';
       } else {
@@ -1128,7 +1135,9 @@
   function animate(row, el, target) {
     const from = row.score;
     row.score = target;
-    if (from === target) { el.textContent = target; return; }
+    // Pas de score précédent (ligne qui affichait les cœurs du Killer…) : directement le bon
+    // chiffre ; l'animation partait sinon de « rien » et affichait NaN.
+    if (from === target || typeof from !== 'number' || !isFinite(from)) { el.textContent = target; return; }
     const start = performance.now();
     const step = (now) => {
       const t = Math.min(1, (now - start) / 550);
