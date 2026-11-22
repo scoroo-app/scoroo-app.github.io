@@ -543,9 +543,10 @@
       if (!row) {
         const el = document.createElement('div');
         el.className = 'row';
-        el.innerHTML = '<div class="rank"></div><div class="avatar"></div><div class="kn"></div>' +
+        // Pari du Skull King juste après l'avatar, de largeur fixe : les paris restent alignés.
+        el.innerHTML = '<div class="rank"></div><div class="avatar"></div><div class="kn"></div><div class="bid"></div>' +
           '<div class="name"><span></span><i class="misses"></i><small></small><i class="bar hidden"><i></i></i></div>' +
-          '<div class="co"></div><div class="bid"></div><div class="crown">♛</div><div class="delta"></div><div class="score">0</div>';
+          '<div class="co"></div><div class="crown">♛</div><div class="delta"></div><div class="score">0</div>';
         el.style.top = (pos % perColumn) * rowH + 'px';
         rowsEl.appendChild(el);
         row = { el, score: 0 };
@@ -559,7 +560,7 @@
       });
       el.classList.toggle('leader', !!p.leader);
       el.classList.toggle('turn', !!p.turn);
-      const [rank, avatar, kn, name, co, bid, crown, delta, score] = el.children;
+      const [rank, avatar, kn, bid, name, co, crown, delta, score] = el.children;
       // Killer : son numéro, en blanc sur sa couleur (la même que sur la cible).
       const hasNumber = typeof p.killerNumber === 'number';
       // La carte prend la couleur du joueur, celle de son numéro sur la cible.
@@ -573,7 +574,7 @@
       // Skull King : le pari de la manche en cours, en grand dans une pastille dorée.
       const hasBid = typeof p.bid === 'number';
       bid.innerHTML = hasBid ? '<small>' + esc(data.bidLabel || '') + '</small><b>' + esc(p.bid) + '</b>' : '';
-      Object.assign(bid.style, { display: hasBid ? '' : 'none', fontSize: h * 0.27 + 'px', marginRight: h * 0.2 + 'px', minWidth: h * 0.58 + 'px',
+      Object.assign(bid.style, { display: hasBid ? '' : 'none', fontSize: h * 0.27 + 'px', marginRight: h * 0.2 + 'px', width: h * 0.72 + 'px', boxSizing: 'border-box',
         padding: h * 0.02 + 'px ' + h * 0.1 + 'px', borderRadius: h * 0.2 + 'px', borderWidth: Math.max(1.5, h * 0.03) + 'px' });
       if (hasBid) bid.firstChild.style.fontSize = h * 0.12 + 'px';
       // Mölkky : les ratés consécutifs, en points (rouges quand le lancer est raté).
