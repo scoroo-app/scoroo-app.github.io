@@ -3,25 +3,144 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Télécharger Scoroo</title>
+<title>Télécharger Scoroo · App Store et Google Play</title>
+<meta name="description" content="Téléchargez Scoroo gratuitement sur l’App Store et Google Play : scannez le QR code avec votre téléphone.">
+<link rel="canonical" href="https://scoroo-app.github.io/download/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scoroo">
+<meta property="og:title" content="Télécharger Scoroo">
+<meta property="og:description" content="Le compteur de points de tous vos jeux, gratuit sur iPhone et Android.">
+<meta property="og:url" content="https://scoroo-app.github.io/download/">
+<meta property="og:image" content="https://scoroo-app.github.io/img/og_fr.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b3a6e">
 <!--
-  Lien de téléchargement des images partagées depuis l'appli : envoie vers le bon store selon le
-  téléphone, sinon vers la page d'accueil. À utiliser comme downloadLink (share_result_screen.dart)
-  une fois le site en ligne.
+  Lien de téléchargement de Scoroo (QR codes du flyer et des boîtes, texte des parties partagées :
+  downloadLink de share_result_screen.dart). Sur un téléphone : ouvre tout de suite l'App Store ou
+  Google Play. Sur un ordinateur (ou avec ?voir pour regarder la page sur un téléphone) : QR code à
+  scanner, liens des deux stores et fichiers du QR code à télécharger (download/qr/, générés par
+  « flutter test tool/store_assets/download_qr_test.dart » dans le dépôt de l'appli).
 -->
-<style>body { margin: 0; font-family: system-ui, sans-serif; background: #fbf8f1; color: #13233a; display: grid; place-items: center; min-height: 100vh; text-align: center; padding: 16px; }</style>
-</head>
-<body>
-<p>Scoroo… <a href="../">scoroo</a></p>
+<link rel="icon" href="../img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
 <script>
-  // Identifiant App Store (même valeur que dans index.html).
+  // Identifiant App Store (même valeur que dans src/index.template.html).
   const APP_STORE_ID = '6826124200';
+  const PLAY = 'https://play.google.com/store/apps/details?id=com.scoroo.app';
+  const APPLE = 'https://apps.apple.com/app/id' + APP_STORE_ID;
   const ua = navigator.userAgent || '';
   const ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  let target = '../';
-  if (/Android/.test(ua)) target = 'https://play.google.com/store/apps/details?id=com.scoroo.app';
-  else if (ios && APP_STORE_ID) target = 'https://apps.apple.com/app/id' + APP_STORE_ID;
-  location.replace(target);
+  const android = /Android/.test(ua);
+  // Téléphone : direct au store, avant même d'afficher la page.
+  if (!/[?&]voir\b/.test(location.search)) {
+    if (android) location.replace(PLAY);
+    else if (ios) location.replace(APPLE);
+  }
+</script>
+<style>
+  :root { --ink: #13233a; --muted: #5b6476; --bg: #fbf8f1; --line: #ebe5d8; --navy: #0b3a6e; --navy-2: #0e2a4d; --gold: #ffaa0a;
+    --display: 'Bricolage Grotesque', system-ui, sans-serif; --body: 'Figtree', system-ui, sans-serif; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; font-family: var(--body); color: var(--ink); line-height: 1.5;
+    background: radial-gradient(900px 520px at 85% -10%, #2b5fa0 0%, transparent 60%), radial-gradient(800px 480px at -10% 110%, #0e7f86 0%, transparent 55%), linear-gradient(160deg, var(--navy), var(--navy-2));
+    display: grid; grid-template-columns: minmax(0, 860px); place-content: center; align-items: center; padding: 32px 16px; }
+  body::before { content: ''; position: fixed; inset: 0; opacity: .08; pointer-events: none;
+    background-image: radial-gradient(circle at 1px 1px, #fff 1.4px, transparent 0); background-size: 26px 26px; }
+  .card { position: relative; width: 100%; max-width: 860px; background: var(--bg); border-radius: 36px; overflow: hidden;
+    box-shadow: 0 40px 90px -30px rgba(0,0,0,.6); display: grid; grid-template-columns: 1.1fr 1fr; }
+  .info { padding: 44px 40px; display: flex; flex-direction: column; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+  .brand img { width: 52px; height: 52px; border-radius: 14px; box-shadow: 0 6px 16px -6px rgba(19,35,58,.35); }
+  .brand span { font-family: var(--display); font-weight: 800; font-size: 30px; letter-spacing: -0.03em; }
+  h1 { font-family: var(--display); font-weight: 800; font-size: clamp(30px, 4.4vw, 40px); line-height: 1.08; letter-spacing: -0.03em; margin: 28px 0 0; }
+  .lead { color: var(--muted); font-size: 17.5px; margin: 12px 0 0; }
+  .free { align-self: flex-start; margin-top: 18px; background: var(--gold); color: var(--ink); font-weight: 800; font-size: 13px; letter-spacing: .1em;
+    text-transform: uppercase; border-radius: 999px; padding: 5px 14px; }
+  .stores { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .store { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 16px; background: var(--ink); color: #fff;
+    text-decoration: none; font-weight: 700; font-size: 16px; transition: transform .15s; box-shadow: 0 10px 24px -14px rgba(19,35,58,.9); }
+  .store:hover { transform: translateY(-2px); }
+  .store svg { width: 26px; height: 26px; flex: none; }
+  .store small { display: block; font-size: 11.5px; font-weight: 500; opacity: .75; line-height: 1.1; }
+  .store span { line-height: 1.15; }
+  .home { margin-top: auto; padding-top: 28px; font-size: 15px; color: var(--muted); }
+  .home a { color: var(--navy); font-weight: 600; white-space: nowrap; }
+  .scan { background: linear-gradient(180deg, #fff4dc, #fbf1df); padding: 40px 36px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; border-left: 1px solid var(--line); }
+  .qr { width: 100%; max-width: 280px; aspect-ratio: 1; background: #fff; border-radius: 28px; padding: 14px; border: 4px solid var(--gold);
+    box-shadow: 0 24px 50px -24px rgba(19,35,58,.45); }
+  .qr img { width: 100%; height: 100%; display: block; }
+  .scan h2 { font-family: var(--display); font-weight: 800; font-size: 23px; letter-spacing: -0.02em; margin: 22px 0 0; }
+  .scan p { margin: 6px 0 0; color: var(--muted); font-size: 15px; max-width: 26em; }
+  .files { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 18px; }
+  .files a { display: inline-flex; align-items: center; gap: 4px; font-size: 13.5px; font-weight: 700; color: var(--ink); text-decoration: none;
+    background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; }
+  .files a:hover { border-color: var(--gold); }
+  .files svg { width: 15px; height: 15px; }
+  @media (max-width: 760px) {
+    .card { grid-template-columns: 1fr; }
+    .scan { border-left: 0; border-top: 1px solid var(--line); }
+    .info { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+<main class="card">
+  <section class="info">
+    <a class="brand" href="../"><img src="../img/logo.png" alt=""><span>Scoroo</span></a>
+    <h1 data-t="title">Téléchargez Scoroo</h1>
+    <p class="lead" data-t="lead">Le compteur de points de tous vos jeux de cartes, de dés et de société : belote, tarot, Yams, Skyjo, 7 Wonders, fléchettes…</p>
+    <span class="free" data-t="free">Téléchargement gratuit</span>
+    <div class="stores">
+      <a class="store" id="apple" href="https://apps.apple.com/app/id6826124200">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.15 6.9c-.95 0-2.42-1.08-3.96-1.04-2.04.03-3.91 1.18-4.96 3.01-2.12 3.68-.55 9.1 1.52 12.09 1.01 1.45 2.2 3.09 3.79 3.04 1.52-.07 2.09-.99 3.93-.99 1.83 0 2.35.99 3.96.95 1.64-.03 2.68-1.48 3.68-2.95 1.16-1.69 1.63-3.32 1.66-3.41-.04-.02-3.18-1.22-3.22-4.86-.03-3.04 2.48-4.49 2.6-4.56-1.43-2.09-3.62-2.32-4.39-2.38-2-.15-3.68 1.09-4.61 1.09zm3.38-3.07c.84-1.01 1.4-2.43 1.25-3.83-1.21.05-2.66.81-3.53 1.82-.78.9-1.46 2.34-1.27 3.71 1.34.1 2.71-.69 3.56-1.7z"/></svg>
+        <span><small data-t="appleSmall">Télécharger dans</small>App Store</span>
+      </a>
+      <a class="store" id="play" href="https://play.google.com/store/apps/details?id=com.scoroo.app">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00d7fe" d="M3.6 1.8 13.3 12l-9.7 10.2c-.3-.2-.5-.6-.5-1.1V2.9c0-.5.2-.9.5-1.1z"/><path fill="#00f076" d="M3.6 1.8c.3-.2.8-.2 1.3.1l11.7 6.8-3.3 3.3z"/><path fill="#ff3a44" d="M13.3 12l3.3 3.3-11.7 6.8c-.5.3-1 .3-1.3.1z"/><path fill="#ffd109" d="m16.6 8.7 3.4 2c.9.5.9 1.6 0 2.1l-3.4 2-3.3-2.8z"/></svg>
+        <span><small data-t="playSmall">Disponible sur</small>Google Play</span>
+      </a>
+    </div>
+    <p class="home"><span data-t="more">Découvrir tous les jeux et les fonctions :</span> <a href="../">scoroo-app.github.io</a></p>
+  </section>
+  <section class="scan">
+    <div class="qr"><img src="qr/scoroo-qr.svg" width="280" height="280" alt="QR code : scoroo-app.github.io/download"></div>
+    <h2 data-t="scan">Scannez avec votre téléphone</h2>
+    <p data-t="scanLead">Ouvrez l’appareil photo et visez le QR code : il ouvre l’App Store ou Google Play.</p>
+    <div class="files">
+      <a href="qr/scoroo-qr.png" download><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-3 5-5-1.4-1.4-2.6 2.6V4h-2v9.2l-2.6-2.6L7 12l5 5z"/></svg>PNG</a>
+      <a href="qr/scoroo-qr.svg" download><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-3 5-5-1.4-1.4-2.6 2.6V4h-2v9.2l-2.6-2.6L7 12l5 5z"/></svg>SVG</a>
+      <a id="card" href="qr/scoroo-qr-carte-fr.png" download><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-3 5-5-1.4-1.4-2.6 2.6V4h-2v9.2l-2.6-2.6L7 12l5 5z"/></svg><span data-t="cardFile">Carte à imprimer</span></a>
+    </div>
+  </section>
+</main>
+<script>
+  // Textes dans la langue choisie sur le site (scoroo-lang) ou celle du navigateur ; français par défaut.
+  const T = {
+    en: { title: 'Download Scoroo', lead: 'The score keeper for all your card, dice and board games: Belote, Tarot, Rummy, Skyjo, 7 Wonders, darts…', free: 'Free download',
+      appleSmall: 'Download on the', playSmall: 'Get it on', more: 'Discover all the games and features:', scan: 'Scan with your phone',
+      scanLead: 'Open your camera and point it at the QR code: it opens the App Store or Google Play.', cardFile: 'Printable card' },
+    es: { title: 'Descarga Scoroo', lead: 'El marcador de todos tus juegos de cartas, dados y mesa: tarot, rummy, Skyjo, 7 Wonders, dardos…', free: 'Descarga gratuita',
+      appleSmall: 'Descárgalo en', playSmall: 'Disponible en', more: 'Descubre todos los juegos y funciones:', scan: 'Escanea con tu móvil',
+      scanLead: 'Abre la cámara y apunta al código QR: abre el App Store o Google Play.', cardFile: 'Tarjeta para imprimir' },
+    de: { title: 'Scoroo herunterladen', lead: 'Der Punktezähler für alle eure Karten-, Würfel- und Brettspiele: Skyjo, 7 Wonders, Skull King, Mölkky, Darts…', free: 'Kostenloser Download',
+      appleSmall: 'Laden im', playSmall: 'Jetzt bei', more: 'Alle Spiele und Funktionen entdecken:', scan: 'Mit dem Handy scannen',
+      scanLead: 'Öffne die Kamera und richte sie auf den QR-Code: Er öffnet den App Store oder Google Play.', cardFile: 'Karte zum Drucken' },
+    it: { title: 'Scarica Scoroo', lead: 'Il segnapunti di tutti i vostri giochi di carte, dadi e da tavolo: tarocchi, ramino, Skyjo, 7 Wonders, freccette…', free: 'Download gratuito',
+      appleSmall: 'Scarica su', playSmall: 'Disponibile su', more: 'Scopri tutti i giochi e le funzioni:', scan: 'Inquadra con il telefono',
+      scanLead: 'Apri la fotocamera e inquadra il codice QR: apre l’App Store o Google Play.', cardFile: 'Scheda da stampare' },
+  };
+  const saved = (() => { try { return localStorage.getItem('scoroo-lang'); } catch (e) { return null; } })();
+  const lang = ['fr', 'en', 'es', 'de', 'it'].includes(saved) ? saved : (navigator.language || 'fr').slice(0, 2).toLowerCase();
+  if (T[lang]) {
+    document.documentElement.lang = lang;
+    document.title = T[lang].title + ' · App Store & Google Play';
+    document.querySelectorAll('[data-t]').forEach((el) => { el.textContent = T[lang][el.dataset.t]; });
+    document.getElementById('card').href = `qr/scoroo-qr-carte-${lang}.png`;
+  }
+  // Android en aperçu (?voir) : Google Play en premier.
+  if (android) document.querySelector('.stores').prepend(document.getElementById('play'));
 </script>
 </body>
 </html>
