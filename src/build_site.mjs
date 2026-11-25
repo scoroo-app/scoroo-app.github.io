@@ -416,6 +416,8 @@ for (const lang of LANGS) {
     urls.push({ loc: gamePath(lang, g.page), alts: (l) => gamePath(l, g.page), priority: '0.7' });
   }
 }
+urls.push({ loc: 'download/', priority: '0.6' });
+urls.push({ loc: 'exemple/', priority: '0.3' });
 urls.push({ loc: 'privacy.html', priority: '0.2' });
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

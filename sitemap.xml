@@ -716,6 +716,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/darts/"/>
   </url>
   <url>
+    <loc>https://scoroo-app.github.io/download/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/exemple/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://scoroo-app.github.io/privacy.html</loc>
     <lastmod>2026-11-25</lastmod>
     <priority>0.2</priority>
