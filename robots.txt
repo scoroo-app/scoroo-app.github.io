@@ -1,5 +1,10 @@
 User-agent: *
 Allow: /
+# Page affichée par le Chromecast et sources du site, sans intérêt dans les résultats de recherche.
+Disallow: /tv/
+Disallow: /src/
 
 User-agent: Google-adstxt
 Disallow:
+
+Sitemap: https://scoroo-app.github.io/sitemap.xml

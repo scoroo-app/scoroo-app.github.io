@@ -4,14 +4,39 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Scoroo · Le compteur de points de vos soirées jeux</title>
-<meta name="description" content="Scoroo compte les points de tous vos jeux : belote, tarot, Yams, Skyjo, 7 Wonders, fléchettes… Jeux créés et partagés, amis, jeu à plusieurs téléphones, tournois.">
+<meta name="description" content="Appli gratuite pour compter les points : belote, tarot, Yams, Skyjo, Rami, 7 Wonders, Skull King, Mölkky, fléchettes… Créez vos jeux, organisez des tournois.">
+<link rel="canonical" href="https://scoroo-app.github.io/">
+<link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/">
+<link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/">
+<link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/">
+<link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/">
+<link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/">
+<link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/">
+<meta name="theme-color" content="#0b3a6e">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scoroo">
+<meta property="og:title" content="Scoroo · Le compteur de points de vos soirées jeux">
+<meta property="og:description" content="Appli gratuite pour compter les points : belote, tarot, Yams, Skyjo, Rami, 7 Wonders, Skull King, Mölkky, fléchettes… Créez vos jeux, organisez des tournois.">
+<meta property="og:url" content="https://scoroo-app.github.io/">
+<meta property="og:image" content="https://scoroo-app.github.io/img/og_fr.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Scoroo · Le compteur de points de vos soirées jeux">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"MobileApplication","@id":"https://scoroo-app.github.io/#app","name":"Scoroo","description":"Appli gratuite pour compter les points : belote, tarot, Yams, Skyjo, Rami, 7 Wonders, Skull King, Mölkky, fléchettes… Créez vos jeux, organisez des tournois.","url":"https://scoroo-app.github.io/","image":"https://scoroo-app.github.io/img/logo.png","operatingSystem":"Android, iOS","applicationCategory":"UtilitiesApplication","inLanguage":["fr","en","es","de","it"],"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"installUrl":["https://play.google.com/store/apps/details?id=com.scoroo.app","https://apps.apple.com/app/id6826124200"],"sameAs":["https://play.google.com/store/apps/details?id=com.scoroo.app","https://apps.apple.com/app/id6826124200","https://www.instagram.com/scoroo_app/","https://www.tiktok.com/@scoroo_app"]},{"@type":"WebSite","@id":"https://scoroo-app.github.io/#site","name":"Scoroo","url":"https://scoroo-app.github.io/","inLanguage":"fr"},{"@type":"FAQPage","inLanguage":"fr","mainEntity":[{"@type":"Question","name":"Faut-il un compte ?","acceptedAnswer":{"@type":"Answer","text":"Non. Scoroo fonctionne sans compte et sans connexion. Le profil en ligne n’est utile que pour ajouter des amis et partager des parties."}},{"@type":"Question","name":"Où sont mes parties ?","acceptedAnswer":{"@type":"Answer","text":"Sur votre téléphone. Seul ce que vous choisissez de partager passe par le serveur : votre profil (prénom, photo, code ami), les parties et jeux partagés."}},{"@type":"Question","name":"Mon ami doit-il avoir la version complète ?","acceptedAnswer":{"@type":"Answer","text":"Non. Rejoindre une partie ou un tournoi partagé, ajouter un jeu partagé et y jouer : tout cela est gratuit."}},{"@type":"Question","name":"Je change de téléphone, je perds tout ?","acceptedAnswer":{"@type":"Answer","text":"Non. Exportez une sauvegarde depuis les réglages et importez-la sur le nouveau. Liez votre profil à Google ou Apple pour retrouver vos amis ; avec la version complète, vos parties suivent toutes seules sur vos appareils."}},{"@type":"Question","name":"Je suis éditeur de jeux : mon jeu peut-il avoir son compteur ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Écrivez-nous : nous créons votre jeu « officiel » dans Scoroo, avec un QR code à imprimer sur la boîte ou les règles."}}]}]}</script>
 <!--
+  Fichier généré par node src/build_site.mjs à partir de src/index.template.html : modifier le modèle.
   Site de Scoroo (https://scoroo-app.github.io), en cinq langues (fr, en, es, de, it) : textes dans
-  I18N ci-dessous, langue du navigateur par défaut, sélecteur en haut de page. Captures dans img/
+  I18N ci-dessous, français à la racine, /en/, /es/, /de/, /it/. Captures dans img/
   (<langue>_<n>_<écran>.webp, tirées de store/screenshots/<langue>/web_*.png ; télé seule :
   <langue>_tv_<nom>.webp), vidéo dans video/ (store/video/scoroo_play_<langue>.mp4, avec son image
   d'attente scoroo_<langue>.webp).
-  Couleurs des jeux : celles de lib/models/game_type.dart. Vérification : node tool/site_check.mjs.
+  Couleurs des jeux : celles de lib/models/game_type.dart. Vérification : node src/site_check.mjs.
 -->
 <link rel="icon" href="img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -233,6 +258,10 @@
   footer { padding: 36px 0 48px; color: var(--muted); font-size: 14.5px; }
   footer .wrap { display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; }
   footer a { color: var(--muted); }
+  .game h3 a { color: inherit; text-decoration: none; }
+  .game .more { display: inline-flex; align-items: center; gap: 4px; margin-top: 12px; font-weight: 700; font-size: 14.5px; color: var(--c); text-decoration: none; }
+  .game .more .ms { font-size: 18px; }
+  .game .more:hover { text-decoration: underline; }
   [hidden] { display: none !important; }
 </style>
 </head>
@@ -240,19 +269,19 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#"><img src="img/logo.png" alt=""><span>Scoroo</span></a>
+    <a class="brand" href="#"><img src="img/logo.png" alt="Scoroo"><span>Scoroo</span></a>
     <nav class="nav">
-      <a href="#jeux" data-i18n="navGames"></a>
-      <a href="#creer" data-i18n="navCreate"></a>
-      <a href="#amis" data-i18n="navFriends"></a>
-      <a href="#tournois" data-i18n="navCups"></a>
-      <a href="#tv" data-i18n="navTv"></a>
-      <a href="#prix" data-i18n="navPrice"></a>
+      <a href="#jeux" data-i18n="navGames">Les jeux</a>
+      <a href="#creer" data-i18n="navCreate">Créer un jeu</a>
+      <a href="#amis" data-i18n="navFriends">Amis et en ligne</a>
+      <a href="#tournois" data-i18n="navCups">Tournois</a>
+      <a href="#tv" data-i18n="navTv">Mode TV</a>
+      <a href="#prix" data-i18n="navPrice">Prix</a>
       <a class="ig" href="https://www.instagram.com/scoroo_app/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 4.8a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-8.4a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></svg></a>
       <a class="ig" href="https://www.tiktok.com/@scoroo_app" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 2h-3.3v13.2a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9a6.3 6.3 0 1 0 5.3 6.2V8.6a7.9 7.9 0 0 0 4.4 1.4V6.7a4.6 4.6 0 0 1-4.4-4.7z"/></svg></a>
     </nav>
     <select class="lang" id="lang" aria-label="Language">
-      <option value="fr">Français</option><option value="en">English</option><option value="es">Español</option>
+      <option value="fr" selected>Français</option><option value="en">English</option><option value="es">Español</option>
       <option value="de">Deutsch</option><option value="it">Italiano</option>
     </select>
   </div>
@@ -261,15 +290,15 @@
 <section class="hero">
   <div class="wrap">
     <div>
-      <span class="badge"><span class="ms">bolt</span><span data-i18n="heroBadge"></span></span>
-      <h1 data-i18n-html="heroTitle"></h1>
-      <p class="lead" data-i18n="heroLead"></p>
-      <div class="stores" data-stores></div>
-      <p class="note" data-i18n="heroNote"></p>
+      <span class="badge"><span class="ms">bolt</span><span data-i18n="heroBadge">Belote, tarot, Yams, Skyjo, 7 Wonders, fléchettes…</span></span>
+      <h1 data-i18n-html="heroTitle">Rangez le stylo,<br><em>sortez Scoroo.</em></h1>
+      <p class="lead" data-i18n="heroLead">Le compteur de points de tous vos jeux de cartes, de dés et de société. Scoroo applique les règles, additionne, désigne le gagnant, et vous laisse jouer.</p>
+      <div class="stores" data-stores><a class="store" href="https://play.google.com/store/apps/details?id=com.scoroo.app"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#00d7fe" d="M3.6 1.8 13.3 12l-9.7 10.2c-.3-.2-.5-.6-.5-1.1V2.9c0-.5.2-.9.5-1.1z"/><path fill="#00f076" d="M3.6 1.8c.3-.2.8-.2 1.3.1l11.7 6.8-3.3 3.3z"/><path fill="#ff3a44" d="M13.3 12l3.3 3.3-11.7 6.8c-.5.3-1 .3-1.3.1z"/><path fill="#ffd109" d="m16.6 8.7 3.4 2c.9.5.9 1.6 0 2.1l-3.4 2-3.3-2.8z"/></svg><span><small>Disponible sur</small>Google Play</span></a><a class="store" href="https://apps.apple.com/app/id6826124200"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.15 6.9c-.95 0-2.42-1.08-3.96-1.04-2.04.03-3.91 1.18-4.96 3.01-2.12 3.68-.55 9.1 1.52 12.09 1.01 1.45 2.2 3.09 3.79 3.04 1.52-.07 2.09-.99 3.93-.99 1.83 0 2.35.99 3.96.95 1.64-.03 2.68-1.48 3.68-2.95 1.16-1.69 1.63-3.32 1.66-3.41-.04-.02-3.18-1.22-3.22-4.86-.03-3.04 2.48-4.49 2.6-4.56-1.43-2.09-3.62-2.32-4.39-2.38-2-.15-3.68 1.09-4.61 1.09zm3.38-3.07c.84-1.01 1.4-2.43 1.25-3.83-1.21.05-2.66.81-3.53 1.82-.78.9-1.46 2.34-1.27 3.71 1.34.1 2.71-.69 3.56-1.7z"/></svg><span><small>Télécharger dans</small>App Store</span></a></div>
+      <p class="note" data-i18n="heroNote">Gratuit, sans compte, hors ligne. Version complète en achat unique, sans abonnement.</p>
     </div>
     <div class="phones">
-      <div class="phone a"><img data-shot="2_tarot" alt=""></div>
-      <div class="phone b"><img data-shot="1_accueil" alt=""></div>
+      <div class="phone a"><img src="img/fr_2_tarot.webp" data-shot="2_tarot" alt="Capture d’écran de Scoroo"></div>
+      <div class="phone b"><img src="img/fr_1_accueil.webp" data-shot="1_accueil" alt="Capture d’écran de Scoroo"></div>
     </div>
   </div>
 </section>
@@ -277,83 +306,83 @@
 <section style="padding-top: 28px">
   <div class="wrap">
     <div class="facts">
-      <div class="fact" style="--c: #7b61ff"><span class="ms">playing_cards</span><b>13</b><span data-i18n="factGames"></span></div>
-      <div class="fact" style="--c: #0ea5a4"><span class="ms">translate</span><b>5</b><span data-i18n="factLangs"></span></div>
-      <div class="fact" style="--c: #e8590c"><span class="ms">redeem</span><b data-i18n="factPrice"></b><span data-i18n="factFree"></span></div>
-      <div class="fact" style="--c: #2563eb"><span class="ms">shield_lock</span><b>100 %</b><span data-i18n="factLocal"></span></div>
+      <div class="fact" style="--c: #7b61ff"><span class="ms">playing_cards</span><b>13</b><span data-i18n="factGames">jeux prêts à jouer, et tous ceux que vous créez</span></div>
+      <div class="fact" style="--c: #0ea5a4"><span class="ms">translate</span><b>5</b><span data-i18n="factLangs">langues : français, anglais, espagnol, allemand, italien</span></div>
+      <div class="fact" style="--c: #e8590c"><span class="ms">redeem</span><b data-i18n="factPrice">0 €</b><span data-i18n="factFree">pour compter les points de tous vos jeux</span></div>
+      <div class="fact" style="--c: #2563eb"><span class="ms">shield_lock</span><b>100 %</b><span data-i18n="factLocal">de vos parties sur votre téléphone</span></div>
     </div>
     <div class="video">
-      <video data-video autoplay muted loop playsinline preload="metadata"></video>
+      <video data-video poster="video/scoroo_fr.webp" src="video/scoroo_fr.mp4" autoplay muted loop playsinline preload="metadata"></video>
     </div>
   </div>
 </section>
 
 <section id="jeux" style="padding-top: 40px">
   <div class="wrap">
-    <span class="eyebrow" data-i18n="gamesEyebrow"></span>
-    <h2 data-i18n="gamesTitle"></h2>
-    <p class="lead" data-i18n="gamesLead"></p>
-    <div class="games" id="games"></div>
+    <span class="eyebrow" data-i18n="gamesEyebrow">Les jeux</span>
+    <h2 data-i18n="gamesTitle">Tous vos jeux, un seul carnet de scores</h2>
+    <p class="lead" data-i18n="gamesLead">Chaque jeu a ses vraies règles de comptage, sa saisie adaptée et son fond aux couleurs du jeu. Et s’il manque le vôtre, créez-le.</p>
+    <div class="games" id="games"><article class="game" style="--c:#e5486a"><div class="ic"><span class="ms">playing_cards</span></div><h3><a href="jeux/belote/">Belote et contrée</a></h3><p>Contrats, belote-rebelote, capot, dix de der. Contrée avec annonces, sans atout et tout atout, générale.</p><div class="tags"><span>Équipes</span><span>Donneur tournant</span></div><a class="more" href="jeux/belote/">Règles et points<span class="ms">arrow_forward</span></a></article><article class="game" style="--c:#7b61ff"><div class="ic"><span class="ms">crown</span></div><h3><a href="jeux/tarot/">Tarot</a></h3><p>Petite, garde, garde sans, garde contre, bouts, petit au bout, poignées, chelem, misères. De 3 à 5 joueurs.</p><div class="tags"><span>Appelé à 5</span><span>Table de jeu</span></div><a class="more" href="jeux/tarot/">Règles et points<span class="ms">arrow_forward</span></a></article><article class="game" style="--c:#c026d3"><div class="ic"><span class="ms">style</span></div><h3><a href="jeux/rami/">Rami</a></h3><p>Qui a posé, rami sec, pénalité de qui n’a rien posé, élimination à la limite.</p><div class="tags"><span>Jusqu’à 6 joueurs</span></div><a class="more" href="jeux/rami/">Règles et points<span class="ms">arrow_forward</span></a></article><article class="game" style="--c:#f59e0b"><div class="ic"><span class="ms">casino</span></div><h3><a href="jeux/yams/">Yams</a></h3><p>Feuille complète avec bonus, en colonnes libre, descendante, montante ou sèche.</p><div class="tags"><span>Feuille</span><span>Colonnes</span></div><a class="more" href="jeux/yams/">Règles et points<span class="ms">arrow_forward</span></a></article><article class="game" style="--c:#2563eb"><div class="ic"><span class="ms">grid_view</span></div><h3><a href="jeux/skyjo/">Skyjo</a></h3><p>Touchez les cartes de chacun : Scoroo fait la somme, double le finisseur s’il n’a pas le plus petit score et s’arrête à 100.</p><div class="tags"><span>Saisie par cartes</span><span>Le plus bas gagne</span></div><a class="more" href="jeux/skyjo/">Règles et points<span class="ms">arrow_forward</span></a></article><article class="game" style="--c:#db2777"><div class="ic"><span class="ms">filter_7</span></div><h3><a href="jeux/flip-7/">Flip 7</a></h3><p>Touchez vos cartes : numéros, bonus, ×2 et le ÷2 de Vengeance. 15 points de plus pour un Flip 7, premier à 200.</p><div class="tags"><span>Saisie par cartes</span><span>Bonus</span></div><a class="more" href="jeux/flip-7/">Règles et points<span class="ms">arrow_forward</span></a></article><article class="game" style="--c:#1e3a5f"><div class="ic"><span class="ms">skull</span></div><h3><a href="jeux/skull-king/">Skull King</a></h3><p>Paris en début de manche, plis et bonus à la fin. Comptage classique ou Rascal, cartes avancées et extension.</p><div class="tags"><span>Paris</span><span>10 manches</span></div><a class="more" href="jeux/skull-king/">Règles et points<span class="ms">arrow_forward</span></a></article><article class="game" style="--c:#9a6b3f"><div class="ic"><span class="ms">account_balance</span></div><h3><a href="jeux/7-wonders/">7 Wonders</a></h3><p>Feuille officielle avec Leaders, Cities, Armada, Edifice. Tirage des merveilles.</p><div class="tags"><span>Extensions</span><span>Jusqu’à 8</span></div><a class="more" href="jeux/7-wonders/">Règles et points<span class="ms">arrow_forward</span></a></article><article class="game" style="--c:#8a5a1e"><div class="ic"><span class="ms">swords</span></div><h3><a href="jeux/7-wonders-duel/">7 Wonders Duel</a></h3><p>Pantheon et Agora, victoires militaire, scientifique et politique immédiates.</p><div class="tags"><span>2 joueurs</span></div><a class="more" href="jeux/7-wonders-duel/">Règles et points<span class="ms">arrow_forward</span></a></article><article class="game" style="--c:#c2410c"><div class="ic"><span class="ms">hexagon</span></div><h3><a href="jeux/akropolis/">Akropolis</a></h3><p>Quartiers, places et pierres, avec le départage officiel.</p><div class="tags"><span>Feuille</span></div><a class="more" href="jeux/akropolis/">Règles et points<span class="ms">arrow_forward</span></a></article><article class="game" style="--c:#65a30d"><div class="ic"><span class="ms">forest</span></div><h3><a href="jeux/molkky/">Mölkky</a></h3><p>Touchez les quilles tombées sur la pyramide. Exactement 50, retour à 25, trois ratés. En équipes aussi.</p><div class="tags"><span>Pyramide</span><span>Équipes</span></div><a class="more" href="jeux/molkky/">Règles et points<span class="ms">arrow_forward</span></a></article><article class="game" style="--c:#b91c1c"><div class="ic"><span class="ms">target</span></div><h3><a href="jeux/flechettes/">Fléchettes</a></h3><p>Touchez la cible : 301, 501, Cricket, Killer, Tour de l’horloge, Shanghai, Halve-It, Golf.</p><div class="tags"><span>9 modes</span><span>Statistiques</span></div><a class="more" href="jeux/flechettes/">Règles et points<span class="ms">arrow_forward</span></a></article><article class="game" style="--c:#0ea5a4"><div class="ic"><span class="ms">auto_awesome</span></div><h3>Personnalisé</h3><p>Par manches, en saisie rapide ou sur une feuille. Modèles prêts : pétanque, Dutch, Rummikub…</p><div class="tags"><span>Équipes</span><span>Modèles</span></div></article></div>
   </div>
 </section>
 
 <section style="padding-top: 0; padding-bottom: 56px">
   <div class="wrap">
-    <span class="eyebrow" data-i18n="galleryEyebrow"></span>
-    <h2 data-i18n="galleryTitle"></h2>
-    <p class="lead" data-i18n="galleryLead"></p>
+    <span class="eyebrow" data-i18n="galleryEyebrow">En images</span>
+    <h2 data-i18n="galleryTitle">Un aperçu de Scoroo</h2>
+    <p class="lead" data-i18n="galleryLead">Quelques écrans de l’appli, avec une famille qui joue beaucoup.</p>
   </div>
   <div class="gallery">
-    <img data-shot="4_flechettes" alt="" loading="lazy">
-    <img data-shot="5_yams" alt="" loading="lazy">
-    <img data-shot="6_stats" alt="" loading="lazy">
-    <img data-shot="2_tarot" alt="" loading="lazy">
-    <img data-shot="7_tv" alt="" loading="lazy">
-    <img data-shot="1_accueil" alt="" loading="lazy">
+    <img src="img/fr_4_flechettes.webp" data-shot="4_flechettes" alt="Capture d’écran de Scoroo" loading="lazy">
+    <img src="img/fr_5_yams.webp" data-shot="5_yams" alt="Capture d’écran de Scoroo" loading="lazy">
+    <img src="img/fr_6_stats.webp" data-shot="6_stats" alt="Capture d’écran de Scoroo" loading="lazy">
+    <img src="img/fr_2_tarot.webp" data-shot="2_tarot" alt="Capture d’écran de Scoroo" loading="lazy">
+    <img src="img/fr_7_tv.webp" data-shot="7_tv" alt="Capture d’écran de Scoroo" loading="lazy">
+    <img src="img/fr_1_accueil.webp" data-shot="1_accueil" alt="Capture d’écran de Scoroo" loading="lazy">
   </div>
 </section>
 
 <section class="band">
   <div class="wrap feature">
     <div>
-      <span class="eyebrow" data-i18n="playEyebrow"></span>
-      <h2 data-i18n="playTitle"></h2>
-      <p class="lead" data-i18n="playLead"></p>
-      <ul class="points" data-points="play"></ul>
+      <span class="eyebrow" data-i18n="playEyebrow">Pendant la partie</span>
+      <h2 data-i18n="playTitle">Saisissez, Scoroo s’occupe du reste</h2>
+      <p class="lead" data-i18n="playLead">Un pavé numérique qui additionne, des scores qui défilent, une couronne qui passe au meneur, et un podium pour finir.</p>
+      <ul class="points" data-points="play"><li><span class="ms">calculate</span><div><b>Le pavé qui compte pour vous</b><span>Tapez « 12 + 8 + 5 » : Scoroo additionne. Le premier chiffre remplace, les suivants complètent.</span></div></li><li><span class="ms">table_restaurant</span><div><b>La table vue de dessus</b><span>Belote, tarot, rami : qui distribue, qui prend. Touchez un joueur pour saisir sa donne.</span></div></li><li><span class="ms">emoji_events</span><div><b>Un vrai podium</b><span>Confettis, meilleur moment de la partie, revanche en un geste et image du résultat à partager.</span></div></li><li><span class="ms">timer</span><div><b>Chrono et durée limitée</b><span>Un compte à rebours à lancer quand vous voulez (Time’s Up, dessin, mime…), ou une durée pour toute la partie.</span></div></li></ul>
     </div>
-    <div class="shot"><div class="phone"><img data-shot="3_victoire" alt=""></div></div>
+    <div class="shot"><div class="phone"><img src="img/fr_3_victoire.webp" data-shot="3_victoire" alt="Capture d’écran de Scoroo"></div></div>
   </div>
 </section>
 
 <section id="creer">
   <div class="wrap feature rev">
     <div>
-      <span class="eyebrow" data-i18n="createEyebrow"></span>
-      <h2 data-i18n="createTitle"></h2>
-      <p class="lead" data-i18n="createLead"></p>
-      <ul class="points" data-points="create" style="--c: #7b61ff"></ul>
+      <span class="eyebrow" data-i18n="createEyebrow">Créer un jeu</span>
+      <h2 data-i18n="createTitle">Votre jeu n’est pas dans la liste ? Créez-le</h2>
+      <p class="lead" data-i18n="createLead">Un jeu de société, un jeu de cartes de famille, un jeu d’extérieur : décrivez-le une fois, il apparaît sur l’accueil avec son logo.</p>
+      <ul class="points" data-points="create" style="--c: #7b61ff"><li><span class="ms">edit_note</span><div><b>Nom, logo et couleur</b><span>Un pictogramme ou votre propre image, une couleur, de 1 à 12 joueurs.</span></div></li><li><span class="ms">rule</span><div><b>Vos règles de comptage</b><span>Le plus haut ou le plus bas gagne, score de fin, élimination, score exact avec retour en arrière, nombre de manches.</span></div></li><li><span class="ms">table_view</span><div><b>Une feuille de score sur mesure</b><span>Vos catégories, avec une aide sous chaque ligne, une couleur, un pictogramme et un calcul automatique.</span></div></li><li><span class="ms">menu_book</span><div><b>Les règles à portée de main</b><span>Un texte et un lien vers les règles complètes (PDF, vidéo) : les joueurs les ouvrent pendant la partie.</span></div></li><li><span class="ms">groups</span><div><b>Départage et tour de rôle</b><span>Égalité tranchée aux manches gagnées ou à une catégorie ; qui distribue, ou qui commence, à chaque manche.</span></div></li></ul>
     </div>
-    <div class="shot"><div class="phone"><img data-shot="create" alt=""></div></div>
+    <div class="shot"><div class="phone"><img src="img/fr_create.webp" data-shot="create" alt="Capture d’écran de Scoroo"></div></div>
   </div>
   <div class="wrap">
-    <h3 style="margin-top: 56px" data-i18n="shareTitle"></h3>
-    <p class="lead" data-i18n="shareLead"></p>
-    <div class="steps" data-steps="share" style="--c: #7b61ff"></div>
-    <div class="chips" data-chips="sheet" style="--c: #7b61ff"></div>
+    <h3 style="margin-top: 56px" data-i18n="shareTitle">Partagez-le d’un QR code</h3>
+    <p class="lead" data-i18n="shareLead">Vos amis l’ajoutent en scannant son QR code et y jouent gratuitement, même sans la version complète.</p>
+    <div class="steps" data-steps="share" style="--c: #7b61ff"><div class="step"><h3>Partagez</h3><p>Appui long sur votre jeu, puis l’icône QR code : Scoroo publie le jeu et affiche son QR code et son lien.</p></div><div class="step"><h3>Scannez</h3><p>Votre ami scanne le QR code avec Scoroo ou l’appareil photo. Sans Scoroo, le lien mène à la page du jeu et au téléchargement.</p></div><div class="step"><h3>Jouez</h3><p>« Ajouter à mes jeux » : le jeu est sur son accueil, avec vos règles et votre feuille. Scanné à nouveau, il se met à jour.</p></div></div>
+    <div class="chips" data-chips="sheet" style="--c: #7b61ff"><span><span class="ms">tag</span>Points tapés</span><span><span class="ms">close</span>Quantité × points</span><span><span class="ms">check_circle</span>Oui / non</span><span><span class="ms">list</span>Valeurs au choix</span><span><span class="ms">help</span>Aide par ligne</span><span><span class="ms">palette</span>Couleur et pictogramme</span><span><span class="ms">verified</span>Jeux officiels d’éditeurs</span></div>
   </div>
 </section>
 
 <section id="amis" class="band">
   <div class="wrap">
-    <span class="eyebrow" data-i18n="friendsEyebrow"></span>
-    <h2 data-i18n="friendsTitle"></h2>
-    <p class="lead" data-i18n="friendsLead"></p>
-    <div class="steps" data-steps="friends" style="--c: #0ea5a4"></div>
+    <span class="eyebrow" data-i18n="friendsEyebrow">Amis et jeu en ligne</span>
+    <h2 data-i18n="friendsTitle">Chacun sur son téléphone, tout le monde sur la même partie</h2>
+    <p class="lead" data-i18n="friendsLead">Facultatif et simple : un profil avec votre prénom, des amis ajoutés d’un QR code, et des parties partagées en direct.</p>
+    <div class="steps" data-steps="friends" style="--c: #0ea5a4"><div class="step"><h3>Votre profil</h3><p>Votre prénom et votre photo, un code ami, sans e-mail ni mot de passe. Liez-le à Google ou Apple pour le retrouver sur un autre téléphone.</p></div><div class="step"><h3>Ajoutez un ami</h3><p>Joueurs › Ajouter un ami : il scanne votre QR code, ou tape votre code. Les amis apparaissent avec les joueurs, avec une pastille.</p></div><div class="step"><h3>Jouez ensemble</h3><p>À la création d’une partie, vos amis sont invités d’office et reçoivent une notification.</p></div></div>
   </div>
   <div class="wrap" style="margin-top: 56px">
-    <h3 data-i18n="onlineTitle"></h3>
-    <p class="lead" data-i18n="onlineLead"></p>
-    <ul class="points two" data-points="online" style="--c: #e5486a"></ul>
+    <h3 data-i18n="onlineTitle">Une partie, plusieurs téléphones</h3>
+    <p class="lead" data-i18n="onlineLead">Les scores saisis sur un téléphone apparaissent sur tous les autres, même après une coupure de réseau.</p>
+    <ul class="points two" data-points="online" style="--c: #e5486a"><li><span class="ms">qr_code_2</span><div><b>Rejoindre d’un QR code</b><span>L’hôte montre le QR code de la partie : les autres le scannent et suivent en direct.</span></div></li><li><span class="ms">chair</span><div><b>Chacun à sa place</b><span>Celui qui rejoint prend la place de son joueur, même dans une équipe ; ses points déjà marqués restent.</span></div></li><li><span class="ms">edit</span><div><b>Saisir ou suivre</b><span>L’hôte choisit : les invités saisissent leurs scores, ou suivent seulement le tableau. Un seul téléphone saisit à la fois.</span></div></li><li><span class="ms">notifications_active</span><div><b>Invitations en notification</b><span>Vos amis reçoivent l’invitation même téléphone en veille, et la rejoignent d’un appui.</span></div></li><li><span class="ms">replay</span><div><b>Podium partout, revanche partagée</b><span>La fin de partie s’affiche chez tout le monde ; la revanche se rejoint d’un geste.</span></div></li></ul>
   </div>
 </section>
 
@@ -361,70 +390,70 @@
   <!-- Le texte sur deux colonnes, puis les trois écrans en grand sur toute la largeur. -->
   <div class="wrap feature">
     <div>
-      <span class="eyebrow" data-i18n="cupsEyebrow"></span>
-      <h2 data-i18n="cupsTitle"></h2>
-      <p class="lead" data-i18n="cupsLead"></p>
-      <div class="chips" data-chips="formats" style="--c: #e8590c"></div>
+      <span class="eyebrow" data-i18n="cupsEyebrow">Tournois</span>
+      <h2 data-i18n="cupsTitle">De vrais tournois, du club au réveillon</h2>
+      <p class="lead" data-i18n="cupsLead">Un concours de belote avec dix équipes, un tournoi de fléchettes ou de pétanque : Scoroo organise les tables, enchaîne les tours et affiche le classement.</p>
+      <div class="chips" data-chips="formats" style="--c: #e8590c"><span><span class="ms">account_tree</span>Élimination directe</span><span><span class="ms">grid_on</span>Poules puis tableau</span><span><span class="ms">repeat</span>Concours (système suisse)</span><span><span class="ms">shuffle</span>Mêlée</span><span><span class="ms">table_restaurant</span>Tables tournantes (tarot)</span><span><span class="ms">workspace_premium</span>Consolante et petite finale</span></div>
     </div>
-    <ul class="points" data-points="cups" style="--c: #e8590c"></ul>
+    <ul class="points" data-points="cups" style="--c: #e8590c"><li><span class="ms">table_bar</span><div><b>Plusieurs tables à la fois</b><span>Chaque match reçoit une table libre ; Scoroo enchaîne les tours et tient le classement.</span></div></li><li><span class="ms">sports_esports</span><div><b>Chaque match dans Scoroo</b><span>Jouez le match dans l’appli : le score remonte tout seul dans le tournoi.</span></div></li><li><span class="ms">hourglass_top</span><div><b>Minuteurs</b><span>Un temps par match, lancé table par table ou pour toutes d’un coup.</span></div></li><li><span class="ms">wifi_tethering</span><div><b>Tournoi partagé</b><span>Les participants suivent le tournoi en direct ; l’organisateur garde les commandes.</span></div></li><li><span class="ms">tv</span><div><b>Sur la télé</b><span>Tables en cours, prochains matchs, classement, puis podium final.</span></div></li></ul>
   </div>
   <div class="wrap">
     <div class="fan">
-      <div class="phone"><img data-shot="cup_1" alt=""></div>
-      <div class="phone"><img data-shot="cup_2" alt=""></div>
-      <div class="phone"><img data-shot="cup_3" alt=""></div>
+      <div class="phone"><img src="img/fr_cup_1.webp" data-shot="cup_1" alt="Capture d’écran de Scoroo"></div>
+      <div class="phone"><img src="img/fr_cup_2.webp" data-shot="cup_2" alt="Capture d’écran de Scoroo"></div>
+      <div class="phone"><img src="img/fr_cup_3.webp" data-shot="cup_3" alt="Capture d’écran de Scoroo"></div>
     </div>
   </div>
 </section>
 
 <section id="tv" class="tvsec">
   <div class="wrap">
-    <span class="eyebrow" data-i18n="tvEyebrow"></span>
-    <h2 data-i18n="tvTitle"></h2>
-    <p class="lead" data-i18n="tvLead"></p>
+    <span class="eyebrow" data-i18n="tvEyebrow">Mode TV</span>
+    <h2 data-i18n="tvTitle">Le tableau des scores en grand sur la télé</h2>
+    <p class="lead" data-i18n="tvLead">Vous saisissez sur le téléphone, toute la table suit sur l’écran du salon : classement, dernières manches, qui distribue, qui lance.</p>
     <div class="tvgrid">
       <div class="tv">
         <div class="glow"></div>
         <div class="screen">
           <div class="frames">
-            <img data-shot="tv_tarot" alt="" class="on">
-            <img data-shot="tv_darts" alt="">
-            <img data-shot="tv_cup" alt="">
+            <img src="img/fr_tv_tarot.webp" data-shot="tv_tarot" alt="Capture d’écran de Scoroo" class="on">
+            <img src="img/fr_tv_darts.webp" data-shot="tv_darts" alt="Capture d’écran de Scoroo">
+            <img src="img/fr_tv_cup.webp" data-shot="tv_cup" alt="Capture d’écran de Scoroo">
           </div>
         </div>
         <div class="stand"></div>
-        <div class="tabs" data-tabs></div>
+        <div class="tabs" data-tabs><button type="button" data-tab="0" class="on">Soirée tarot</button><button type="button" data-tab="1">Fléchettes</button><button type="button" data-tab="2">Concours de belote</button></div>
       </div>
-      <ul class="points" data-points="tv"></ul>
+      <ul class="points" data-points="tv"><li><span class="ms">cast</span><div><b>Chromecast ou AirPlay</b><span>Un appui dans le menu de la partie et la télé affiche le tableau. Rien à installer sur la télé.</span></div></li><li><span class="ms">scoreboard</span><div><b>Lisible depuis le canapé</b><span>Classement et manches, feuille complète du Yams ou de 7 Wonders, cible et sorties aux fléchettes.</span></div></li><li><span class="ms">emoji_events</span><div><b>Le podium en grand</b><span>Confettis et meilleur moment de la partie, pour finir en beauté.</span></div></li><li><span class="ms">account_tree</span><div><b>Les tournois aussi</b><span>Matchs en cours, file d’attente et classement : chacun sait où jouer.</span></div></li></ul>
     </div>
   </div>
 </section>
 
 <section class="band">
   <div class="wrap">
-    <span class="eyebrow" data-i18n="moreEyebrow"></span>
-    <h2 data-i18n="moreTitle"></h2>
-    <div class="grid3" data-tiles="more"></div>
+    <span class="eyebrow" data-i18n="moreEyebrow">Et aussi</span>
+    <h2 data-i18n="moreTitle">Tout ce qu’il faut pour vos soirées</h2>
+    <div class="grid3" data-tiles="more"><div class="tile"><span class="ms">insights</span><h3>Statistiques</h3><p>Taux de victoire, séries, face-à-face, joueur du mois, records, et pour chaque jeu ses chiffres (prises au tarot, 180 aux fléchettes…).</p></div><div class="tile"><span class="ms">style</span><h3>Saisie en touchant les cartes</h3><p>Au Skyjo et au Flip 7, touchez les cartes posées devant chacun : Scoroo fait le compte.</p></div><div class="tile"><span class="ms">record_voice_over</span><h3>Annonces vocales</h3><p>Scoroo annonce les scores et qui mène, pour garder les yeux sur le jeu.</p></div><div class="tile"><span class="ms">palette</span><h3>Thèmes de couleur</h3><p>Classique, Lagon, Forêt, Framboise, Lavande et Ardoise, un thème sombre adouci.</p></div><div class="tile"><span class="ms">backup</span><h3>Sauvegarde complète</h3><p>Exportez tout dans un fichier : parties, joueurs, jeux créés, tournois et réglages. Importez-le sur un autre téléphone.</p></div><div class="tile"><span class="ms">tablet_mac</span><h3>Téléphone et tablette</h3><p>Une mise en page pensée pour chaque écran, en portrait comme en paysage.</p></div></div>
   </div>
 </section>
 
 <section id="prix">
   <div class="wrap">
-    <span class="eyebrow" data-i18n="priceEyebrow"></span>
-    <h2 data-i18n="priceTitle"></h2>
-    <p class="lead" data-i18n="priceLead"></p>
+    <span class="eyebrow" data-i18n="priceEyebrow">Prix</span>
+    <h2 data-i18n="priceTitle">Gratuit pour compter, complet pour tout faire</h2>
+    <p class="lead" data-i18n="priceLead">Tout le comptage est gratuit. La version complète débloque le reste en une fois, à vie. Une vidéo par jour permet de l’essayer 30 minutes.</p>
     <div class="plans">
       <div class="plan">
-        <h3 data-i18n="freeTitle"></h3>
-        <div class="price" data-i18n="priceFree"></div>
-        <p class="muted" data-i18n="freeLead"></p>
-        <ul data-list="free"></ul>
+        <h3 data-i18n="freeTitle">Gratuit</h3>
+        <div class="price" data-i18n="priceFree">0 €</div>
+        <p class="muted" data-i18n="freeLead">Pour compter les points de tous les jeux.</p>
+        <ul data-list="free"><li><span class="ms">check_circle</span><span>Tous les jeux et leurs règles de comptage</span></li><li><span class="ms">check_circle</span><span>Jeux créés et partagés par vos amis</span></li><li><span class="ms">check_circle</span><span>Amis, jeu en ligne et invitations</span></li><li><span class="ms">check_circle</span><span>Courbe des scores, chrono, durée limitée</span></li><li><span class="ms">check_circle</span><span>Contrée, options du Rami</span></li><li><span class="ms">check_circle</span><span>Partage du résultat, sauvegarde et import</span></li><li><span class="ms">check_circle</span><span>Les 3 dernières parties dans l’historique</span></li></ul>
       </div>
       <div class="plan full">
-        <h3 data-i18n="fullTitle"></h3>
-        <div class="price"><span data-i18n="priceFull"></span> <small data-i18n="fullOnce"></small></div>
-        <p class="muted" data-i18n="fullLead"></p>
-        <ul data-list="full"></ul>
+        <h3 data-i18n="fullTitle">Version complète</h3>
+        <div class="price"><span data-i18n="priceFull">7,99 €</span> <small data-i18n="fullOnce">une seule fois, à vie</small></div>
+        <p class="muted" data-i18n="fullLead">Pour aller plus loin, sans abonnement et sans publicité.</p>
+        <ul data-list="full"><li><span class="ms">check_circle</span><span>Historique complet et statistiques détaillées</span></li><li><span class="ms">check_circle</span><span>Créer et modifier vos propres jeux</span></li><li><span class="ms">check_circle</span><span>Tournois et grands tournois</span></li><li><span class="ms">check_circle</span><span>Mode TV et annonces vocales</span></li><li><span class="ms">check_circle</span><span>Parties synchronisées entre vos appareils</span></li><li><span class="ms">check_circle</span><span>Modes de fléchettes avancés, misères au tarot</span></li><li><span class="ms">check_circle</span><span>Thèmes de couleur, modèles d’images de partage</span></li><li><span class="ms">check_circle</span><span>Aucune publicité</span></li></ul>
       </div>
     </div>
   </div>
@@ -432,19 +461,19 @@
 
 <section class="band">
   <div class="wrap">
-    <span class="eyebrow" data-i18n="faqEyebrow"></span>
-    <h2 data-i18n="faqTitle"></h2>
-    <div data-faq style="margin-top: 24px"></div>
+    <span class="eyebrow" data-i18n="faqEyebrow">Questions</span>
+    <h2 data-i18n="faqTitle">Questions fréquentes</h2>
+    <div data-faq style="margin-top: 24px"><details><summary>Faut-il un compte ?</summary><p>Non. Scoroo fonctionne sans compte et sans connexion. Le profil en ligne n’est utile que pour ajouter des amis et partager des parties.</p></details><details><summary>Où sont mes parties ?</summary><p>Sur votre téléphone. Seul ce que vous choisissez de partager passe par le serveur : votre profil (prénom, photo, code ami), les parties et jeux partagés.</p></details><details><summary>Mon ami doit-il avoir la version complète ?</summary><p>Non. Rejoindre une partie ou un tournoi partagé, ajouter un jeu partagé et y jouer : tout cela est gratuit.</p></details><details><summary>Je change de téléphone, je perds tout ?</summary><p>Non. Exportez une sauvegarde depuis les réglages et importez-la sur le nouveau. Liez votre profil à Google ou Apple pour retrouver vos amis ; avec la version complète, vos parties suivent toutes seules sur vos appareils.</p></details><details><summary>Je suis éditeur de jeux : mon jeu peut-il avoir son compteur ?</summary><p>Oui. Écrivez-nous : nous créons votre jeu « officiel » dans Scoroo, avec un QR code à imprimer sur la boîte ou les règles.</p></details></div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
     <div class="cta">
-      <h2 data-i18n="ctaTitle"></h2>
-      <p class="lead" style="color: rgba(255,255,255,.8); margin-left: auto; margin-right: auto" data-i18n="ctaLead"></p>
-      <div class="stores" data-stores></div>
-      <p class="follow" data-i18n="followLead"></p>
+      <h2 data-i18n="ctaTitle">Votre prochaine soirée jeux commence ici</h2>
+      <p class="lead" style="color: rgba(255,255,255,.8); margin-left: auto; margin-right: auto" data-i18n="ctaLead">Gratuit sur Google Play et l’App Store.</p>
+      <div class="stores" data-stores><a class="store" href="https://play.google.com/store/apps/details?id=com.scoroo.app"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#00d7fe" d="M3.6 1.8 13.3 12l-9.7 10.2c-.3-.2-.5-.6-.5-1.1V2.9c0-.5.2-.9.5-1.1z"/><path fill="#00f076" d="M3.6 1.8c.3-.2.8-.2 1.3.1l11.7 6.8-3.3 3.3z"/><path fill="#ff3a44" d="M13.3 12l3.3 3.3-11.7 6.8c-.5.3-1 .3-1.3.1z"/><path fill="#ffd109" d="m16.6 8.7 3.4 2c.9.5.9 1.6 0 2.1l-3.4 2-3.3-2.8z"/></svg><span><small>Disponible sur</small>Google Play</span></a><a class="store" href="https://apps.apple.com/app/id6826124200"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.15 6.9c-.95 0-2.42-1.08-3.96-1.04-2.04.03-3.91 1.18-4.96 3.01-2.12 3.68-.55 9.1 1.52 12.09 1.01 1.45 2.2 3.09 3.79 3.04 1.52-.07 2.09-.99 3.93-.99 1.83 0 2.35.99 3.96.95 1.64-.03 2.68-1.48 3.68-2.95 1.16-1.69 1.63-3.32 1.66-3.41-.04-.02-3.18-1.22-3.22-4.86-.03-3.04 2.48-4.49 2.6-4.56-1.43-2.09-3.62-2.32-4.39-2.38-2-.15-3.68 1.09-4.61 1.09zm3.38-3.07c.84-1.01 1.4-2.43 1.25-3.83-1.21.05-2.66.81-3.53 1.82-.78.9-1.46 2.34-1.27 3.71 1.34.1 2.71-.69 3.56-1.7z"/></svg><span><small>Télécharger dans</small>App Store</span></a></div>
+      <p class="follow" data-i18n="followLead">Astuces, nouveautés et soirées jeux : suivez Scoroo @scoroo_app</p>
       <div class="social">
         <a href="https://www.instagram.com/scoroo_app/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 4.8a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-8.4a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></svg><span>Instagram</span></a>
         <a href="https://www.tiktok.com/@scoroo_app" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 2h-3.3v13.2a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9a6.3 6.3 0 1 0 5.3 6.2V8.6a7.9 7.9 0 0 0 4.4 1.4V6.7a4.6 4.6 0 0 1-4.4-4.7z"/></svg><span>TikTok</span></a>
@@ -456,18 +485,25 @@
 <footer>
   <div class="wrap">
     <span>© Scoroo</span>
-    <a href="privacy.html" data-i18n="privacy"></a>
-    <a href="privacy.html#cgu" data-i18n="terms"></a>
+    <a href="privacy.html" data-i18n="privacy">Politique de confidentialité</a>
+    <a href="privacy.html#cgu" data-i18n="terms">Conditions d’utilisation</a>
     <a href="mailto:scoroo.app@gmail.com">scoroo.app@gmail.com</a>
     <span class="socials">
       <a href="https://www.instagram.com/scoroo_app/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 4.8a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-8.4a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></svg></a>
       <a href="https://www.tiktok.com/@scoroo_app" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 2h-3.3v13.2a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9a6.3 6.3 0 1 0 5.3 6.2V8.6a7.9 7.9 0 0 0 4.4 1.4V6.7a4.6 4.6 0 0 1-4.4-4.7z"/></svg></a>
     </span>
-    <span data-i18n="madeIn"></span>
+    <span data-i18n="madeIn">Fait en France, à Saint-Égrève.</span>
   </div>
 </footer>
 
 <script>
+  // Langue de cette page et chemin vers la racine du site (posés par src/build_site.mjs), adresse
+  // des pages des jeux dans cette langue.
+  const PAGE_LANG = 'fr';
+  const BASE = '';
+  const PAGES = {"belote":"jeux/belote/","tarot":"jeux/tarot/","rami":"jeux/rami/","yams":"jeux/yams/","skyjo":"jeux/skyjo/","flip7":"jeux/flip-7/","skullKing":"jeux/skull-king/","sevenWonders":"jeux/7-wonders/","wondersDuel":"jeux/7-wonders-duel/","akropolis":"jeux/akropolis/","molkky":"jeux/molkky/","darts":"jeux/flechettes/"};
+
+  // <data> (lu aussi par src/build_site.mjs, jusqu'à </data>)
   // Identifiant App Store (même valeur que dans download/index.html).
   const APP_STORE_ID = '6826124200';
   const PLAY = 'https://play.google.com/store/apps/details?id=com.scoroo.app';
@@ -476,24 +512,26 @@
 
   // Jeux : pictogramme, couleur (celle de l'appli), nom et description par langue, étiquettes.
   const GAMES = [
-    { icon: 'playing_cards', c: '#e5486a', id: 'belote' },
-    { icon: 'crown', c: '#7b61ff', id: 'tarot' },
-    { icon: 'style', c: '#c026d3', id: 'rami' },
-    { icon: 'casino', c: '#f59e0b', id: 'yams' },
-    { icon: 'grid_view', c: '#2563eb', id: 'skyjo' },
-    { icon: 'filter_7', c: '#db2777', id: 'flip7' },
-    { icon: 'skull', c: '#1e3a5f', id: 'skull' },
-    { icon: 'account_balance', c: '#9a6b3f', id: 'wonders' },
-    { icon: 'swords', c: '#8a5a1e', id: 'duel' },
-    { icon: 'hexagon', c: '#c2410c', id: 'akropolis' },
-    { icon: 'forest', c: '#65a30d', id: 'molkky' },
-    { icon: 'target', c: '#b91c1c', id: 'darts' },
+    { icon: 'playing_cards', c: '#e5486a', id: 'belote', page: 'belote' },
+    { icon: 'crown', c: '#7b61ff', id: 'tarot', page: 'tarot' },
+    { icon: 'style', c: '#c026d3', id: 'rami', page: 'rami' },
+    { icon: 'casino', c: '#f59e0b', id: 'yams', page: 'yams' },
+    { icon: 'grid_view', c: '#2563eb', id: 'skyjo', page: 'skyjo' },
+    { icon: 'filter_7', c: '#db2777', id: 'flip7', page: 'flip7' },
+    { icon: 'skull', c: '#1e3a5f', id: 'skull', page: 'skullKing' },
+    { icon: 'account_balance', c: '#9a6b3f', id: 'wonders', page: 'sevenWonders' },
+    { icon: 'swords', c: '#8a5a1e', id: 'duel', page: 'wondersDuel' },
+    { icon: 'hexagon', c: '#c2410c', id: 'akropolis', page: 'akropolis' },
+    { icon: 'forest', c: '#65a30d', id: 'molkky', page: 'molkky' },
+    { icon: 'target', c: '#b91c1c', id: 'darts', page: 'darts' },
     { icon: 'auto_awesome', c: '#0ea5a4', id: 'custom' },
   ];
 
   const I18N = {
     fr: {
       title: 'Scoroo · Le compteur de points de vos soirées jeux',
+      description: 'Appli gratuite pour compter les points : belote, tarot, Yams, Skyjo, Rami, 7 Wonders, Skull King, Mölkky, fléchettes… Créez vos jeux, organisez des tournois.',
+      rulesLink: 'Règles et points',
       navGames: 'Les jeux', navCreate: 'Créer un jeu', navFriends: 'Amis et en ligne', navCups: 'Tournois', navPrice: 'Prix', navTv: 'Mode TV',
       heroBadge: 'Belote, tarot, Yams, Skyjo, 7 Wonders, fléchettes…',
       heroTitle: 'Rangez le stylo,<br><em>sortez Scoroo.</em>',
@@ -620,6 +658,8 @@
     },
     en: {
       title: 'Scoroo · The score keeper for your game nights',
+      description: 'Free score keeper app for card, dice and board games: Belote, Tarot, Rummy, Skyjo, 7 Wonders, Skull King, Mölkky, darts… Create your own games, run tournaments.',
+      rulesLink: 'Rules & scoring',
       navGames: 'Games', navCreate: 'Create a game', navFriends: 'Friends & online', navCups: 'Tournaments', navPrice: 'Pricing', navTv: 'TV mode',
       heroBadge: 'Belote, Tarot, Yahtzee, Skyjo, 7 Wonders, darts…',
       heroTitle: 'Put down the pen,<br><em>pick up Scoroo.</em>',
@@ -746,6 +786,8 @@
     },
     es: {
       title: 'Scoroo · El marcador de tus noches de juegos',
+      description: 'App gratuita para contar los puntos de juegos de cartas, dados y mesa: tarot, rummy, Skyjo, 7 Wonders, Skull King, Mölkky, dardos… Crea tus juegos y torneos.',
+      rulesLink: 'Reglas y puntos',
       navGames: 'Juegos', navCreate: 'Crear un juego', navFriends: 'Amigos y en línea', navCups: 'Torneos', navPrice: 'Precio', navTv: 'Modo TV',
       heroBadge: 'Belote, tarot, Yahtzee, Skyjo, 7 Wonders, dardos…',
       heroTitle: 'Suelta el boli,<br><em>saca Scoroo.</em>',
@@ -872,6 +914,8 @@
     },
     de: {
       title: 'Scoroo · Der Punktezähler für eure Spieleabende',
+      description: 'Kostenlose App zum Punktezählen bei Karten-, Würfel- und Brettspielen: Skyjo, 7 Wonders, Skull King, Mölkky, Darts, Rommé… Eigene Spiele erstellen, Turniere spielen.',
+      rulesLink: 'Regeln & Punkte',
       navGames: 'Spiele', navCreate: 'Spiel erstellen', navFriends: 'Freunde & online', navCups: 'Turniere', navPrice: 'Preis', navTv: 'TV-Modus',
       heroBadge: 'Belote, Tarot, Kniffel, Skyjo, 7 Wonders, Darts…',
       heroTitle: 'Stift weg,<br><em>her mit Scoroo.</em>',
@@ -998,6 +1042,8 @@
     },
     it: {
       title: 'Scoroo · Il segnapunti delle vostre serate di giochi',
+      description: 'App gratuita per contare i punti di giochi di carte, dadi e da tavolo: tarocchi, ramino, Skyjo, 7 Wonders, Skull King, Mölkky, freccette… Crea i tuoi giochi e tornei.',
+      rulesLink: 'Regole e punti',
       navGames: 'Giochi', navCreate: 'Crea un gioco', navFriends: 'Amici e online', navCups: 'Tornei', navPrice: 'Prezzo', navTv: 'Modalità TV',
       heroBadge: 'Belote, tarocchi, Yahtzee, Skyjo, 7 Wonders, freccette…',
       heroTitle: 'Metti via la penna,<br><em>tira fuori Scoroo.</em>',
@@ -1124,6 +1170,11 @@
     },
   };
 
+  // Logos des stores (pomme d'Apple, triangle de Google Play), dessinés en SVG.
+  const APPLE_LOGO = '<svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.15 6.9c-.95 0-2.42-1.08-3.96-1.04-2.04.03-3.91 1.18-4.96 3.01-2.12 3.68-.55 9.1 1.52 12.09 1.01 1.45 2.2 3.09 3.79 3.04 1.52-.07 2.09-.99 3.93-.99 1.83 0 2.35.99 3.96.95 1.64-.03 2.68-1.48 3.68-2.95 1.16-1.69 1.63-3.32 1.66-3.41-.04-.02-3.18-1.22-3.22-4.86-.03-3.04 2.48-4.49 2.6-4.56-1.43-2.09-3.62-2.32-4.39-2.38-2-.15-3.68 1.09-4.61 1.09zm3.38-3.07c.84-1.01 1.4-2.43 1.25-3.83-1.21.05-2.66.81-3.53 1.82-.78.9-1.46 2.34-1.27 3.71 1.34.1 2.71-.69 3.56-1.7z"/></svg>';
+  const PLAY_LOGO = '<svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#00d7fe" d="M3.6 1.8 13.3 12l-9.7 10.2c-.3-.2-.5-.6-.5-1.1V2.9c0-.5.2-.9.5-1.1z"/><path fill="#00f076" d="M3.6 1.8c.3-.2.8-.2 1.3.1l11.7 6.8-3.3 3.3z"/><path fill="#ff3a44" d="M13.3 12l3.3 3.3-11.7 6.8c-.5.3-1 .3-1.3.1z"/><path fill="#ffd109" d="m16.6 8.7 3.4 2c.9.5.9 1.6 0 2.1l-3.4 2-3.3-2.8z"/></svg>';
+  // </data>
+
   const $$ = (s) => document.querySelectorAll(s);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const ua = navigator.userAgent || '';
@@ -1136,15 +1187,12 @@
     document.title = t.title;
     $$('[data-i18n]').forEach((el) => { el.textContent = t[el.dataset.i18n]; });
     $$('[data-i18n-html]').forEach((el) => { el.innerHTML = t[el.dataset.i18nHtml]; });
-    $$('[data-shot]').forEach((img) => { img.src = `img/${lang}_${img.dataset.shot}.webp`; });
+    $$('[data-shot]').forEach((img) => { img.src = `${BASE}img/${lang}_${img.dataset.shot}.webp`; });
     const video = document.querySelector('[data-video]');
     const vlang = lang === 'fr' ? 'fr' : 'en';
-    const src = `video/scoroo_${vlang}.mp4`;
+    const src = `${BASE}video/scoroo_${vlang}.mp4`;
     // Image de la vidéo affichée pendant son chargement (plus de cadre vide).
-    if (!video.src.endsWith(src)) { video.poster = `video/scoroo_${vlang}.webp`; video.src = src; video.play().catch(() => {}); }
-  // Logos des stores (pomme d'Apple, triangle de Google Play), dessinés en SVG.
-  const APPLE_LOGO = '<svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.15 6.9c-.95 0-2.42-1.08-3.96-1.04-2.04.03-3.91 1.18-4.96 3.01-2.12 3.68-.55 9.1 1.52 12.09 1.01 1.45 2.2 3.09 3.79 3.04 1.52-.07 2.09-.99 3.93-.99 1.83 0 2.35.99 3.96.95 1.64-.03 2.68-1.48 3.68-2.95 1.16-1.69 1.63-3.32 1.66-3.41-.04-.02-3.18-1.22-3.22-4.86-.03-3.04 2.48-4.49 2.6-4.56-1.43-2.09-3.62-2.32-4.39-2.38-2-.15-3.68 1.09-4.61 1.09zm3.38-3.07c.84-1.01 1.4-2.43 1.25-3.83-1.21.05-2.66.81-3.53 1.82-.78.9-1.46 2.34-1.27 3.71 1.34.1 2.71-.69 3.56-1.7z"/></svg>';
-  const PLAY_LOGO = '<svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#00d7fe" d="M3.6 1.8 13.3 12l-9.7 10.2c-.3-.2-.5-.6-.5-1.1V2.9c0-.5.2-.9.5-1.1z"/><path fill="#00f076" d="M3.6 1.8c.3-.2.8-.2 1.3.1l11.7 6.8-3.3 3.3z"/><path fill="#ff3a44" d="M13.3 12l3.3 3.3-11.7 6.8c-.5.3-1 .3-1.3.1z"/><path fill="#ffd109" d="m16.6 8.7 3.4 2c.9.5.9 1.6 0 2.1l-3.4 2-3.3-2.8z"/></svg>';
+    if (!video.src.endsWith(src)) { video.poster = `${BASE}video/scoroo_${vlang}.webp`; video.src = src; video.play().catch(() => {}); }
     // Boutons des stores : celui du téléphone d'abord.
     const play = `<a class="store" href="${PLAY}">${PLAY_LOGO}<span><small>${esc(t.storeGet)}</small>Google Play</span></a>`;
     const apple = `<a class="store" href="${APPLE}">${APPLE_LOGO}<span><small>${esc(t.storeApple)}</small>App Store</span></a>`;
@@ -1152,7 +1200,10 @@
     document.getElementById('games').innerHTML = GAMES.map((g) => {
       const [name, desc, tags] = t.g[g.id];
       return `<article class="game" style="--c:${g.c}"><div class="ic"><span class="ms">${g.icon}</span></div>` +
-        `<h3>${esc(name)}</h3><p>${esc(desc)}</p><div class="tags">${tags.map((x) => `<span>${esc(x)}</span>`).join('')}</div></article>`;
+        `<h3>${PAGES[g.page] ? `<a href="${PAGES[g.page]}">${esc(name)}</a>` : esc(name)}</h3><p>${esc(desc)}</p>` +
+        `<div class="tags">${tags.map((x) => `<span>${esc(x)}</span>`).join('')}</div>` +
+        (PAGES[g.page] ? `<a class="more" href="${PAGES[g.page]}">${esc(t.rulesLink)}<span class="ms">arrow_forward</span></a>` : '') +
+        '</article>';
     }).join('');
     // Télé : un onglet par écran, qui défilent tout seuls.
     document.querySelector('[data-tabs]').innerHTML = t.tvTabs.map((x, i) => `<button type="button" data-tab="${i}">${esc(x)}</button>`).join('');
@@ -1194,12 +1245,20 @@
 
   const saved = (() => { try { return localStorage.getItem('scoroo-lang'); } catch (e) { return null; } })();
   const browser = (navigator.language || 'fr').slice(0, 2).toLowerCase();
-  const initial = LANGS.includes(saved) ? saved : (LANGS.includes(browser) ? browser : 'en');
+  // Page française (la racine), visiteur qui a choisi une autre langue ou dont le navigateur en parle
+  // une autre : renvoyé vers sa page. Jamais les robots des moteurs de recherche, qui doivent voir
+  // chaque page telle qu'elle est.
+  const robot = /bot|crawl|spider|slurp|google|bing|yandex|baidu|duckduck|lighthouse|headless|facebook|preview/i.test(ua);
+  if (PAGE_LANG === 'fr' && !robot) {
+    const wanted = LANGS.includes(saved) ? saved : (LANGS.includes(browser) ? browser : 'en');
+    if (wanted !== 'fr') location.replace(`${BASE}${wanted}/${location.hash}`);
+  }
   document.getElementById('lang').addEventListener('change', (e) => {
-    try { localStorage.setItem('scoroo-lang', e.target.value); } catch (err) {}
-    render(e.target.value);
+    const lang = e.target.value;
+    try { localStorage.setItem('scoroo-lang', lang); } catch (err) {}
+    location.href = `${BASE}${lang === 'fr' ? '' : lang + '/'}${location.hash}`;
   });
-  render(initial);
+  render(PAGE_LANG);
 </script>
 </body>
 </html>

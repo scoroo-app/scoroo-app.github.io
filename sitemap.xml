@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://scoroo-app.github.io/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/jeux/belote/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/belote/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/belote/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/belote/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/belote/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/belote/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/belote/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/jeux/tarot/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/tarot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/french-tarot/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/tarot/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/tarot/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/tarocchi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/french-tarot/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/jeux/rami/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/rami/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/rummy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/rummy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/romme/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/ramino/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/rummy/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/jeux/yams/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/yams/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/dice-game/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/yams/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/kniffel/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/yams/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/dice-game/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/jeux/skyjo/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/skyjo/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/jeux/flip-7/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/flip-7/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/jeux/skull-king/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/skull-king/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/jeux/7-wonders/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/7-wonders/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/jeux/7-wonders-duel/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/7-wonders-duel/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/jeux/akropolis/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/akropolis/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/jeux/molkky/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/molkky/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/jeux/flechettes/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/flechettes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/darts/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/dardos/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/darts/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/freccette/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/darts/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/en/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/en/games/belote/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/belote/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/belote/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/belote/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/belote/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/belote/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/belote/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/en/games/french-tarot/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/tarot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/french-tarot/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/tarot/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/tarot/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/tarocchi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/french-tarot/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/en/games/rummy/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/rami/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/rummy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/rummy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/romme/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/ramino/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/rummy/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/en/games/dice-game/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/yams/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/dice-game/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/yams/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/kniffel/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/yams/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/dice-game/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/en/games/skyjo/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/skyjo/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/en/games/flip-7/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/flip-7/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/en/games/skull-king/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/skull-king/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/en/games/7-wonders/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/7-wonders/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/en/games/7-wonders-duel/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/7-wonders-duel/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/en/games/akropolis/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/akropolis/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/en/games/molkky/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/molkky/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/en/games/darts/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/flechettes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/darts/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/dardos/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/darts/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/freccette/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/darts/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/es/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/es/juegos/belote/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/belote/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/belote/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/belote/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/belote/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/belote/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/belote/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/es/juegos/tarot/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/tarot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/french-tarot/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/tarot/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/tarot/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/tarocchi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/french-tarot/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/es/juegos/rummy/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/rami/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/rummy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/rummy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/romme/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/ramino/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/rummy/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/es/juegos/yams/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/yams/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/dice-game/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/yams/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/kniffel/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/yams/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/dice-game/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/es/juegos/skyjo/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/skyjo/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/es/juegos/flip-7/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/flip-7/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/es/juegos/skull-king/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/skull-king/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/es/juegos/7-wonders/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/7-wonders/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/es/juegos/7-wonders-duel/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/7-wonders-duel/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/es/juegos/akropolis/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/akropolis/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/es/juegos/molkky/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/molkky/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/es/juegos/dardos/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/flechettes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/darts/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/dardos/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/darts/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/freccette/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/darts/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/de/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/de/spiele/belote/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/belote/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/belote/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/belote/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/belote/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/belote/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/belote/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/de/spiele/tarot/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/tarot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/french-tarot/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/tarot/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/tarot/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/tarocchi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/french-tarot/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/de/spiele/romme/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/rami/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/rummy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/rummy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/romme/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/ramino/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/rummy/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/de/spiele/kniffel/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/yams/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/dice-game/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/yams/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/kniffel/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/yams/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/dice-game/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/de/spiele/skyjo/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/skyjo/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/de/spiele/flip-7/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/flip-7/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/de/spiele/skull-king/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/skull-king/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/de/spiele/7-wonders/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/7-wonders/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/de/spiele/7-wonders-duel/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/7-wonders-duel/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/de/spiele/akropolis/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/akropolis/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/de/spiele/molkky/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/molkky/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/de/spiele/darts/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/flechettes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/darts/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/dardos/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/darts/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/freccette/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/darts/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/it/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/it/giochi/belote/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/belote/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/belote/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/belote/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/belote/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/belote/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/belote/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/it/giochi/tarocchi/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/tarot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/french-tarot/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/tarot/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/tarot/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/tarocchi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/french-tarot/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/it/giochi/ramino/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/rami/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/rummy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/rummy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/romme/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/ramino/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/rummy/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/it/giochi/yams/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/yams/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/dice-game/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/yams/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/kniffel/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/yams/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/dice-game/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/it/giochi/skyjo/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/skyjo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/skyjo/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/it/giochi/flip-7/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/flip-7/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/flip-7/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/it/giochi/skull-king/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/skull-king/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/skull-king/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/it/giochi/7-wonders/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/7-wonders/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/7-wonders/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/it/giochi/7-wonders-duel/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/7-wonders-duel/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/7-wonders-duel/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/it/giochi/akropolis/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/akropolis/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/akropolis/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/it/giochi/molkky/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/molkky/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/molkky/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/it/giochi/freccette/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://scoroo-app.github.io/jeux/flechettes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scoroo-app.github.io/en/games/darts/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scoroo-app.github.io/es/juegos/dardos/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://scoroo-app.github.io/de/spiele/darts/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scoroo-app.github.io/it/giochi/freccette/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scoroo-app.github.io/en/games/darts/"/>
+  </url>
+  <url>
+    <loc>https://scoroo-app.github.io/privacy.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.2</priority>
+  </url>
+</urlset>

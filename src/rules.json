@@ -1,0 +1,2932 @@
+{
+ "fr": {
+  "darts": {
+   "label": "Fléchettes",
+   "tagline": "501, Cricket, Killer et plus",
+   "variants": [
+    {
+     "title": "101 à 701",
+     "sections": [
+      {
+       "title": "Descendre à 0",
+       "body": "Chacun part de 501. Chaque fléchette retire ses points ; le premier à tomber pile à 0 gagne."
+      },
+      {
+       "title": "Doubles et triples",
+       "body": "L'anneau extérieur compte double, celui du milieu triple. Au centre, le bull : 25, et 50 en plein cœur."
+      },
+      {
+       "title": "Finir la partie",
+       "body": "La dernière fléchette doit être un double (ou le bull). Il reste 40 ? Visez le double 20. Si vous passez sous 0 ou à 1, le tour est annulé : c'est le bust."
+      }
+     ]
+    },
+    {
+     "title": "Cricket",
+     "sections": [
+      {
+       "title": "Les cibles",
+       "body": "Seuls le 15, 16, 17, 18, 19, 20 et le bull comptent."
+      },
+      {
+       "title": "Fermer un numéro",
+       "body": "Il faut 3 marques pour fermer un numéro : un simple en donne 1, un double 2, un triple 3."
+      },
+      {
+       "title": "Marquer des points",
+       "body": "Une fois votre numéro fermé, chaque touche rapporte sa valeur tant qu'un adversaire ne l'a pas fermé. Pour gagner : tout fermer avec au moins autant de points que les autres."
+      }
+     ]
+    },
+    {
+     "title": "Score max",
+     "sections": [
+      {
+       "title": "Le plus gros total",
+       "body": "En 10 tours de 3 fléchettes, chaque fléchette rapporte sa valeur. Le plus gros total gagne."
+      },
+      {
+       "title": "Doubles et triples",
+       "body": "L'anneau extérieur compte double, celui du milieu triple. Au centre, le bull : 25, et 50 en plein cœur."
+      }
+     ]
+    },
+    {
+     "title": "Tour de l'horloge",
+     "sections": [
+      {
+       "title": "Du 1 au 20",
+       "body": "Touchez le 1, puis le 2, et ainsi de suite jusqu'au 20. Le premier à finir gagne."
+      },
+      {
+       "title": "Le bull pour finir",
+       "body": "Après le 20, il faut toucher le bull pour terminer."
+      }
+     ]
+    },
+    {
+     "title": "Killer",
+     "sections": [
+      {
+       "title": "Votre numéro",
+       "body": "Chaque joueur reçoit un numéro tiré au sort, affiché sur sa carte."
+      },
+      {
+       "title": "Se recharger",
+       "body": "Touchez votre numéro 3 fois pour devenir killer : un simple compte 1, un double 2, un triple 3."
+      },
+      {
+       "title": "Attaquer",
+       "body": "Killer, chaque touche sur le numéro d'un adversaire lui retire une vie, et toucher le vôtre vous en redonne une (sans dépasser votre nombre de départ). Le dernier en vie gagne."
+      }
+     ]
+    },
+    {
+     "title": "Shanghai",
+     "sections": [
+      {
+       "title": "Un numéro par manche",
+       "body": "À la manche 1, seul le 1 compte ; à la manche 2, le 2, etc. Simple, double ou triple : vous marquez sa valeur."
+      },
+      {
+       "title": "Shanghai !",
+       "body": "Simple, double et triple du numéro de la manche dans le même tour : c'est un Shanghai, victoire immédiate. Sinon, le meilleur total à la fin gagne."
+      }
+     ]
+    },
+    {
+     "title": "Halve-It",
+     "sections": [
+      {
+       "title": "Une cible par manche",
+       "body": "Chaque manche a sa cible : 20, 16, un double, 17, un triple, 18, 19 puis le bull. Seules les fléchettes qui la touchent rapportent leur valeur."
+      },
+      {
+       "title": "Ne pas rater",
+       "body": "Aucune fléchette sur la cible pendant votre tour ? Votre score est divisé par 2. Le plus gros total à la fin gagne."
+      }
+     ]
+    },
+    {
+     "title": "Golf",
+     "sections": [
+      {
+       "title": "Un trou par manche",
+       "body": "Au trou 1, visez le 1 ; au trou 2, le 2, etc. Votre meilleure fléchette du tour donne votre score : triple 1 coup, double 2, simple 3, à côté 5."
+      },
+      {
+       "title": "Le moins de coups",
+       "body": "Un triple termine le trou tout de suite. Après 9 trous, le plus petit total gagne."
+      }
+     ]
+    }
+   ]
+  },
+  "belote": {
+   "label": "Belote",
+   "tagline": "Classique ou contrée (coinche), en équipes",
+   "variants": [
+    {
+     "title": "Belote classique",
+     "sections": [
+      {
+       "title": "But du jeu",
+       "body": "Deux équipes de deux. La première équipe à atteindre l'objectif (1000 points) gagne."
+      },
+      {
+       "title": "Matériel et donne",
+       "body": "Un jeu de 32 cartes (du 7 à l'as). Les partenaires sont assis face à face. Chaque joueur reçoit 8 cartes, distribuées par paquets, dans le sens inverse des aiguilles d'une montre. Le donneur change à chaque manche."
+      },
+      {
+       "title": "Valeur des cartes",
+       "body": "À l'atout : valet 20, neuf 14, as 11, dix 10, roi 4, dame 3, huit et sept 0. Dans les autres couleurs : as 11, dix 10, roi 4, dame 3, valet 2, neuf, huit et sept 0. Le dernier pli rapporte 10 points (dix de der) : une manche vaut 162 points."
+      },
+      {
+       "title": "Jouer une carte",
+       "body": "Il faut fournir la couleur demandée. Sans cette couleur, il faut couper avec un atout, sauf si son partenaire est maître du pli. À l'atout, il faut monter (jouer un atout plus fort) si on le peut. Le pli revient à la carte la plus forte ; son gagnant entame le pli suivant."
+      },
+      {
+       "title": "Prendre",
+       "body": "Après la donne de 5 cartes, une carte est retournée. Au premier tour, chacun peut la prendre (sa couleur devient l'atout) ; au second tour, on peut choisir une autre couleur. Le preneur reçoit la carte retournée, puis la donne est complétée à 8 cartes."
+      },
+      {
+       "title": "Une manche",
+       "body": "L'équipe qui prend doit faire plus de points que la défense (162 points par manche, dix de der compris). Sinon elle est « dedans » et la défense marque 162."
+      },
+      {
+       "title": "Primes",
+       "body": "Belote-rebelote : 20 points pour l'équipe qui a le roi et la dame d'atout. Capot (tous les plis) : 250 points."
+      }
+     ]
+    },
+    {
+     "title": "Belote contrée (coinche)",
+     "sections": [
+      {
+       "title": "But du jeu",
+       "body": "Deux équipes de deux. La première équipe à atteindre l'objectif (1000 points) gagne."
+      },
+      {
+       "title": "Matériel et donne",
+       "body": "Un jeu de 32 cartes (du 7 à l'as). Les partenaires sont assis face à face. Chaque joueur reçoit 8 cartes, distribuées par paquets, dans le sens inverse des aiguilles d'une montre. Le donneur change à chaque manche."
+      },
+      {
+       "title": "Valeur des cartes",
+       "body": "À l'atout : valet 20, neuf 14, as 11, dix 10, roi 4, dame 3, huit et sept 0. Dans les autres couleurs : as 11, dix 10, roi 4, dame 3, valet 2, neuf, huit et sept 0. Le dernier pli rapporte 10 points (dix de der) : une manche vaut 162 points."
+      },
+      {
+       "title": "Jouer une carte",
+       "body": "Il faut fournir la couleur demandée. Sans cette couleur, il faut couper avec un atout, sauf si son partenaire est maître du pli. À l'atout, il faut monter (jouer un atout plus fort) si on le peut. Le pli revient à la carte la plus forte ; son gagnant entame le pli suivant."
+      },
+      {
+       "title": "Enchères",
+       "body": "Chacun à son tour annonce un contrat (au moins 80, de 10 en 10, avec une couleur d'atout) ou passe. Chaque annonce doit dépasser la précédente. Un adversaire peut coincher (×2), l'équipe preneuse surcoincher (×4) ; les enchères s'arrêtent après trois « passe » ou une coinche."
+      },
+      {
+       "title": "Contrat",
+       "body": "L'équipe preneuse annonce un contrat (80 à 160, ou capot). Réussi : contrat + points faits. Chuté : la défense marque 160 + contrat. Coinche ×2, surcoinche ×4."
+      },
+      {
+       "title": "Annonces",
+       "body": "Tierce 20, cinquante 50, cent 100, carré 100 (150 pour les 9, 200 pour les valets). Celles du preneur comptent pour atteindre le contrat."
+      },
+      {
+       "title": "Sans atout et tout atout",
+       "body": "Sans atout : as 19, dix 10, roi 4, dame 3, valet 2, pas de belote. Tout atout : valet 14, neuf 9, as 6, dix 5, roi 3, dame 1. La donne vaut toujours 162 points avec le dix de der."
+      },
+      {
+       "title": "Générale",
+       "body": "Contrat de 500 : un seul joueur de l'équipe preneuse doit faire tous les plis."
+      },
+      {
+       "title": "Primes",
+       "body": "Belote-rebelote : 20 points pour l'équipe qui a le roi et la dame d'atout. Capot (tous les plis) : 250 points."
+      }
+     ]
+    }
+   ]
+  },
+  "tarot": {
+   "label": "Tarot",
+   "tagline": "De 3 à 5 joueurs, règles FFT",
+   "variants": [
+    {
+     "title": "Tarot",
+     "sections": [
+      {
+       "title": "But du jeu",
+       "body": "De 3 à 5 joueurs : à chaque donne, le preneur joue contre les autres."
+      },
+      {
+       "title": "Matériel",
+       "body": "78 cartes : quatre couleurs de 14 cartes (roi, dame, cavalier, valet, puis 10 à 1), 21 atouts et l'Excuse. Les trois bouts sont le Petit (1 d'atout), le 21 d'atout et l'Excuse."
+      },
+      {
+       "title": "Valeur des cartes",
+       "body": "Bouts et rois : 4,5 points. Dames : 3,5. Cavaliers : 2,5. Valets : 1,5. Toutes les autres cartes : 0,5. Le paquet entier vaut 91 points."
+      },
+      {
+       "title": "Donne et enchères",
+       "body": "Les cartes sont distribuées 3 par 3 et quelques-unes forment le chien (6 cartes, 3 à 5 joueurs). Chacun annonce un contrat plus fort que le précédent ou passe : Petite et Garde (le preneur prend le chien et en écarte autant), Garde sans (le chien lui revient sans être vu), Garde contre (il revient à la défense)."
+      },
+      {
+       "title": "Jouer une carte",
+       "body": "Il faut fournir la couleur demandée, sinon couper avec un atout, sinon défausser. À l'atout, il faut toujours monter si on le peut. L'Excuse se joue à tout moment, ne gagne pas le pli et reste à son camp (qui donne une carte de 0,5 point en échange)."
+      },
+      {
+       "title": "Contrat",
+       "body": "Points à faire selon le nombre de bouts : 0 bout 56, 1 bout 51, 2 bouts 41, 3 bouts 36."
+      },
+      {
+       "title": "Calcul",
+       "body": "(25 + écart) × contrat (Petite ×1, Garde ×2, Garde sans ×4, Garde contre ×6), payé par chaque défenseur. À 5, le preneur appelle un partenaire."
+      },
+      {
+       "title": "Primes",
+       "body": "Petit au bout : 10 × contrat. Poignée : 20, 30 ou 40. Chelem : 200 à 400. Misère de têtes ou d'atout : +10. Donne en misère (personne ne prend) : chacun +10, le perdant paie 10 à chaque joueur."
+      },
+      {
+       "title": "À cinq joueurs",
+       "body": "Le preneur appelle un roi : le joueur qui l'a devient son partenaire secret, révélé quand le roi est joué. Le preneur marque deux fois plus que son partenaire ; les trois défenseurs paient chacun leur part."
+      }
+     ]
+    }
+   ]
+  },
+  "rami": {
+   "label": "Rami",
+   "tagline": "Pénalités, rami sec et élimination",
+   "variants": [
+    {
+     "title": "Rami",
+     "sections": [
+      {
+       "title": "But du jeu",
+       "body": "Se débarrasser de ses cartes. On compte des pénalités : le plus petit total gagne."
+      },
+      {
+       "title": "Matériel",
+       "body": "Deux jeux de 52 cartes et les jokers. Chaque joueur reçoit 13 cartes ; le reste forme la pioche, et une carte est retournée pour commencer la défausse."
+      },
+      {
+       "title": "Un tour",
+       "body": "Piocher une carte (pioche ou défausse), poser éventuellement des combinaisons ou compléter celles déjà posées, puis défausser une carte. Combinaisons : suites d'au moins trois cartes de la même couleur, ou brelans et carrés de même valeur. Le joker remplace n'importe quelle carte."
+      },
+      {
+       "title": "Première pose",
+       "body": "Pour poser la première fois, il faut souvent un total d'au moins 51 points (figures 10, as 11) avec au moins une suite sans joker. Les tables ont leurs habitudes : réglez-vous sur la vôtre."
+      },
+      {
+       "title": "Une manche",
+       "body": "Le premier à tout poser marque -50 points. Les autres comptent les cartes qu'il leur reste en main ; celui qui n'a rien posé prend une pénalité fixe."
+      },
+      {
+       "title": "Rami sec",
+       "body": "Tout poser d'un coup rapporte un bonus ou double les pénalités des autres, selon l'option choisie."
+      },
+      {
+       "title": "Fin de partie",
+       "body": "Un joueur qui atteint 0 points est éliminé ; le dernier en lice gagne."
+      }
+     ]
+    }
+   ]
+  },
+  "yams": {
+   "label": "Yams",
+   "tagline": "La feuille de score complète",
+   "variants": [
+    {
+     "title": "Yams",
+     "sections": [
+      {
+       "title": "But du jeu",
+       "body": "Remplir toute la feuille ; le plus haut total gagne."
+      },
+      {
+       "title": "Un tour",
+       "body": "Lancer les 5 dés jusqu'à trois fois, en gardant ceux qu'on veut entre deux lancers. Il faut ensuite inscrire le résultat dans une case libre, ou en barrer une (0 point) si rien ne convient."
+      },
+      {
+       "title": "Partie haute",
+       "body": "As à Six : somme des dés de la valeur. Bonus si la partie haute atteint le seuil (35 points dès 63)."
+      },
+      {
+       "title": "Partie basse",
+       "body": "Brelan, carré et chance : somme des dés. Full, petite suite, grande suite et Yams : valeur fixe. Une case peut être barrée (0 point)."
+      }
+     ]
+    }
+   ]
+  },
+  "skyjo": {
+   "label": "Skyjo",
+   "tagline": "Le plus petit score gagne",
+   "variants": [
+    {
+     "title": "Skyjo",
+     "sections": [
+      {
+       "title": "But du jeu",
+       "body": "Avoir le moins de points. La partie s'arrête quand un joueur atteint 100 points."
+      },
+      {
+       "title": "Mise en place",
+       "body": "Cartes de -2 à 12. Chaque joueur pose 12 cartes face cachée en 3 rangées de 4, puis en retourne deux. Celui qui a le plus haut total commence."
+      },
+      {
+       "title": "Un tour",
+       "body": "Prendre la carte de la défausse ou de la pioche et l'échanger avec une de ses cartes (la carte remplacée va sur la défausse). On peut aussi défausser la carte piochée et retourner une de ses cartes cachées. Trois cartes identiques dans une même colonne sont défaussées."
+      },
+      {
+       "title": "Fin de manche",
+       "body": "Dès qu'un joueur a retourné toutes ses cartes, chacun des autres joue un dernier tour, puis toutes les cartes sont retournées."
+      },
+      {
+       "title": "Une manche",
+       "body": "Chacun compte la somme de ses cartes. Celui qui a terminé la manche voit son score doublé s'il n'est pas le plus bas."
+      }
+     ]
+    }
+   ]
+  },
+  "molkky": {
+   "label": "Mölkky",
+   "tagline": "Exactement 50, lancer par lancer",
+   "variants": [
+    {
+     "title": "Mölkky",
+     "sections": [
+      {
+       "title": "But du jeu",
+       "body": "Atteindre exactement 50 points."
+      },
+      {
+       "title": "Mise en place",
+       "body": "12 quilles numérotées sont serrées en triangle, à 3 ou 4 mètres de la ligne de lancer. Le mölkky se lance par en dessous. Après chaque lancer, les quilles tombées sont relevées là où elles sont tombées : le jeu s'éparpille peu à peu."
+      },
+      {
+       "title": "Un lancer",
+       "body": "Une quille seule : sa valeur. Plusieurs quilles : leur nombre."
+      },
+      {
+       "title": "Dépassement et ratés",
+       "body": "Au-delà du score à atteindre, on retombe à 25. Après 3 lancers ratés d'affilée, on est éliminé ou on repart à 0, selon l'option."
+      }
+     ]
+    }
+   ]
+  },
+  "sevenWonders": {
+   "label": "7 Wonders",
+   "tagline": "Toutes les extensions incluses",
+   "variants": [
+    {
+     "title": "7 Wonders",
+     "sections": [
+      {
+       "title": "But du jeu",
+       "body": "Avoir le plus de points de victoire après les trois âges."
+      },
+      {
+       "title": "Déroulement",
+       "body": "La partie dure trois âges. Au début de chaque âge, chacun reçoit 7 cartes. À chaque tour, tous choisissent une carte en même temps, la jouent, puis passent le reste de leur main au voisin (à gauche aux âges I et III, à droite à l'âge II). Après 6 tours, la dernière carte est défaussée."
+      },
+      {
+       "title": "Jouer une carte",
+       "body": "Trois choix : construire le bâtiment (en payant son coût, ou gratuitement s'il est chaîné à un bâtiment déjà construit), l'utiliser face cachée pour construire une étape de sa merveille, ou la défausser pour prendre 3 pièces."
+      },
+      {
+       "title": "Ressources et commerce",
+       "body": "Les cartes marron et grises produisent les ressources. Une ressource qui manque s'achète à un voisin direct, 2 pièces chacune (1 seulement avec certains bâtiments commerciaux). Le voisin garde ses ressources : il touche seulement les pièces."
+      },
+      {
+       "title": "Conflits militaires",
+       "body": "À la fin de chaque âge, chacun compare ses boucliers avec ceux de ses deux voisins. Plus de boucliers : jeton de victoire (1, 3 puis 5 points selon l'âge). Moins : jeton de défaite (-1). Égalité : rien."
+      },
+      {
+       "title": "Science",
+       "body": "Trois symboles : compas, tablette et roue. Chaque famille rapporte le carré de son nombre de symboles (1, 4, 9, 16…), et chaque série complète des trois symboles ajoute 7 points."
+      },
+      {
+       "title": "Calcul",
+       "body": "Militaire, trésor (1 point par 3 pièces), merveille, bâtiments civils, commerce, guildes et science (carré de chaque symbole + 7 par série de trois), plus les catégories des extensions."
+      },
+      {
+       "title": "Égalité",
+       "body": "Le joueur avec le plus de pièces l'emporte."
+      },
+      {
+       "title": "Tirage au sort",
+       "body": "Le dé en haut de la feuille tire les merveilles (et les bateaux d'Armada)."
+      },
+      {
+       "title": "Leaders",
+       "body": "Avant le premier âge, chacun choisit 4 leaders par une sélection où l'on passe les cartes, comme pour les âges. Au début de chaque âge, on peut recruter un de ses leaders en payant son coût en pièces, l'utiliser pour une étape de merveille ou le défausser pour 3 pièces. Leurs points vont sur la ligne Leaders."
+      },
+      {
+       "title": "Cities",
+       "body": "Des cartes noires s'ajoutent à chaque âge. Certaines obligent les autres joueurs à payer des pièces : celui qui ne peut ou ne veut pas payer prend un jeton de dette (-1 point chacun). Les cartes de diplomatie permettent de ne pas participer au prochain conflit militaire."
+      },
+      {
+       "title": "Armada",
+       "body": "Chaque joueur a un chantier naval avec quatre bateaux, qui avancent quand on construit les cartes de leur couleur. Les bateaux rouges arment pour les conflits navals de fin d'âge (points sur la ligne Naval) ; d'autres bateaux rapportent des pièces ou des îles à explorer. Les îles explorées et les points du bateau bleu se notent sur la ligne Armada."
+      },
+      {
+       "title": "Edifice",
+       "body": "Un édifice est proposé par âge. En construisant une étape de merveille, on peut participer à sa construction : quand il est terminé, les participants reçoivent le bonus et ceux qui n'ont pas participé subissent la pénalité."
+      }
+     ]
+    }
+   ]
+  },
+  "wondersDuel": {
+   "label": "7 Wonders Duel",
+   "tagline": "À deux, avec Pantheon et Agora",
+   "variants": [
+    {
+     "title": "7 Wonders Duel",
+     "sections": [
+      {
+       "title": "But du jeu",
+       "body": "Gagner par suprématie militaire ou scientifique, ou avoir le plus de points de victoire à la fin du troisième âge."
+      },
+      {
+       "title": "Déroulement",
+       "body": "Trois âges. Les cartes de l’âge sont posées en structure, certaines face cachée. À son tour, on prend une carte accessible (qui n’est recouverte par aucune autre) : on la construit, on la défausse pour des pièces, ou on s’en sert pour construire une de ses merveilles."
+      },
+      {
+       "title": "Pièces et ressources",
+       "body": "Défausser une carte rapporte 2 pièces, plus 1 par carte jaune possédée. Une ressource qui manque s’achète à la banque : 2 pièces, plus 1 par exemplaire que l’adversaire produit avec ses cartes brunes et grises."
+      },
+      {
+       "title": "Militaire",
+       "body": "Chaque bouclier avance le pion Conflit vers la capitale adverse. En fin de partie, sa position rapporte 0, 2, 5 ou 10 points. S’il atteint la capitale adverse : suprématie militaire, victoire immédiate."
+      },
+      {
+       "title": "Science",
+       "body": "Deux symboles scientifiques identiques donnent un jeton Progrès. Six symboles différents : suprématie scientifique, victoire immédiate."
+      },
+      {
+       "title": "Merveilles",
+       "body": "Chacun choisit 4 merveilles, mais 7 seulement seront construites dans la partie : dès la septième, la dernière qui reste est retirée."
+      },
+      {
+       "title": "Calcul",
+       "body": "Bâtiments civils, science, commerce, guildes, merveilles, jetons Progrès, trésor (1 point par 3 pièces) et militaire, plus les extensions."
+      },
+      {
+       "title": "Égalité",
+       "body": "Le joueur avec le plus de points de bâtiments civils (bleus) l’emporte ; sinon, la victoire est partagée."
+      },
+      {
+       "title": "Victoire immédiate",
+       "body": "Le bouton éclair en haut de la feuille enregistre une victoire immédiate et termine la partie."
+      },
+      {
+       "title": "Pantheon",
+       "body": "Des divinités de cinq mythologies s’invoquent dans le Panthéon pour leurs effets. Leurs points, et ceux des Grands Temples de l’âge III, vont sur la ligne Divinités."
+      },
+      {
+       "title": "Agora",
+       "body": "Les sénateurs se placent dans les chambres du Sénat. Les chambres contrôlées en fin de partie rapportent des points, avec les décrets et les complots : ligne Sénat. Contrôler toutes les chambres : suprématie politique, victoire immédiate."
+      }
+     ]
+    }
+   ]
+  },
+  "flip7": {
+   "label": "Flip 7",
+   "tagline": "Sept numéros différents : +15",
+   "variants": [
+    {
+     "title": "Flip 7",
+     "sections": [
+      {
+       "title": "But du jeu",
+       "body": "Être le premier à 200 points. À la fin de la manche où quelqu'un les atteint, le plus haut total gagne."
+      },
+      {
+       "title": "Un tour",
+       "body": "Chacun à son tour prend une carte ou s'arrête. Celui qui reçoit un numéro qu'il a déjà « saute » : il ne marque rien à cette manche."
+      },
+      {
+       "title": "Points de la manche",
+       "body": "On additionne ses numéros, puis les cartes bonus (+2 à +10, ×2). Sept numéros différents : Flip 7, la manche s'arrête aussitôt et le joueur gagne 15 points de plus."
+      }
+     ]
+    }
+   ]
+  },
+  "skullKing": {
+   "label": "Skull King",
+   "tagline": "Paris, plis et bonus de pirates",
+   "variants": [
+    {
+     "title": "Skull King",
+     "sections": [
+      {
+       "title": "But du jeu",
+       "body": "Avoir le plus de points après 10 manches. À la manche n, chacun reçoit n cartes."
+      },
+      {
+       "title": "Le pari",
+       "body": "Avant de jouer, chacun annonce en même temps le nombre de plis qu'il pense remporter (zéro compris)."
+      },
+      {
+       "title": "Les cartes",
+       "body": "Il faut fournir la couleur demandée si possible. Le noir est l'atout. Les pirates battent les couleurs, le Skull King bat les pirates, les sirènes battent le Skull King. La fuite ne gagne jamais."
+      },
+      {
+       "title": "Points",
+       "body": "Pari réussi : 20 points par pli parié, plus les bonus. Pari manqué : −10 par pli d'écart. Pari de zéro : 10 points par carte s'il est réussi, −10 par carte sinon."
+      },
+      {
+       "title": "Bonus (pari réussi seulement)",
+       "body": "14 de couleur : +10\n14 noir : +20\nSirène prise par un pirate : +20\nPirate pris par le Skull King : +30\nSkull King pris par une sirène : +40\nButin : +20 pour chacun des deux joueurs liés\nKraken : le pli est détruit, personne ne le compte"
+      }
+     ]
+    }
+   ]
+  },
+  "akropolis": {
+   "label": "Akropolis",
+   "tagline": "Étoiles × quartiers, et les pierres",
+   "variants": [
+    {
+     "title": "Akropolis",
+     "sections": [
+      {
+       "title": "But du jeu",
+       "body": "Avoir le plus de points en fin de partie."
+      },
+      {
+       "title": "Un tour",
+       "body": "Prendre une tuile de trois hexagones dans le chantier : la première est gratuite, chaque tuile plus loin coûte une pierre par tuile sautée. On la pose dans sa cité, à côté des autres ou par-dessus, en s'appuyant sur au moins deux tuiles différentes. Recouvrir une carrière rapporte une pierre."
+      },
+      {
+       "title": "Hauteur",
+       "body": "Un quartier posé au premier étage vaut 2, au deuxième 3, et ainsi de suite : construire en hauteur rapporte gros."
+      },
+      {
+       "title": "Calcul",
+       "body": "Pour chaque couleur : étoiles des places × valeur des quartiers qui comptent (chaque quartier vaut sa hauteur). Plus 1 point par pierre."
+      },
+      {
+       "title": "Quartiers qui comptent",
+       "body": "Habitations : le plus grand groupe. Marchés : sans marché voisin. Casernes : en bordure. Temples : entièrement entourés. Jardins : toujours."
+      },
+      {
+       "title": "Égalité",
+       "body": "Le joueur avec le plus de pierres l'emporte."
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "en": {
+  "darts": {
+   "label": "Darts",
+   "tagline": "501, Cricket, Killer and more",
+   "variants": [
+    {
+     "title": "101 to 701",
+     "sections": [
+      {
+       "title": "Count down to 0",
+       "body": "Everyone starts at 501. Each dart takes off its points; the first to land exactly on 0 wins."
+      },
+      {
+       "title": "Doubles and triples",
+       "body": "The outer ring counts double, the middle one triple. In the centre, the bull: 25, and 50 dead centre."
+      },
+      {
+       "title": "Finishing",
+       "body": "The last dart must be a double (or the bull). 40 left? Aim for double 20. Going below 0 or to 1 cancels the turn: that's a bust."
+      }
+     ]
+    },
+    {
+     "title": "Cricket",
+     "sections": [
+      {
+       "title": "The targets",
+       "body": "Only 15, 16, 17, 18, 19, 20 and the bull count."
+      },
+      {
+       "title": "Closing a number",
+       "body": "You need 3 marks to close a number: a single gives 1, a double 2, a triple 3."
+      },
+      {
+       "title": "Scoring points",
+       "body": "Once you've closed a number, every hit on it scores its value as long as an opponent hasn't closed it. To win: close everything with at least as many points as the others."
+      }
+     ]
+    },
+    {
+     "title": "High score",
+     "sections": [
+      {
+       "title": "Highest total",
+       "body": "Over 10 turns of 3 darts, each dart scores its value. Highest total wins."
+      },
+      {
+       "title": "Doubles and triples",
+       "body": "The outer ring counts double, the middle one triple. In the centre, the bull: 25, and 50 dead centre."
+      }
+     ]
+    },
+    {
+     "title": "Around the clock",
+     "sections": [
+      {
+       "title": "From 1 to 20",
+       "body": "Hit 1, then 2, and so on up to 20. The first to finish wins."
+      },
+      {
+       "title": "The bull to finish",
+       "body": "After 20, you must hit the bull to finish."
+      }
+     ]
+    },
+    {
+     "title": "Killer",
+     "sections": [
+      {
+       "title": "Your number",
+       "body": "Each player gets a random number, shown on their card."
+      },
+      {
+       "title": "Charging up",
+       "body": "Hit your number 3 times to become a killer: a single counts 1, a double 2, a triple 3."
+      },
+      {
+       "title": "Attacking",
+       "body": "As a killer, each hit on an opponent's number takes a life from them, and hitting your own gives you one back (up to your starting lives). The last one standing wins."
+      }
+     ]
+    },
+    {
+     "title": "Shanghai",
+     "sections": [
+      {
+       "title": "One number per round",
+       "body": "In round 1, only 1 counts; in round 2, 2, and so on. Single, double or triple: you score its value."
+      },
+      {
+       "title": "Shanghai!",
+       "body": "Single, double and triple of the round's number in the same turn: that's a Shanghai, instant win. Otherwise, the best total at the end wins."
+      }
+     ]
+    },
+    {
+     "title": "Halve-It",
+     "sections": [
+      {
+       "title": "One target per round",
+       "body": "Each round has its target: 20, 16, any double, 17, any triple, 18, 19 then the bull. Only darts that hit it score their value."
+      },
+      {
+       "title": "Don't miss",
+       "body": "No dart on the target during your turn? Your score is halved. Highest total at the end wins."
+      }
+     ]
+    },
+    {
+     "title": "Golf",
+     "sections": [
+      {
+       "title": "One hole per round",
+       "body": "On hole 1, aim at 1; on hole 2, at 2, and so on. Your best dart of the turn sets your score: triple 1 stroke, double 2, single 3, miss 5."
+      },
+      {
+       "title": "Fewest strokes",
+       "body": "A triple ends the hole right away. After 9 holes, the lowest total wins."
+      }
+     ]
+    }
+   ]
+  },
+  "belote": {
+   "label": "Belote",
+   "tagline": "Classic or coinche, in teams",
+   "variants": [
+    {
+     "title": "Classic belote",
+     "sections": [
+      {
+       "title": "Goal",
+       "body": "Two teams of two. The first team to reach the target (1000 points) wins."
+      },
+      {
+       "title": "Components and deal",
+       "body": "A 32-card deck (7 to ace). Partners sit facing each other. Each player is dealt 8 cards, in batches, counterclockwise. The dealer changes every round."
+      },
+      {
+       "title": "Card values",
+       "body": "Trumps: jack 20, nine 14, ace 11, ten 10, king 4, queen 3, eight and seven 0. Other suits: ace 11, ten 10, king 4, queen 3, jack 2, nine, eight and seven 0. The last trick is worth 10 points (dix de der): a round is worth 162 points."
+      },
+      {
+       "title": "Play a card",
+       "body": "You must follow suit. If you can't, you must trump, unless your partner is winning the trick. When trumps are led, you must play a higher trump if you can. The highest card wins the trick; its winner leads the next one."
+      },
+      {
+       "title": "Taking",
+       "body": "After 5 cards are dealt, one card is turned face up. In the first round, each player may take it (its suit becomes trumps); in the second round, another suit may be chosen. The taker receives the turned-up card, then the deal is completed to 8 cards."
+      },
+      {
+       "title": "A round",
+       "body": "The taking team must score more than the defence (162 points per round, last trick included). Otherwise it fails and the defence scores 162."
+      },
+      {
+       "title": "Bonuses",
+       "body": "Belote-rebelote: 20 points for the team holding the king and queen of trumps. Capot (all tricks): 250 points."
+      }
+     ]
+    },
+    {
+     "title": "Coinche",
+     "sections": [
+      {
+       "title": "Goal",
+       "body": "Two teams of two. The first team to reach the target (1000 points) wins."
+      },
+      {
+       "title": "Components and deal",
+       "body": "A 32-card deck (7 to ace). Partners sit facing each other. Each player is dealt 8 cards, in batches, counterclockwise. The dealer changes every round."
+      },
+      {
+       "title": "Card values",
+       "body": "Trumps: jack 20, nine 14, ace 11, ten 10, king 4, queen 3, eight and seven 0. Other suits: ace 11, ten 10, king 4, queen 3, jack 2, nine, eight and seven 0. The last trick is worth 10 points (dix de der): a round is worth 162 points."
+      },
+      {
+       "title": "Play a card",
+       "body": "You must follow suit. If you can't, you must trump, unless your partner is winning the trick. When trumps are led, you must play a higher trump if you can. The highest card wins the trick; its winner leads the next one."
+      },
+      {
+       "title": "Bidding",
+       "body": "In turn, each player bids a contract (at least 80, in steps of 10, with a trump suit) or passes. Each bid must beat the previous one. An opponent may double (coinche, ×2) and the bidding team redouble (surcoinche, ×4); bidding ends after three passes or a coinche."
+      },
+      {
+       "title": "Contract",
+       "body": "The bidding team announces a contract (80 to 160, or capot). Made: contract + points taken. Failed: the defence scores 160 + contract. Coinche ×2, surcoinche ×4."
+      },
+      {
+       "title": "Announcements",
+       "body": "Tierce 20, fifty 50, hundred 100, four of a kind 100 (150 for nines, 200 for jacks). The bidders' count towards the contract."
+      },
+      {
+       "title": "No trump and all trump",
+       "body": "No trump: ace 19, ten 10, king 4, queen 3, jack 2, no belote. All trump: jack 14, nine 9, ace 6, ten 5, king 3, queen 1. The deal is always worth 162 points with the last trick bonus."
+      },
+      {
+       "title": "Générale (solo slam)",
+       "body": "500 bid: a single player of the bidding team must take every trick."
+      },
+      {
+       "title": "Bonuses",
+       "body": "Belote-rebelote: 20 points for the team holding the king and queen of trumps. Capot (all tricks): 250 points."
+      }
+     ]
+    }
+   ]
+  },
+  "tarot": {
+   "label": "French Tarot",
+   "tagline": "3 to 5 players, official rules",
+   "variants": [
+    {
+     "title": "French Tarot",
+     "sections": [
+      {
+       "title": "Goal",
+       "body": "3 to 5 players: each deal, the taker plays against the others."
+      },
+      {
+       "title": "Components",
+       "body": "78 cards: four suits of 14 cards (king, queen, knight, jack, then 10 to 1), 21 trumps and the Excuse. The three oudlers are the Petit (1 of trumps), the 21 of trumps and the Excuse."
+      },
+      {
+       "title": "Card values",
+       "body": "Oudlers and kings: 4.5 points. Queens: 3.5. Knights: 2.5. Jacks: 1.5. All other cards: 0.5. The whole deck is worth 91 points."
+      },
+      {
+       "title": "Deal and bidding",
+       "body": "Cards are dealt 3 at a time and a few form the dog (6 cards, 3 to 5 players). Each player bids a higher contract than the previous one or passes: Petite and Garde (the taker takes the dog and discards as many cards), Garde sans (the dog goes to the taker unseen), Garde contre (it goes to the defence)."
+      },
+      {
+       "title": "Play a card",
+       "body": "You must follow suit, otherwise trump, otherwise discard. When trumps are led, you must always play higher if you can. The Excuse can be played at any time, never wins the trick and stays with its side (which gives a 0.5-point card in exchange)."
+      },
+      {
+       "title": "Contract",
+       "body": "Points needed by number of oudlers: 0 → 56, 1 → 51, 2 → 41, 3 → 36."
+      },
+      {
+       "title": "Scoring",
+       "body": "(25 + margin) × contract (Petite ×1, Garde ×2, Garde sans ×4, Garde contre ×6), paid by each defender. With 5 players, the taker calls a partner."
+      },
+      {
+       "title": "Bonuses",
+       "body": "Petit au bout: 10 × contract. Handful: 20, 30 or 40. Slam: 200 to 400. No-face or no-trump misère: +10. Misère deal (nobody bids): everyone +10, the loser pays 10 to each player."
+      },
+      {
+       "title": "With five players",
+       "body": "The taker calls a king: the player holding it becomes their secret partner, revealed when the king is played. The taker scores twice as much as their partner; the three defenders each pay their share."
+      }
+     ]
+    }
+   ]
+  },
+  "rami": {
+   "label": "Rummy",
+   "tagline": "Penalties, rummy in one go, elimination",
+   "variants": [
+    {
+     "title": "Rummy",
+     "sections": [
+      {
+       "title": "Goal",
+       "body": "Get rid of your cards. Penalties are counted: the lowest total wins."
+      },
+      {
+       "title": "Components",
+       "body": "Two 52-card decks plus the jokers. Each player is dealt 13 cards; the rest forms the draw pile, and one card is turned up to start the discard pile."
+      },
+      {
+       "title": "A turn",
+       "body": "Draw a card (from the draw or discard pile), optionally lay down melds or add to those already on the table, then discard a card. Melds: runs of at least three cards of the same suit, or sets of three or four of the same rank. The joker replaces any card."
+      },
+      {
+       "title": "First meld",
+       "body": "To lay down for the first time, you often need a total of at least 51 points (face cards 10, aces 11) with at least one run without a joker. Every table has its own house rules: follow yours."
+      },
+      {
+       "title": "A round",
+       "body": "The first to lay everything down scores -50 points. The others count the cards left in hand; a player who laid nothing takes a fixed penalty."
+      },
+      {
+       "title": "Rummy in one go",
+       "body": "Laying everything down in one go earns a bonus or doubles the others' penalties, depending on the option."
+      },
+      {
+       "title": "Game over",
+       "body": "A player reaching 0 points is out; the last one standing wins."
+      }
+     ]
+    }
+   ]
+  },
+  "yams": {
+   "label": "Dice game",
+   "tagline": "The complete score sheet",
+   "variants": [
+    {
+     "title": "Dice game",
+     "sections": [
+      {
+       "title": "Goal",
+       "body": "Fill the whole sheet; the highest total wins."
+      },
+      {
+       "title": "A turn",
+       "body": "Roll the 5 dice up to three times, keeping any you want between rolls. Then write the result in an empty box, or scratch one (0 points) if nothing fits."
+      },
+      {
+       "title": "Upper section",
+       "body": "Aces to Sixes: sum of the dice of that value. Bonus when the upper section reaches the threshold (35 points from 63)."
+      },
+      {
+       "title": "Lower section",
+       "body": "Three and four of a kind, chance: sum of the dice. Full house, small and large straight, five of a kind: fixed value. A box can be scratched (0 points)."
+      }
+     ]
+    }
+   ]
+  },
+  "skyjo": {
+   "label": "Skyjo",
+   "tagline": "Lowest score wins",
+   "variants": [
+    {
+     "title": "Skyjo",
+     "sections": [
+      {
+       "title": "Goal",
+       "body": "Have the fewest points. The game ends when a player reaches 100 points."
+      },
+      {
+       "title": "Setup",
+       "body": "Cards from -2 to 12. Each player lays out 12 cards face down in 3 rows of 4, then flips two. The player with the highest total starts."
+      },
+      {
+       "title": "A turn",
+       "body": "Take the card from the discard pile or the draw pile and swap it with one of your cards (the replaced card goes to the discard pile). You may instead discard the drawn card and flip one of your face-down cards. Three identical cards in the same column are discarded."
+      },
+      {
+       "title": "End of round",
+       "body": "As soon as a player has revealed all their cards, every other player takes one last turn, then all cards are revealed."
+      },
+      {
+       "title": "A round",
+       "body": "Everyone adds up their cards. The player who ended the round has their score doubled if it is not the lowest."
+      }
+     ]
+    }
+   ]
+  },
+  "molkky": {
+   "label": "Mölkky",
+   "tagline": "Exactly 50, throw by throw",
+   "variants": [
+    {
+     "title": "Mölkky",
+     "sections": [
+      {
+       "title": "Goal",
+       "body": "Reach exactly 50 points."
+      },
+      {
+       "title": "Setup",
+       "body": "12 numbered pins are packed in a triangle, 3 or 4 metres from the throwing line. The mölkky is thrown underhand. After each throw, fallen pins are stood up where they landed: the game gradually spreads out."
+      },
+      {
+       "title": "A throw",
+       "body": "One pin: its value. Several pins: their count."
+      },
+      {
+       "title": "Going over and misses",
+       "body": "Going over the target drops you back to 25. After 3 misses in a row, you are out or back to 0, depending on the option."
+      }
+     ]
+    }
+   ]
+  },
+  "sevenWonders": {
+   "label": "7 Wonders",
+   "tagline": "All expansions included",
+   "variants": [
+    {
+     "title": "7 Wonders",
+     "sections": [
+      {
+       "title": "Goal",
+       "body": "Have the most victory points after the three ages."
+      },
+      {
+       "title": "How to play",
+       "body": "The game lasts three ages. At the start of each age, everyone is dealt 7 cards. Each turn, all players choose a card at the same time, play it, then pass the rest of their hand to their neighbour (left in Ages I and III, right in Age II). After 6 turns, the last card is discarded."
+      },
+      {
+       "title": "Play a card",
+       "body": "Three options: build the structure (paying its cost, or for free if it is chained from a structure already built), use it face down to build a stage of your wonder, or discard it to take 3 coins."
+      },
+      {
+       "title": "Resources and trade",
+       "body": "Brown and grey cards produce resources. A missing resource can be bought from a direct neighbour for 2 coins each (only 1 with some commercial buildings). The neighbour keeps their resources: they just get the coins."
+      },
+      {
+       "title": "Military conflicts",
+       "body": "At the end of each age, everyone compares their shields with those of their two neighbours. More shields: victory token (1, 3 then 5 points depending on the age). Fewer: defeat token (-1). Tie: nothing."
+      },
+      {
+       "title": "Science",
+       "body": "Three symbols: compass, tablet and gear. Each family scores the square of its number of symbols (1, 4, 9, 16…), and each complete set of the three symbols adds 7 points."
+      },
+      {
+       "title": "Scoring",
+       "body": "Military, treasury (1 point per 3 coins), wonder, civilian, commercial, guilds and science (square of each symbol + 7 per set of three), plus the expansion categories."
+      },
+      {
+       "title": "Tie",
+       "body": "The player with the most coins wins."
+      },
+      {
+       "title": "Random draw",
+       "body": "The die at the top of the sheet draws wonders (and Armada boats) at random."
+      },
+      {
+       "title": "Leaders",
+       "body": "Before Age I, each player chooses 4 leaders through a draft, passing cards as during the ages. At the start of each age, you may recruit one of your leaders by paying its cost in coins, use it to build a wonder stage, or discard it for 3 coins. Their points go on the Leaders line."
+      },
+      {
+       "title": "Cities",
+       "body": "Black cards are added to each age. Some force the other players to pay coins: anyone who can't or won't pay takes a debt token (-1 point each). Diplomacy cards let you skip the next military conflict."
+      },
+      {
+       "title": "Armada",
+       "body": "Each player has a shipyard with four ships, which move forward when you build cards of their colour. Red ships arm for the naval conflicts at the end of each age (points on the Naval row); other ships give coins or islands to explore. Explored islands and the blue ship’s points go on the Armada row."
+      },
+      {
+       "title": "Edifice",
+       "body": "One edifice is offered per age. When building a wonder stage, you can contribute to its construction: once it is completed, contributors receive the bonus and those who did not contribute suffer the penalty."
+      }
+     ]
+    }
+   ]
+  },
+  "wondersDuel": {
+   "label": "7 Wonders Duel",
+   "tagline": "For two, with Pantheon and Agora",
+   "variants": [
+    {
+     "title": "7 Wonders Duel",
+     "sections": [
+      {
+       "title": "Goal",
+       "body": "Win by military or scientific supremacy, or have the most victory points at the end of the third age."
+      },
+      {
+       "title": "How to play",
+       "body": "Three ages. The age’s cards are laid out in a structure, some face down. On your turn, take an accessible card (not covered by any other): build it, discard it for coins, or use it to build one of your wonders."
+      },
+      {
+       "title": "Coins and resources",
+       "body": "Discarding a card gives 2 coins, plus 1 per yellow card you own. A missing resource is bought from the bank: 2 coins, plus 1 per unit your opponent produces with brown and grey cards."
+      },
+      {
+       "title": "Military",
+       "body": "Each shield moves the Conflict pawn towards the opponent’s capital. At the end, its position scores 0, 2, 5 or 10 points. If it reaches the opponent’s capital: military supremacy, instant victory."
+      },
+      {
+       "title": "Science",
+       "body": "Two identical scientific symbols give a Progress token. Six different symbols: scientific supremacy, instant victory."
+      },
+      {
+       "title": "Wonders",
+       "body": "Each player picks 4 wonders, but only 7 will be built in the game: as soon as the seventh is built, the last one left is removed."
+      },
+      {
+       "title": "Scoring",
+       "body": "Civilian buildings, science, commerce, guilds, wonders, Progress tokens, treasury (1 point per 3 coins) and military, plus the expansions."
+      },
+      {
+       "title": "Tie",
+       "body": "The player with the most civilian (blue) building points wins; otherwise, the victory is shared."
+      },
+      {
+       "title": "Instant victory",
+       "body": "The lightning button at the top of the sheet records an instant victory and ends the game."
+      },
+      {
+       "title": "Pantheon",
+       "body": "Gods from five mythologies are invoked in the Pantheon for their effects. Their points, and those of the Grand Temples in Age III, go on the Gods row."
+      },
+      {
+       "title": "Agora",
+       "body": "Senators are placed in the chambers of the Senate. Chambers controlled at the end score points, along with decrees and conspiracies: Senate row. Controlling every chamber: political supremacy, instant victory."
+      }
+     ]
+    }
+   ]
+  },
+  "flip7": {
+   "label": "Flip 7",
+   "tagline": "Seven different numbers: +15",
+   "variants": [
+    {
+     "title": "Flip 7",
+     "sections": [
+      {
+       "title": "Goal",
+       "body": "Be the first to 200 points. At the end of the round in which someone reaches them, the highest total wins."
+      },
+      {
+       "title": "A turn",
+       "body": "In turn, each player takes a card or stops. Whoever gets a number they already have busts: they score nothing this round."
+      },
+      {
+       "title": "Round points",
+       "body": "Add up your numbers, then the bonus cards (+2 to +10, ×2). Seven different numbers: Flip 7, the round ends at once and the player scores 15 extra points."
+      }
+     ]
+    }
+   ]
+  },
+  "skullKing": {
+   "label": "Skull King",
+   "tagline": "Bids, tricks and pirate bonuses",
+   "variants": [
+    {
+     "title": "Skull King",
+     "sections": [
+      {
+       "title": "Goal",
+       "body": "Have the most points after 10 rounds. In round n, everyone gets n cards."
+      },
+      {
+       "title": "The bid",
+       "body": "Before playing, everyone announces at the same time how many tricks they expect to win (zero included)."
+      },
+      {
+       "title": "The cards",
+       "body": "Follow the led suit if you can. Black is trump. Pirates beat suits, the Skull King beats pirates, mermaids beat the Skull King. Escape never wins."
+      },
+      {
+       "title": "Points",
+       "body": "Bid made: 20 points per bid trick, plus bonuses. Bid missed: −10 per trick off. Zero bid: 10 points per card if made, −10 per card otherwise."
+      },
+      {
+       "title": "Bonuses (successful bid only)",
+       "body": "Suit 14 : +10\nBlack 14 : +20\nMermaid taken by a pirate : +20\nPirate taken by the Skull King : +30\nSkull King taken by a mermaid : +40\nLoot: +20 for each of the two linked players\nKraken: the trick is destroyed, nobody counts it"
+      }
+     ]
+    }
+   ]
+  },
+  "akropolis": {
+   "label": "Akropolis",
+   "tagline": "Stars × districts, plus stones",
+   "variants": [
+    {
+     "title": "Akropolis",
+     "sections": [
+      {
+       "title": "Goal",
+       "body": "Have the most points at the end of the game."
+      },
+      {
+       "title": "A turn",
+       "body": "Take a three-hexagon tile from the construction site: the first one is free, each tile further along costs one stone per tile skipped. Place it in your city, next to the others or on top, resting on at least two different tiles. Covering a quarry earns a stone."
+      },
+      {
+       "title": "Height",
+       "body": "A district placed on the first level is worth 2, on the second 3, and so on: building high pays off."
+      },
+      {
+       "title": "Scoring",
+       "body": "For each colour: plaza stars × value of the districts that score (each district is worth its height). Plus 1 point per stone."
+      },
+      {
+       "title": "Districts that score",
+       "body": "Houses: the largest group. Markets: no adjacent market. Barracks: on the edge. Temples: fully surrounded. Gardens: always."
+      },
+      {
+       "title": "Tie",
+       "body": "The player with the most stones wins."
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "es": {
+  "darts": {
+   "label": "Dardos",
+   "tagline": "501, Cricket, Killer y más",
+   "variants": [
+    {
+     "title": "101 a 701",
+     "sections": [
+      {
+       "title": "Bajar a 0",
+       "body": "Todos empiezan en 501. Cada dardo resta sus puntos; gana el primero que llegue justo a 0."
+      },
+      {
+       "title": "Dobles y triples",
+       "body": "El anillo exterior cuenta doble y el del medio, triple. En el centro, el bull: 25, y 50 en pleno centro."
+      },
+      {
+       "title": "Terminar la partida",
+       "body": "El último dardo debe ser un doble (o el bull). ¿Te quedan 40? Apunta al doble 20. Si bajas de 0 o te quedas en 1, se anula el turno: es un bust."
+      }
+     ]
+    },
+    {
+     "title": "Cricket",
+     "sections": [
+      {
+       "title": "Los objetivos",
+       "body": "Solo cuentan el 15, 16, 17, 18, 19, 20 y el bull."
+      },
+      {
+       "title": "Cerrar un número",
+       "body": "Hacen falta 3 marcas para cerrar un número: un simple da 1, un doble 2, un triple 3."
+      },
+      {
+       "title": "Sumar puntos",
+       "body": "Cuando cierras un número, cada impacto en él suma su valor mientras algún rival no lo haya cerrado. Para ganar: ciérralo todo con al menos tantos puntos como los demás."
+      }
+     ]
+    },
+    {
+     "title": "Puntuación máxima",
+     "sections": [
+      {
+       "title": "El total más alto",
+       "body": "En 10 turnos de 3 dardos, cada dardo suma su valor. Gana el total más alto."
+      },
+      {
+       "title": "Dobles y triples",
+       "body": "El anillo exterior cuenta doble y el del medio, triple. En el centro, el bull: 25, y 50 en pleno centro."
+      }
+     ]
+    },
+    {
+     "title": "Vuelta al reloj",
+     "sections": [
+      {
+       "title": "Del 1 al 20",
+       "body": "Acierta en el 1, luego en el 2, y así hasta el 20. Gana el primero en terminar."
+      },
+      {
+       "title": "El bull para terminar",
+       "body": "Después del 20, hay que acertar en el bull para terminar."
+      }
+     ]
+    },
+    {
+     "title": "Killer",
+     "sections": [
+      {
+       "title": "Tu número",
+       "body": "Cada jugador recibe un número al azar, que aparece en su tarjeta."
+      },
+      {
+       "title": "Cargarse",
+       "body": "Acierta 3 veces en tu número para ser killer: un simple cuenta 1, un doble 2, un triple 3."
+      },
+      {
+       "title": "Atacar",
+       "body": "Como killer, cada impacto en el número de un rival le quita una vida, y acertar en el tuyo te devuelve una (sin pasar de tus vidas iniciales). Gana el último que quede vivo."
+      }
+     ]
+    },
+    {
+     "title": "Shanghai",
+     "sections": [
+      {
+       "title": "Un número por ronda",
+       "body": "En la ronda 1 solo cuenta el 1; en la ronda 2, el 2, etc. Simple, doble o triple: sumas su valor."
+      },
+      {
+       "title": "¡Shanghai!",
+       "body": "Simple, doble y triple del número de la ronda en el mismo turno: es un Shanghai, victoria inmediata. Si no, gana el mejor total al final."
+      }
+     ]
+    },
+    {
+     "title": "Halve-It",
+     "sections": [
+      {
+       "title": "Un objetivo por ronda",
+       "body": "Cada ronda tiene su objetivo: 20, 16, un doble, 17, un triple, 18, 19 y luego el bull. Solo suman los dardos que lo aciertan."
+      },
+      {
+       "title": "No fallar",
+       "body": "¿Ningún dardo en el objetivo durante tu turno? Tu puntuación se divide entre 2. Gana el total más alto al final."
+      }
+     ]
+    },
+    {
+     "title": "Golf",
+     "sections": [
+      {
+       "title": "Un hoyo por ronda",
+       "body": "En el hoyo 1, apunta al 1; en el hoyo 2, al 2, etc. Tu mejor dardo del turno marca tu puntuación: triple 1 golpe, doble 2, simple 3, fuera 5."
+      },
+      {
+       "title": "Menos golpes",
+       "body": "Un triple termina el hoyo al instante. Tras 9 hoyos, gana el total más bajo."
+      }
+     ]
+    }
+   ]
+  },
+  "belote": {
+   "label": "Belote",
+   "tagline": "Clásica o coinche, por equipos",
+   "variants": [
+    {
+     "title": "Belote clásica",
+     "sections": [
+      {
+       "title": "Objetivo",
+       "body": "Dos equipos de dos. Gana el primer equipo que llegue al objetivo (1000 puntos)."
+      },
+      {
+       "title": "Material y reparto",
+       "body": "Una baraja de 32 cartas (del 7 al as). Los compañeros se sientan uno frente al otro. Cada jugador recibe 8 cartas, repartidas en paquetes, en sentido contrario a las agujas del reloj. El que reparte cambia en cada ronda."
+      },
+      {
+       "title": "Valor de las cartas",
+       "body": "En triunfo: sota 20, nueve 14, as 11, diez 10, rey 4, reina 3, ocho y siete 0. En los demás palos: as 11, diez 10, rey 4, reina 3, sota 2, nueve, ocho y siete 0. La última baza da 10 puntos (diez de últimas): una ronda vale 162 puntos."
+      },
+      {
+       "title": "Jugar una carta",
+       "body": "Hay que seguir el palo pedido. Sin ese palo, hay que fallar con un triunfo, salvo si tu compañero va ganando la baza. En triunfo, hay que subir (jugar un triunfo más alto) si se puede. La baza es para la carta más alta; quien la gana sale en la siguiente."
+      },
+      {
+       "title": "Tomar",
+       "body": "Tras repartir 5 cartas, se da la vuelta a una. En la primera vuelta, cada uno puede tomarla (su palo pasa a ser el triunfo); en la segunda, se puede elegir otro palo. Quien toma recibe la carta volteada y luego se completa el reparto hasta 8 cartas."
+      },
+      {
+       "title": "Una ronda",
+       "body": "El equipo que toma debe hacer más puntos que la defensa (162 puntos por ronda, diez de últimas incluido). Si no, falla y la defensa se anota 162."
+      },
+      {
+       "title": "Primas",
+       "body": "Belote-rebelote: 20 puntos para el equipo que tiene el rey y la reina de triunfo. Capot (todas las bazas): 250 puntos."
+      }
+     ]
+    },
+    {
+     "title": "Belote coinche",
+     "sections": [
+      {
+       "title": "Objetivo",
+       "body": "Dos equipos de dos. Gana el primer equipo que llegue al objetivo (1000 puntos)."
+      },
+      {
+       "title": "Material y reparto",
+       "body": "Una baraja de 32 cartas (del 7 al as). Los compañeros se sientan uno frente al otro. Cada jugador recibe 8 cartas, repartidas en paquetes, en sentido contrario a las agujas del reloj. El que reparte cambia en cada ronda."
+      },
+      {
+       "title": "Valor de las cartas",
+       "body": "En triunfo: sota 20, nueve 14, as 11, diez 10, rey 4, reina 3, ocho y siete 0. En los demás palos: as 11, diez 10, rey 4, reina 3, sota 2, nueve, ocho y siete 0. La última baza da 10 puntos (diez de últimas): una ronda vale 162 puntos."
+      },
+      {
+       "title": "Jugar una carta",
+       "body": "Hay que seguir el palo pedido. Sin ese palo, hay que fallar con un triunfo, salvo si tu compañero va ganando la baza. En triunfo, hay que subir (jugar un triunfo más alto) si se puede. La baza es para la carta más alta; quien la gana sale en la siguiente."
+      },
+      {
+       "title": "Subasta",
+       "body": "Por turnos, cada uno anuncia un contrato (mínimo 80, de 10 en 10, con un palo de triunfo) o pasa. Cada anuncio debe superar al anterior. Un rival puede hacer coinche (×2) y el equipo que toma, surcoinche (×4); la subasta termina tras tres «paso» o una coinche."
+      },
+      {
+       "title": "Contrato",
+       "body": "El equipo que toma anuncia un contrato (de 80 a 160, o capot). Cumplido: contrato + puntos hechos. Fallado: la defensa se anota 160 + contrato. Coinche ×2, surcoinche ×4."
+      },
+      {
+       "title": "Cantes",
+       "body": "Tierce 20, cincuenta 50, cien 100, póker 100 (150 de nueves, 200 de jotas). Las del equipo que toma cuentan para cumplir el contrato."
+      },
+      {
+       "title": "Sin triunfo y todo triunfo",
+       "body": "Sin triunfo: as 19, diez 10, rey 4, reina 3, jota 2, sin belote. Todo triunfo: jota 14, nueve 9, as 6, diez 5, rey 3, reina 1. La mano siempre vale 162 puntos con el diez de últimas."
+      },
+      {
+       "title": "Générale",
+       "body": "Contrato de 500: un solo jugador del equipo que toma debe hacer todas las bazas."
+      },
+      {
+       "title": "Primas",
+       "body": "Belote-rebelote: 20 puntos para el equipo que tiene el rey y la reina de triunfo. Capot (todas las bazas): 250 puntos."
+      }
+     ]
+    }
+   ]
+  },
+  "tarot": {
+   "label": "Tarot",
+   "tagline": "De 3 a 5 jugadores, reglas oficiales",
+   "variants": [
+    {
+     "title": "Tarot",
+     "sections": [
+      {
+       "title": "Objetivo",
+       "body": "De 3 a 5 jugadores: en cada mano, el que toma juega contra los demás."
+      },
+      {
+       "title": "Material",
+       "body": "78 cartas: cuatro palos de 14 cartas (rey, reina, caballo, sota y del 10 al 1), 21 triunfos y la Excuse. Los tres bouts son el Petit (1 de triunfo), el 21 de triunfo y la Excuse."
+      },
+      {
+       "title": "Valor de las cartas",
+       "body": "Bouts y reyes: 4,5 puntos. Reinas: 3,5. Caballos: 2,5. Sotas: 1,5. Todas las demás cartas: 0,5. La baraja entera vale 91 puntos."
+      },
+      {
+       "title": "Reparto y subasta",
+       "body": "Las cartas se reparten de 3 en 3 y unas cuantas forman el chien (6 cartas, 3 con 5 jugadores). Cada uno anuncia un contrato más alto que el anterior o pasa: Petite y Garde (quien toma se queda el chien y descarta otras tantas), Garde sans (el chien es suyo sin verlo), Garde contre (es para la defensa)."
+      },
+      {
+       "title": "Jugar una carta",
+       "body": "Hay que seguir el palo pedido; si no, fallar con un triunfo; si no, descartarse. En triunfo, siempre hay que subir si se puede. La Excuse se juega en cualquier momento, no gana la baza y se queda en su bando (que da a cambio una carta de 0,5 puntos)."
+      },
+      {
+       "title": "Contrato",
+       "body": "Puntos necesarios según los bouts: 0 bouts 56, 1 bout 51, 2 bouts 41, 3 bouts 36."
+      },
+      {
+       "title": "Cálculo",
+       "body": "(25 + diferencia) × contrato (Petite ×1, Garde ×2, Garde sans ×4, Garde contre ×6), pagado por cada defensor. A 5, el que toma llama a un compañero."
+      },
+      {
+       "title": "Primas",
+       "body": "Petit au bout: 10 × contrato. Poignée: 20, 30 o 40. Chelem: de 200 a 400. Misère de figuras o de triunfo: +10. Mano en misère (nadie toma): todos +10, el perdedor paga 10 a cada jugador."
+      },
+      {
+       "title": "Con cinco jugadores",
+       "body": "Quien toma llama a un rey: el jugador que lo tiene pasa a ser su compañero secreto, que se revela al jugarse el rey. Quien toma se anota el doble que su compañero; los tres defensores pagan cada uno su parte."
+      }
+     ]
+    }
+   ]
+  },
+  "rami": {
+   "label": "Rummy",
+   "tagline": "Penalizaciones, cierre de mano y eliminación",
+   "variants": [
+    {
+     "title": "Rummy",
+     "sections": [
+      {
+       "title": "Objetivo",
+       "body": "Deshazte de tus cartas. Se cuentan penalizaciones: gana el total más bajo."
+      },
+      {
+       "title": "Material",
+       "body": "Dos barajas de 52 cartas y los comodines. Cada jugador recibe 13 cartas; el resto forma el mazo y se da la vuelta a una carta para empezar el descarte."
+      },
+      {
+       "title": "Un turno",
+       "body": "Roba una carta (del mazo o del descarte), baja combinaciones si quieres o completa las que ya están en la mesa, y luego descarta una carta. Combinaciones: escaleras de al menos tres cartas del mismo palo, o tríos y pókers del mismo valor. El comodín sustituye a cualquier carta."
+      },
+      {
+       "title": "Primera bajada",
+       "body": "Para bajar por primera vez, a menudo hacen falta al menos 51 puntos (figuras 10, ases 11) con al menos una escalera sin comodín. Cada mesa tiene sus costumbres: adáptate a la tuya."
+      },
+      {
+       "title": "Una ronda",
+       "body": "El primero en bajarlo todo se anota -50 puntos. Los demás cuentan las cartas que les quedan en la mano; quien no ha bajado nada recibe una penalización fija."
+      },
+      {
+       "title": "Cierre de mano",
+       "body": "Bajarlo todo de golpe da un bonus o dobla las penalizaciones de los demás, según la opción elegida."
+      },
+      {
+       "title": "Fin de la partida",
+       "body": "Quien llega a 0 puntos queda eliminado; gana el último que quede en juego."
+      }
+     ]
+    }
+   ]
+  },
+  "yams": {
+   "label": "Yams",
+   "tagline": "La hoja de puntuación completa",
+   "variants": [
+    {
+     "title": "Yams",
+     "sections": [
+      {
+       "title": "Objetivo",
+       "body": "Rellenar toda la hoja; gana el total más alto."
+      },
+      {
+       "title": "Un turno",
+       "body": "Lanza los 5 dados hasta tres veces, guardando los que quieras entre lanzamientos. Después hay que anotar el resultado en una casilla libre, o tachar una (0 puntos) si nada encaja."
+      },
+      {
+       "title": "Sección superior",
+       "body": "Del As al Seis: suma de los dados de ese valor. Bonus si la sección superior llega al umbral (35 puntos desde 63)."
+      },
+      {
+       "title": "Sección inferior",
+       "body": "Trío, póker y chance: suma de los dados. Full, escalera menor, escalera mayor y Yams: valor fijo. Se puede tachar una casilla (0 puntos)."
+      }
+     ]
+    }
+   ]
+  },
+  "skyjo": {
+   "label": "Skyjo",
+   "tagline": "Gana la puntuación más baja",
+   "variants": [
+    {
+     "title": "Skyjo",
+     "sections": [
+      {
+       "title": "Objetivo",
+       "body": "Tener menos puntos. La partida termina cuando alguien llega a 100 puntos."
+      },
+      {
+       "title": "Preparación",
+       "body": "Cartas del -2 al 12. Cada jugador coloca 12 cartas boca abajo en 3 filas de 4 y luego voltea dos. Empieza quien tenga el total más alto."
+      },
+      {
+       "title": "Un turno",
+       "body": "Toma la carta del descarte o del mazo y cámbiala por una de tus cartas (la carta sustituida va al descarte). También puedes descartar la carta robada y voltear una de tus cartas ocultas. Tres cartas iguales en una misma columna se descartan."
+      },
+      {
+       "title": "Fin de la ronda",
+       "body": "En cuanto un jugador ha volteado todas sus cartas, cada uno de los demás juega un último turno y luego se voltean todas las cartas."
+      },
+      {
+       "title": "Una ronda",
+       "body": "Cada uno suma sus cartas. Quien terminó la ronda dobla su puntuación si no es la más baja."
+      }
+     ]
+    }
+   ]
+  },
+  "molkky": {
+   "label": "Mölkky",
+   "tagline": "Exactamente 50, lanzamiento a lanzamiento",
+   "variants": [
+    {
+     "title": "Mölkky",
+     "sections": [
+      {
+       "title": "Objetivo",
+       "body": "Llegar exactamente a 50 puntos."
+      },
+      {
+       "title": "Preparación",
+       "body": "12 bolos numerados se colocan juntos en triángulo, a 3 o 4 metros de la línea de lanzamiento. El mölkky se lanza por debajo. Tras cada lanzamiento, los bolos caídos se levantan donde han caído: el juego se va dispersando poco a poco."
+      },
+      {
+       "title": "Un lanzamiento",
+       "body": "Un solo bolo: su valor. Varios bolos: cuántos caen."
+      },
+      {
+       "title": "Pasarse y fallos",
+       "body": "Si te pasas del objetivo, vuelves a 25. Tras 3 lanzamientos fallados seguidos, quedas eliminado o vuelves a 0, según la opción."
+      }
+     ]
+    }
+   ]
+  },
+  "sevenWonders": {
+   "label": "7 Wonders",
+   "tagline": "Todas las expansiones incluidas",
+   "variants": [
+    {
+     "title": "7 Wonders",
+     "sections": [
+      {
+       "title": "Objetivo",
+       "body": "Tener más puntos de victoria tras las tres eras."
+      },
+      {
+       "title": "Desarrollo",
+       "body": "La partida dura tres eras. Al principio de cada era, cada uno recibe 7 cartas. En cada turno, todos eligen una carta a la vez, la juegan y pasan el resto de su mano al vecino (a la izquierda en las eras I y III, a la derecha en la era II). Tras 6 turnos, se descarta la última carta."
+      },
+      {
+       "title": "Jugar una carta",
+       "body": "Tres opciones: construir el edificio (pagando su coste, o gratis si está encadenado a un edificio ya construido), usarla boca abajo para construir una etapa de tu maravilla, o descartarla para coger 3 monedas."
+      },
+      {
+       "title": "Recursos y comercio",
+       "body": "Las cartas marrones y grises producen recursos. Un recurso que te falte se compra a un vecino directo, a 2 monedas cada uno (solo 1 con ciertos edificios comerciales). El vecino conserva sus recursos: solo cobra las monedas."
+      },
+      {
+       "title": "Conflictos militares",
+       "body": "Al final de cada era, cada uno compara sus escudos con los de sus dos vecinos. Más escudos: ficha de victoria (1, 3 y luego 5 puntos según la era). Menos: ficha de derrota (-1). Empate: nada."
+      },
+      {
+       "title": "Ciencia",
+       "body": "Tres símbolos: compás, tablilla y rueda. Cada familia da el cuadrado de su número de símbolos (1, 4, 9, 16…) y cada serie completa de los tres símbolos suma 7 puntos."
+      },
+      {
+       "title": "Cálculo",
+       "body": "Militar, tesoro (1 punto por cada 3 monedas), maravilla, edificios civiles, comercio, gremios y ciencia (cuadrado de cada símbolo + 7 por cada serie de tres), más las categorías de las expansiones."
+      },
+      {
+       "title": "Empate",
+       "body": "Gana quien tenga más monedas."
+      },
+      {
+       "title": "Sorteo",
+       "body": "El dado de arriba de la hoja sortea las maravillas (y los barcos de Armada)."
+      },
+      {
+       "title": "Leaders",
+       "body": "Antes de la primera era, cada uno elige 4 leaders pasándose las cartas, como en las eras. Al principio de cada era, puedes reclutar a uno de tus leaders pagando su coste en monedas, usarlo para una etapa de maravilla o descartarlo por 3 monedas. Sus puntos van en la línea Leaders."
+      },
+      {
+       "title": "Cities",
+       "body": "En cada era se añaden cartas negras. Algunas obligan a los demás jugadores a pagar monedas: quien no puede o no quiere pagar se lleva una ficha de deuda (-1 punto cada una). Las cartas de diplomacia permiten no participar en el siguiente conflicto militar."
+      },
+      {
+       "title": "Armada",
+       "body": "Cada jugador tiene un astillero con cuatro barcos, que avanzan al construir cartas de su color. Los barcos rojos se arman para los conflictos navales de fin de era (puntos en la línea Naval); otros barcos dan monedas o islas que explorar. Las islas exploradas y los puntos del barco azul van en la línea Armada."
+      },
+      {
+       "title": "Edifice",
+       "body": "Se propone un edificio por era. Al construir una etapa de maravilla, puedes participar en su construcción: cuando se termina, los participantes reciben el bonus y quienes no han participado sufren la penalización."
+      }
+     ]
+    }
+   ]
+  },
+  "wondersDuel": {
+   "label": "7 Wonders Duel",
+   "tagline": "A dos, con Pantheon y Agora",
+   "variants": [
+    {
+     "title": "7 Wonders Duel",
+     "sections": [
+      {
+       "title": "Objetivo",
+       "body": "Ganar por supremacía militar o científica, o tener más puntos de victoria al final de la tercera era."
+      },
+      {
+       "title": "Desarrollo",
+       "body": "Tres eras. Las cartas de la era se colocan en una estructura, algunas boca abajo. En tu turno, tomas una carta accesible (que no esté cubierta por otra): la construyes, la descartas por monedas o la usas para construir una de tus maravillas."
+      },
+      {
+       "title": "Monedas y recursos",
+       "body": "Descartar una carta da 2 monedas, más 1 por cada carta amarilla propia. Un recurso que falta se compra a la banca: 2 monedas, más 1 por cada unidad que el rival produce con sus cartas marrones y grises."
+      },
+      {
+       "title": "Militar",
+       "body": "Cada escudo avanza el peón de Conflicto hacia la capital rival. Al final, su posición da 0, 2, 5 o 10 puntos. Si llega a la capital rival: supremacía militar, victoria inmediata."
+      },
+      {
+       "title": "Ciencia",
+       "body": "Dos símbolos científicos iguales dan una ficha de Progreso. Seis símbolos distintos: supremacía científica, victoria inmediata."
+      },
+      {
+       "title": "Maravillas",
+       "body": "Cada uno elige 4 maravillas, pero solo se construirán 7 en la partida: en cuanto se construye la séptima, se retira la última que queda."
+      },
+      {
+       "title": "Cálculo",
+       "body": "Edificios civiles, ciencia, comercio, gremios, maravillas, fichas de Progreso, tesoro (1 punto por cada 3 monedas) y militar, más las expansiones."
+      },
+      {
+       "title": "Empate",
+       "body": "Gana quien tenga más puntos de edificios civiles (azules); si no, la victoria es compartida."
+      },
+      {
+       "title": "Victoria inmediata",
+       "body": "El botón del rayo, arriba de la hoja, registra una victoria inmediata y termina la partida."
+      },
+      {
+       "title": "Pantheon",
+       "body": "Divinidades de cinco mitologías se invocan en el Panteón por sus efectos. Sus puntos, y los de los Grandes Templos de la era III, van en la línea Divinidades."
+      },
+      {
+       "title": "Agora",
+       "body": "Los senadores se colocan en las cámaras del Senado. Las cámaras controladas al final dan puntos, con los decretos y las conspiraciones: línea Senado. Controlar todas las cámaras: supremacía política, victoria inmediata."
+      }
+     ]
+    }
+   ]
+  },
+  "flip7": {
+   "label": "Flip 7",
+   "tagline": "Siete números distintos: +15",
+   "variants": [
+    {
+     "title": "Flip 7",
+     "sections": [
+      {
+       "title": "Objetivo",
+       "body": "Ser el primero en llegar a 200 puntos. Al final de la ronda en que alguien los alcanza, gana el total más alto."
+      },
+      {
+       "title": "Un turno",
+       "body": "Por turnos, cada uno toma una carta o se planta. Quien recibe un número que ya tiene se pasa: no puntúa en esta ronda."
+      },
+      {
+       "title": "Puntos de la ronda",
+       "body": "Se suman los números y luego las cartas bonus (+2 a +10, ×2). Siete números distintos: Flip 7, la ronda acaba al instante y el jugador gana 15 puntos más."
+      }
+     ]
+    }
+   ]
+  },
+  "skullKing": {
+   "label": "Skull King",
+   "tagline": "Apuestas, bazas y bonus piratas",
+   "variants": [
+    {
+     "title": "Skull King",
+     "sections": [
+      {
+       "title": "Objetivo",
+       "body": "Tener más puntos tras 10 rondas. En la ronda n, cada uno recibe n cartas."
+      },
+      {
+       "title": "La apuesta",
+       "body": "Antes de jugar, todos anuncian a la vez cuántas bazas creen ganar (cero incluido)."
+      },
+      {
+       "title": "Las cartas",
+       "body": "Hay que seguir el palo si se puede. El negro es triunfo. Los piratas ganan a los palos, el Skull King a los piratas, las sirenas al Skull King. La huida nunca gana."
+      },
+      {
+       "title": "Puntos",
+       "body": "Apuesta acertada: 20 puntos por baza apostada, más los bonus. Fallada: −10 por baza de diferencia. Apuesta de cero: 10 por carta si se acierta, −10 por carta si no."
+      },
+      {
+       "title": "Bonus (solo con apuesta acertada)",
+       "body": "14 de color : +10\n14 negro : +20\nSirena capturada por un pirata : +20\nPirata capturado por el Skull King : +30\nSkull King capturado por una sirena : +40\nBotín: +20 para cada uno de los dos jugadores unidos\nKraken: la baza se destruye, nadie la cuenta"
+      }
+     ]
+    }
+   ]
+  },
+  "akropolis": {
+   "label": "Akropolis",
+   "tagline": "Estrellas × barrios, más las piedras",
+   "variants": [
+    {
+     "title": "Akropolis",
+     "sections": [
+      {
+       "title": "Objetivo",
+       "body": "Tener más puntos al final de la partida."
+      },
+      {
+       "title": "Un turno",
+       "body": "Toma una loseta de tres hexágonos de la cantera: la primera es gratis y cada loseta más alejada cuesta una piedra por loseta saltada. Colócala en tu ciudad, al lado de las demás o encima, apoyándola en al menos dos losetas distintas. Cubrir una cantera da una piedra."
+      },
+      {
+       "title": "Altura",
+       "body": "Un barrio colocado en el primer piso vale 2, en el segundo 3, y así sucesivamente: construir en altura da muchos puntos."
+      },
+      {
+       "title": "Cálculo",
+       "body": "Por cada color: estrellas de las plazas × valor de los barrios que puntúan (cada barrio vale su altura). Más 1 punto por piedra."
+      },
+      {
+       "title": "Barrios que puntúan",
+       "body": "Viviendas: el grupo más grande. Mercados: sin mercado vecino. Cuarteles: en el borde. Templos: totalmente rodeados. Jardines: siempre."
+      },
+      {
+       "title": "Empate",
+       "body": "Gana quien tenga más piedras."
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "de": {
+  "darts": {
+   "label": "Darts",
+   "tagline": "501, Cricket, Killer und mehr",
+   "variants": [
+    {
+     "title": "101 bis 701",
+     "sections": [
+      {
+       "title": "Runter auf 0",
+       "body": "Jeder startet bei 501. Jeder Dart zieht seine Punkte ab; wer zuerst genau 0 erreicht, gewinnt."
+      },
+      {
+       "title": "Doubles und Triples",
+       "body": "Der äußere Ring zählt doppelt, der mittlere dreifach. In der Mitte das Bull: 25, und 50 im Bullseye."
+      },
+      {
+       "title": "Auschecken",
+       "body": "Der letzte Dart muss ein Doppel sein (oder Bull). 40 Rest? Ziel auf Doppel 20. Unter 0 oder auf 1 zählt die Aufnahme nicht: überworfen."
+      }
+     ]
+    },
+    {
+     "title": "Cricket",
+     "sections": [
+      {
+       "title": "Die Ziele",
+       "body": "Nur 15, 16, 17, 18, 19, 20 und Bull zählen."
+      },
+      {
+       "title": "Zahl schließen",
+       "body": "Eine Zahl braucht 3 Treffer zum Schließen: Single zählt 1, Doppel 2, Triple 3."
+      },
+      {
+       "title": "Punkte machen",
+       "body": "Ist deine Zahl geschlossen, bringt jeder Treffer ihren Wert, solange ein Gegner sie nicht geschlossen hat. Zum Sieg: alles schließen, mit mindestens so vielen Punkten wie die anderen."
+      }
+     ]
+    },
+    {
+     "title": "Highscore",
+     "sections": [
+      {
+       "title": "Die höchste Summe",
+       "body": "In 10 Aufnahmen mit 3 Darts zählt jeder Dart seinen Wert. Die höchste Summe gewinnt."
+      },
+      {
+       "title": "Doubles und Triples",
+       "body": "Der äußere Ring zählt doppelt, der mittlere dreifach. In der Mitte das Bull: 25, und 50 im Bullseye."
+      }
+     ]
+    },
+    {
+     "title": "Around the Clock",
+     "sections": [
+      {
+       "title": "Von 1 bis 20",
+       "body": "Triff die 1, dann die 2 und so weiter bis 20. Wer zuerst fertig ist, gewinnt."
+      },
+      {
+       "title": "Bull zum Schluss",
+       "body": "Nach der 20 musst du das Bull treffen."
+      }
+     ]
+    },
+    {
+     "title": "Killer",
+     "sections": [
+      {
+       "title": "Deine Zahl",
+       "body": "Jeder bekommt eine zufällige Zahl, die auf seiner Karte steht."
+      },
+      {
+       "title": "Aufladen",
+       "body": "Triff 3-mal deine Zahl, um Killer zu werden: Single zählt 1, Doppel 2, Triple 3."
+      },
+      {
+       "title": "Angreifen",
+       "body": "Als Killer kostet jeder Treffer auf die Zahl eines Gegners ihn ein Leben, ein Treffer auf deine eigene gibt dir eins zurück (bis zu deinen Startleben). Wer zuletzt übrig ist, gewinnt."
+      }
+     ]
+    },
+    {
+     "title": "Shanghai",
+     "sections": [
+      {
+       "title": "Eine Zahl pro Runde",
+       "body": "In Runde 1 zählt nur die 1, in Runde 2 die 2 usw. Single, Doppel oder Triple: Du bekommst den Wert."
+      },
+      {
+       "title": "Shanghai!",
+       "body": "Single, Doppel und Triple der Rundenzahl in einer Aufnahme: Shanghai, sofortiger Sieg. Sonst gewinnt die beste Summe am Ende."
+      }
+     ]
+    },
+    {
+     "title": "Halve-It",
+     "sections": [
+      {
+       "title": "Ein Ziel pro Runde",
+       "body": "Jede Runde hat ihr Ziel: 20, 16, ein Doppel, 17, ein Triple, 18, 19, dann Bull. Nur Darts, die es treffen, zählen ihren Wert."
+      },
+      {
+       "title": "Nicht verfehlen",
+       "body": "Kein Dart im Ziel in deiner Aufnahme? Deine Punkte werden halbiert. Die höchste Summe am Ende gewinnt."
+      }
+     ]
+    },
+    {
+     "title": "Golf",
+     "sections": [
+      {
+       "title": "Ein Loch pro Runde",
+       "body": "Bei Loch 1 zielst du auf die 1, bei Loch 2 auf die 2 usw. Dein bester Dart der Aufnahme zählt: Triple 1 Schlag, Doppel 2, Single 3, daneben 5."
+      },
+      {
+       "title": "Wenigste Schläge",
+       "body": "Ein Triple beendet das Loch sofort. Nach 9 Löchern gewinnt die niedrigste Summe."
+      }
+     ]
+    }
+   ]
+  },
+  "belote": {
+   "label": "Belote",
+   "tagline": "Klassisch oder Coinche, im Team",
+   "variants": [
+    {
+     "title": "Klassische Belote",
+     "sections": [
+      {
+       "title": "Ziel",
+       "body": "Zwei Teams zu zweit. Das erste Team, das das Ziel (1000 Punkte) erreicht, gewinnt."
+      },
+      {
+       "title": "Material und Austeilen",
+       "body": "Ein Spiel mit 32 Karten (7 bis Ass). Partner sitzen sich gegenüber. Jeder bekommt 8 Karten, in Paketen gegen den Uhrzeigersinn ausgeteilt. Der Geber wechselt jede Runde."
+      },
+      {
+       "title": "Kartenwerte",
+       "body": "In Trumpf: Bube 20, Neun 14, Ass 11, Zehn 10, König 4, Dame 3, Acht und Sieben 0. In den anderen Farben: Ass 11, Zehn 10, König 4, Dame 3, Bube 2, Neun, Acht und Sieben 0. Der letzte Stich bringt 10 Punkte extra: Eine Runde ist 162 Punkte wert."
+      },
+      {
+       "title": "Eine Karte spielen",
+       "body": "Die ausgespielte Farbe muss bedient werden. Ohne diese Farbe muss man trumpfen, außer der Partner hat den Stich schon sicher. Bei Trumpf muss man überstechen (höheren Trumpf spielen), wenn man kann. Die höchste Karte gewinnt den Stich; wer ihn gewinnt, spielt zum nächsten aus."
+      },
+      {
+       "title": "Nehmen",
+       "body": "Nach dem Austeilen von 5 Karten wird eine Karte aufgedeckt. In der ersten Runde kann jeder sie nehmen (ihre Farbe wird Trumpf); in der zweiten Runde kann man eine andere Farbe wählen. Wer nimmt, bekommt die aufgedeckte Karte, dann wird auf 8 Karten aufgefüllt."
+      },
+      {
+       "title": "Eine Runde",
+       "body": "Das spielende Team muss mehr Punkte als die Verteidigung machen (162 pro Runde, letzter Stich inklusive). Sonst fällt es durch und die Verteidigung bekommt 162."
+      },
+      {
+       "title": "Prämien",
+       "body": "Belote-Rebelote: 20 Punkte für das Team mit König und Dame in Trumpf. Capot (alle Stiche): 250 Punkte."
+      }
+     ]
+    },
+    {
+     "title": "Coinche",
+     "sections": [
+      {
+       "title": "Ziel",
+       "body": "Zwei Teams zu zweit. Das erste Team, das das Ziel (1000 Punkte) erreicht, gewinnt."
+      },
+      {
+       "title": "Material und Austeilen",
+       "body": "Ein Spiel mit 32 Karten (7 bis Ass). Partner sitzen sich gegenüber. Jeder bekommt 8 Karten, in Paketen gegen den Uhrzeigersinn ausgeteilt. Der Geber wechselt jede Runde."
+      },
+      {
+       "title": "Kartenwerte",
+       "body": "In Trumpf: Bube 20, Neun 14, Ass 11, Zehn 10, König 4, Dame 3, Acht und Sieben 0. In den anderen Farben: Ass 11, Zehn 10, König 4, Dame 3, Bube 2, Neun, Acht und Sieben 0. Der letzte Stich bringt 10 Punkte extra: Eine Runde ist 162 Punkte wert."
+      },
+      {
+       "title": "Eine Karte spielen",
+       "body": "Die ausgespielte Farbe muss bedient werden. Ohne diese Farbe muss man trumpfen, außer der Partner hat den Stich schon sicher. Bei Trumpf muss man überstechen (höheren Trumpf spielen), wenn man kann. Die höchste Karte gewinnt den Stich; wer ihn gewinnt, spielt zum nächsten aus."
+      },
+      {
+       "title": "Reizen",
+       "body": "Reihum sagt jeder einen Kontrakt an (mindestens 80, in Zehnerschritten, mit einer Trumpffarbe) oder passt. Jede Ansage muss die vorige überbieten. Ein Gegner kann Kontra geben (×2), das spielende Team Re (×4); das Reizen endet nach dreimal „Passe“ oder einem Kontra."
+      },
+      {
+       "title": "Kontrakt",
+       "body": "Das spielende Team sagt einen Kontrakt an (80 bis 160 oder Capot). Erfüllt: Kontrakt + erzielte Punkte. Gescheitert: Die Verteidigung bekommt 160 + Kontrakt. Kontra ×2, Re ×4."
+      },
+      {
+       "title": "Meldungen",
+       "body": "Terz 20, Fünfziger 50, Hunderter 100, Vierling 100 (150 bei Neunen, 200 bei Buben). Die des spielenden Teams zählen für den Kontrakt."
+      },
+      {
+       "title": "Ohne Trumpf und Alles Trumpf",
+       "body": "Ohne Trumpf: Ass 19, Zehn 10, König 4, Dame 3, Bube 2, keine Belote. Alles Trumpf: Bube 14, Neun 9, Ass 6, Zehn 5, König 3, Dame 1. Eine Runde bringt mit letztem Stich immer 162 Punkte."
+      },
+      {
+       "title": "Générale",
+       "body": "Kontrakt 500: Ein Spieler des spielenden Teams muss alle Stiche machen."
+      },
+      {
+       "title": "Prämien",
+       "body": "Belote-Rebelote: 20 Punkte für das Team mit König und Dame in Trumpf. Capot (alle Stiche): 250 Punkte."
+      }
+     ]
+    }
+   ]
+  },
+  "tarot": {
+   "label": "Tarot",
+   "tagline": "3 bis 5 Spieler, offizielle Regeln",
+   "variants": [
+    {
+     "title": "Tarot",
+     "sections": [
+      {
+       "title": "Ziel",
+       "body": "3 bis 5 Spieler: In jeder Runde spielt der Alleinspieler gegen die anderen."
+      },
+      {
+       "title": "Material",
+       "body": "78 Karten: vier Farben mit je 14 Karten (König, Dame, Reiter, Bube, dann 10 bis 1), 21 Trümpfe und die Excuse. Die drei Oudler sind der Petit (Trumpf 1), Trumpf 21 und die Excuse."
+      },
+      {
+       "title": "Kartenwerte",
+       "body": "Oudler und Könige: 4,5 Punkte. Damen: 3,5. Reiter: 2,5. Buben: 1,5. Alle anderen Karten: 0,5. Das ganze Spiel ist 91 Punkte wert."
+      },
+      {
+       "title": "Austeilen und Reizen",
+       "body": "Die Karten werden zu je 3 ausgeteilt, einige bilden den Talon (6 Karten bei 3 bis 5 Spielern). Jeder sagt einen höheren Kontrakt als der vorige an oder passt: Petite und Garde (der Alleinspieler nimmt den Talon und legt ebenso viele Karten ab), Garde sans (der Talon gehört ihm, ohne angesehen zu werden), Garde contre (er geht an die Verteidigung)."
+      },
+      {
+       "title": "Eine Karte spielen",
+       "body": "Die ausgespielte Farbe muss bedient werden, sonst muss man trumpfen, sonst abwerfen. Bei Trumpf muss man immer überstechen, wenn man kann. Die Excuse kann jederzeit gespielt werden, gewinnt den Stich nicht und bleibt bei ihrem Lager (das dafür eine 0,5-Punkte-Karte abgibt)."
+      },
+      {
+       "title": "Kontrakt",
+       "body": "Nötige Punkte je nach Anzahl Oudler: 0 → 56, 1 → 51, 2 → 41, 3 → 36."
+      },
+      {
+       "title": "Wertung",
+       "body": "(25 + Differenz) × Kontrakt (Petite ×1, Garde ×2, Garde sans ×4, Garde contre ×6), von jedem Verteidiger bezahlt. Zu fünft ruft der Alleinspieler einen Partner."
+      },
+      {
+       "title": "Prämien",
+       "body": "Petit au bout: 10 × Kontrakt. Poignée: 20, 30 oder 40. Schlemm: 200 bis 400. Misère ohne Figuren oder Trumpf: +10. Misère-Runde (keiner spielt): jeder +10, der Verlierer zahlt jedem 10."
+      },
+      {
+       "title": "Zu fünft",
+       "body": "Der Alleinspieler ruft einen König: Wer ihn hat, wird sein geheimer Partner und wird enthüllt, wenn der König gespielt wird. Der Alleinspieler bekommt doppelt so viel wie sein Partner; die drei Verteidiger zahlen jeweils ihren Anteil."
+      }
+     ]
+    }
+   ]
+  },
+  "rami": {
+   "label": "Rommé",
+   "tagline": "Strafpunkte, Hand-Rommé, Ausscheiden",
+   "variants": [
+    {
+     "title": "Rommé",
+     "sections": [
+      {
+       "title": "Ziel",
+       "body": "Werde deine Karten los. Es zählen Strafpunkte: Die niedrigste Summe gewinnt."
+      },
+      {
+       "title": "Material",
+       "body": "Zwei Spiele mit 52 Karten plus Joker. Jeder bekommt 13 Karten; der Rest bildet den Nachziehstapel, und eine Karte wird aufgedeckt, um den Ablagestapel zu beginnen."
+      },
+      {
+       "title": "Ein Zug",
+       "body": "Eine Karte ziehen (vom Nachzieh- oder Ablagestapel), eventuell Kombinationen auslegen oder ausgelegte ergänzen, dann eine Karte abwerfen. Kombinationen: Folgen aus mindestens drei Karten derselben Farbe oder Drillinge und Vierlinge gleichen Werts. Der Joker ersetzt jede Karte."
+      },
+      {
+       "title": "Erstes Auslegen",
+       "body": "Zum ersten Auslegen braucht man oft mindestens 51 Punkte (Bilder 10, Asse 11) mit mindestens einer Folge ohne Joker. Jede Runde hat ihre Gewohnheiten: Richte dich nach deiner."
+      },
+      {
+       "title": "Eine Runde",
+       "body": "Wer zuerst alles ablegt, bekommt -50 Punkte. Die anderen zählen ihre Handkarten; wer nichts abgelegt hat, bekommt eine feste Strafe."
+      },
+      {
+       "title": "Hand-Rommé",
+       "body": "Alles auf einmal ablegen bringt einen Bonus oder verdoppelt die Strafpunkte der anderen, je nach Option."
+      },
+      {
+       "title": "Spielende",
+       "body": "Wer 0 Punkte erreicht, scheidet aus; wer zuletzt übrig ist, gewinnt."
+      }
+     ]
+    }
+   ]
+  },
+  "yams": {
+   "label": "Kniffel",
+   "tagline": "Der komplette Spielblock",
+   "variants": [
+    {
+     "title": "Kniffel",
+     "sections": [
+      {
+       "title": "Ziel",
+       "body": "Fülle den ganzen Block; die höchste Summe gewinnt."
+      },
+      {
+       "title": "Ein Zug",
+       "body": "Wirf die 5 Würfel bis zu dreimal und behalte zwischen den Würfen, welche du willst. Danach trägst du das Ergebnis in ein freies Feld ein oder streichst eines (0 Punkte), wenn nichts passt."
+      },
+      {
+       "title": "Oberer Teil",
+       "body": "Einser bis Sechser: Summe der Würfel dieser Zahl. Bonus, wenn der obere Teil die Schwelle erreicht (35 Punkte ab 63)."
+      },
+      {
+       "title": "Unterer Teil",
+       "body": "Dreier-, Viererpasch und Chance: Summe der Würfel. Full House, kleine und große Straße, Kniffel: fester Wert. Ein Feld kann gestrichen werden (0 Punkte)."
+      }
+     ]
+    }
+   ]
+  },
+  "skyjo": {
+   "label": "Skyjo",
+   "tagline": "Wenigste Punkte gewinnen",
+   "variants": [
+    {
+     "title": "Skyjo",
+     "sections": [
+      {
+       "title": "Ziel",
+       "body": "Möglichst wenige Punkte. Das Spiel endet, wenn jemand 100 Punkte erreicht."
+      },
+      {
+       "title": "Aufbau",
+       "body": "Karten von -2 bis 12. Jeder legt 12 Karten verdeckt in 3 Reihen zu 4 aus und deckt zwei davon auf. Wer die höchste Summe hat, beginnt."
+      },
+      {
+       "title": "Ein Zug",
+       "body": "Nimm die Karte vom Ablagestapel oder vom Nachziehstapel und tausche sie gegen eine deiner Karten (die ersetzte Karte kommt auf den Ablagestapel). Du kannst die gezogene Karte auch abwerfen und eine deiner verdeckten Karten aufdecken. Drei gleiche Karten in einer Spalte werden abgeworfen."
+      },
+      {
+       "title": "Rundenende",
+       "body": "Sobald jemand alle Karten aufgedeckt hat, spielen alle anderen noch eine letzte Runde, dann werden alle Karten aufgedeckt."
+      },
+      {
+       "title": "Eine Runde",
+       "body": "Jeder zählt seine Karten zusammen. Wer die Runde beendet hat, bekommt doppelte Punkte, wenn er nicht der Niedrigste ist."
+      }
+     ]
+    }
+   ]
+  },
+  "molkky": {
+   "label": "Mölkky",
+   "tagline": "Genau 50, Wurf für Wurf",
+   "variants": [
+    {
+     "title": "Mölkky",
+     "sections": [
+      {
+       "title": "Ziel",
+       "body": "Genau 50 Punkte erreichen."
+      },
+      {
+       "title": "Aufbau",
+       "body": "12 nummerierte Kegel stehen eng im Dreieck, 3 bis 4 Meter von der Wurflinie entfernt. Das Mölkky wird von unten geworfen. Nach jedem Wurf werden umgefallene Kegel dort aufgestellt, wo sie liegen: Das Feld verteilt sich nach und nach."
+      },
+      {
+       "title": "Ein Wurf",
+       "body": "Ein Kegel: seine Zahl. Mehrere Kegel: ihre Anzahl."
+      },
+      {
+       "title": "Überwerfen und Fehlwürfe",
+       "body": "Wer über das Ziel kommt, fällt auf 25 zurück. Nach 3 Fehlwürfen in Folge scheidet man aus oder fängt bei 0 an, je nach Option."
+      }
+     ]
+    }
+   ]
+  },
+  "sevenWonders": {
+   "label": "7 Wonders",
+   "tagline": "Alle Erweiterungen inklusive",
+   "variants": [
+    {
+     "title": "7 Wonders",
+     "sections": [
+      {
+       "title": "Ziel",
+       "body": "Die meisten Siegpunkte nach drei Zeitaltern."
+      },
+      {
+       "title": "Ablauf",
+       "body": "Das Spiel dauert drei Zeitalter. Zu Beginn jedes Zeitalters bekommt jeder 7 Karten. In jedem Zug wählen alle gleichzeitig eine Karte, spielen sie und geben den Rest ihrer Hand an den Nachbarn weiter (links in Zeitalter I und III, rechts in Zeitalter II). Nach 6 Zügen wird die letzte Karte abgeworfen."
+      },
+      {
+       "title": "Eine Karte spielen",
+       "body": "Drei Möglichkeiten: das Gebäude bauen (gegen seine Kosten oder gratis, wenn es mit einem schon gebauten Gebäude verkettet ist), die Karte verdeckt für eine Stufe deines Weltwunders nutzen oder sie für 3 Münzen abwerfen."
+      },
+      {
+       "title": "Rohstoffe und Handel",
+       "body": "Braune und graue Karten erzeugen Rohstoffe. Ein fehlender Rohstoff wird bei einem direkten Nachbarn gekauft, für je 2 Münzen (nur 1 mit bestimmten Handelsgebäuden). Der Nachbar behält seine Rohstoffe: Er bekommt nur die Münzen."
+      },
+      {
+       "title": "Militärische Konflikte",
+       "body": "Am Ende jedes Zeitalters vergleicht jeder seine Schilde mit denen seiner beiden Nachbarn. Mehr Schilde: Siegmarker (1, 3, dann 5 Punkte je nach Zeitalter). Weniger: Niederlagenmarker (-1). Gleich viele: nichts."
+      },
+      {
+       "title": "Forschung",
+       "body": "Drei Symbole: Zirkel, Tafel und Zahnrad. Jede Art bringt das Quadrat ihrer Symbolanzahl (1, 4, 9, 16 …), und jeder vollständige Satz aus allen drei Symbolen bringt 7 Punkte extra."
+      },
+      {
+       "title": "Wertung",
+       "body": "Militär, Münzen (1 Punkt pro 3 Münzen), Weltwunder, Profanbauten, Handel, Gilden und Forschung (Quadrat jedes Symbols + 7 pro Dreiersatz), plus die Kategorien der Erweiterungen."
+      },
+      {
+       "title": "Gleichstand",
+       "body": "Wer die meisten Münzen hat, gewinnt."
+      },
+      {
+       "title": "Auslosung",
+       "body": "Der Würfel oben auf dem Block lost die Weltwunder (und Armada-Schiffe) aus."
+      },
+      {
+       "title": "Leaders",
+       "body": "Vor dem ersten Zeitalter wählt jeder 4 Leaders, indem Karten wie in den Zeitaltern weitergegeben werden. Zu Beginn jedes Zeitalters kann man einen seiner Leaders gegen Münzen anwerben, ihn für eine Weltwunder-Stufe nutzen oder für 3 Münzen abwerfen. Ihre Punkte kommen in die Zeile Leaders."
+      },
+      {
+       "title": "Cities",
+       "body": "In jedem Zeitalter kommen schwarze Karten hinzu. Manche zwingen die anderen, Münzen zu zahlen: Wer nicht zahlen kann oder will, nimmt einen Schuldenmarker (je -1 Punkt). Diplomatiekarten lassen einen den nächsten militärischen Konflikt aussetzen."
+      },
+      {
+       "title": "Armada",
+       "body": "Jeder hat eine Werft mit vier Schiffen, die vorrücken, wenn man Karten ihrer Farbe baut. Die roten Schiffe rüsten für die Seekonflikte am Ende jedes Zeitalters (Punkte in der Zeile Marine); andere Schiffe bringen Münzen oder Inseln zum Erkunden. Erkundete Inseln und die Punkte des blauen Schiffs kommen in die Zeile Armada."
+      },
+      {
+       "title": "Edifice",
+       "body": "Pro Zeitalter wird ein Edifice angeboten. Wer eine Weltwunder-Stufe baut, kann sich an seinem Bau beteiligen: Ist es fertig, erhalten die Beteiligten den Bonus, und wer nicht mitgemacht hat, erleidet die Strafe."
+      }
+     ]
+    }
+   ]
+  },
+  "wondersDuel": {
+   "label": "7 Wonders Duel",
+   "tagline": "Zu zweit, mit Pantheon und Agora",
+   "variants": [
+    {
+     "title": "7 Wonders Duel",
+     "sections": [
+      {
+       "title": "Ziel",
+       "body": "Durch militärische oder wissenschaftliche Vorherrschaft gewinnen oder am Ende des dritten Zeitalters die meisten Siegpunkte haben."
+      },
+      {
+       "title": "Ablauf",
+       "body": "Drei Zeitalter. Die Karten des Zeitalters liegen in einer Struktur aus, manche verdeckt. Wer am Zug ist, nimmt eine zugängliche Karte (von keiner anderen bedeckt): bauen, für Münzen abwerfen oder damit eines seiner Weltwunder bauen."
+      },
+      {
+       "title": "Münzen und Ressourcen",
+       "body": "Eine Karte abzuwerfen bringt 2 Münzen, plus 1 pro eigener gelber Karte. Eine fehlende Ressource kauft man bei der Bank: 2 Münzen, plus 1 pro Einheit, die der Gegner mit braunen und grauen Karten erzeugt."
+      },
+      {
+       "title": "Militär",
+       "body": "Jeder Schild schiebt den Konfliktstein Richtung gegnerische Hauptstadt. Am Ende bringt seine Position 0, 2, 5 oder 10 Punkte. Erreicht er die gegnerische Hauptstadt: militärische Vorherrschaft, Sofortsieg."
+      },
+      {
+       "title": "Forschung",
+       "body": "Zwei gleiche Wissenschaftssymbole bringen einen Fortschrittsmarker. Sechs verschiedene Symbole: wissenschaftliche Vorherrschaft, Sofortsieg."
+      },
+      {
+       "title": "Weltwunder",
+       "body": "Jeder wählt 4 Weltwunder, aber nur 7 werden im Spiel gebaut: Sobald das siebte steht, wird das letzte übrige entfernt."
+      },
+      {
+       "title": "Wertung",
+       "body": "Zivile Gebäude, Wissenschaft, Handel, Gilden, Weltwunder, Fortschrittsmarker, Schatz (1 Punkt pro 3 Münzen) und Militär, dazu die Erweiterungen."
+      },
+      {
+       "title": "Gleichstand",
+       "body": "Wer die meisten Punkte aus zivilen (blauen) Gebäuden hat, gewinnt; sonst wird der Sieg geteilt."
+      },
+      {
+       "title": "Sofortsieg",
+       "body": "Der Blitz-Knopf oben auf dem Blatt erfasst einen Sofortsieg und beendet das Spiel."
+      },
+      {
+       "title": "Pantheon",
+       "body": "Gottheiten aus fünf Mythologien werden im Pantheon für ihre Effekte angerufen. Ihre Punkte und die der Großen Tempel aus Zeitalter III kommen in die Zeile Gottheiten."
+      },
+      {
+       "title": "Agora",
+       "body": "Senatoren werden in die Kammern des Senats gesetzt. Am Ende kontrollierte Kammern bringen Punkte, zusammen mit Dekreten und Verschwörungen: Zeile Senat. Alle Kammern kontrollieren: politische Vorherrschaft, Sofortsieg."
+      }
+     ]
+    }
+   ]
+  },
+  "flip7": {
+   "label": "Flip 7",
+   "tagline": "Sieben verschiedene Zahlen: +15",
+   "variants": [
+    {
+     "title": "Flip 7",
+     "sections": [
+      {
+       "title": "Ziel",
+       "body": "Als Erster 200 Punkte erreichen. Am Ende der Runde, in der jemand sie erreicht, gewinnt die höchste Summe."
+      },
+      {
+       "title": "Ein Zug",
+       "body": "Reihum nimmt jeder eine Karte oder hört auf. Wer eine Zahl doppelt bekommt, scheidet aus: keine Punkte in dieser Runde."
+      },
+      {
+       "title": "Punkte der Runde",
+       "body": "Zahlen addieren, dann die Bonuskarten (+2 bis +10, ×2). Sieben verschiedene Zahlen: Flip 7, die Runde endet sofort und der Spieler erhält 15 Extrapunkte."
+      }
+     ]
+    }
+   ]
+  },
+  "skullKing": {
+   "label": "Skull King",
+   "tagline": "Ansagen, Stiche und Piratenboni",
+   "variants": [
+    {
+     "title": "Skull King",
+     "sections": [
+      {
+       "title": "Ziel",
+       "body": "Nach 10 Runden die meisten Punkte haben. In Runde n erhält jeder n Karten."
+      },
+      {
+       "title": "Die Ansage",
+       "body": "Vor dem Spiel sagen alle gleichzeitig an, wie viele Stiche sie machen werden (null eingeschlossen)."
+      },
+      {
+       "title": "Die Karten",
+       "body": "Farbe bedienen, wenn möglich. Schwarz ist Trumpf. Piraten schlagen Farben, der Skull King schlägt Piraten, Meerjungfrauen schlagen den Skull King. Die Flucht gewinnt nie."
+      },
+      {
+       "title": "Punkte",
+       "body": "Ansage erfüllt: 20 Punkte pro angesagtem Stich plus Boni. Verfehlt: −10 pro Stich Abweichung. Null-Ansage: 10 pro Karte bei Erfolg, sonst −10 pro Karte."
+      },
+      {
+       "title": "Boni (nur bei erfüllter Ansage)",
+       "body": "Farb-14 : +10\nSchwarze 14 : +20\nMeerjungfrau von Pirat gefangen : +20\nPirat vom Skull King gefangen : +30\nSkull King von Meerjungfrau gefangen : +40\nBeute: +20 für beide verbundenen Spieler\nKraken: Der Stich wird zerstört, niemand zählt ihn"
+      }
+     ]
+    }
+   ]
+  },
+  "akropolis": {
+   "label": "Akropolis",
+   "tagline": "Sterne × Viertel, plus Steine",
+   "variants": [
+    {
+     "title": "Akropolis",
+     "sections": [
+      {
+       "title": "Ziel",
+       "body": "Die meisten Punkte am Spielende."
+      },
+      {
+       "title": "Ein Zug",
+       "body": "Nimm ein Plättchen aus drei Sechsecken vom Bauplatz: Das erste ist gratis, jedes weitere kostet einen Stein pro übersprungenem Plättchen. Lege es in deine Stadt, neben andere oder darauf, wobei es auf mindestens zwei verschiedenen Plättchen aufliegen muss. Einen Steinbruch abzudecken bringt einen Stein."
+      },
+      {
+       "title": "Höhe",
+       "body": "Ein Viertel im ersten Stock zählt 2, im zweiten 3 und so weiter: In die Höhe bauen lohnt sich."
+      },
+      {
+       "title": "Wertung",
+       "body": "Für jede Farbe: Sterne der Plätze × Wert der zählenden Viertel (jedes Viertel zählt seine Höhe). Plus 1 Punkt pro Stein."
+      },
+      {
+       "title": "Zählende Viertel",
+       "body": "Häuser: größte Gruppe. Märkte: kein Nachbarmarkt. Kasernen: am Rand. Tempel: ganz umbaut. Gärten: immer."
+      },
+      {
+       "title": "Gleichstand",
+       "body": "Wer die meisten Steine hat, gewinnt."
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "it": {
+  "darts": {
+   "label": "Freccette",
+   "tagline": "501, Cricket, Killer e altro",
+   "variants": [
+    {
+     "title": "Da 101 a 701",
+     "sections": [
+      {
+       "title": "Scendere a 0",
+       "body": "Tutti partono da 501. Ogni freccetta toglie i suoi punti; vince il primo che arriva esattamente a 0."
+      },
+      {
+       "title": "Doppi e tripli",
+       "body": "L'anello esterno vale doppio, quello centrale triplo. Al centro, il bull: 25, e 50 nel centro esatto."
+      },
+      {
+       "title": "Chiudere la partita",
+       "body": "L'ultima freccetta deve essere un doppio (o il bull). Ti restano 40? Punta al doppio 20. Se scendi sotto 0 o a 1, il turno è annullato: è il bust."
+      }
+     ]
+    },
+    {
+     "title": "Cricket",
+     "sections": [
+      {
+       "title": "I bersagli",
+       "body": "Contano solo il 15, 16, 17, 18, 19, 20 e il bull."
+      },
+      {
+       "title": "Chiudere un numero",
+       "body": "Servono 3 segni per chiudere un numero: un singolo ne dà 1, un doppio 2, un triplo 3."
+      },
+      {
+       "title": "Fare punti",
+       "body": "Una volta chiuso il tuo numero, ogni colpo vale il suo valore finché un avversario non l'ha chiuso. Per vincere: chiudi tutto con almeno tanti punti quanto gli altri."
+      }
+     ]
+    },
+    {
+     "title": "Punteggio max",
+     "sections": [
+      {
+       "title": "Il totale più alto",
+       "body": "In 10 turni da 3 freccette, ogni freccetta vale il suo valore. Vince il totale più alto."
+      },
+      {
+       "title": "Doppi e tripli",
+       "body": "L'anello esterno vale doppio, quello centrale triplo. Al centro, il bull: 25, e 50 nel centro esatto."
+      }
+     ]
+    },
+    {
+     "title": "Giro dell'orologio",
+     "sections": [
+      {
+       "title": "Dall'1 al 20",
+       "body": "Colpisci l'1, poi il 2, e così via fino al 20. Vince il primo che finisce."
+      },
+      {
+       "title": "Il bull per finire",
+       "body": "Dopo il 20, bisogna colpire il bull per finire."
+      }
+     ]
+    },
+    {
+     "title": "Killer",
+     "sections": [
+      {
+       "title": "Il tuo numero",
+       "body": "Ogni giocatore riceve un numero estratto a sorte, mostrato sulla sua scheda."
+      },
+      {
+       "title": "Caricarsi",
+       "body": "Colpisci il tuo numero 3 volte per diventare killer: un singolo vale 1, un doppio 2, un triplo 3."
+      },
+      {
+       "title": "Attaccare",
+       "body": "Da killer, ogni colpo sul numero di un avversario gli toglie una vita, e colpire il tuo te ne ridà una (senza superare le vite iniziali). L'ultimo in vita vince."
+      }
+     ]
+    },
+    {
+     "title": "Shanghai",
+     "sections": [
+      {
+       "title": "Un numero per mano",
+       "body": "Alla mano 1 conta solo l'1; alla mano 2, il 2, ecc. Singolo, doppio o triplo: segni il suo valore."
+      },
+      {
+       "title": "Shanghai!",
+       "body": "Singolo, doppio e triplo del numero della mano nello stesso turno: è uno Shanghai, vittoria immediata. Altrimenti vince il miglior totale alla fine."
+      }
+     ]
+    },
+    {
+     "title": "Halve-It",
+     "sections": [
+      {
+       "title": "Un bersaglio per mano",
+       "body": "Ogni mano ha il suo bersaglio: 20, 16, un doppio, 17, un triplo, 18, 19 e poi il bull. Solo le freccette che lo colpiscono valgono il loro valore."
+      },
+      {
+       "title": "Non mancare",
+       "body": "Nessuna freccetta sul bersaglio nel tuo turno? Il tuo punteggio viene diviso per 2. Vince il totale più alto alla fine."
+      }
+     ]
+    },
+    {
+     "title": "Golf",
+     "sections": [
+      {
+       "title": "Una buca per mano",
+       "body": "Alla buca 1, punta all'1; alla buca 2, al 2, ecc. La tua migliore freccetta del turno dà il punteggio: triplo 1 colpo, doppio 2, singolo 3, fuori 5."
+      },
+      {
+       "title": "Meno colpi",
+       "body": "Un triplo chiude subito la buca. Dopo 9 buche, vince il totale più basso."
+      }
+     ]
+    }
+   ]
+  },
+  "belote": {
+   "label": "Belote",
+   "tagline": "Classica o coinche, a squadre",
+   "variants": [
+    {
+     "title": "Belote classica",
+     "sections": [
+      {
+       "title": "Obiettivo",
+       "body": "Due squadre da due. Vince la prima squadra che raggiunge l'obiettivo (1000 punti)."
+      },
+      {
+       "title": "Materiale e distribuzione",
+       "body": "Un mazzo da 32 carte (dal 7 all'asso). I compagni siedono uno di fronte all'altro. Ogni giocatore riceve 8 carte, distribuite a pacchetti, in senso antiorario. Il mazziere cambia a ogni mano."
+      },
+      {
+       "title": "Valore delle carte",
+       "body": "Ad atout: fante 20, nove 14, asso 11, dieci 10, re 4, donna 3, otto e sette 0. Negli altri semi: asso 11, dieci 10, re 4, donna 3, fante 2, nove, otto e sette 0. L'ultima presa vale 10 punti (dieci dell'ultima presa): una mano vale 162 punti."
+      },
+      {
+       "title": "Giocare una carta",
+       "body": "Bisogna rispondere al seme richiesto. Senza quel seme bisogna tagliare con un atout, a meno che il proprio compagno non stia vincendo la presa. Ad atout bisogna salire (giocare un atout più alto) se possibile. La presa va alla carta più forte; chi la vince apre la presa successiva."
+      },
+      {
+       "title": "Prendere",
+       "body": "Dopo aver distribuito 5 carte, se ne scopre una. Al primo giro, ognuno può prenderla (il suo seme diventa l'atout); al secondo giro si può scegliere un altro seme. Chi prende riceve la carta scoperta, poi la distribuzione viene completata fino a 8 carte."
+      },
+      {
+       "title": "Una mano",
+       "body": "La squadra che prende deve fare più punti della difesa (162 punti per mano, dieci dell'ultima presa compresi). Altrimenti va «dentro» e la difesa segna 162."
+      },
+      {
+       "title": "Premi",
+       "body": "Belote-rebelote: 20 punti alla squadra che ha re e regina di briscola. Capot (tutte le prese): 250 punti."
+      }
+     ]
+    },
+    {
+     "title": "Belote coinche",
+     "sections": [
+      {
+       "title": "Obiettivo",
+       "body": "Due squadre da due. Vince la prima squadra che raggiunge l'obiettivo (1000 punti)."
+      },
+      {
+       "title": "Materiale e distribuzione",
+       "body": "Un mazzo da 32 carte (dal 7 all'asso). I compagni siedono uno di fronte all'altro. Ogni giocatore riceve 8 carte, distribuite a pacchetti, in senso antiorario. Il mazziere cambia a ogni mano."
+      },
+      {
+       "title": "Valore delle carte",
+       "body": "Ad atout: fante 20, nove 14, asso 11, dieci 10, re 4, donna 3, otto e sette 0. Negli altri semi: asso 11, dieci 10, re 4, donna 3, fante 2, nove, otto e sette 0. L'ultima presa vale 10 punti (dieci dell'ultima presa): una mano vale 162 punti."
+      },
+      {
+       "title": "Giocare una carta",
+       "body": "Bisogna rispondere al seme richiesto. Senza quel seme bisogna tagliare con un atout, a meno che il proprio compagno non stia vincendo la presa. Ad atout bisogna salire (giocare un atout più alto) se possibile. La presa va alla carta più forte; chi la vince apre la presa successiva."
+      },
+      {
+       "title": "Asta",
+       "body": "A turno, ognuno dichiara un contratto (almeno 80, di 10 in 10, con un seme di atout) o passa. Ogni dichiarazione deve superare la precedente. Un avversario può fare coinche (×2), la squadra che prende surcoinche (×4); l'asta finisce dopo tre « passo » o una coinche."
+      },
+      {
+       "title": "Contratto",
+       "body": "La squadra che prende annuncia un contratto (da 80 a 160, o capot). Riuscito: contratto + punti fatti. Fallito: la difesa segna 160 + contratto. Coinche ×2, surcoinche ×4."
+      },
+      {
+       "title": "Dichiarazioni",
+       "body": "Tris 20, cinquanta 50, cento 100, poker 100 (150 per i 9, 200 per i fanti). Quelle di chi prende contano per raggiungere il contratto."
+      },
+      {
+       "title": "Senza atout e tutto atout",
+       "body": "Senza atout: asso 19, dieci 10, re 4, regina 3, fante 2, niente belote. Tutto atout: fante 14, nove 9, asso 6, dieci 5, re 3, regina 1. La mano vale sempre 162 punti con i dieci dell'ultima presa."
+      },
+      {
+       "title": "Générale",
+       "body": "Contratto da 500: un solo giocatore della squadra che prende deve fare tutte le prese."
+      },
+      {
+       "title": "Premi",
+       "body": "Belote-rebelote: 20 punti alla squadra che ha re e regina di briscola. Capot (tutte le prese): 250 punti."
+      }
+     ]
+    }
+   ]
+  },
+  "tarot": {
+   "label": "Tarocchi",
+   "tagline": "Da 3 a 5 giocatori, regole ufficiali",
+   "variants": [
+    {
+     "title": "Tarocchi",
+     "sections": [
+      {
+       "title": "Obiettivo",
+       "body": "Da 3 a 5 giocatori: a ogni mano, chi prende gioca contro gli altri."
+      },
+      {
+       "title": "Materiale",
+       "body": "78 carte: quattro semi da 14 carte (re, donna, cavallo, fante, poi dal 10 all'1), 21 atout e l'Excuse. I tre onori sono il Petit (1 di atout), il 21 di atout e l'Excuse."
+      },
+      {
+       "title": "Valore delle carte",
+       "body": "Onori e re: 4,5 punti. Donne: 3,5. Cavalli: 2,5. Fanti: 1,5. Tutte le altre carte: 0,5. Il mazzo intero vale 91 punti."
+      },
+      {
+       "title": "Distribuzione e asta",
+       "body": "Le carte si distribuiscono 3 alla volta e alcune formano il chien (6 carte, da 3 a 5 giocatori). Ognuno dichiara un contratto più forte del precedente o passa: Piccola e Guardia (chi prende prende il chien e ne scarta altrettante), Guardia senza (il chien gli spetta senza essere visto), Guardia contro (va alla difesa)."
+      },
+      {
+       "title": "Giocare una carta",
+       "body": "Bisogna rispondere al seme richiesto, altrimenti tagliare con un atout, altrimenti scartare. Ad atout bisogna sempre salire, se possibile. L'Excuse si gioca in qualsiasi momento, non vince la presa e resta al suo campo (che dà in cambio una carta da 0,5 punti)."
+      },
+      {
+       "title": "Contratto",
+       "body": "Punti da fare in base agli onori: 0 onori 56, 1 onore 51, 2 onori 41, 3 onori 36."
+      },
+      {
+       "title": "Calcolo",
+       "body": "(25 + scarto) × contratto (Piccola ×1, Guardia ×2, Guardia senza ×4, Guardia contro ×6), pagato da ogni difensore. In 5, chi prende chiama un compagno."
+      },
+      {
+       "title": "Premi",
+       "body": "Petit au bout: 10 × contratto. Poignée: 20, 30 o 40. Slam: da 200 a 400. Misère di figure o di atout: +10. Mano in misère (nessuno prende): tutti +10, chi perde paga 10 a ogni giocatore."
+      },
+      {
+       "title": "In cinque giocatori",
+       "body": "Chi prende chiama un re: il giocatore che lo ha diventa il suo compagno segreto, svelato quando il re viene giocato. Chi prende segna il doppio del compagno; i tre difensori pagano ciascuno la loro parte."
+      }
+     ]
+    }
+   ]
+  },
+  "rami": {
+   "label": "Ramino",
+   "tagline": "Penalità, ramino secco ed eliminazione",
+   "variants": [
+    {
+     "title": "Ramino",
+     "sections": [
+      {
+       "title": "Obiettivo",
+       "body": "Liberarsi delle proprie carte. Si contano le penalità: vince il totale più basso."
+      },
+      {
+       "title": "Materiale",
+       "body": "Due mazzi da 52 carte e i jolly. Ogni giocatore riceve 13 carte; il resto forma il tallone e una carta viene scoperta per iniziare la pila degli scarti."
+      },
+      {
+       "title": "Un turno",
+       "body": "Pescare una carta (dal tallone o dagli scarti), eventualmente calare combinazioni o completare quelle già calate, poi scartare una carta. Combinazioni: scale di almeno tre carte dello stesso seme, oppure tris e poker dello stesso valore. Il jolly sostituisce qualsiasi carta."
+      },
+      {
+       "title": "Prima calata",
+       "body": "Per calare la prima volta servono spesso almeno 51 punti (figure 10, assi 11) con almeno una scala senza jolly. Ogni tavolo ha le sue abitudini: regolati sul tuo."
+      },
+      {
+       "title": "Una mano",
+       "body": "Il primo a calare tutto segna -50 punti. Gli altri contano le carte rimaste in mano; chi non ha calato niente prende una penalità fissa."
+      },
+      {
+       "title": "Ramino secco",
+       "body": "Calare tutto in una volta dà un bonus o raddoppia le penalità degli altri, secondo l'opzione scelta."
+      },
+      {
+       "title": "Fine partita",
+       "body": "Un giocatore che arriva a 0 punti è eliminato; vince l'ultimo rimasto in gara."
+      }
+     ]
+    }
+   ]
+  },
+  "yams": {
+   "label": "Yams",
+   "tagline": "Il foglio segnapunti completo",
+   "variants": [
+    {
+     "title": "Yams",
+     "sections": [
+      {
+       "title": "Obiettivo",
+       "body": "Riempire tutto il foglio; vince il totale più alto."
+      },
+      {
+       "title": "Un turno",
+       "body": "Lanciare i 5 dadi fino a tre volte, tenendo quelli che si vogliono tra un lancio e l'altro. Poi bisogna segnare il risultato in una casella libera, o barrarne una (0 punti) se niente va bene."
+      },
+      {
+       "title": "Sezione alta",
+       "body": "Dall'Uno al Sei: somma dei dadi di quel valore. Bonus se la sezione alta raggiunge la soglia (35 punti da 63)."
+      },
+      {
+       "title": "Sezione bassa",
+       "body": "Tris, poker e chance: somma dei dadi. Full, scala piccola, scala grande e Yams: valore fisso. Una casella può essere barrata (0 punti)."
+      }
+     ]
+    }
+   ]
+  },
+  "skyjo": {
+   "label": "Skyjo",
+   "tagline": "Vince il punteggio più basso",
+   "variants": [
+    {
+     "title": "Skyjo",
+     "sections": [
+      {
+       "title": "Obiettivo",
+       "body": "Avere meno punti. La partita finisce quando un giocatore arriva a 100 punti."
+      },
+      {
+       "title": "Preparazione",
+       "body": "Carte da -2 a 12. Ogni giocatore dispone 12 carte coperte in 3 file da 4, poi ne scopre due. Inizia chi ha il totale più alto."
+      },
+      {
+       "title": "Un turno",
+       "body": "Prendere la carta dagli scarti o dal mazzo e scambiarla con una delle proprie carte (la carta sostituita va negli scarti). Si può anche scartare la carta pescata e scoprire una delle proprie carte coperte. Tre carte uguali nella stessa colonna vengono scartate."
+      },
+      {
+       "title": "Fine della mano",
+       "body": "Appena un giocatore ha scoperto tutte le sue carte, ciascuno degli altri gioca un ultimo turno, poi tutte le carte vengono scoperte."
+      },
+      {
+       "title": "Una mano",
+       "body": "Ognuno somma le sue carte. Chi ha chiuso la mano vede il suo punteggio raddoppiato se non è il più basso."
+      }
+     ]
+    }
+   ]
+  },
+  "molkky": {
+   "label": "Mölkky",
+   "tagline": "Esattamente 50, lancio dopo lancio",
+   "variants": [
+    {
+     "title": "Mölkky",
+     "sections": [
+      {
+       "title": "Obiettivo",
+       "body": "Arrivare esattamente a 50 punti."
+      },
+      {
+       "title": "Preparazione",
+       "body": "12 birilli numerati vengono disposti stretti a triangolo, a 3 o 4 metri dalla linea di lancio. Il mölkky si lancia dal basso. Dopo ogni lancio, i birilli caduti vengono rialzati nel punto in cui sono caduti: il gioco si sparpaglia a poco a poco."
+      },
+      {
+       "title": "Un lancio",
+       "body": "Un birillo solo: il suo valore. Più birilli: il loro numero."
+      },
+      {
+       "title": "Sforamento e lanci a vuoto",
+       "body": "Se superi il punteggio da raggiungere, torni a 25. Dopo 3 lanci a vuoto di fila, sei eliminato o riparti da 0, secondo l'opzione."
+      }
+     ]
+    }
+   ]
+  },
+  "sevenWonders": {
+   "label": "7 Wonders",
+   "tagline": "Tutte le espansioni incluse",
+   "variants": [
+    {
+     "title": "7 Wonders",
+     "sections": [
+      {
+       "title": "Obiettivo",
+       "body": "Avere più punti vittoria dopo le tre ere."
+      },
+      {
+       "title": "Svolgimento",
+       "body": "La partita dura tre ere. All'inizio di ogni era ognuno riceve 7 carte. A ogni turno tutti scelgono una carta contemporaneamente, la giocano, poi passano il resto della mano al vicino (a sinistra nelle ere I e III, a destra nell'era II). Dopo 6 turni, l'ultima carta viene scartata."
+      },
+      {
+       "title": "Giocare una carta",
+       "body": "Tre scelte: costruire l'edificio (pagandone il costo, o gratis se è concatenato a un edificio già costruito), usarla coperta per costruire una fase della propria meraviglia, o scartarla per prendere 3 monete."
+      },
+      {
+       "title": "Risorse e commercio",
+       "body": "Le carte marroni e grigie producono le risorse. Una risorsa mancante si compra da un vicino diretto, 2 monete ciascuna (solo 1 con alcuni edifici commerciali). Il vicino tiene le sue risorse: incassa solo le monete."
+      },
+      {
+       "title": "Conflitti militari",
+       "body": "Alla fine di ogni era, ognuno confronta i suoi scudi con quelli dei due vicini. Più scudi: segnalino vittoria (1, 3 poi 5 punti secondo l'era). Meno: segnalino sconfitta (-1). Pareggio: niente."
+      },
+      {
+       "title": "Scienza",
+       "body": "Tre simboli: compasso, tavoletta e ruota. Ogni famiglia vale il quadrato del suo numero di simboli (1, 4, 9, 16…) e ogni serie completa dei tre simboli aggiunge 7 punti."
+      },
+      {
+       "title": "Calcolo",
+       "body": "Militare, tesoro (1 punto ogni 3 monete), meraviglia, edifici civili, commercio, gilde e scienza (quadrato di ogni simbolo + 7 per serie di tre), più le categorie delle espansioni."
+      },
+      {
+       "title": "Pareggio",
+       "body": "Vince il giocatore con più monete."
+      },
+      {
+       "title": "Estrazione",
+       "body": "Il dado in cima al foglio estrae le meraviglie (e le navi di Armada)."
+      },
+      {
+       "title": "Leader",
+       "body": "Prima della prima era, ognuno sceglie 4 leader con una selezione in cui ci si passano le carte, come durante le ere. All'inizio di ogni era si può reclutare uno dei propri leader pagandone il costo in monete, usarlo per una fase della meraviglia o scartarlo per 3 monete. I loro punti vanno nella riga Leader."
+      },
+      {
+       "title": "Cities",
+       "body": "A ogni era si aggiungono carte nere. Alcune obbligano gli altri giocatori a pagare monete: chi non può o non vuole pagare prende un segnalino debito (-1 punto ciascuno). Le carte diplomazia permettono di non partecipare al prossimo conflitto militare."
+      },
+      {
+       "title": "Armada",
+       "body": "Ogni giocatore ha un cantiere navale con quattro navi, che avanzano quando si costruiscono carte del loro colore. Le navi rosse si armano per i conflitti navali di fine era (punti sulla riga Navale); altre navi danno monete o isole da esplorare. Le isole esplorate e i punti della nave blu vanno sulla riga Armada."
+      },
+      {
+       "title": "Edifice",
+       "body": "Ogni era propone un edificio. Costruendo una fase della meraviglia si può partecipare alla sua costruzione: quando è completato, i partecipanti ricevono il bonus e chi non ha partecipato subisce la penalità."
+      }
+     ]
+    }
+   ]
+  },
+  "wondersDuel": {
+   "label": "7 Wonders Duel",
+   "tagline": "In due, con Pantheon e Agora",
+   "variants": [
+    {
+     "title": "7 Wonders Duel",
+     "sections": [
+      {
+       "title": "Obiettivo",
+       "body": "Vincere per supremazia militare o scientifica, o avere più punti vittoria alla fine della terza era."
+      },
+      {
+       "title": "Svolgimento",
+       "body": "Tre ere. Le carte dell’era sono disposte a struttura, alcune coperte. Al tuo turno prendi una carta accessibile (non coperta da altre): la costruisci, la scarti per monete o la usi per costruire una delle tue meraviglie."
+      },
+      {
+       "title": "Monete e risorse",
+       "body": "Scartare una carta dà 2 monete, più 1 per ogni tua carta gialla. Una risorsa mancante si compra dalla banca: 2 monete, più 1 per ogni unità che l’avversario produce con le carte marroni e grigie."
+      },
+      {
+       "title": "Militare",
+       "body": "Ogni scudo fa avanzare la pedina Conflitto verso la capitale avversaria. A fine partita, la sua posizione vale 0, 2, 5 o 10 punti. Se raggiunge la capitale avversaria: supremazia militare, vittoria immediata."
+      },
+      {
+       "title": "Scienza",
+       "body": "Due simboli scientifici uguali danno un gettone Progresso. Sei simboli diversi: supremazia scientifica, vittoria immediata."
+      },
+      {
+       "title": "Meraviglie",
+       "body": "Ognuno sceglie 4 meraviglie, ma solo 7 verranno costruite nella partita: appena si costruisce la settima, l’ultima rimasta viene tolta."
+      },
+      {
+       "title": "Calcolo",
+       "body": "Edifici civili, scienza, commercio, gilde, meraviglie, gettoni Progresso, tesoro (1 punto ogni 3 monete) e militare, più le espansioni."
+      },
+      {
+       "title": "Pareggio",
+       "body": "Vince chi ha più punti di edifici civili (blu); altrimenti la vittoria è condivisa."
+      },
+      {
+       "title": "Vittoria immediata",
+       "body": "Il pulsante del fulmine in cima al foglio registra una vittoria immediata e termina la partita."
+      },
+      {
+       "title": "Pantheon",
+       "body": "Divinità di cinque mitologie si invocano nel Pantheon per i loro effetti. I loro punti, e quelli dei Grandi Templi dell’era III, vanno sulla riga Divinità."
+      },
+      {
+       "title": "Agora",
+       "body": "I senatori si piazzano nelle camere del Senato. Le camere controllate a fine partita danno punti, con i decreti e i complotti: riga Senato. Controllare tutte le camere: supremazia politica, vittoria immediata."
+      }
+     ]
+    }
+   ]
+  },
+  "flip7": {
+   "label": "Flip 7",
+   "tagline": "Sette numeri diversi: +15",
+   "variants": [
+    {
+     "title": "Flip 7",
+     "sections": [
+      {
+       "title": "Obiettivo",
+       "body": "Arrivare per primi a 200 punti. Alla fine della mano in cui qualcuno li raggiunge, vince il totale più alto."
+      },
+      {
+       "title": "Un turno",
+       "body": "A turno ognuno prende una carta o si ferma. Chi riceve un numero che ha già sballa: non segna nulla in questa mano."
+      },
+      {
+       "title": "Punti della mano",
+       "body": "Si sommano i numeri, poi le carte bonus (da +2 a +10, ×2). Sette numeri diversi: Flip 7, la mano finisce subito e il giocatore prende 15 punti in più."
+      }
+     ]
+    }
+   ]
+  },
+  "skullKing": {
+   "label": "Skull King",
+   "tagline": "Scommesse, prese e bonus pirata",
+   "variants": [
+    {
+     "title": "Skull King",
+     "sections": [
+      {
+       "title": "Obiettivo",
+       "body": "Avere più punti dopo 10 mani. Alla mano n, ognuno riceve n carte."
+      },
+      {
+       "title": "La scommessa",
+       "body": "Prima di giocare, tutti annunciano insieme quante prese pensano di fare (zero compreso)."
+      },
+      {
+       "title": "Le carte",
+       "body": "Si risponde al seme se possibile. Il nero è briscola. I pirati battono i semi, lo Skull King batte i pirati, le sirene battono lo Skull King. La fuga non vince mai."
+      },
+      {
+       "title": "Punti",
+       "body": "Scommessa riuscita: 20 punti per presa scommessa, più i bonus. Mancata: −10 per presa di scarto. Scommessa zero: 10 per carta se riuscita, −10 per carta altrimenti."
+      },
+      {
+       "title": "Bonus (solo con scommessa riuscita)",
+       "body": "14 di colore : +10\n14 nero : +20\nSirena presa da un pirata : +20\nPirata preso dallo Skull King : +30\nSkull King preso da una sirena : +40\nBottino: +20 per ciascuno dei due giocatori legati\nKraken: la presa è distrutta, nessuno la conta"
+      }
+     ]
+    }
+   ]
+  },
+  "akropolis": {
+   "label": "Akropolis",
+   "tagline": "Stelle × quartieri, più le pietre",
+   "variants": [
+    {
+     "title": "Akropolis",
+     "sections": [
+      {
+       "title": "Obiettivo",
+       "body": "Avere più punti a fine partita."
+      },
+      {
+       "title": "Un turno",
+       "body": "Prendere una tessera di tre esagoni dal cantiere: la prima è gratuita, ogni tessera più lontana costa una pietra per ogni tessera saltata. La si posa nella propria città, accanto alle altre o sopra, appoggiandola su almeno due tessere diverse. Coprire una cava fa guadagnare una pietra."
+      },
+      {
+       "title": "Altezza",
+       "body": "Un quartiere posato al primo piano vale 2, al secondo 3 e così via: costruire in altezza rende molto."
+      },
+      {
+       "title": "Calcolo",
+       "body": "Per ogni colore: stelle delle piazze × valore dei quartieri che contano (ogni quartiere vale la sua altezza). Più 1 punto per pietra."
+      },
+      {
+       "title": "Quartieri che contano",
+       "body": "Abitazioni: il gruppo più grande. Mercati: senza mercati vicini. Caserme: sul bordo. Templi: completamente circondati. Giardini: sempre."
+      },
+      {
+       "title": "Pareggio",
+       "body": "Vince il giocatore con più pietre."
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
